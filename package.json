@@ -1,0 +1,60 @@
+{
+  "name": "balena-ci",
+  "version": "1.0.0",
+  "description": "Github action to build releases for a fleet",
+  "homepage": "https://github.com/balena-io/balena-ci",
+  "main": "build/main.js",
+  "types": "build/main.d.ts",
+  "keywords": [
+    "balena",
+    "typescript"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balena-io/balena-ci.git"
+  },
+  "bugs": {
+    "url": "https://github.com/balena-io/balena-ci/issues"
+  },
+  "files": [
+    "build/"
+  ],
+  "scripts": {
+    "clean": "rimraf build",
+    "action": "npm run build && node -r dotenv/config build/main.js",
+    "build": "npm run clean && tsc",
+    "lint": "balena-lint --typescript src tests",
+    "lint-fix": "balena-lint --typescript --fix src tests",
+    "test:node": "mocha -r ts-node/register --reporter spec tests/**/*.spec.ts",
+    "test": "npm run lint && npm run build && npm run test:node",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@balena/lint": "^5.4.2",
+    "@types/chai": "^4.2.18",
+    "@types/chai-as-promised": "^7.1.4",
+    "@types/mocha": "^8.2.2",
+    "@types/rewire": "^2.5.28",
+    "@types/sinon": "^10.0.1",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "dotenv": "^10.0.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^11.0.0",
+    "mocha": "^8.4.0",
+    "node-env": "^0.1.6",
+    "rewire": "^5.0.0",
+    "rimraf": "^3.0.2",
+    "sinon": "^11.1.1",
+    "spawk": "^1.4.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "@actions/core": "^1.3.0",
+    "@actions/exec": "^1.1.0",
+    "@actions/github": "^5.0.0"
+  }
+}

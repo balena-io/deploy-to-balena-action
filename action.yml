@@ -1,0 +1,25 @@
+# action.yml
+name: 'balena-ci'
+description: 'Automate release build and deployments'
+inputs:
+  balena_token:
+    description: 'Your balenaCloud API token'
+    required: true
+  fleet:
+    description: 'Name of the fleet you want to build the release for'
+    required: true
+  workflow_name:
+    description: 'Name of the Github workflow that will run this action'
+    required: true
+  versionbot:
+    description: 'Does the repository use Versionbot ?'
+    required: false
+    default: false
+outputs:
+  release_id:
+    description: 'ID of the release built'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    BALENA_TOKEN: ${{ inputs.balena_token }}
