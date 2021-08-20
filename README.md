@@ -25,7 +25,7 @@ jobs:
 | --- | --- | --- | --- |
 | balena_token | API key to balenaCloud | true | |
 | fleet | Name of fleet to make releases for | true | |
-| api_endpoint | Domain of API hosting your fleets | false | balena-cloud.com |
+| balena_url | Domain of API hosting your fleets | false | balena-cloud.com |
 | versionbot | Tells action to use Versionbot branch for versioning | false | false |
 
 The `fleet` input can be a single or  comma seperated list of fleets. This allows you to push source to several fleets which might be running different architectures. If your source code contains a Dockerfile.template the CLI will figure out how to build your release appropriately.

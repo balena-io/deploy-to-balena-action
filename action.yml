@@ -8,7 +8,7 @@ inputs:
   fleet:
     description: 'Name of the fleet you want to build the release for'
     required: true
-  cloud_endpoint:
+  balena_url:
     description: 'Domain for the backend services to build your release'
     required: false
     default: 'balena-cloud.com'
@@ -24,3 +24,4 @@ runs:
   image: 'Dockerfile'
   env:
     BALENA_TOKEN: ${{ inputs.balena_token }}
+    BALENA_URL: ${{ inputs.balena_url }}
