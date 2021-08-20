@@ -9,7 +9,7 @@ type MetaContext = {
 
 export async function setOutput(
 	workflowName: string,
-	data: object,
+	data: string,
 ): Promise<void> {
 	return;
 }

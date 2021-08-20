@@ -15,7 +15,7 @@ export async function run(): Promise<void> {
 	}
 
 	// Let's try to find if this workflow previously built a release
-	const previousReleaseId = await github.getOutput(workflowName);
+	const previousReleases = await getReleases(workflowName);
 
 	// If the action is running in the context of a pull request then build with draft flag
 	// Otherwise, this release will be marked as final.
@@ -23,9 +23,12 @@ export async function run(): Promise<void> {
 	const isDraft = github.isPullRequest();
 
 	// If the workflow contains a previous release and is not a pull request then just mark it as final
-	if (previousReleaseId && !isDraft) {
+	if (previousReleases.length > 0 && !isDraft) {
 		// This happens when the action ran during a PR and now it is merged so mark as final
-		await balena.finalize(previousReleaseId);
+		for (const r of previousReleases) {
+			await balena.finalize(r.id);
+		}
+		// Action is done now
 		return;
 	}
 
@@ -60,11 +63,32 @@ export async function run(): Promise<void> {
 
 	// If we just made draft releases we need to persist the IDs of each release so we can finalize it at a later point
 	if (isDraft) {
-		const releases = releasesBuilt.map((release) => {
-			return { id: release, finalized: false };
+		const releases = releasesBuilt.map((r) => {
+			return { id: r, finalized: false };
 		});
-		await github.setOutput(workflowName, { releases });
+		await setReleases(workflowName, releases);
 	}
 
 	// Now we're all done!
+}
+
+type release = {
+	id: string;
+	finalized: boolean;
+};
+
+async function setReleases(
+	workflowName: string,
+	releases: release[],
+): Promise<void> {
+	await github.setOutput(workflowName, JSON.stringify({ releases }));
+}
+
+async function getReleases(workflowName: string): Promise<release[]> {
+	const output = await github.getOutput(workflowName);
+	const outputJSON = JSON.parse(output);
+	if (outputJSON.hasOwnProperty('releases')) {
+		return outputJSON.releases;
+	}
+	return [];
 }
