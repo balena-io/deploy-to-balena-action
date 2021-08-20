@@ -7,17 +7,14 @@ type MetaContext = {
 	ref: string;
 };
 
-export async function attachToWorkflow(
-	workflowId: string,
+export async function setOutput(
+	workflowName: string,
 	data: object,
 ): Promise<void> {
 	return;
 }
 
-export async function getFromWorkflow(
-	workflowId: string,
-	key: string,
-): Promise<string> {
+export async function getOutput(workflowName: string): Promise<string> {
 	return 'abc';
 }
 

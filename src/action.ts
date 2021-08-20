@@ -6,14 +6,16 @@ import * as balena from './balena-utils';
 import * as git from './git';
 
 export async function run(): Promise<void> {
-	// ID of the workflow this action is running in (to store and get data from)
-	const workflowName = core.getInput('workflow_name', { required: true });
+	// Name of the workflow this action is running in (to store and get data from)
+	const workflowName = process.env.GITHUB_WORKFLOW;
+
+	// If the workflow does not have a name then fail early
+	if (!workflowName) {
+		throw new Error('Workflow must contain a name.');
+	}
 
 	// Let's try to find if this workflow previously built a release
-	const previousReleaseId = await github.getFromWorkflow(
-		workflowName,
-		'releaseId',
-	);
+	const previousReleaseId = await github.getOutput(workflowName);
 
 	// If the action is running in the context of a pull request then build with draft flag
 	// Otherwise, this release will be marked as final.
@@ -29,8 +31,10 @@ export async function run(): Promise<void> {
 
 	// Now we know we're going to push some code so let's get some more variables...
 
-	// Name of fleet to build releases for
-	const fleet = core.getInput('fleet', { required: true });
+	// Name of fleet or fleets to build releases for
+	const fleetInput = core.getInput('fleet', { required: true });
+	// Split input on comma delimiter and trim whitespaces
+	const fleets = fleetInput.split(',').map((f) => f.trim());
 	// Indicate to action if repo uses Versionbot for vesrioning
 	const hasVersionbot = core.getInput('versionbot');
 	// File path to release source code
@@ -45,12 +49,22 @@ export async function run(): Promise<void> {
 		await git.checkout(repoName, versionbotBranch);
 	}
 
-	// Now send the source to the builders
-	const releaseId = await balena.push(fleet, src, isDraft);
-	// If this is a draft release let's persist the ID to the workflow so it can be finalized later
-	if (isDraft) {
-		// Persist releaseId to this workflow
-		await github.attachToWorkflow(workflowName, { releaseId });
+	const releasesBuilt: string[] = [];
+	// For each fleet push a release
+	for (const fleet of fleets) {
+		// Now send the source to the builders
+		const releaseId = await balena.push(fleet, src, isDraft);
+		// Push to list of built releases
+		releasesBuilt.push(releaseId);
 	}
+
+	// If we just made draft releases we need to persist the IDs of each release so we can finalize it at a later point
+	if (isDraft) {
+		const releases = releasesBuilt.map((release) => {
+			return { id: release, finalized: false };
+		});
+		await github.setOutput(workflowName, { releases });
+	}
+
 	// Now we're all done!
 }
