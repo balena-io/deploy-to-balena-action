@@ -8,9 +8,10 @@ inputs:
   fleet:
     description: 'Name of the fleet you want to build the release for'
     required: true
-  workflow_name:
-    description: 'Name of the Github workflow that will run this action'
-    required: true
+  cloud_endpoint:
+    description: 'Domain for the backend services to build your release'
+    required: false
+    default: 'balena-cloud.com'
   versionbot:
     description: 'Does the repository use Versionbot ?'
     required: false
