@@ -1,4 +1,5 @@
 import * as core from '@actions/core';
+import { context } from '@actions/github';
 
 import * as github from './github-utils';
 import * as versionbot from './versionbot-utils';
@@ -14,34 +15,25 @@ export async function run(): Promise<void> {
 		throw new Error('Workflow must contain a name.');
 	}
 
-	// Let's try to find if this workflow previously built a release
-	const previousReleases = await getReleases(workflowName);
+	const target = core.getInput('target', { required: false });
+	const canFinalize = core.getInput('finalize', { required: false });
+	const environment = core.getInput('environment', { required: false });
 
-	// If the action is running in the context of a pull request then build with draft flag
-	// Otherwise, this release will be marked as final.
-	// This is for workflows where you push directly to branches without PR so drafts are not needed
-	const isDraft = github.isPullRequest();
+	// Get all the previous releases built during this workflow filtered by environment
+	const previousReleases = await getReleases(workflowName, environment);
 
-	// If the workflow contains a previous release and is not a pull request then just mark it as final
-	if (previousReleases.length > 0 && !isDraft) {
-		// This happens when the action ran during a PR and now it is merged so mark as final
+	// Check if we should just finalize releases and exit
+	if (context.branch === target && canFinalize && previousReleases.length > 0) {
 		for (const r of previousReleases) {
 			await balena.finalize(r.id);
 		}
-		// Action is done now
-		return;
+		return; // Action is done!
 	}
 
-	// Now we know we're going to push some code so let's get some more variables...
+	// Now we will attempt to build the release...
 
-	// Name of fleet or fleets to build releases for
-	const fleetInput = core.getInput('fleet', { required: true });
-	// Split input on comma delimiter and trim whitespaces
-	const fleets = fleetInput.split(',').map((f) => f.trim());
-	// Indicate to action if repo uses Versionbot for vesrioning
-	const hasVersionbot = core.getInput('versionbot');
-	// File path to release source code
-	const src = process.env.GITHUB_WORKSPACE || '';
+	// Indicate to action if repo uses Versionbot for versioning
+	const hasVersionbot = core.getInput('versionbot', { required: false });
 	// Extract info about the git repository
 	const { name: repoName } = github.repositoryMetaContext();
 
@@ -52,39 +44,65 @@ export async function run(): Promise<void> {
 		await git.checkout(repoName, versionbotBranch);
 	}
 
-	const releasesBuilt: string[] = [];
-	// For each fleet push a release
-	for (const fleet of fleets) {
-		// Now send the source to the builders
-		const releaseId = await balena.push(fleet, src, isDraft);
-		// Push to list of built releases
-		releasesBuilt.push(releaseId);
-	}
+	// File path to release source code
+	const src = process.env.GITHUB_WORKSPACE || '';
+	// If there are no previous releases and we just pushed to target then make release final right away
+	const isDraft = previousReleases.length === 0 && context.branch === target;
+	// Name of the fleet to build for
+	const fleet = core.getInput('fleet', { required: true });
+	// Now send the source to the builders which will build a draft
+	const releaseId = await balena.push(fleet, src, isDraft);
+	// Persist built release to workflow
+	await setRelease(workflowName, environment, { id: releaseId });
 
-	// If we just made draft releases we need to persist the IDs of each release so we can finalize it at a later point
-	if (isDraft) {
-		const releases = releasesBuilt.map((r) => {
-			return { id: r, finalized: false };
-		});
-		await setReleases(workflowName, releases);
-	}
-
-	// Now we're all done!
+	// Action is now done and will run again once we merge to target and finalize those if that didn't happen yet.
 }
 
-type release = {
+/**
+ * A release
+ * @typedef {Object} Release
+ * @property {string} id - ID provided from builders which identifies the release in balenaCloud
+ */
+
+type Release = {
 	id: string;
-	finalized: boolean;
 };
 
-async function setReleases(
+/**
+ * Allows you to persist a release to the workflouw output (do not get removed after 90 days like normal outputs)
+ *
+ * This function only accepts a single release because we only want to create 1 release per run.
+ * However, it will find previously created releases and add to that list.
+ *
+ * @param {string} workflow - name of the workflow to set output for (typically the workflow running this action)
+ * @param {string} environment - environment the release were built on
+ * @param {release} data - release object to store
+ *
+ */
+
+async function setRelease(
 	workflowName: string,
-	releases: release[],
+	environment: string,
+	data: Release,
 ): Promise<void> {
-	await github.setOutput(workflowName, JSON.stringify({ releases }));
+	await github.setOutput(workflowName, JSON.stringify({ releases: data }));
 }
 
-async function getReleases(workflowName: string): Promise<release[]> {
+// This function returns an array of releases because when we finalize a release we will just do all
+/**
+ * Fetches a list of releases attached to the output of the given workflow
+ *
+ * Since releases are stored by environment, the function will filter releases on that.
+ *
+ * @param {string} workflow - name of the workflow to get output from
+ * @param {string} environment - environment the releases were built on
+ *
+ */
+
+async function getReleases(
+	workflowName: string,
+	environment: string,
+): Promise<Release[]> {
 	const output = await github.getOutput(workflowName);
 	const outputJSON = JSON.parse(output);
 	if (outputJSON.hasOwnProperty('releases')) {

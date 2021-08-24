@@ -8,7 +8,7 @@ inputs:
   fleet:
     description: 'Name of the fleet you want to build the release for'
     required: true
-  balena_url:
+  environment:
     description: 'Domain for the backend services to build your release'
     required: false
     default: 'balena-cloud.com'
@@ -16,6 +16,14 @@ inputs:
     description: 'Does the repository use Versionbot ?'
     required: false
     default: false
+  target:
+    description: 'Name of branch where code is considered merged'
+    required: false
+    default: 'master'
+  finalize:
+    description: 'Should the action finalize a release after building'
+    required: false
+    default: true
 outputs:
   release_id:
     description: 'ID of the release built'
@@ -24,4 +32,4 @@ runs:
   image: 'Dockerfile'
   env:
     BALENA_TOKEN: ${{ inputs.balena_token }}
-    BALENA_URL: ${{ inputs.balena_url }}
+    BALENA_URL: ${{ inputs.environment }}

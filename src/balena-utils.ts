@@ -3,7 +3,7 @@ import { exec } from '@actions/exec';
 export async function push(
 	fleet: string,
 	source: string,
-	draft: boolean = false,
+	draft: boolean = true,
 ): Promise<string> {
 	let releaseId: string | null = null;
 	const pushOpt = ['push', fleet, '--source', source];
