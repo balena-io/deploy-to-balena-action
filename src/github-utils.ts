@@ -88,7 +88,10 @@ async function getThisCheck(): Promise<CheckRun> {
 	return check;
 }
 
-async function updateRun(data: string) {
+async function updateRun(data: string): Promise<void> {
+	if (process.env.GITHUB_ACTIONS === 'false') {
+		return; // Do not actually update output if this code is not being ran by Github
+	}
 	const thisCheckRun = await getThisCheck();
 	await octokit.request(
 		'PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}',

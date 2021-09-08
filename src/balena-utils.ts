@@ -8,6 +8,10 @@ export async function push(
 	let releaseId: string | null = null;
 	const pushOpt = ['push', fleet, '--source', source];
 
+	if (process.env.GITHUB_ACTIONS === 'false') {
+		return '1234567'; // Do not actually build if this code is not being ran by Github
+	}
+
 	if (draft) {
 		pushOpt.push('--draft');
 	}
@@ -33,6 +37,7 @@ export async function push(
 
 export async function finalize(releaseId: string): Promise<void> {
 	// Send API request to finalize the release
+	console.log(releaseId);
 	return;
 }
 

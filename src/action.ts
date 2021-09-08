@@ -7,7 +7,7 @@ import * as balena from './balena-utils';
 import * as git from './git';
 
 export async function run(): Promise<void> {
-	// If the payload does not have a repository object then fail early
+	// If the payload does not have a repository object then fail early (the events we are interested in always have this)
 	if (!context.payload.repository) {
 		throw new Error('Workflow payload was missing repository object');
 	}
@@ -20,10 +20,15 @@ export async function run(): Promise<void> {
 	const src = process.env.GITHUB_WORKSPACE || '';
 
 	// If we are pushing directly to the target branch then just build a release without draft flag
-	if (context.eventName === 'push' && context.ref === `ref/heads/${target}`) {
+	if (context.eventName === 'push' && context.ref === `refs/heads/${target}`) {
 		await balena.push(fleet, src, false);
 		return; // Done action!
 	} else if (context.eventName !== 'pull_request') {
+		if (context.eventName === 'push') {
+			throw new Error(
+				`Push workflow only works with master branch. Event tried pushing to: ${context.ref}`,
+			);
+		}
 		throw new Error(`Unsure how to proceed with event: ${context.eventName}`);
 	}
 

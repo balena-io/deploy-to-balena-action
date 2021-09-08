@@ -1,5 +1,5 @@
-import * as github from '@actions/github';
-import { exec } from '@actions/exec';
+// import * as github from '@actions/github';
+// import { exec } from '@actions/exec';
 
 export async function getBranch(): Promise<string> {
 	// Below is the actual format versionbot uses
