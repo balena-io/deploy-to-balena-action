@@ -67,8 +67,10 @@ This workflow is useful if you push directly to master. This workflow will build
 To use this workflow just replace the events found from the sample workflow config under [usage](#usage) with:
 
 ```
-on: 
-  push
+on:
+  push:
+    branches:
+      - master
 ```
 
 ## Development
