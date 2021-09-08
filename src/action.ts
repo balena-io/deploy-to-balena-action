@@ -18,15 +18,19 @@ export async function run(): Promise<void> {
 	const fleet = core.getInput('fleet', { required: true });
 	// File path to release source code
 	const src = process.env.GITHUB_WORKSPACE || '';
+	// ID of release built
+	let releaseId: string | null = null;
 
 	// If we are pushing directly to the target branch then just build a release without draft flag
 	if (context.eventName === 'push' && context.ref === `refs/heads/${target}`) {
-		await balena.push(fleet, src, false);
+		releaseId = await balena.push(fleet, src, false);
+		// Set the built releaseId in the output
+		core.setOutput('releaseId', releaseId);
 		return; // Done action!
 	} else if (context.eventName !== 'pull_request') {
 		if (context.eventName === 'push') {
 			throw new Error(
-				`Push workflow only works with master branch. Event tried pushing to: ${context.ref}`,
+				`Push workflow only works with ${target} branch. Event tried pushing to: ${context.ref}`,
 			);
 		}
 		throw new Error(`Unsure how to proceed with event: ${context.eventName}`);
@@ -62,7 +66,7 @@ export async function run(): Promise<void> {
 	}
 
 	// Now send the source to the builders which will build a draft
-	const releaseId = await balena.push(fleet, src);
+	releaseId = await balena.push(fleet, src);
 	// Persist built release to workflow
 	await github.saveRelease({ id: releaseId, finalized: false });
 	// Set the built releaseId in the output
