@@ -1,7 +1,7 @@
 {
   "action": "synchronize",
-  "after": "d3d968be8cd3e1592e935648ec220e145d11820b",
-  "before": "c8b51edbbd345118f7826bbb7569064b1d876872",
+  "after": "e2ed14c6d5187039d938bc066d8f70d579245de1",
+  "before": "d3d968be8cd3e1592e935648ec220e145d11820b",
   "number": 19,
   "pull_request": {
     "_links": {
@@ -27,7 +27,7 @@
         "href": "https://api.github.com/repos/20k-ultra/action-tester/pulls/19"
       },
       "statuses": {
-        "href": "https://api.github.com/repos/20k-ultra/action-tester/statuses/d3d968be8cd3e1592e935648ec220e145d11820b"
+        "href": "https://api.github.com/repos/20k-ultra/action-tester/statuses/e2ed14c6d5187039d938bc066d8f70d579245de1"
       }
     },
     "active_lock_reason": null,
@@ -126,7 +126,7 @@
         },
         "private": false,
         "pulls_url": "https://api.github.com/repos/20k-ultra/action-tester/pulls{/number}",
-        "pushed_at": "2021-09-08T20:13:49Z",
+        "pushed_at": "2021-09-08T20:14:53Z",
         "releases_url": "https://api.github.com/repos/20k-ultra/action-tester/releases{/id}",
         "size": 32,
         "ssh_url": "git@github.com:20k-ultra/action-tester.git",
@@ -267,7 +267,7 @@
         },
         "private": false,
         "pulls_url": "https://api.github.com/repos/20k-ultra/action-tester/pulls{/number}",
-        "pushed_at": "2021-09-08T20:13:49Z",
+        "pushed_at": "2021-09-08T20:14:53Z",
         "releases_url": "https://api.github.com/repos/20k-ultra/action-tester/releases{/id}",
         "size": 32,
         "ssh_url": "git@github.com:20k-ultra/action-tester.git",
@@ -285,7 +285,7 @@
         "watchers": 0,
         "watchers_count": 0
       },
-      "sha": "d3d968be8cd3e1592e935648ec220e145d11820b",
+      "sha": "e2ed14c6d5187039d938bc066d8f70d579245de1",
       "user": {
         "avatar_url": "https://avatars.githubusercontent.com/u/3946250?v=4",
         "events_url": "https://api.github.com/users/20k-ultra/events{/privacy}",
@@ -313,7 +313,7 @@
     "labels": [],
     "locked": false,
     "maintainer_can_modify": false,
-    "merge_commit_sha": "a55d8ab70cbc9cf79d37faa074ad4a7d3366e1dc",
+    "merge_commit_sha": "2b0f8714cfd15525323deeba81d7cab2c798fe80",
     "mergeable": null,
     "mergeable_state": "unknown",
     "merged": false,
@@ -330,9 +330,9 @@
     "review_comments": 0,
     "review_comments_url": "https://api.github.com/repos/20k-ultra/action-tester/pulls/19/comments",
     "state": "open",
-    "statuses_url": "https://api.github.com/repos/20k-ultra/action-tester/statuses/d3d968be8cd3e1592e935648ec220e145d11820b",
+    "statuses_url": "https://api.github.com/repos/20k-ultra/action-tester/statuses/e2ed14c6d5187039d938bc066d8f70d579245de1",
     "title": "use new workflow",
-    "updated_at": "2021-09-08T20:13:50Z",
+    "updated_at": "2021-09-08T20:14:54Z",
     "url": "https://api.github.com/repos/20k-ultra/action-tester/pulls/19",
     "user": {
       "avatar_url": "https://avatars.githubusercontent.com/u/3946250?v=4",
@@ -437,7 +437,7 @@
     },
     "private": false,
     "pulls_url": "https://api.github.com/repos/20k-ultra/action-tester/pulls{/number}",
-    "pushed_at": "2021-09-08T20:13:49Z",
+    "pushed_at": "2021-09-08T20:14:53Z",
     "releases_url": "https://api.github.com/repos/20k-ultra/action-tester/releases{/id}",
     "size": 32,
     "ssh_url": "git@github.com:20k-ultra/action-tester.git",
