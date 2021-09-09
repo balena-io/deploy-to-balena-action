@@ -24,7 +24,7 @@ jobs:
         id: build
         with:
           balena_token: ${{ secrets.BALENA_TOKEN }}
-          fleet: my-org/sample-fleet
+          fleet: my_org/sample_fleet
       - name: Log release ID built
         run: echo "Built release ID ${{ steps.build.outputs.release_id }}"
 ```
@@ -34,7 +34,7 @@ jobs:
 | key | Description | Required | Default |
 | --- | --- | --- | --- |
 | balena_token | API key to balenaCloud | true | |
-| fleet | Fleet the release is for in slug format (org/fleet) | true | |
+| fleet | The slug of the fleet (eg: `my_org/sample_fleet`) for which the release is for | true | |
 | environment | Domain of API hosting your fleets | false | balena-cloud.com |
 | versionbot | Tells action to use Versionbot branch for versioning | false | false |
 
