@@ -24,7 +24,9 @@
   "scripts": {
     "clean": "rimraf build",
     "action": "npm run build && node -r dotenv/config build/main.js",
-    "action:pr": "npm run action dotenv_config_path=events/pull-request/.env",
+    "action:open-pr": "npm run action dotenv_config_path=events/open-pr/.env",
+    "action:sync-pr": "npm run action dotenv_config_path=events/sync-pr/.env",
+    "action:close-pr": "npm run action dotenv_config_path=events/close-pr/.env",
     "action:push": "npm run action dotenv_config_path=events/push/.env",
     "build": "npm run clean && tsc",
     "lint": "balena-lint --typescript src tests",

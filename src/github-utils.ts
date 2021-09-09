@@ -7,7 +7,7 @@ const octokit = github.getOctokit(token);
 const repoContext = {
 	owner: github.context.payload.repository?.owner.login || '',
 	name: github.context.payload.repository?.name || '',
-	ref: github.context.payload.pull_request?.base.sha || '',
+	ref: github.context.payload.pull_request?.head.sha || '',
 };
 
 /**
@@ -66,16 +66,23 @@ async function getThisCheck(): Promise<CheckRun> {
 		throw new Error('Workflow must contain a name');
 	}
 	// Get the checks for this commit
-	const checks = (
-		await octokit.request(
-			'GET /repos/{owner}/{repo}/commits/{ref}/check-runs',
-			{
-				owner: repoContext.owner,
-				repo: repoContext.name,
-				ref: repoContext.ref,
-			},
-		)
-	).data;
+	let checks;
+	try {
+		checks = (
+			await octokit.request(
+				'GET /repos/{owner}/{repo}/commits/{ref}/check-runs',
+				{
+					owner: repoContext.owner,
+					repo: repoContext.name,
+					ref: repoContext.ref,
+				},
+			)
+		).data;
+	} catch (e) {
+		throw new Error(
+			`Failed to fetch check runs for: ${repoContext.owner}/${repoContext.name}:${repoContext.ref}`,
+		);
+	}
 	// Find the check run that matches the name in the context
 	const check = checks.check_runs.filter(
 		(c: CheckRun) => c.name === github.context.workflow,
