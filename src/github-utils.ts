@@ -61,6 +61,16 @@ async function setOutput(data: ReleaseStore): Promise<void> {
 }
 
 async function getThisCheck(): Promise<CheckRun> {
+	if (process.env.GITHUB_ACTIONS === 'false') {
+		core.debug(
+			'Not getting check runs from Github API because action is false.',
+		);
+		return {
+			id: -1,
+			name: 'fake',
+			output: { text: '', summary: '', title: '' },
+		};
+	}
 	// Make sure the context has a check run (workflow) name
 	if (!github.context.workflow) {
 		throw new Error('Workflow must contain a name');
@@ -97,6 +107,7 @@ async function getThisCheck(): Promise<CheckRun> {
 
 async function updateRun(data: string): Promise<void> {
 	if (process.env.GITHUB_ACTIONS === 'false') {
+		core.debug('Not updating check run on Github API because action is false.');
 		return; // Do not actually update output if this code is not being ran by Github
 	}
 	const thisCheckRun = await getThisCheck();

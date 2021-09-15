@@ -1,3 +1,4 @@
+import { debug } from '@actions/core';
 import { exec } from '@actions/exec';
 
 export async function push(
@@ -9,6 +10,7 @@ export async function push(
 	const pushOpt = ['push', fleet, '--source', source];
 
 	if (process.env.GITHUB_ACTIONS === 'false') {
+		debug('Not pushing source to builders because action is false.');
 		return '1234567'; // Do not actually build if this code is not being ran by Github
 	}
 
