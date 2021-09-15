@@ -7,7 +7,16 @@ export async function checkout(ref: string): Promise<void> {
 	}
 }
 
+export async function fetch(): Promise<void> {
+	if ((await exec('git', ['fetch'])) !== 0) {
+		throw new Error(`Failed to fetch remote branches.`);
+	}
+}
+
 export async function remoteHasBranch(branch: string): Promise<boolean> {
+	// Fetch remote branches first
+	await fetch();
+
 	let output = '';
 	let errors = '';
 

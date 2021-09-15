@@ -25,7 +25,7 @@ export async function run(): Promise<void> {
 	if (context.eventName === 'push' && context.ref === `refs/heads/${target}`) {
 		releaseId = await balena.push(fleet, src, false);
 		// Set the built releaseId in the output
-		core.setOutput('releaseId', releaseId);
+		core.setOutput('release_id', releaseId);
 		return; // Done action!
 	} else if (context.eventName !== 'pull_request') {
 		if (context.eventName === 'push') {
@@ -59,7 +59,7 @@ export async function run(): Promise<void> {
 	const hasVersionbot = core.getInput('versionbot', { required: false });
 
 	// If the repository uses Versionbot then checkout Versionbot branch
-	if (hasVersionbot) {
+	if (hasVersionbot === 'true') {
 		const versionbotBranch = await versionbot.getBranch(
 			context.payload.pull_request?.id,
 		);
@@ -72,6 +72,6 @@ export async function run(): Promise<void> {
 	// Persist built release to workflow
 	await github.saveRelease({ id: releaseId, finalized: false });
 	// Set the built releaseId in the output
-	core.setOutput('releaseId', releaseId);
+	core.setOutput('release_id', releaseId);
 	// Action is now done and will run again once we merge
 }

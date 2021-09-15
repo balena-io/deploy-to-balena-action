@@ -94,9 +94,15 @@ async function getThisCheck(): Promise<CheckRun> {
 		);
 	}
 	// Find the check run that matches the name in the context
-	const check = checks.check_runs.filter(
-		(c: CheckRun) => c.name === github.context.workflow,
-	)[0];
+	const check = checks.check_runs
+		.filter(
+			(c: CheckRun) =>
+				c.name === github.context.workflow || c.name === github.context.job,
+		)
+		.sort(
+			(a, b) =>
+				new Date(b.completed_at).getTime() - new Date(a.completed_at).getTime(),
+		)[0];
 	if (!check) {
 		throw new Error(
 			`Unable to find target ${github.context.workflow} in checks ran on commit ${repoContext.ref}.`,

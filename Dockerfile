@@ -1,10 +1,12 @@
 # Container image that runs your code
 FROM node:12-alpine
 
+# Install git seperatly because we want to keep it at runtime
+RUN apk add git 
+
 RUN apk add --no-cache -t .build-deps \
         build-base \
         curl \
-        git \
         linux-headers \
         python3 && \
     npm install balena-cli -g --production --unsafe-perm && \

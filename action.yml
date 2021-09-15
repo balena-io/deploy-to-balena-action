@@ -8,6 +8,9 @@ inputs:
   fleet:
     description: 'Name of the fleet you want to build the release for'
     required: true
+  github_token:
+    description: 'Github access token'
+    required: true
   environment:
     description: 'Domain for the backend services to build your release'
     required: false
