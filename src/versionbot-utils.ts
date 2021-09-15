@@ -1,9 +1,22 @@
-// import * as github from '@actions/github';
-// import { exec } from '@actions/exec';
+import * as git from './git';
+import { debug } from '@actions/core';
 
-export async function getBranch(): Promise<string> {
-	// Below is the actual format versionbot uses
-	// When this function runs it will have to check if the branch is ready
-	// if not then wait and check agian..do this forever
-	return 'versionbot/pr/1765';
+const DEFAULT_SLEEP = 4000; // 4 seconds
+
+const sleep = (milliseconds: number) => {
+	return new Promise((resolve) => setTimeout(resolve, milliseconds));
+};
+
+export async function getBranch(pr: number): Promise<string> {
+	const branch = `versionbot/pr/${pr}`;
+	// Check if branch exists
+	if (await git.remoteHasBranch(branch)) {
+		return branch;
+	} else {
+		debug('Did not find branch.');
+		debug(`Retrying in ${DEFAULT_SLEEP / 1000} seconds...`);
+		// Sleep and retry
+		await sleep(DEFAULT_SLEEP);
+		return getBranch(pr);
+	}
 }

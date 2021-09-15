@@ -60,9 +60,11 @@ export async function run(): Promise<void> {
 
 	// If the repository uses Versionbot then checkout Versionbot branch
 	if (hasVersionbot) {
-		const versionbotBranch = await versionbot.getBranch();
+		const versionbotBranch = await versionbot.getBranch(
+			context.payload.pull_request?.id,
+		);
 		// This will checkout the branch to the `GITHUB_WORKSPACE` path
-		await git.checkout(context.payload.repository.name, versionbotBranch);
+		await git.checkout(versionbotBranch);
 	}
 
 	// Now send the source to the builders which will build a draft

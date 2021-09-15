@@ -1,9 +1,7 @@
 import * as github from '@actions/github';
 import * as core from '@actions/core';
 
-const token = core.getInput('github_token', { required: true });
 const environment = core.getInput('environment', { required: false });
-const octokit = github.getOctokit(token);
 const repoContext = {
 	owner: github.context.payload.repository?.owner.login || '',
 	name: github.context.payload.repository?.name || '',
@@ -75,6 +73,8 @@ async function getThisCheck(): Promise<CheckRun> {
 	if (!github.context.workflow) {
 		throw new Error('Workflow must contain a name');
 	}
+	const token = core.getInput('github_token', { required: true });
+	const octokit = github.getOctokit(token);
 	// Get the checks for this commit
 	let checks;
 	try {
@@ -111,6 +111,8 @@ async function updateRun(data: string): Promise<void> {
 		return; // Do not actually update output if this code is not being ran by Github
 	}
 	const thisCheckRun = await getThisCheck();
+	const token = core.getInput('github_token', { required: true });
+	const octokit = github.getOctokit(token);
 	await octokit.request(
 		'PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}',
 		{

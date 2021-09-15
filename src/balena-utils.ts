@@ -39,7 +39,7 @@ export async function push(
 
 export async function finalize(releaseId: string): Promise<void> {
 	// Send API request to finalize the release
-	console.log(releaseId);
+	console.log('Finalizing release: ', releaseId);
 	return;
 }
 
