@@ -75,6 +75,12 @@ on:
       - master
 ```
 
+### Additional comments about workflows
+
+If you need to build for several Fleets it is advised that you create multiple workflows for each invocation of this action. This is because if you copy paste the same job but change the fleet input they will run in sequence which will make your build times take a lot more time. 
+
+**Make sure your workflows all have unique job and workflow names. If they match then the action might not finalize your release!** See https://github.com/balena-io/balena-ci/issues/8.
+
 ## Development
 
 See the [development](DEVELOPMENT.md) docs.
