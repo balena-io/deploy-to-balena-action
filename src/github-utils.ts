@@ -67,6 +67,7 @@ async function getThisCheck(): Promise<CheckRun> {
 			id: -1,
 			name: 'fake',
 			output: { text: '', summary: '', title: '' },
+			completed_at: new Date().toISOString(),
 		};
 	}
 	// Make sure the context has a check run (workflow) name
@@ -100,7 +101,7 @@ async function getThisCheck(): Promise<CheckRun> {
 				c.name === github.context.workflow || c.name === github.context.job,
 		)
 		.sort(
-			(a, b) =>
+			(a: CheckRun, b: CheckRun) =>
 				new Date(b.completed_at).getTime() - new Date(a.completed_at).getTime(),
 		)[0];
 	if (!check) {
@@ -155,4 +156,5 @@ type CheckRun = {
 		summary: string;
 		text: string;
 	};
+	completed_at: string;
 };
