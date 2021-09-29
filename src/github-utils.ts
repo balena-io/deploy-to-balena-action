@@ -96,10 +96,7 @@ async function getThisCheck(): Promise<CheckRun> {
 	}
 	// Find the check run that matches the name in the context
 	const check = checks.check_runs
-		.filter(
-			(c: CheckRun) =>
-				c.name === github.context.workflow || c.name === github.context.job,
-		)
+		.filter((c: CheckRun) => c.name === github.context.job)
 		.sort(
 			(a: CheckRun, b: CheckRun) =>
 				new Date(b.completed_at).getTime() - new Date(a.completed_at).getTime(),
