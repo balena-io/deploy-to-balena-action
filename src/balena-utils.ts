@@ -38,9 +38,9 @@ export async function push(
 }
 
 export async function finalize(releaseId: string): Promise<void> {
-	// Send API request to finalize the release
-	console.log('Finalizing release: ', releaseId);
-	return;
+	if ((await exec('balena', ['finalize', releaseId])) !== 0) {
+		throw new Error(`Failed to finalize release ${releaseId}.`);
+	}
 }
 
 function parseRelease(log: string): string | null {
