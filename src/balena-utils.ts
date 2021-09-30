@@ -21,10 +21,10 @@ export async function push(
 	await exec('balena', pushOpt, {
 		listeners: {
 			stdout: (data: Buffer) => {
-				const msg = data.toString();
-				// Using a single regex on each line is preferred but difficult with the colour codes that get sent in the logs
-				if (msg.includes('Release:')) {
-					releaseId = parseRelease(data.toString());
+				const msg = stripAnsi(data.toString());
+				const match = msg.match(/\(id: (\d*)\)/);
+				if (match) {
+					releaseId = match[1];
 				}
 			},
 		},
@@ -43,8 +43,9 @@ export async function finalize(releaseId: string): Promise<void> {
 	}
 }
 
-function parseRelease(log: string): string | null {
-	const idIndex = log.indexOf('id: ');
-	const match = log.substr(idIndex).match(/\d{7}/);
-	return match ? match[0] : null;
+function stripAnsi(logLine: string): string {
+	return logLine.replace(
+		/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g,
+		'',
+	);
 }

@@ -1,7 +1,10 @@
 #!/bin/sh
 
-BALENARC_BALENA_URL=${BALENA_URL} \
-    balena login --token ${BALENA_TOKEN}
+BALENARC_BALENA_URL=${BALENA_URL}
+
+export BALENARC_BALENA_URL
+
+balena login --token ${BALENA_TOKEN}
 
 balena whoami
 
