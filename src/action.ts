@@ -47,9 +47,11 @@ export async function run(): Promise<void> {
 			await balena.finalize(previousRelease.id);
 			await github.saveRelease({ id: previousRelease.id, finalized: true });
 		} else {
-			core.debug('No release to finalize');
+			// Throw an error so the action fails
+			throw new Error(
+				'Action reached point of finalizing a release but did not find one',
+			);
 		}
-		return; // Action is done!
 	}
 
 	// If the action has made it this far then we will build a draft release
