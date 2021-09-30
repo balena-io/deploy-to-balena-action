@@ -24,31 +24,39 @@ export async function saveRelease(release: Release): Promise<void> {
 		core.debug(`Output does not contain release for ${environment}`);
 		output[environment] = {};
 	}
-	// Set the new Release in the ReleaseStore
-	output[environment][release.id] = release;
+	// Store releases in ReleaseStore by environment and job
+	output[environment][github.context.job] = release;
 	// Store new output
 	return setOutput(output);
 }
 
 /**
- * Get stored Releases from the workflow's output filtered by this action's environment context
+ * Get stored Release from the workflow's output filtered by this action's environment context
  *
- * @return {Releases} Releases from the output
+ * @return {Release} Release from the ReleaseStore
  */
 
-export async function getReleases(): Promise<Releases> {
+export async function getRelease(): Promise<Release | null> {
 	core.debug('Getting releases');
 	// Get workflow's output data
 	const output = await getOutput();
-	// Check if output contains a Releases for the environment
+	// Check if output contains Releases for the environment
 	if (!output.hasOwnProperty(environment)) {
 		core.debug(`Output does not contain releases for ${environment}`);
-		// No Releases found
-		return {};
+		// No Release found
+		return null;
 	}
 	core.debug(`Found releases for ${environment}`);
+	// Check if the environment has a release for this job
+	if (!output[environment].hasOwnProperty(github.context.job)) {
+		core.debug(
+			`Output contained a release for ${environment} but not job ${github.context.job}`,
+		);
+		// No Release found for this job
+		return null;
+	}
 	// Return Release
-	return output[environment];
+	return output[environment][github.context.job];
 }
 
 async function getOutput(): Promise<ReleaseStore> {

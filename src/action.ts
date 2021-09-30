@@ -36,19 +36,18 @@ export async function run(): Promise<void> {
 		throw new Error(`Unsure how to proceed with event: ${context.eventName}`);
 	}
 
-	// If a pull request was closed and merged then finalize releases!
+	// If a pull request was closed and merged then finalize the release!
 	if (
 		context.payload.action === 'closed' &&
 		context.payload.pull_request?.merged
 	) {
-		// Get all the previous releases built during this workflow
-		const previousReleases = await github.getReleases();
-		// Finalize all the releases
-		for (const rId in previousReleases) {
-			if (!previousReleases[rId].finalized) {
-				await balena.finalize(rId);
-				await github.saveRelease({ id: rId, finalized: true });
-			}
+		// Get the previous release built
+		const previousRelease = await github.getRelease();
+		if (previousRelease && !previousRelease.finalized) {
+			await balena.finalize(previousRelease.id);
+			await github.saveRelease({ id: previousRelease.id, finalized: true });
+		} else {
+			core.debug('No release to finalize');
 		}
 		return; // Action is done!
 	}

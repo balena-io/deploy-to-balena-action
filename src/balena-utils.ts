@@ -38,7 +38,7 @@ export async function push(
 }
 
 export async function finalize(releaseId: string): Promise<void> {
-	if ((await exec('balena', ['finalize', releaseId])) !== 0) {
+	if ((await exec('balena', ['release', 'finalize', releaseId])) !== 0) {
 		throw new Error(`Failed to finalize release ${releaseId}.`);
 	}
 }
