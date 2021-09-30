@@ -16,10 +16,12 @@ const repoContext = {
  */
 
 export async function saveRelease(release: Release): Promise<void> {
+	core.debug(`Saving release with id: ${release.id}`);
 	// Get current output so we can add to it if needed
 	const output = await getOutput();
 	// If output doesn't have environment set then initiate object
 	if (!output.hasOwnProperty(environment)) {
+		core.debug(`Output does not contain release for ${environment}`);
 		output[environment] = {};
 	}
 	// Set the new Release in the ReleaseStore
@@ -35,26 +37,33 @@ export async function saveRelease(release: Release): Promise<void> {
  */
 
 export async function getReleases(): Promise<Releases> {
+	core.debug('Getting releases');
 	// Get workflow's output data
 	const output = await getOutput();
 	// Check if output contains a Releases for the environment
 	if (!output.hasOwnProperty(environment)) {
+		core.debug(`Output does not contain releases for ${environment}`);
 		// No Releases found
 		return {};
 	}
+	core.debug(`Found releases for ${environment}`);
 	// Return Release
 	return output[environment];
 }
 
 async function getOutput(): Promise<ReleaseStore> {
+	core.debug('Getting workflow output');
 	const thisCheckRun = await getThisCheck();
 	if (!thisCheckRun.output.text) {
+		core.debug('Did not find existing output values');
 		return {};
 	}
+	core.debug(`Found existing output: ${thisCheckRun.output.text}`);
 	return JSON.parse(thisCheckRun.output.text);
 }
 
 async function setOutput(data: ReleaseStore): Promise<void> {
+	core.debug(`Setting output ${JSON.stringify(data)}`);
 	return updateRun(JSON.stringify(data));
 }
 
