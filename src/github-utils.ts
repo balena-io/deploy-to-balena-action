@@ -70,10 +70,6 @@ async function getThisCheck(): Promise<CheckRun> {
 			completed_at: new Date().toISOString(),
 		};
 	}
-	// Make sure the context has a check run (workflow) name
-	if (!github.context.workflow) {
-		throw new Error('Workflow must contain a name');
-	}
 	const token = core.getInput('github_token', { required: true });
 	const octokit = github.getOctokit(token);
 	// Get the checks for this commit
@@ -103,7 +99,7 @@ async function getThisCheck(): Promise<CheckRun> {
 		)[0];
 	if (!check) {
 		throw new Error(
-			`Unable to find target ${github.context.workflow} in checks ran on commit ${repoContext.ref}.`,
+			`Unable to find target ${github.context.job} in checks ran on commit ${repoContext.ref}.`,
 		);
 	}
 	return check;
