@@ -14,7 +14,7 @@ export async function checkout(
 }
 
 export async function fetch(): Promise<void> {
-	if ((await exec('git', ['fetch'])) !== 0) {
+	if ((await exec('git', ['fetch'], { silent: true })) !== 0) {
 		throw new Error(`Failed to fetch remote branches.`);
 	}
 }
