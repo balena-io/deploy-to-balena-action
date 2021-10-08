@@ -68,7 +68,7 @@ export async function run(): Promise<void> {
 	// If the repository uses Versionbot then checkout Versionbot branch
 	if (hasVersionbot === 'true') {
 		const versionbotBranch = await versionbot.getBranch(
-			context.payload.pull_request?.id,
+			context.payload.pull_request?.number!,
 		);
 		// This will checkout the branch to the `GITHUB_WORKSPACE` path
 		await git.checkout(versionbotBranch);
