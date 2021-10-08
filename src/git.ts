@@ -1,7 +1,13 @@
 import { error } from '@actions/core';
 import { exec } from '@actions/exec';
 
-export async function checkout(ref: string): Promise<void> {
+export async function checkout(
+	ref: string,
+	getLatestBranches: boolean = true,
+): Promise<void> {
+	if (getLatestBranches) {
+		await fetch();
+	}
 	if ((await exec('git', ['checkout', ref])) !== 0) {
 		throw new Error(`Failed to checkout ${ref} branch/commit.`);
 	}

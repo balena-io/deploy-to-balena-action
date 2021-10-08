@@ -1,5 +1,6 @@
-import * as git from './git';
 import { debug } from '@actions/core';
+
+import { getChecks } from './github-utils';
 
 const DEFAULT_SLEEP = 4000; // 4 seconds
 
@@ -8,15 +9,20 @@ const sleep = (milliseconds: number) => {
 };
 
 export async function getBranch(pr: number): Promise<string> {
-	const branch = `versionbot/pr/${pr}`;
-	// Check if branch exists
-	if (await git.remoteHasBranch(branch)) {
-		return branch;
-	} else {
-		debug('Did not find branch.');
-		debug(`Retrying in ${DEFAULT_SLEEP / 1000} seconds...`);
-		// Sleep and retry
-		await sleep(DEFAULT_SLEEP);
-		return getBranch(pr);
+	// Look up checks for this commit
+	const checks = await getChecks();
+	// Find versionbot check
+	const versionbot = checks.filter((check) => {
+		return check.name.toLowerCase().includes('versionbot');
+	})[0];
+	// Check if versionbot has ran and is completed
+	if (versionbot && versionbot.status === 'completed') {
+		return `versionbot/pr/${pr}`;
 	}
+	// Otherwise, wait for versionbot to complete
+	debug('Versionbot check has not ran or completed yet.');
+	debug(`Retrying in ${DEFAULT_SLEEP / 1000} seconds...`);
+	// Sleep and retry
+	await sleep(DEFAULT_SLEEP);
+	return await getBranch(pr);
 }
