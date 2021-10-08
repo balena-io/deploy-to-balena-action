@@ -1,22 +1,63 @@
-import { debug } from '@actions/core';
+import * as core from '@actions/core';
 import { exec } from '@actions/exec';
+import { getSdk } from 'balena-sdk';
+
+type Release = {
+	id: string;
+	isFinal: boolean;
+};
+
+type BuildOptions = {
+	draft: boolean;
+	tags: {
+		sha: string;
+		pullRequest?: string;
+	};
+};
+
+const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
+	draft: true,
+};
+
+const balena = getSdk({
+	apiUrl: `https://api.${core.getInput('environment', { required: false })}/`,
+});
 
 export async function push(
 	fleet: string,
 	source: string,
-	draft: boolean = true,
+	options: Partial<BuildOptions>,
 ): Promise<string> {
-	let releaseId: string | null = null;
-	const pushOpt = ['push', fleet, '--source', source];
-
 	if (process.env.GITHUB_ACTIONS === 'false') {
-		debug('Not pushing source to builders because action is false.');
-		return '1234567'; // Do not actually build if this code is not being ran by Github
+		core.debug('Not pushing source to builders because action is false.');
+		return '1910442'; // Do not actually build if this code is not being ran by Github
 	}
 
-	if (draft) {
+	const buildOpt = {
+		...options,
+		...DEFAULT_BUILD_OPTIONS,
+	} as BuildOptions;
+
+	const pushOpt = [
+		'push',
+		fleet,
+		'--source',
+		source,
+		'--release-tag',
+		'balena-ci-commit-sha',
+		buildOpt.tags.sha,
+	];
+
+	if (buildOpt.tags.pullRequest) {
+		pushOpt.push('balena-ci-pr');
+		pushOpt.push(buildOpt.tags.pullRequest);
+	}
+
+	if (buildOpt.draft) {
 		pushOpt.push('--draft');
 	}
+
+	let releaseId: string | null = null;
 
 	await exec('balena', pushOpt, {
 		listeners: {
@@ -35,6 +76,71 @@ export async function push(
 	}
 
 	return releaseId;
+}
+
+export async function getReleaseByTags(
+	slug: string,
+	commitSha: string,
+	pullRequest: string,
+): Promise<Release> {
+	core.debug(
+		`Getting releases for ${slug} fleet with tags: { balena-ci-pr: ${pullRequest}, balena-ci-commit-sha: ${commitSha} }`,
+	);
+
+	await balena.auth.loginWithToken(
+		core.getInput('balena_token', { required: true }),
+	);
+
+	const application = await balena.models.release.getAllByApplication(
+		core.getInput('fleet', { required: true }),
+		{
+			$top: 1,
+			$select: ['id', 'is_final'],
+			$filter: {
+				status: 'success',
+				$and: [
+					{
+						release_tag: {
+							$any: {
+								$alias: 'rt',
+								$expr: {
+									rt: {
+										tag_key: 'balena-ci-pr',
+										value: pullRequest,
+									},
+								},
+							},
+						},
+					},
+					{
+						release_tag: {
+							$any: {
+								$alias: 'rt',
+								$expr: {
+									rt: {
+										tag_key: 'balena-ci-commit-sha',
+										value: commitSha,
+									},
+								},
+							},
+						},
+					},
+				],
+			},
+			$orderby: { created_at: 'desc' },
+		},
+	);
+
+	if (application.length !== 1) {
+		throw new Error(
+			`Expected 1 release to be returned but got ${application.length}`,
+		);
+	}
+
+	return {
+		id: application[0].id.toString(),
+		isFinal: application[0].is_final,
+	};
 }
 
 export async function finalize(releaseId: string): Promise<void> {

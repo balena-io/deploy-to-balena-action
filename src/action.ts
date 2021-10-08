@@ -1,7 +1,6 @@
 import * as core from '@actions/core';
 import { context } from '@actions/github';
 
-import * as github from './github-utils';
 import * as versionbot from './versionbot-utils';
 import * as balena from './balena-utils';
 import * as git from './git';
@@ -23,7 +22,10 @@ export async function run(): Promise<void> {
 
 	// If we are pushing directly to the target branch then just build a release without draft flag
 	if (context.eventName === 'push' && context.ref === `refs/heads/${target}`) {
-		releaseId = await balena.push(fleet, src, false);
+		releaseId = await balena.push(fleet, src, {
+			draft: false,
+			tags: { sha: context.sha },
+		});
 		// Set the built releaseId in the output
 		core.setOutput('release_id', releaseId);
 		return; // Done action!
@@ -42,16 +44,20 @@ export async function run(): Promise<void> {
 		context.payload.pull_request?.merged
 	) {
 		// Get the previous release built
-		const previousRelease = await github.getRelease();
-		if (previousRelease && !previousRelease.finalized) {
+		const previousRelease = await balena.getReleaseByTags(
+			fleet,
+			context.payload.pull_request?.head.sha,
+			context.payload.pull_request?.number.toString()!,
+		);
+		if (previousRelease && !previousRelease.isFinal) {
 			await balena.finalize(previousRelease.id);
-			await github.saveRelease({ id: previousRelease.id, finalized: true });
 		} else {
 			// Throw an error so the action fails
 			throw new Error(
 				'Action reached point of finalizing a release but did not find one',
 			);
 		}
+		return; // Action is complete because we finalized the release previously built
 	}
 
 	// If the action has made it this far then we will build a draft release
@@ -69,10 +75,15 @@ export async function run(): Promise<void> {
 	}
 
 	// Now send the source to the builders which will build a draft
-	releaseId = await balena.push(fleet, src);
-	// Persist built release to workflow
-	await github.saveRelease({ id: releaseId, finalized: false });
+	releaseId = await balena.push(fleet, src, {
+		tags: {
+			sha: context.payload.pull_request?.head.sha,
+			pullRequest: context.payload.pull_request?.number.toString()!,
+		},
+	});
+
 	// Set the built releaseId in the output
 	core.setOutput('release_id', releaseId);
+
 	// Action is now done and will run again once we merge
 }
