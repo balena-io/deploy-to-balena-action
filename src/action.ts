@@ -47,7 +47,7 @@ export async function run(): Promise<void> {
 		const previousRelease = await balena.getReleaseByTags(
 			fleet,
 			context.payload.pull_request?.head.sha,
-			context.payload.pull_request?.number.toString()!,
+			context.payload.pull_request?.id,
 		);
 		if (previousRelease && !previousRelease.isFinal) {
 			await balena.finalize(previousRelease.id);
@@ -68,7 +68,7 @@ export async function run(): Promise<void> {
 	// If the repository uses Versionbot then checkout Versionbot branch
 	if (hasVersionbot === 'true') {
 		const versionbotBranch = await versionbot.getBranch(
-			context.payload.pull_request?.number!,
+			context.payload.pull_request?.id,
 		);
 		// This will checkout the branch to the `GITHUB_WORKSPACE` path
 		await git.checkout(versionbotBranch);
@@ -78,7 +78,7 @@ export async function run(): Promise<void> {
 	releaseId = await balena.push(fleet, src, {
 		tags: {
 			sha: context.payload.pull_request?.head.sha,
-			pullRequest: context.payload.pull_request?.number.toString()!,
+			pullRequest: context.payload.pull_request?.id,
 		},
 	});
 

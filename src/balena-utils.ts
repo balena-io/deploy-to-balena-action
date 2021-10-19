@@ -49,7 +49,7 @@ export async function push(
 	];
 
 	if (buildOpt.tags.pullRequest) {
-		pushOpt.push('balena-ci-pr');
+		pushOpt.push('balena-ci-id');
 		pushOpt.push(buildOpt.tags.pullRequest);
 	}
 
@@ -84,7 +84,7 @@ export async function getReleaseByTags(
 	pullRequest: string,
 ): Promise<Release> {
 	core.debug(
-		`Getting releases for ${slug} fleet with tags: { balena-ci-pr: ${pullRequest}, balena-ci-commit-sha: ${commitSha} }`,
+		`Getting releases for ${slug} fleet with tags: { balena-ci-id: ${pullRequest}, balena-ci-commit-sha: ${commitSha} }`,
 	);
 
 	await balena.auth.loginWithToken(
@@ -105,7 +105,7 @@ export async function getReleaseByTags(
 								$alias: 'rt',
 								$expr: {
 									rt: {
-										tag_key: 'balena-ci-pr',
+										tag_key: 'balena-ci-id',
 										value: pullRequest,
 									},
 								},
