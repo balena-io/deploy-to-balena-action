@@ -8,6 +8,11 @@ export BALENARC_BALENA_URL
 
 balena login --token ${BALENA_TOKEN}
 
+if [ $? -eq 1 ]; then
+  echo Failed to authenticate CLI
+  exit 1
+fi
+
 balena whoami
 
 git --version
