@@ -77,7 +77,7 @@ on:
 
 ### Additional comments about workflows
 
-If you need to build a release for multiple fleets across several environments (balena-cloud.com, balena-staging.com, etc) just copy the job and change the environment or fleet value. This also runs the builds in parallel! Remember to use a unique job id or the workflow will fail to run.
+If you need to build a release for multiple fleets across several environments (balena-cloud.com, balena-staging.com, etc) you can create multiple workflow files for each environment and use a matrix to pass a list of fleet names into 1 job. See how Balena's Supervisor does this with the [staging deployment workflow](https://github.com/balena-os/balena-supervisor/blob/caf3c1fd5867c127346058742cfa4864e9072313/.github/workflows/staging-balena-ci.yml). 
 
 ## Development
 
