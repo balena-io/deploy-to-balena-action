@@ -1,2 +1,4 @@
 ---
 docker: false
+npm:
+  run: false
