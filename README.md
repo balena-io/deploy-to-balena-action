@@ -23,7 +23,6 @@ jobs:
         with:
           balena_token: ${{ secrets.BALENA_TOKEN }}
           fleet: my_org/sample_fleet
-          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Log release ID built
         run: echo "Built release ID ${{ steps.build.outputs.release_id }}"
 ```
@@ -34,11 +33,8 @@ jobs:
 | --- | --- | --- | --- |
 | balena_token | API key to balenaCloud | true | |
 | fleet | The slug of the fleet (eg: `my_org/sample_fleet`) for which the release is for | true | |
-| github_token | Github token for making authenticated requests | true | |
 | environment | Domain of API hosting your fleets | false | balena-cloud.com |
 | versionbot | Tells action to use Versionbot branch for versioning | false | false |
-
-The `github_token` is automatically created by the github action as described [here](https://docs.github.com/en/actions/reference/authentication-in-a-workflow#about-the-github_token-secret) in the documentation. This token is used to store output data to the workflow.
 
 `environment` can be used to specify a custom domain for the backend that will build and deploy your release. If for example you want to deploy to staging environment, you would set it to `balena-staging.com` or if you run your own instance of balenaCloud such as openBalena then specify your domain here.
 
