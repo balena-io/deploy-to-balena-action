@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Github action to build releases for a fleet",
   "homepage": "https://github.com/balena-io/balena-ci",
+  "private": true,
   "main": "build/main.js",
   "types": "build/main.d.ts",
   "keywords": [
