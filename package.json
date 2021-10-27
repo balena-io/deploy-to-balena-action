@@ -52,7 +52,7 @@
     "node-env": "^0.1.6",
     "rewire": "^5.0.0",
     "rimraf": "^3.0.2",
-    "sinon": "^11.1.1",
+    "sinon": "^11.1.2",
     "spawk": "^1.4.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
