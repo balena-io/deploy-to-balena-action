@@ -1,0 +1,113 @@
+- commits:
+    - subject: 'patch: bump @types/sinon from 10.0.2 to 10.0.6'
+      hash: eb2efe834d798f330ca01767fa6dfda06364d04b
+      body: >
+        Bumps
+        [@types/sinon](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/sinon)
+        from 10.0.2 to 10.0.6.
+
+        - [Release
+        notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)
+
+        -
+        [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/sinon)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: "@types/sinon"
+          dependency-type: direct:development
+          update-type: version-update:semver-patch
+        ...
+      footer:
+        Signed-off-by: 'dependabot[bot] <support@github.com>'
+        signed-off-by: 'dependabot[bot] <support@github.com>'
+      author: 'dependabot[bot]'
+      nested: []
+    - subject: Cleanup DEVELOPMENT.md and include manual E2E testing notes
+      hash: c9f118e1ca5b339b47eaded01eeae32491510e51
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: >-
+        Remove GITHUB_TOKEN from docs Defaults to the token in the Github
+        context instead of relying on the user to pass it
+      hash: 588e58acd1394f7f808a6ee9e6af515ca21d1e57
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Reset CHANGELOG.md
+      hash: 67ab860eca7f659d5dcf47a22f8bb3f88443c9b4
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Install CLI via package.json with version pinning
+      hash: e143f972d3ba6f3492ecdcb8b3a71eb8a1bf7b90
+      body: |
+        Also prune the dev dependencies after npm build.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Support finalizing multiple releases
+      hash: f182f8b9f5669b15981af635e68c12bde82db611
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Allow passing in list of fleets to build release for
+      hash: f599c5a867a316330eacf1ea30b6b85f983a04f8
+      body: ''
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Pass balena_url input to CLI as BALENARC_BALENA_URL
+      hash: 4fb6f00f6c3ee17c1f7e3092fc2b04fdd57620fd
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Check if context is PR before finalizing
+      hash: 99ecc3a55d39f370c7169e69cff8bd42a6dbd925
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+  version: 0.1.0
+  date: 2021-10-27T02:48:37.576Z
