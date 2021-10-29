@@ -1,10 +1,10 @@
-# Balena CI Github Action
+# Balena CI GitHub Action
 
-This action allows you to send some source to Balena builders. Depending on the context available to the action, it will either make your release a draft or not.
+This action allows you to push to Balena builders as an automated way to create releases on your fleet. Depending on the context available to the action, it will either make your release a draft or not.
 
 ## Usage
 
-Here is an example workflow.yml file. See our [workflows](#workflows) section to understand it some more.
+Here is an example workflow.yml file. Workflow files should be added to the `.github/workflows/` directory within your project. See our [workflows](#workflows) section to find out more.
 
 ```
 on:
@@ -29,6 +29,8 @@ jobs:
 
 ## Inputs
 
+Inputs are provided using the `with:` section of your workflow YML file.
+
 | key | Description | Required | Default |
 | --- | --- | --- | --- |
 | balena_token | API key to balenaCloud | true | |
@@ -50,7 +52,7 @@ The `release_id` output could be null because the action might just finalize pre
 
 This action is leveraging the `is_final` trait of a release to enable you to develop releases in a way that make it easier to test.
 
-With this value, we can mark a release as draft so that it is built and available to your devices to be tested but any device tracking latest won't upgrade to it!
+With this value, we can mark a release as draft so that it is built and available to your devices to be tested by manually pinning, but any device tracking latest won't upgrade to it.
 
 ### Draft release workflow (recommended)
 
