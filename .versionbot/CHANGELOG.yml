@@ -1,4 +1,23 @@
 - commits:
+    - subject: 'patch: bump node from 12.22.7-alpine3.11 to 15.14.0-alpine3.11'
+      hash: 16aeb6a483d8a7c78aca132acfc036914d643313
+      body: |
+        Bumps node from 12.22.7-alpine3.11 to 15.14.0-alpine3.11.
+
+        ---
+        updated-dependencies:
+        - dependency-name: node
+          dependency-type: direct:production
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: 'dependabot[bot] <support@github.com>'
+        signed-off-by: 'dependabot[bot] <support@github.com>'
+      author: 'dependabot[bot]'
+      nested: []
+  version: 0.1.1
+  date: 2021-11-01T08:16:40.724Z
+- commits:
     - subject: Install CLI via package.json with version pinning
       hash: e143f972d3ba6f3492ecdcb8b3a71eb8a1bf7b90
       body: |
