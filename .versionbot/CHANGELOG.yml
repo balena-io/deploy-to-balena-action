@@ -1,4 +1,27 @@
 - commits:
+    - subject: Refactor getReleaseByTags to require single Tags parameter
+      hash: 8ef7f3d72fc27a5ec925bd865d0386305af64d56
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Log error when unable to get checks
+      hash: f4f0a278ecf54beeedb246f7f91ed733715bea84
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+  version: 0.1.1
+  date: 2021-11-03T16:58:51.750Z
+- commits:
     - subject: Install CLI via package.json with version pinning
       hash: e143f972d3ba6f3492ecdcb8b3a71eb8a1bf7b90
       body: |
