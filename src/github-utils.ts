@@ -29,7 +29,7 @@ export async function getChecks(): Promise<CheckRun[]> {
 				},
 			)
 		).data;
-	} catch (e) {
+	} catch (e: any) {
 		core.error(e.message);
 		throw new Error(
 			`Failed to fetch check runs for: ${repoContext.owner}/${repoContext.name}:${repoContext.ref}`,
