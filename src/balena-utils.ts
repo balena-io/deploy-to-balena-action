@@ -7,12 +7,14 @@ type Release = {
 	isFinal: boolean;
 };
 
+type Tags = {
+	sha: string;
+	pullRequestId?: string;
+};
+
 type BuildOptions = {
 	draft: boolean;
-	tags: {
-		sha: string;
-		pullRequest?: string;
-	};
+	tags: Tags;
 };
 
 const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
@@ -48,9 +50,9 @@ export async function push(
 		buildOpt.tags.sha,
 	];
 
-	if (buildOpt.tags.pullRequest) {
+	if (buildOpt.tags.pullRequestId) {
 		pushOpt.push('balena-ci-id');
-		pushOpt.push(buildOpt.tags.pullRequest);
+		pushOpt.push(buildOpt.tags.pullRequestId);
 	}
 
 	if (buildOpt.draft) {
@@ -80,11 +82,12 @@ export async function push(
 
 export async function getReleaseByTags(
 	slug: string,
-	commitSha: string,
-	pullRequest: string,
+	tags: Tags,
 ): Promise<Release> {
 	core.debug(
-		`Getting releases for ${slug} fleet with tags: { balena-ci-id: ${pullRequest}, balena-ci-commit-sha: ${commitSha} }`,
+		`Getting releases for ${slug} fleet with tags: { balena-ci-id: ${tags.pullRequestId!}, balena-ci-commit-sha: ${
+			tags.sha
+		} }`,
 	);
 
 	await balena.auth.loginWithToken(
@@ -106,7 +109,7 @@ export async function getReleaseByTags(
 								$expr: {
 									rt: {
 										tag_key: 'balena-ci-id',
-										value: pullRequest,
+										value: tags.pullRequestId!,
 									},
 								},
 							},
@@ -119,7 +122,7 @@ export async function getReleaseByTags(
 								$expr: {
 									rt: {
 										tag_key: 'balena-ci-commit-sha',
-										value: commitSha,
+										value: tags.sha,
 									},
 								},
 							},
