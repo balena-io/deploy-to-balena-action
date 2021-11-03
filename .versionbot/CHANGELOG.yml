@@ -1,4 +1,53 @@
 - commits:
+    - subject: 'patch: bump sinon from 11.1.1 to 12.0.0'
+      hash: f8073669596645d4a24ea5c18fa8ad46aafbde0d
+      body: >
+        Bumps [sinon](https://github.com/sinonjs/sinon) from 11.1.1 to 12.0.0.
+
+        - [Release notes](https://github.com/sinonjs/sinon/releases)
+
+        -
+        [Changelog](https://github.com/sinonjs/sinon/blob/master/docs/changelog.md)
+
+        - [Commits](https://github.com/sinonjs/sinon/compare/v11.1.1...v12.0.0)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: sinon
+          dependency-type: direct:development
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: 'dependabot[bot] <support@github.com>'
+        signed-off-by: 'dependabot[bot] <support@github.com>'
+      author: 'dependabot[bot]'
+      nested: []
+    - subject: Updated packages
+      hash: c81c5ce0bf6b1c1835846c8d283d490d51efb72d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Minor readme additions
+      hash: 7d878fdd579c7890c9e02d0d760966a2511e7cbb
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Chris Crocker-White <chriscw@balena.io>
+        signed-off-by: Chris Crocker-White <chriscw@balena.io>
+      author: Chris Crocker-White
+      nested: []
+  version: 0.1.2
+  date: 2021-11-03T18:22:12.325Z
+- commits:
     - subject: Minor readme additions
       hash: 7d878fdd579c7890c9e02d0d760966a2511e7cbb
       body: ''
