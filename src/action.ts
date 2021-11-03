@@ -44,11 +44,10 @@ export async function run(): Promise<void> {
 		context.payload.pull_request?.merged
 	) {
 		// Get the previous release built
-		const previousRelease = await balena.getReleaseByTags(
-			fleet,
-			context.payload.pull_request?.head.sha,
-			context.payload.pull_request?.id,
-		);
+		const previousRelease = await balena.getReleaseByTags(fleet, {
+			sha: context.payload.pull_request?.head.sha,
+			pullRequestId: context.payload.pull_request?.id,
+		});
 		if (previousRelease && !previousRelease.isFinal) {
 			await balena.finalize(previousRelease.id);
 		} else {
@@ -78,7 +77,7 @@ export async function run(): Promise<void> {
 	releaseId = await balena.push(fleet, src, {
 		tags: {
 			sha: context.payload.pull_request?.head.sha,
-			pullRequest: context.payload.pull_request?.id,
+			pullRequestId: context.payload.pull_request?.id,
 		},
 	});
 
