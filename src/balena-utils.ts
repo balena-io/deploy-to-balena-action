@@ -146,6 +146,27 @@ export async function getReleaseByTags(
 	};
 }
 
+// https://www.balena.io/docs/reference/sdk/node-sdk/#balena.models.release.get
+export async function getReleaseVersion(releaseId: number): Promise<string> {
+	core.debug(`Getting version for release ID ${releaseId}`);
+
+	await balena.auth.loginWithToken(
+		core.getInput('balena_token', { required: true }),
+	);
+
+	const release = await balena.models.release.get(releaseId, {
+		$select: 'raw_version',
+	});
+
+	if (!release.raw_version) {
+		throw new Error(`Release raw_version returned empty!`);
+	}
+
+	core.debug(`Release version is ${release.raw_version}`);
+
+	return release.raw_version;
+}
+
 export async function finalize(releaseId: string): Promise<void> {
 	if ((await exec('balena', ['release', 'finalize', releaseId])) !== 0) {
 		throw new Error(`Failed to finalize release ${releaseId}.`);
