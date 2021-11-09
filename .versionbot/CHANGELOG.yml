@@ -1,4 +1,37 @@
 - commits:
+    - subject: Cleanup example env files
+      hash: 06206ffcad9a705ee2d5f5526c69d5393b4decfe
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Updated packages
+      hash: c81c5ce0bf6b1c1835846c8d283d490d51efb72d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Minor readme additions
+      hash: 7d878fdd579c7890c9e02d0d760966a2511e7cbb
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Chris Crocker-White <chriscw@balena.io>
+        signed-off-by: Chris Crocker-White <chriscw@balena.io>
+      author: Chris Crocker-White
+      nested: []
+  version: 0.1.2
+  date: 2021-11-09T00:26:11.760Z
+- commits:
     - subject: Minor readme additions
       hash: 7d878fdd579c7890c9e02d0d760966a2511e7cbb
       body: ''
