@@ -20,10 +20,6 @@ inputs:
     description: 'Does the repository use Versionbot ?'
     required: false
     default: false
-  target:
-    description: 'Name of branch where code is considered merged'
-    required: false
-    default: 'master'
   finalize:
     description: 'Should the action finalize a release after building'
     required: false
