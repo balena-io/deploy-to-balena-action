@@ -1,4 +1,25 @@
 - commits:
+    - subject: Optionally add ref to git commit with release version
+      hash: 01ed0f2c587f49d14b0560c6fd756de2ae237496
+      body: ''
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: 'balena-sdk: Update balena-sdk from 15.54.2 to 15.57.0'
+      hash: 10099f4b234d5caa089a524b44c19cc5d4f7197b
+      body: |
+        Update balena-sdk from 15.54.2 to 15.57.0
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
     - subject: Cleanup example env files
       hash: 06206ffcad9a705ee2d5f5526c69d5393b4decfe
       body: ''
@@ -29,8 +50,8 @@
         signed-off-by: Chris Crocker-White <chriscw@balena.io>
       author: Chris Crocker-White
       nested: []
-  version: 0.1.2
-  date: 2021-11-09T00:26:11.760Z
+  version: 0.2.0
+  date: 2021-11-09T06:13:16.970Z
 - commits:
     - subject: Minor readme additions
       hash: 7d878fdd579c7890c9e02d0d760966a2511e7cbb
