@@ -28,6 +28,15 @@ inputs:
     description: 'Should the action finalize a release after building'
     required: false
     default: true
+  create_ref:
+    description: 'Attempt to tag the git commit with the release version'
+    required: false
+    default: false
+outputs:
+  release_id:
+    description: 'ID of the release built'
+  version:
+    description: 'Version of the release built'
 runs:
   using: 'docker'
   image: 'Dockerfile'

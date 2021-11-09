@@ -4,6 +4,7 @@ import { context } from '@actions/github';
 import * as versionbot from './versionbot-utils';
 import * as balena from './balena-utils';
 import * as git from './git';
+import { createRef } from './github-utils';
 
 export async function run(): Promise<void> {
 	// If the payload does not have a repository object then fail early (the events we are interested in always have this)
@@ -19,6 +20,8 @@ export async function run(): Promise<void> {
 	const src = process.env.GITHUB_WORKSPACE || '';
 	// ID of release built
 	let releaseId: string | null = null;
+	// Version of release built
+	let rawVersion: string | null = null;
 
 	// If we are pushing directly to the target branch then just build a release without draft flag
 	if (context.eventName === 'push' && context.ref === `refs/heads/${target}`) {
@@ -28,6 +31,14 @@ export async function run(): Promise<void> {
 		});
 		// Set the built releaseId in the output
 		core.setOutput('release_id', releaseId);
+
+		rawVersion = await balena.getReleaseVersion(parseInt(releaseId, 10));
+		core.setOutput('version', rawVersion);
+
+		if (core.getBooleanInput('create_ref', { required: false })) {
+			await createRef(rawVersion, context.sha);
+		}
+
 		return; // Done action!
 	} else if (context.eventName !== 'pull_request') {
 		if (context.eventName === 'push') {
@@ -61,11 +72,8 @@ export async function run(): Promise<void> {
 
 	// If the action has made it this far then we will build a draft release
 
-	// Indicate to action if repo uses Versionbot for versioning
-	const hasVersionbot = core.getInput('versionbot', { required: false });
-
 	// If the repository uses Versionbot then checkout Versionbot branch
-	if (hasVersionbot === 'true') {
+	if (core.getBooleanInput('versionbot', { required: false })) {
 		const versionbotBranch = await versionbot.getBranch(
 			context.payload.pull_request?.number!,
 		);
@@ -83,6 +91,13 @@ export async function run(): Promise<void> {
 
 	// Set the built releaseId in the output
 	core.setOutput('release_id', releaseId);
+
+	rawVersion = await balena.getReleaseVersion(parseInt(releaseId, 10));
+	core.setOutput('version', rawVersion);
+
+	if (core.getBooleanInput('create_ref', { required: false })) {
+		await createRef(rawVersion, context.payload.pull_request?.head.sha);
+	}
 
 	// Action is now done and will run again once we merge
 }
