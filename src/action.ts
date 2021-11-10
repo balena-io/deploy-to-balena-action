@@ -59,15 +59,16 @@ export async function run(): Promise<void> {
 			sha: context.payload.pull_request?.head.sha,
 			pullRequestId: context.payload.pull_request?.id,
 		});
-		if (previousRelease && !previousRelease.isFinal) {
-			await balena.finalize(previousRelease.id);
-		} else {
-			// Throw an error so the action fails
+		if (!previousRelease) {
 			throw new Error(
 				'Action reached point of finalizing a release but did not find one',
 			);
+		} else if (previousRelease.isFinal) {
+			core.info('Release is already finalized so skipping.');
+			return;
 		}
-		return; // Action is complete because we finalized the release previously built
+		// Finalize release and done!
+		return await balena.finalize(previousRelease.id);
 	}
 
 	// If the action has made it this far then we will build a draft release

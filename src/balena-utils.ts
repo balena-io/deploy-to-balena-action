@@ -40,6 +40,26 @@ export async function push(
 		...options,
 	} as BuildOptions;
 
+	// If build is for a draft check if we want to use a cache release
+	if (buildOpt.draft && core.getBooleanInput('cache', { required: false })) {
+		core.info('Checking if a release has already been built.');
+		const tags: Tags = {
+			sha: buildOpt.tags.sha,
+			pullRequestId: buildOpt.tags.pullRequestId!,
+		};
+		try {
+			const cachedRelease = await getReleaseByTags(fleet, tags);
+			core.info('Found existing release.');
+			// Found an existing release matching this SHA
+			return cachedRelease.id;
+		} catch (e: any) {
+			if (e.message !== 'Did not find any matching releases') {
+				throw e;
+			}
+			// Release was not found so continue to build
+		}
+	}
+
 	const pushOpt = [
 		'push',
 		fleet,
@@ -135,9 +155,7 @@ export async function getReleaseByTags(
 	);
 
 	if (application.length !== 1) {
-		throw new Error(
-			`Expected 1 release to be returned but got ${application.length}`,
-		);
+		throw new Error('Did not find any matching releases');
 	}
 
 	return {
