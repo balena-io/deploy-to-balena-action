@@ -36,8 +36,8 @@ export async function push(
 	}
 
 	const buildOpt = {
-		...options,
 		...DEFAULT_BUILD_OPTIONS,
+		...options,
 	} as BuildOptions;
 
 	const pushOpt = [
