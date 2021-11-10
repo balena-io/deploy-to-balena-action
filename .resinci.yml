@@ -1,2 +1,10 @@
 ---
 docker: false
+npm:
+  platforms:
+    - name: linux
+      os: ubuntu
+      architecture: x86_64
+      node_versions:
+        - "12"
+        - "14"
