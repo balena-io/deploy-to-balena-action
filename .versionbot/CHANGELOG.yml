@@ -1,4 +1,57 @@
 - commits:
+    - subject: Refactor action.ts to set outputs once
+      hash: 80f44459ab7fa4f18002c2c5b8e835bb1f0355f9
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Check for previously built release to use as cache
+      hash: ba388b4d51a3ca35fbce2ea9b614b54e669a8536
+      body: ''
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Fix default build options overriding passed options
+      hash: 20a1e0180fd34ed6542230362d21b7ac595ebde5
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Fix env.example for events to include require inputs
+      hash: 3785b33382ce61ed645e1d72d80d9aad9fab336f
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Remove target input from action.yml
+      hash: 2c174d83e061156feff83f0e35049dade4444f37
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+  version: 0.3.0
+  date: 2021-11-10T16:27:26.075Z
+- commits:
     - subject: Optionally add ref to git commit with release version
       hash: 01ed0f2c587f49d14b0560c6fd756de2ae237496
       body: ''
