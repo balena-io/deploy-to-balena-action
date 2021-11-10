@@ -36,6 +36,7 @@ Inputs are provided using the `with:` section of your workflow YML file.
 | balena_token | API key to balenaCloud | true | |
 | fleet | The slug of the fleet (eg: `my_org/sample_fleet`) for which the release is for | true | |
 | environment | Domain of API hosting your fleets | false | balena-cloud.com |
+| cache | If a release matching the commit already exists do not build again | false | true |
 | versionbot | Tells action to use Versionbot branch for versioning | false | false |
 | create_ref | Create a ref on the git commit with the release version | false | false |
 
