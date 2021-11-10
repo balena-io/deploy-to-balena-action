@@ -89,6 +89,13 @@ export async function run(): Promise<void> {
 	core.setOutput('release_id', releaseId);
 
 	if (core.getBooleanInput('create_ref', { required: false })) {
-		await createRef(rawVersion, context.payload.pull_request?.head.sha);
+		try {
+			await createRef(rawVersion, context.payload.pull_request?.head.sha);
+		} catch (e: any) {
+			if (e.message !== 'Reference already exists') {
+				throw e;
+			}
+			core.info('Git reference already exists.');
+		}
 	}
 }
