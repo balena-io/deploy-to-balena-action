@@ -28,6 +28,10 @@ inputs:
     description: 'Attempt to tag the git commit with the release version'
     required: false
     default: false
+  cache:
+    description: 'If a release matching the commit already exists do not build'
+    required: false
+    default: true
 outputs:
   release_id:
     description: 'ID of the release built'

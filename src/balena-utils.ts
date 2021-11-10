@@ -40,6 +40,27 @@ export async function push(
 		...options,
 	} as BuildOptions;
 
+	// Check if we want to use a cache release
+	if (core.getBooleanInput('cache', { required: false })) {
+		core.info('Checking if a release has already been built.');
+		const tags: Tags = {
+			sha: buildOpt.tags.sha,
+			pullRequestId: buildOpt.tags.pullRequestId,
+		};
+		try {
+			const cachedRelease = await getReleaseByTags(fleet, tags);
+			core.info('Found existing release.');
+			// Found an existing release matching this SHA
+			return cachedRelease.id;
+		} catch (e: any) {
+			if (e.message !== 'Did not find any matching releases') {
+				throw e;
+			}
+			// Release was not found so continue to build
+			core.info('Did not find existing release so building a new one.');
+		}
+	}
+
 	const pushOpt = [
 		'push',
 		fleet,
@@ -85,59 +106,60 @@ export async function getReleaseByTags(
 	tags: Tags,
 ): Promise<Release> {
 	core.debug(
-		`Getting releases for ${slug} fleet with tags: { balena-ci-id: ${tags.pullRequestId!}, balena-ci-commit-sha: ${
-			tags.sha
-		} }`,
+		`Getting Release for ${slug} fleet with Tag values: ${JSON.stringify(
+			tags,
+		)}`,
 	);
 
 	await balena.auth.loginWithToken(
 		core.getInput('balena_token', { required: true }),
 	);
-
+	// Filters on commit SHA tag
+	const shaFilter = {
+		$any: {
+			$alias: 'rt',
+			$expr: {
+				rt: {
+					tag_key: 'balena-ci-commit-sha',
+					value: tags.sha,
+				},
+			},
+		},
+	};
+	// Filters on Pull Request ID
+	const idFilter = {
+		$any: {
+			$alias: 'rt',
+			$expr: {
+				rt: {
+					tag_key: 'balena-ci-id',
+					value: tags.pullRequestId!,
+				},
+			},
+		},
+	};
+	// If a PR ID is passed in the tags then filter on that and SHA
+	const filter = tags.pullRequestId
+		? {
+				status: 'success',
+				$and: [{ release_tag: idFilter }, { release_tag: shaFilter }],
+		  }
+		: {
+				status: 'success',
+				release_tag: shaFilter,
+		  };
 	const application = await balena.models.release.getAllByApplication(
 		core.getInput('fleet', { required: true }),
 		{
 			$top: 1,
 			$select: ['id', 'is_final'],
-			$filter: {
-				status: 'success',
-				$and: [
-					{
-						release_tag: {
-							$any: {
-								$alias: 'rt',
-								$expr: {
-									rt: {
-										tag_key: 'balena-ci-id',
-										value: tags.pullRequestId!,
-									},
-								},
-							},
-						},
-					},
-					{
-						release_tag: {
-							$any: {
-								$alias: 'rt',
-								$expr: {
-									rt: {
-										tag_key: 'balena-ci-commit-sha',
-										value: tags.sha,
-									},
-								},
-							},
-						},
-					},
-				],
-			},
+			$filter: filter,
 			$orderby: { created_at: 'desc' },
 		},
 	);
 
 	if (application.length !== 1) {
-		throw new Error(
-			`Expected 1 release to be returned but got ${application.length}`,
-		);
+		throw new Error('Did not find any matching releases');
 	}
 
 	return {
