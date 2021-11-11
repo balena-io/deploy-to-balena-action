@@ -1,4 +1,27 @@
 - commits:
+    - subject: Fallback to the current branch sha in case we are pushing to target
+      hash: ed007d7101cecaa95f468d24d0d75966c3421b2c
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Catch exception if git reference already exists when creating
+      hash: 65fb39a6e0196c06ecdb1880b78f7ac9eb482e6c
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+  version: 0.3.1
+  date: 2021-11-11T13:56:05.580Z
+- commits:
     - subject: Refactor action.ts to set outputs once
       hash: 80f44459ab7fa4f18002c2c5b8e835bb1f0355f9
       body: ''
