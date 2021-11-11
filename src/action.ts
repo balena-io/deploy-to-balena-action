@@ -90,7 +90,10 @@ export async function run(): Promise<void> {
 
 	if (core.getBooleanInput('create_ref', { required: false })) {
 		try {
-			await createRef(rawVersion, context.payload.pull_request?.head.sha);
+			await createRef(
+				rawVersion,
+				context.payload.pull_request?.head.sha || context.sha,
+			);
 		} catch (e: any) {
 			if (e.message !== 'Reference already exists') {
 				throw e;
