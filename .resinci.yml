@@ -1,5 +1,10 @@
 ---
-docker: false
+docker:
+  builds:
+    - path: .
+      dockerfile: Dockerfile
+      docker_repo: balena-io/balena-ci
+      publish: false
 npm:
   platforms:
     - name: linux
