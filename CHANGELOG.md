@@ -6,7 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.3.1 - 2021-11-11
 
-* Fallback to the current branch sha in case we are pushing to target [Kyle Harding]
+* Enable docker builds but do not publish [Kyle Harding]
+* Limit balenaCI builds to Ubuntu x86_64 with node 12/14 [Kyle Harding]
+* Enable npm tests via balenaCI but stub the npm test command for now [Kyle Harding]
 * Catch exception if git reference already exists when creating [Miguel Casqueira]
 
 ## 0.3.0 - 2021-11-10
