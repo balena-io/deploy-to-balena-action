@@ -1,4 +1,15 @@
 - commits:
+    - subject: Correct spec to allow source parameter
+      hash: 8011320221b1f42384d91607e8fab276c44e51bc
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: ab77
+      nested: []
+  version: 0.4.1
+  date: 2021-11-15T17:25:12.228Z
+- commits:
     - subject: Adds support for custom source directory as input
       hash: a23a0307e7f7f3ebbaf32a1166e5be60c3530aa8
       body: ''
