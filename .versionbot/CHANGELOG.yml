@@ -1,4 +1,63 @@
 - commits:
+    - subject: 'patch: bump lint-staged from 11.2.6 to 12.0.2'
+      hash: dfff670ac967678a2562269c1208b6e3e4e25878
+      body: >
+        Bumps [lint-staged](https://github.com/okonet/lint-staged) from 11.2.6
+        to 12.0.2.
+
+        - [Release notes](https://github.com/okonet/lint-staged/releases)
+
+        -
+        [Commits](https://github.com/okonet/lint-staged/compare/v11.2.6...v12.0.2)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: lint-staged
+          dependency-type: direct:development
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: 'dependabot[bot] <support@github.com>'
+        signed-off-by: 'dependabot[bot] <support@github.com>'
+      author: 'dependabot[bot]'
+      nested: []
+    - subject: Enable docker builds but do not publish
+      hash: 8712220210e8642db11c1319807b4dc6250fc47e
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Limit balenaCI builds to Ubuntu x86_64 with node 12/14
+      hash: 0f2f8ea25a483c27945869eae00856ebc61ab712
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Enable npm tests via balenaCI but stub the npm test command for now
+      hash: a527f45f4f34fbb9900a9a96e946c5a60bebe094
+      body: |
+        In theory this should also allow bulldozer to auto-merge approved PRs.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 0.3.2
+  date: 2021-11-15T08:14:14.210Z
+- commits:
     - subject: Enable docker builds but do not publish
       hash: 8712220210e8642db11c1319807b4dc6250fc47e
       body: ''
