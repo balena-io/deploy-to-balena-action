@@ -17,7 +17,8 @@ export async function run(): Promise<void> {
 	// Name of the fleet to build for
 	const fleet = core.getInput('fleet', { required: true });
 	// File path to release source code
-	const src = process.env.GITHUB_WORKSPACE || '';
+	const src =
+		`${process.env.GITHUB_WORKSPACE}/${core.getInput('source')}` || '';
 	// ID of release built
 	let releaseId: string | null = null;
 	// Version of release built
