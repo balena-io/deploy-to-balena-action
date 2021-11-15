@@ -35,7 +35,7 @@ inputs:
   source:
     description: 'Specify custom source path relative to workspace to build in'
     required: false
-    default: false
+    default: ''
 outputs:
   release_id:
     description: 'ID of the release built'
