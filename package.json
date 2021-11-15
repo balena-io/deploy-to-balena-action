@@ -1,6 +1,6 @@
 {
   "name": "balena-ci",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Github action to build releases for a fleet",
   "homepage": "https://github.com/balena-io/balena-ci",
   "private": true,
@@ -33,7 +33,7 @@
     "lint": "balena-lint --typescript src tests",
     "lint-fix": "balena-lint --typescript --fix src tests",
     "test:node": "mocha -r ts-node/register --reporter spec tests/**/*.spec.ts",
-    "test": "echo \"No test specified\" && exit 0",
+    "test": "npm run lint && npm run build && npm run test:node",
     "prepack": "npm run build"
   },
   "devDependencies": {
@@ -65,6 +65,6 @@
     "balena-sdk": "^15.57.0"
   },
   "versionist": {
-    "publishedAt": "2021-11-11T12:34:40.819Z"
+    "publishedAt": "2021-11-10T22:28:33.323Z"
   }
 }
