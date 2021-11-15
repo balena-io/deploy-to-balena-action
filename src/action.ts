@@ -16,9 +16,10 @@ export async function run(): Promise<void> {
 	const target = context.payload.repository.master_branch;
 	// Name of the fleet to build for
 	const fleet = core.getInput('fleet', { required: true });
-	// File path to release source code
-	const src =
-		`${process.env.GITHUB_WORKSPACE}/${core.getInput('source')}` || '';
+	// Custom location for Dockerfile/docker-compose (instead of being in root of GITHUB_WORKSPACE)
+	const dockerfileLocation = core.getInput('source', { required: false });
+	// File path to build release images from
+	const src = `${process.env.GITHUB_WORKSPACE!}/${dockerfileLocation}`;
 	// ID of release built
 	let releaseId: string | null = null;
 	// Version of release built

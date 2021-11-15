@@ -33,9 +33,9 @@ inputs:
     required: false
     default: true
   source:
-    description: 'Specify custom source path relative to workspace to build in'
+    description: 'Specify custom path to Dockerfile/docker-compose for building release images'
     required: false
-    default: false
+    default: ''
 outputs:
   release_id:
     description: 'ID of the release built'
