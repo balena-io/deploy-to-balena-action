@@ -1,4 +1,17 @@
 - commits:
+    - subject: Corrects default source path in action.yml
+      hash: 1f2d1a999884c3b1a876a8ae1bfd7837c80da6ba
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Bucknall <alex.bucknall@gmail.com>
+        signed-off-by: Alex Bucknall <alex.bucknall@gmail.com>
+      author: Alex Bucknall
+      nested: []
+  version: 0.4.2
+  date: 2021-11-15T19:12:55.609Z
+- commits:
     - subject: Correct spec to allow source parameter
       hash: 8011320221b1f42384d91607e8fab276c44e51bc
       body: ''
