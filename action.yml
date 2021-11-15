@@ -32,6 +32,10 @@ inputs:
     description: 'If a release matching the commit already exists do not build'
     required: false
     default: true
+  source:
+    description: 'Specify custom source path relative to workspace to build in'
+    required: false
+    default: false
 outputs:
   release_id:
     description: 'ID of the release built'
