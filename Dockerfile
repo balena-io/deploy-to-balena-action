@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/node
-FROM node:12.22.7-alpine3.11
+FROM node:13.14.0-alpine3.11
 
 # Defines our working directory in container
 WORKDIR /usr/src/app
