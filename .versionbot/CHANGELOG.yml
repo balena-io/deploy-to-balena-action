@@ -1,4 +1,17 @@
 - commits:
+    - subject: Default source input to empty string instead of false
+      hash: 70855ade6dc26382164eac061831359ceb5abea8
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+  version: 0.4.2
+  date: 2021-11-15T19:17:33.340Z
+- commits:
     - subject: Correct spec to allow source parameter
       hash: 8011320221b1f42384d91607e8fab276c44e51bc
       body: ''
