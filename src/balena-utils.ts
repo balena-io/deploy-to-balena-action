@@ -1,5 +1,6 @@
 import * as core from '@actions/core';
 import { exec } from '@actions/exec';
+import { spawn } from 'child_process';
 import { getSdk } from 'balena-sdk';
 
 type Release = {
@@ -82,23 +83,45 @@ export async function push(
 
 	let releaseId: string | null = null;
 
-	await exec('balena', pushOpt, {
-		listeners: {
-			stdout: (data: Buffer) => {
-				const msg = stripAnsi(data.toString());
-				const match = msg.match(/\(id: (\d*)\)/);
-				if (match) {
-					releaseId = match[1];
-				}
-			},
-		},
+	return new Promise((resolve, reject) => {
+		core.debug(`balena ${pushOpt.join(' ')}`);
+
+		const buildProcess = spawn('balena', pushOpt, {
+			stdio: 'pipe',
+		});
+
+		buildProcess.stdout.setEncoding('utf8');
+
+		buildProcess.stdout.on('data', (data: Buffer) => {
+			const msg = stripAnsi(data.toString());
+			core.info(msg);
+			const match = msg.match(/\(id: (\d*)\)/);
+			if (match) {
+				releaseId = match[1];
+			}
+		});
+
+		buildProcess.stderr.on('data', (data: Buffer) => {
+			core.error(stripAnsi(data.toString()));
+		});
+
+		process.on('SIGTERM', () => {
+			buildProcess.kill('SIGINT');
+		});
+
+		process.on('SIGINT', () => {
+			buildProcess.kill('SIGINT');
+		});
+
+		buildProcess.on('exit', () => {
+			core.info('Build process exit');
+			if (releaseId) {
+				resolve(releaseId);
+			} else {
+				reject('Was unable to find release ID from the build process.');
+			}
+		});
 	});
-
-	if (releaseId === null) {
-		throw new Error('Was unable to find release ID from the build process.');
-	}
-
-	return releaseId;
 }
 
 export async function getReleaseByTags(
