@@ -1,4 +1,31 @@
 - commits:
+    - subject: >-
+        Refactor build process to use standard lib function Previous method used
+        Github exec module which did not pass the SIGINT signal to the build
+        process which prevented the CLI from telling the builder to cancel if
+        the github action is stopping.
+      hash: 08a1cf812a015c70f6c77bdd2f3a9c11754bd139
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+    - subject: Restructure Dockerfile steps to improve layer caching
+      hash: bad34c7595f783dd4f46f5a03cee7740a182ec01
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+  version: 0.4.3
+  date: 2021-11-18T20:05:37.093Z
+- commits:
     - subject: Default source input to empty string instead of false
       hash: 70855ade6dc26382164eac061831359ceb5abea8
       body: ''
