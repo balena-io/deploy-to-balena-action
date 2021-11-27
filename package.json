@@ -1,6 +1,6 @@
 {
   "name": "balena-ci",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Github action to build releases for a fleet",
   "homepage": "https://github.com/balena-io/balena-ci",
   "private": true,
@@ -65,6 +65,6 @@
     "balena-sdk": "^15.57.0"
   },
   "versionist": {
-    "publishedAt": "2021-11-18T20:05:37.158Z"
+    "publishedAt": "2021-11-27T18:57:17.983Z"
   }
 }

@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update multicast-dns to a new commit since the upstream was rebased
+      hash: a087336e4426502918f4a9a40c535998e9e01d06
+      body: |
+        Otherwise the npm install will fail due to the missing commit.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 0.4.4
+  date: 2021-11-27T18:57:17.909Z
+- commits:
     - subject: >-
         Refactor build process to use standard lib function Previous method used
         Github exec module which did not pass the SIGINT signal to the build
