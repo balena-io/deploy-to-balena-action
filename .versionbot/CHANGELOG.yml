@@ -1,4 +1,19 @@
 - commits:
+    - subject: Do nothing when closing PR without merging
+      hash: 9aa85607db88bcc04228acf22151c264895895cb
+      body: ''
+      footer:
+        Resolves: '#68'
+        resolves: '#68'
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Tomás Migone <tomas@balena.io>
+        signed-off-by: Tomás Migone <tomas@balena.io>
+      author: Tomás Migone
+      nested: []
+  version: 0.4.5
+  date: 2021-12-09T13:15:47.309Z
+- commits:
     - subject: Update multicast-dns to a new commit since the upstream was rebased
       hash: a087336e4426502918f4a9a40c535998e9e01d06
       body: |
