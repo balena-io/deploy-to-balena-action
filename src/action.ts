@@ -25,26 +25,29 @@ export async function run(): Promise<void> {
 	// Version of release built
 	let rawVersion: string | null = null;
 
-	// If a pull request was closed and merged then just finalize the release!
-	if (
-		context.payload.action === 'closed' &&
-		context.payload.pull_request?.merged
-	) {
-		// Get the previous release built
-		const previousRelease = await balena.getReleaseByTags(fleet, {
-			sha: context.payload.pull_request?.head.sha,
-			pullRequestId: context.payload.pull_request?.id,
-		});
-		if (!previousRelease) {
-			throw new Error(
-				'Action reached point of finalizing a release but did not find one',
-			);
-		} else if (previousRelease.isFinal) {
-			core.info('Release is already finalized so skipping.');
+	if (context.payload.action === 'closed') {
+		// If a pull request was closed and merged then just finalize the release!
+		if (context.payload.pull_request?.merged) {
+			// Get the previous release built
+			const previousRelease = await balena.getReleaseByTags(fleet, {
+				sha: context.payload.pull_request?.head.sha,
+				pullRequestId: context.payload.pull_request?.id,
+			});
+			if (!previousRelease) {
+				throw new Error(
+					'Action reached point of finalizing a release but did not find one',
+				);
+			} else if (previousRelease.isFinal) {
+				core.info('Release is already finalized so skipping.');
+				return;
+			}
+			// Finalize release and done!
+			return await balena.finalize(previousRelease.id);
+		} else {
+			// If the pull request was closed but not merged then do nothing
+			core.info('Pull request was closed but not merged, nothing to do.');
 			return;
 		}
-		// Finalize release and done!
-		return await balena.finalize(previousRelease.id);
 	}
 
 	// If the repository uses Versionbot then checkout Versionbot branch
