@@ -1,6 +1,9 @@
 # action.yml
 name: 'Deploy to Balena'
 description: 'Automate release builds and deployments'
+branding:
+  icon: 'code'  
+  color: 'blue'
 inputs:
   balena_token:
     description: 'Your balenaCloud API token'
