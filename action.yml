@@ -1,6 +1,6 @@
 # action.yml
-name: 'balena-ci'
-description: 'Automate release build and deployments'
+name: 'Deploy to Balena'
+description: 'Automate release builds and deployments'
 inputs:
   balena_token:
     description: 'Your balenaCloud API token'
