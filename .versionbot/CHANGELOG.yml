@@ -1,4 +1,17 @@
 - commits:
+    - subject: Change README heading
+      hash: d870ba955393b34fc48174d54e6a651f1a6074e7
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+  version: 0.4.8
+  date: 2021-12-21T20:48:25.410Z
+- commits:
     - subject: Added branding values (icon + color)
       hash: fd26f80b13f83dc1263d33d92dddeb99a04ef02d
       body: ''
