@@ -1,4 +1,17 @@
 - commits:
+    - subject: Added branding values (icon + color)
+      hash: fd26f80b13f83dc1263d33d92dddeb99a04ef02d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+  version: 0.4.7
+  date: 2021-12-21T19:34:21.863Z
+- commits:
     - subject: Change name in action.yml to be more unique in marketplace
       hash: ae1d23407f8238b609f41d24c831cc53d3bc2045
       body: ''
