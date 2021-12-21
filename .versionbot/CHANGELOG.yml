@@ -1,4 +1,17 @@
 - commits:
+    - subject: Change name in action.yml to be more unique in marketplace
+      hash: ae1d23407f8238b609f41d24c831cc53d3bc2045
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+  version: 0.4.6
+  date: 2021-12-21T18:47:14.512Z
+- commits:
     - subject: Do nothing when closing PR without merging
       hash: 9aa85607db88bcc04228acf22151c264895895cb
       body: ''
