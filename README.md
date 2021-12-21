@@ -1,4 +1,4 @@
-# Balena CI GitHub Action
+# Deploy to Balena Github Action
 
 This action allows you to push to Balena builders as an automated way to create releases on your fleet. Depending on the context available to the action, it will either make your release a draft or not.
 
