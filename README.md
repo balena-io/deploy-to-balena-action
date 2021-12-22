@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: balena-io/balena-ci@master
+      - uses: balena-io/deploy-to-balena-action@master
         id: build
         with:
           balena_token: ${{ secrets.BALENA_TOKEN }}
