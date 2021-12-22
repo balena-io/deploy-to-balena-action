@@ -20,7 +20,7 @@ inputs:
     required: false
     default: 'balena-cloud.com'
   versionbot:
-    description: 'Does the repository use Versionbot ?'
+    description: 'Does the repository use VersionBot ?'
     required: false
     default: false
   finalize:
@@ -28,7 +28,7 @@ inputs:
     required: false
     default: true
   create_tag:
-    description: 'Attempt to tag the git commit with the release version'
+    description: 'Tag the git commit with the balena release version'
     required: false
     default: false
   cache:
