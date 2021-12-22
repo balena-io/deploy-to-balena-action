@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update repo name in README referencing old name
+      hash: 9d08a607c24fd2d55e455270f5c5ec2394687911
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Miguel Casqueira <miguel@balena.io>
+        signed-off-by: Miguel Casqueira <miguel@balena.io>
+      author: Miguel Casqueira
+      nested: []
+  version: 0.4.9
+  date: 2021-12-22T04:38:25.770Z
+- commits:
     - subject: Change README heading
       hash: d870ba955393b34fc48174d54e6a651f1a6074e7
       body: ''
