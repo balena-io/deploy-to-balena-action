@@ -39,7 +39,7 @@ export async function getChecks(): Promise<CheckRun[]> {
 }
 
 // https://docs.github.com/en/rest/reference/git#create-a-reference
-export async function createRef(tag: string, sha: string): Promise<string> {
+export async function createTag(tag: string, sha: string): Promise<string> {
 	const token = core.getInput('github_token', { required: true });
 	const octokit = github.getOctokit(token);
 

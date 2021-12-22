@@ -27,7 +27,7 @@ inputs:
     description: 'Should the action finalize a release after building'
     required: false
     default: true
-  create_ref:
+  create_tag:
     description: 'Attempt to tag the git commit with the release version'
     required: false
     default: false
