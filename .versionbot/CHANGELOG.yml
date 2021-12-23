@@ -1,4 +1,27 @@
 - commits:
+    - subject: 'action.yml: Update description text for create_tag'
+      hash: 9b31ec6d5df7e9dd0e57dc4be0ba128288116d78
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Rename create_ref to create_tag as we only ever create tags
+      hash: 01820db5b02ab522a9db74d2bafaa2d6cd69c0e8
+      body: ''
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 0.5.0
+  date: 2021-12-22T14:05:18.994Z
+- commits:
     - subject: Update repo name in README referencing old name
       hash: 9d08a607c24fd2d55e455270f5c5ec2394687911
       body: ''
