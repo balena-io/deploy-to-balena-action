@@ -4,7 +4,7 @@ import { context } from '@actions/github';
 import * as versionbot from './versionbot-utils';
 import * as balena from './balena-utils';
 import * as git from './git';
-import { createRef } from './github-utils';
+import { createTag } from './github-utils';
 
 export async function run(): Promise<void> {
 	// If the payload does not have a repository object then fail early (the events we are interested in always have this)
@@ -93,9 +93,13 @@ export async function run(): Promise<void> {
 	core.setOutput('version', rawVersion);
 	core.setOutput('release_id', releaseId);
 
-	if (core.getBooleanInput('create_ref', { required: false })) {
+	// originally called create_ref but was renamed to create_tag
+	if (
+		core.getBooleanInput('create_tag', { required: false }) ||
+		core.getBooleanInput('create_ref', { required: false })
+	) {
 		try {
-			await createRef(
+			await createTag(
 				rawVersion,
 				context.payload.pull_request?.head.sha || context.sha,
 			);

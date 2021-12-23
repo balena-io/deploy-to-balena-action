@@ -20,15 +20,15 @@ inputs:
     required: false
     default: 'balena-cloud.com'
   versionbot:
-    description: 'Does the repository use Versionbot ?'
+    description: 'Does the repository use VersionBot ?'
     required: false
     default: false
   finalize:
     description: 'Should the action finalize a release after building'
     required: false
     default: true
-  create_ref:
-    description: 'Attempt to tag the git commit with the release version'
+  create_tag:
+    description: 'Tag the git commit with the balena release version'
     required: false
     default: false
   cache:

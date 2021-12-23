@@ -38,7 +38,7 @@ Inputs are provided using the `with:` section of your workflow YML file.
 | environment | Domain of API hosting your fleets | false | balena-cloud.com |
 | cache | If a release matching the commit already exists do not build again | false | true |
 | versionbot | Tells action to use Versionbot branch for versioning | false | false |
-| create_ref | Create a ref on the git commit with the release version | false | false |
+| create_tag | Create a ref on the git commit with the release version | false | false |
 | source | Specify a source directory (for `Dockerfile.template` or `docker-compose.yml`) | false | root directory |
 
 `environment` can be used to specify a custom domain for the backend that will build and deploy your release. If for example you want to deploy to staging environment, you would set it to `balena-staging.com` or if you run your own instance of balenaCloud such as openBalena then specify your domain here.
