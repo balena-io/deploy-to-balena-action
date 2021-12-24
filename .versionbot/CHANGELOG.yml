@@ -1,4 +1,17 @@
 - commits:
+    - subject: Deprecated create_ref doesn't have a default so don't validate boolean
+      hash: c7e54dadebe1674a6530201473fa77a0f1636d91
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 0.5.1
+  date: 2021-12-24T12:09:01.448Z
+- commits:
     - subject: 'action.yml: Update description text for create_tag'
       hash: 9b31ec6d5df7e9dd0e57dc4be0ba128288116d78
       body: ''
