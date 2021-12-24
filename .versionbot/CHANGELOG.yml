@@ -1,4 +1,32 @@
 - commits:
+    - subject: 'patch: bump lint-staged from 11.2.6 to 12.1.4'
+      hash: 87c6b66dff6816f5124256182f947ed02717d62c
+      body: >
+        Bumps [lint-staged](https://github.com/okonet/lint-staged) from 11.2.6
+        to 12.1.4.
+
+        - [Release notes](https://github.com/okonet/lint-staged/releases)
+
+        -
+        [Commits](https://github.com/okonet/lint-staged/compare/v11.2.6...v12.1.4)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: lint-staged
+          dependency-type: direct:development
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: 'dependabot[bot] <support@github.com>'
+        signed-off-by: 'dependabot[bot] <support@github.com>'
+      author: 'dependabot[bot]'
+      nested: []
+  version: 0.5.2
+  date: 2021-12-24T12:26:12.428Z
+- commits:
     - subject: Deprecated create_ref doesn't have a default so don't validate boolean
       hash: c7e54dadebe1674a6530201473fa77a0f1636d91
       body: ''
