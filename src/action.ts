@@ -96,7 +96,7 @@ export async function run(): Promise<void> {
 	// originally called create_ref but was renamed to create_tag
 	if (
 		core.getBooleanInput('create_tag', { required: false }) ||
-		core.getBooleanInput('create_ref', { required: false })
+		core.getInput('create_ref', { required: false })
 	) {
 		try {
 			await createTag(
