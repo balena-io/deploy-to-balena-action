@@ -1,8 +1,8 @@
 {
-  "name": "balena-ci",
+  "name": "deploy-to-balena-action",
   "version": "0.5.1",
   "description": "Github action to build releases for a fleet",
-  "homepage": "https://github.com/balena-io/balena-ci",
+  "homepage": "https://github.com/balena-io/deploy-to-balena-action",
   "private": true,
   "main": "build/main.js",
   "types": "build/main.d.ts",
@@ -14,10 +14,10 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/balena-io/balena-ci.git"
+    "url": "git+https://github.com/balena-io/deploy-to-balena-action.git"
   },
   "bugs": {
-    "url": "https://github.com/balena-io/balena-ci/issues"
+    "url": "https://github.com/balena-io/deploy-to-balena-action/issues"
   },
   "files": [
     "build/"
