@@ -59,7 +59,7 @@
     "@actions/exec": "^1.1.0",
     "@actions/github": "^5.0.0",
     "balena-cli": "^12.55.11",
-    "balena-sdk": "^15.59.2"
+    "balena-sdk": "^16.11.3"
   },
   "versionist": {
     "publishedAt": "2022-01-11T04:04:14.828Z"
