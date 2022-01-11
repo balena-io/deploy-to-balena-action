@@ -33,5 +33,5 @@ To add new events you can just copy the payloads from Github's [Webhook events a
 
 ## Manual E2E testing
 
-If you want to run the action on Github simply push your branch and then create a repository which has a workflow that uses it. For example, make a workflow with a job that uses `balena-io/balena-ci@<branch-name>`.
+If you want to run the action on Github simply push your branch and then create a repository which has a workflow that uses it. For example, make a workflow with a job that uses `balena-io/deploy-to-balena-action@<branch-name>`.
 
