@@ -1,4 +1,37 @@
 - commits:
+    - subject: 'audit: updates packages with npm audit fix'
+      hash: 486e727c9dabeac93484fc601a0a0d0de100ef0f
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Update packages
+      hash: 19ee5266743a01ac7a05714120c1534c09134f12
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Remove unused packages
+      hash: aa61b247d2bbed6f2e974297ff4c3405a3d97214
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.5.4
+  date: 2022-01-11T04:49:44.761Z
+- commits:
     - subject: 'patch: Add info on creating encrypted secrets in GitHub'
       hash: c6edbc80beac683b2968ad739fd2c52e3a180ccb
       body: ''
