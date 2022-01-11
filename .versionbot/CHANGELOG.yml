@@ -1,4 +1,13 @@
 - commits:
+    - subject: 'patch: Add info on creating encrypted secrets in GitHub'
+      hash: c6edbc80beac683b2968ad739fd2c52e3a180ccb
+      body: ''
+      footer: {}
+      author: Vipul Gupta
+      nested: []
+  version: 0.5.3
+  date: 2022-01-11T04:04:14.759Z
+- commits:
     - subject: fix reference to old repository name
       hash: feda305c76b7973cea3c27c55283c02c6c6f236b
       body: ''
