@@ -1,4 +1,45 @@
 - commits:
+    - subject: 'patch: bump balena-sdk from 15.57.0 to 16.11.3'
+      hash: 6e9c1498ff3d5eca833247c023d97c4a544894a2
+      body: >
+        Bumps [balena-sdk](https://github.com/balena-io/balena-sdk) from 15.57.0
+        to 16.11.3.
+
+        - [Release notes](https://github.com/balena-io/balena-sdk/releases)
+
+        -
+        [Changelog](https://github.com/balena-io/balena-sdk/blob/master/CHANGELOG.md)
+
+        -
+        [Commits](https://github.com/balena-io/balena-sdk/compare/v15.57.0...v16.11.3)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: balena-sdk
+          dependency-type: direct:production
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: 'dependabot[bot] <support@github.com>'
+        signed-off-by: 'dependabot[bot] <support@github.com>'
+      author: 'dependabot[bot]'
+      nested: []
+    - subject: fix reference to old repository name
+      hash: feda305c76b7973cea3c27c55283c02c6c6f236b
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.5.2
+  date: 2022-01-11T04:12:59.855Z
+- commits:
     - subject: Deprecated create_ref doesn't have a default so don't validate boolean
       hash: c7e54dadebe1674a6530201473fa77a0f1636d91
       body: ''
