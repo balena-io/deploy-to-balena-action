@@ -4,17 +4,18 @@ BALENARC_BALENA_URL=${BALENA_URL}
 
 export BALENARC_BALENA_URL
 
+trap "{ echo 'Action failed to initialize'; exit 1; }" ERR
+
 [ -z "$BALENA_TOKEN" ] && echo "BALENA_TOKEN input cannot be empty" && exit 1
 
-balena login --token ${BALENA_TOKEN}
+# Authenticate CLI with token
+balena login --token ${BALENA_TOKEN} 
 
-if [ $? -eq 1 ]; then
-  echo Failed to authenticate CLI
-  exit 1
-fi
+# Test CLI is working
+balena whoami 
 
-balena whoami
-
+# Test git is working
 git --version
 
+# Run action
 exec node /usr/src/app/build/main.js
