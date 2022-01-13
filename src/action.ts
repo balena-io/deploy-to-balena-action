@@ -56,6 +56,7 @@ export async function run(): Promise<void> {
 			context.payload.pull_request?.number!,
 		);
 		// This will checkout the branch to the `GITHUB_WORKSPACE` path
+		await git.fetch(); // fetch remote branches first
 		await git.checkout(versionbotBranch);
 	}
 
