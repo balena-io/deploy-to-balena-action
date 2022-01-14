@@ -22,13 +22,21 @@ const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
 	draft: true,
 };
 
-const balena = getSdk({
-	apiUrl: `https://api.${core.getInput('environment', { required: false })}/`,
-});
+let balena: ReturnType<typeof getSdk> | null = null;
+
+export async function init(endpoint: string, token: string) {
+	// Specify API endpoint
+	balena = getSdk({
+		apiUrl: `https://api.${endpoint})}/`,
+	});
+	// Authenticate client with token
+	await balena.auth.loginWithToken(token);
+}
 
 export async function push(
 	fleet: string,
 	source: string,
+	useCache: boolean,
 	options: Partial<BuildOptions>,
 ): Promise<string> {
 	if (process.env.GITHUB_ACTIONS === 'false') {
@@ -42,7 +50,7 @@ export async function push(
 	} as BuildOptions;
 
 	// Check if we want to use a cache release
-	if (core.getBooleanInput('cache', { required: false })) {
+	if (useCache) {
 		core.info('Checking if a release has already been built.');
 		const tags: Tags = {
 			sha: buildOpt.tags.sha,
@@ -113,8 +121,11 @@ export async function push(
 			buildProcess.kill('SIGINT');
 		});
 
-		buildProcess.on('exit', () => {
-			core.info('Build process exit');
+		buildProcess.on('exit', (code: number) => {
+			if (code !== 0) {
+				return reject('Build process returned non-0 exit code');
+			}
+			core.info('Build process returned 0 exit code');
 			if (releaseId) {
 				resolve(releaseId);
 			} else {
@@ -125,18 +136,19 @@ export async function push(
 }
 
 export async function getReleaseByTags(
-	slug: string,
+	fleet: string,
 	tags: Tags,
 ): Promise<Release> {
+	if (!balena) {
+		throw new Error('balena SDK has not been initialized');
+	}
+
 	core.debug(
-		`Getting Release for ${slug} fleet with Tag values: ${JSON.stringify(
+		`Getting Release for ${fleet} fleet with Tag values: ${JSON.stringify(
 			tags,
 		)}`,
 	);
 
-	await balena.auth.loginWithToken(
-		core.getInput('balena_token', { required: true }),
-	);
 	// Filters on commit SHA tag
 	const shaFilter = {
 		$any: {
@@ -171,15 +183,12 @@ export async function getReleaseByTags(
 				status: 'success',
 				release_tag: shaFilter,
 		  };
-	const application = await balena.models.release.getAllByApplication(
-		core.getInput('fleet', { required: true }),
-		{
-			$top: 1,
-			$select: ['id', 'is_final'],
-			$filter: filter,
-			$orderby: { created_at: 'desc' },
-		},
-	);
+	const application = await balena.models.release.getAllByApplication(fleet, {
+		$top: 1,
+		$select: ['id', 'is_final'],
+		$filter: filter,
+		$orderby: { created_at: 'desc' },
+	});
 
 	if (application.length !== 1) {
 		throw new Error('Did not find any matching releases');
@@ -193,11 +202,11 @@ export async function getReleaseByTags(
 
 // https://www.balena.io/docs/reference/sdk/node-sdk/#balena.models.release.get
 export async function getReleaseVersion(releaseId: number): Promise<string> {
-	core.debug(`Getting version for release ID ${releaseId}`);
+	if (!balena) {
+		throw new Error('balena SDK has not been initialized');
+	}
 
-	await balena.auth.loginWithToken(
-		core.getInput('balena_token', { required: true }),
-	);
+	core.debug(`Getting version for release ID ${releaseId}`);
 
 	const release = await balena.models.release.get(releaseId, {
 		$select: 'raw_version',

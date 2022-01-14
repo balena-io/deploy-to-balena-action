@@ -8,9 +8,13 @@ const sleep = (milliseconds: number) => {
 	return new Promise((resolve) => setTimeout(resolve, milliseconds));
 };
 
-export async function getBranch(pr: number): Promise<string> {
+export async function getBranch(repoContext: any, pr: number): Promise<string> {
 	// Look up checks for this commit
-	const checks = await getChecks();
+	const checks = await getChecks(
+		repoContext.owner,
+		repoContext.repo,
+		repoContext.ref,
+	);
 	// Find versionbot check
 	const versionbot = checks.filter((check) => {
 		return check.name.toLowerCase().includes('versionbot');
@@ -24,5 +28,6 @@ export async function getBranch(pr: number): Promise<string> {
 	debug(`Retrying in ${DEFAULT_SLEEP / 1000} seconds...`);
 	// Sleep and retry
 	await sleep(DEFAULT_SLEEP);
-	return await getBranch(pr);
+	// Try to get branch again
+	return await getBranch(repoContext, pr);
 }
