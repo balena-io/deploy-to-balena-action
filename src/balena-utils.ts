@@ -83,7 +83,7 @@ export async function push(
 
 	let releaseId: string | null = null;
 
-	return new Promise((resolve, reject) => {
+	return new Promise((resolve) => {
 		core.debug(`balena ${pushOpt.join(' ')}`);
 
 		const buildProcess = spawn('balena', pushOpt, {
@@ -113,12 +113,17 @@ export async function push(
 			buildProcess.kill('SIGINT');
 		});
 
-		buildProcess.on('exit', () => {
-			core.info('Build process exit');
+		buildProcess.on('exit', (code: number) => {
+			if (code !== 0) {
+				throw new Error('Build process returned non-0 exit code');
+			}
+			core.info('Build process returned 0 exit code');
 			if (releaseId) {
 				resolve(releaseId);
 			} else {
-				reject('Was unable to find release ID from the build process.');
+				throw new Error(
+					'Was unable to find release ID from the build process.',
+				);
 			}
 		});
 	});

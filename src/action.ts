@@ -59,13 +59,14 @@ export async function run(): Promise<void> {
 		await git.checkout(versionbotBranch);
 	}
 
+	let buildOptions = null;
 	// If we are pushing directly to the target branch then just build a release without draft flag
 	if (context.eventName === 'push' && context.ref === `refs/heads/${target}`) {
 		// Make a final release because context is master workflow
-		releaseId = await balena.push(fleet, src, {
+		buildOptions = {
 			draft: false,
 			tags: { sha: context.sha },
-		});
+		};
 	} else if (context.eventName !== 'pull_request') {
 		// Make sure the only events now are Pull Requests
 		if (context.eventName === 'push') {
@@ -76,17 +77,16 @@ export async function run(): Promise<void> {
 		throw new Error(`Unsure how to proceed with event: ${context.eventName}`);
 	} else {
 		// Make a draft release because context is PR workflow
-		releaseId = await balena.push(fleet, src, {
+		buildOptions = {
 			tags: {
 				sha: context.payload.pull_request?.head.sha,
 				pullRequestId: context.payload.pull_request?.id,
 			},
-		});
+		};
 	}
 
-	if (!releaseId) {
-		throw new Error('A release should have built by now');
-	}
+	// Finally send source to builders
+	releaseId = await balena.push(fleet, src, buildOptions);
 
 	// Now that we built a release set the expected outputs
 	rawVersion = await balena.getReleaseVersion(parseInt(releaseId, 10));
