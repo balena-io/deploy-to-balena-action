@@ -1,4 +1,17 @@
 - commits:
+    - subject: Fix handling errors returned during source push
+      hash: 24b5907eca9915e1de52d1c6911e2b6b4cd55a4e
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.5.6
+  date: 2022-01-14T07:24:46.910Z
+- commits:
     - subject: Exit early if any command in the entrypoint returns non-0 code
       hash: 5a6425bc9da1c9d6b18063c143bd0966c0e92a5d
       body: ''
