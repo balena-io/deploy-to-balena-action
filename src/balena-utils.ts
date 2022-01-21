@@ -95,7 +95,7 @@ export async function push(
 		buildProcess.stdout.on('data', (data: Buffer) => {
 			const msg = stripAnsi(data.toString());
 			core.info(msg);
-			const match = msg.match(/\(id: (\d*)\)/);
+			const match = msg.match(/Release: .{32} \(id: (\d*)\)/);
 			if (match) {
 				releaseId = match[1];
 			}
