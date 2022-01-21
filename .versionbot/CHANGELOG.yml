@@ -1,4 +1,19 @@
 - commits:
+    - subject: >-
+        Refactor releaseId regex to be more specific to prevent matching wrong
+        string
+      hash: 7db7c82a690696715d90b41a635fc2590a9bd7c7
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.5.6
+  date: 2022-01-21T05:01:26.068Z
+- commits:
     - subject: Exit early if any command in the entrypoint returns non-0 code
       hash: 5a6425bc9da1c9d6b18063c143bd0966c0e92a5d
       body: ''
