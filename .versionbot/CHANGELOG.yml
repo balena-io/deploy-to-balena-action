@@ -1,4 +1,35 @@
 - commits:
+    - subject: 'patch: bump balena-sdk from 15.59.2 to 16.12.1'
+      hash: e6f861109cd4e90efaff5bfc39fde5c4a630b6f7
+      body: >
+        Bumps [balena-sdk](https://github.com/balena-io/balena-sdk) from 15.59.2
+        to 16.12.1.
+
+        - [Release notes](https://github.com/balena-io/balena-sdk/releases)
+
+        -
+        [Changelog](https://github.com/balena-io/balena-sdk/blob/master/CHANGELOG.md)
+
+        -
+        [Commits](https://github.com/balena-io/balena-sdk/compare/v15.59.2...v16.12.1)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: balena-sdk
+          dependency-type: direct:production
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: 'dependabot[bot] <support@github.com>'
+        signed-off-by: 'dependabot[bot] <support@github.com>'
+      author: 'dependabot[bot]'
+      nested: []
+  version: 0.5.7
+  date: 2022-01-21T05:09:27.504Z
+- commits:
     - subject: >-
         Refactor releaseId regex to be more specific to prevent matching wrong
         string
