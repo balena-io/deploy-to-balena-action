@@ -1,4 +1,32 @@
 - commits:
+    - subject: 'patch: bump ts-node from 9.1.1 to 10.4.0'
+      hash: 82b62255cdd998f1725e95e0d172d7c60a11ca92
+      body: >
+        Bumps [ts-node](https://github.com/TypeStrong/ts-node) from 9.1.1 to
+        10.4.0.
+
+        - [Release notes](https://github.com/TypeStrong/ts-node/releases)
+
+        -
+        [Commits](https://github.com/TypeStrong/ts-node/compare/v9.1.1...v10.4.0)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: ts-node
+          dependency-type: direct:development
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: 'dependabot[bot] <support@github.com>'
+        signed-off-by: 'dependabot[bot] <support@github.com>'
+      author: 'dependabot[bot]'
+      nested: []
+  version: 0.5.7
+  date: 2022-01-21T05:09:07.601Z
+- commits:
     - subject: >-
         Refactor releaseId regex to be more specific to prevent matching wrong
         string
