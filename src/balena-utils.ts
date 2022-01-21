@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import { exec } from '@actions/exec';
 import { spawn } from 'child_process';
-import { getSdk } from 'balena-sdk';
+import * as balena from 'balena-sdk';
 
 type Release = {
 	id: string;
@@ -22,15 +22,15 @@ const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
 	draft: true,
 };
 
-let balena: ReturnType<typeof getSdk> | null = null;
+let sdk: ReturnType<typeof balena.getSdk> | null = null;
 
 export async function init(endpoint: string, token: string) {
 	// Specify API endpoint
-	balena = getSdk({
+	sdk = balena.getSdk({
 		apiUrl: `https://api.${endpoint})}/`,
 	});
 	// Authenticate client with token
-	await balena.auth.loginWithToken(token);
+	await sdk.auth.loginWithToken(token);
 }
 
 export async function push(
@@ -139,7 +139,7 @@ export async function getReleaseByTags(
 	fleet: string,
 	tags: Tags,
 ): Promise<Release> {
-	if (!balena) {
+	if (!sdk) {
 		throw new Error('balena SDK has not been initialized');
 	}
 
@@ -183,7 +183,7 @@ export async function getReleaseByTags(
 				status: 'success',
 				release_tag: shaFilter,
 		  };
-	const application = await balena.models.release.getAllByApplication(fleet, {
+	const application = await sdk.models.release.getAllByApplication(fleet, {
 		$top: 1,
 		$select: ['id', 'is_final'],
 		$filter: filter,
@@ -202,13 +202,13 @@ export async function getReleaseByTags(
 
 // https://www.balena.io/docs/reference/sdk/node-sdk/#balena.models.release.get
 export async function getReleaseVersion(releaseId: number): Promise<string> {
-	if (!balena) {
+	if (!sdk) {
 		throw new Error('balena SDK has not been initialized');
 	}
 
 	core.debug(`Getting version for release ID ${releaseId}`);
 
-	const release = await balena.models.release.get(releaseId, {
+	const release = await sdk.models.release.get(releaseId, {
 		$select: 'raw_version',
 	});
 
