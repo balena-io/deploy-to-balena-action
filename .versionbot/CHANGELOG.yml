@@ -1,4 +1,33 @@
 - commits:
+    - subject: 'patch: bump sinon from 11.1.2 to 12.0.1'
+      hash: 393ebca74627342f912bf40a405a0b3a0a1558ba
+      body: >
+        Bumps [sinon](https://github.com/sinonjs/sinon) from 11.1.2 to 12.0.1.
+
+        - [Release notes](https://github.com/sinonjs/sinon/releases)
+
+        -
+        [Changelog](https://github.com/sinonjs/sinon/blob/master/docs/changelog.md)
+
+        - [Commits](https://github.com/sinonjs/sinon/compare/v11.1.2...v12.0.1)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: sinon
+          dependency-type: direct:development
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: 'dependabot[bot] <support@github.com>'
+        signed-off-by: 'dependabot[bot] <support@github.com>'
+      author: 'dependabot[bot]'
+      nested: []
+  version: 0.5.7
+  date: 2022-01-21T05:07:24.235Z
+- commits:
     - subject: >-
         Refactor releaseId regex to be more specific to prevent matching wrong
         string
