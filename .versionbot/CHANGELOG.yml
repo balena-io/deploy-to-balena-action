@@ -1,9 +1,37 @@
 - commits:
-    - subject: >-
-        Refactor releaseId regex to be more specific to prevent matching wrong
+    - subject: "patch: bump sinon from 11.1.2 to 13.0.0"
+      hash: 12247d9992ec6f1c27f257a45e92e64642d84706
+      body: >
+        Bumps [sinon](https://github.com/sinonjs/sinon) from 11.1.2 to 13.0.0.
+
+        - [Release notes](https://github.com/sinonjs/sinon/releases)
+
+        - [Changelog](https://github.com/sinonjs/sinon/blob/master/docs/changelog.md)
+
+        - [Commits](https://github.com/sinonjs/sinon/compare/v11.1.2...v13.0.0)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: sinon
+          dependency-type: direct:development
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.5.7
+  title: "patch: bump sinon from 11.1.2 to 13.0.0"
+  date: 2022-01-31T08:17:21.555Z
+- commits:
+    - subject: Refactor releaseId regex to be more specific to prevent matching wrong
         string
       hash: 7db7c82a690696715d90b41a635fc2590a9bd7c7
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -16,7 +44,7 @@
 - commits:
     - subject: Exit early if any command in the entrypoint returns non-0 code
       hash: 5a6425bc9da1c9d6b18063c143bd0966c0e92a5d
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -27,9 +55,9 @@
   version: 0.5.5
   date: 2022-01-13T21:22:43.373Z
 - commits:
-    - subject: 'audit: updates packages with npm audit fix'
+    - subject: "audit: updates packages with npm audit fix"
       hash: 486e727c9dabeac93484fc601a0a0d0de100ef0f
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -39,7 +67,7 @@
       nested: []
     - subject: Update packages
       hash: 19ee5266743a01ac7a05714120c1534c09134f12
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -49,7 +77,7 @@
       nested: []
     - subject: Remove unused packages
       hash: aa61b247d2bbed6f2e974297ff4c3405a3d97214
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -60,9 +88,9 @@
   version: 0.5.4
   date: 2022-01-11T04:49:44.761Z
 - commits:
-    - subject: 'patch: Add info on creating encrypted secrets in GitHub'
+    - subject: "patch: Add info on creating encrypted secrets in GitHub"
       hash: c6edbc80beac683b2968ad739fd2c52e3a180ccb
-      body: ''
+      body: ""
       footer: {}
       author: Vipul Gupta
       nested: []
@@ -71,7 +99,7 @@
 - commits:
     - subject: fix reference to old repository name
       hash: feda305c76b7973cea3c27c55283c02c6c6f236b
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -84,7 +112,7 @@
 - commits:
     - subject: Deprecated create_ref doesn't have a default so don't validate boolean
       hash: c7e54dadebe1674a6530201473fa77a0f1636d91
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -95,9 +123,9 @@
   version: 0.5.1
   date: 2021-12-24T12:09:01.448Z
 - commits:
-    - subject: 'action.yml: Update description text for create_tag'
+    - subject: "action.yml: Update description text for create_tag"
       hash: 9b31ec6d5df7e9dd0e57dc4be0ba128288116d78
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -107,7 +135,7 @@
       nested: []
     - subject: Rename create_ref to create_tag as we only ever create tags
       hash: 01820db5b02ab522a9db74d2bafaa2d6cd69c0e8
-      body: ''
+      body: ""
       footer:
         Change-type: minor
         change-type: minor
@@ -120,7 +148,7 @@
 - commits:
     - subject: Update repo name in README referencing old name
       hash: 9d08a607c24fd2d55e455270f5c5ec2394687911
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -133,7 +161,7 @@
 - commits:
     - subject: Change README heading
       hash: d870ba955393b34fc48174d54e6a651f1a6074e7
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -146,7 +174,7 @@
 - commits:
     - subject: Added branding values (icon + color)
       hash: fd26f80b13f83dc1263d33d92dddeb99a04ef02d
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -159,7 +187,7 @@
 - commits:
     - subject: Change name in action.yml to be more unique in marketplace
       hash: ae1d23407f8238b609f41d24c831cc53d3bc2045
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -172,10 +200,10 @@
 - commits:
     - subject: Do nothing when closing PR without merging
       hash: 9aa85607db88bcc04228acf22151c264895895cb
-      body: ''
+      body: ""
       footer:
-        Resolves: '#68'
-        resolves: '#68'
+        Resolves: "#68"
+        resolves: "#68"
         Change-type: patch
         change-type: patch
         Signed-off-by: Tomás Migone <tomas@balena.io>
@@ -199,13 +227,12 @@
   version: 0.4.4
   date: 2021-11-27T18:57:17.909Z
 - commits:
-    - subject: >-
-        Refactor build process to use standard lib function Previous method used
-        Github exec module which did not pass the SIGINT signal to the build
-        process which prevented the CLI from telling the builder to cancel if
-        the github action is stopping.
+    - subject: Refactor build process to use standard lib function Previous method
+        used Github exec module which did not pass the SIGINT signal to the
+        build process which prevented the CLI from telling the builder to cancel
+        if the github action is stopping.
       hash: 08a1cf812a015c70f6c77bdd2f3a9c11754bd139
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -215,7 +242,7 @@
       nested: []
     - subject: Restructure Dockerfile steps to improve layer caching
       hash: bad34c7595f783dd4f46f5a03cee7740a182ec01
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -228,7 +255,7 @@
 - commits:
     - subject: Default source input to empty string instead of false
       hash: 70855ade6dc26382164eac061831359ceb5abea8
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -241,7 +268,7 @@
 - commits:
     - subject: Correct spec to allow source parameter
       hash: 8011320221b1f42384d91607e8fab276c44e51bc
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -252,7 +279,7 @@
 - commits:
     - subject: Adds support for custom source directory as input
       hash: a23a0307e7f7f3ebbaf32a1166e5be60c3530aa8
-      body: ''
+      body: ""
       footer:
         Change-type: minor
         change-type: minor
@@ -265,7 +292,7 @@
 - commits:
     - subject: Refactor action.ts to set outputs once
       hash: 80f44459ab7fa4f18002c2c5b8e835bb1f0355f9
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -275,7 +302,7 @@
       nested: []
     - subject: Check for previously built release to use as cache
       hash: ba388b4d51a3ca35fbce2ea9b614b54e669a8536
-      body: ''
+      body: ""
       footer:
         Change-type: minor
         change-type: minor
@@ -285,7 +312,7 @@
       nested: []
     - subject: Fix default build options overriding passed options
       hash: 20a1e0180fd34ed6542230362d21b7ac595ebde5
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -295,7 +322,7 @@
       nested: []
     - subject: Fix env.example for events to include require inputs
       hash: 3785b33382ce61ed645e1d72d80d9aad9fab336f
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -305,7 +332,7 @@
       nested: []
     - subject: Remove target input from action.yml
       hash: 2c174d83e061156feff83f0e35049dade4444f37
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -318,7 +345,7 @@
 - commits:
     - subject: Optionally add ref to git commit with release version
       hash: 01ed0f2c587f49d14b0560c6fd756de2ae237496
-      body: ''
+      body: ""
       footer:
         Change-type: minor
         change-type: minor
@@ -326,7 +353,7 @@
         signed-off-by: Kyle Harding <kyle@balena.io>
       author: Kyle Harding
       nested: []
-    - subject: 'balena-sdk: Update balena-sdk from 15.54.2 to 15.57.0'
+    - subject: "balena-sdk: Update balena-sdk from 15.54.2 to 15.57.0"
       hash: 10099f4b234d5caa089a524b44c19cc5d4f7197b
       body: |
         Update balena-sdk from 15.54.2 to 15.57.0
@@ -339,7 +366,7 @@
       nested: []
     - subject: Cleanup example env files
       hash: 06206ffcad9a705ee2d5f5526c69d5393b4decfe
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -349,7 +376,7 @@
       nested: []
     - subject: Updated packages
       hash: c81c5ce0bf6b1c1835846c8d283d490d51efb72d
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -359,7 +386,7 @@
       nested: []
     - subject: Minor readme additions
       hash: 7d878fdd579c7890c9e02d0d760966a2511e7cbb
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -372,7 +399,7 @@
 - commits:
     - subject: Minor readme additions
       hash: 7d878fdd579c7890c9e02d0d760966a2511e7cbb
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -396,7 +423,7 @@
       nested: []
     - subject: Cleanup DEVELOPMENT.md and include manual E2E testing notes
       hash: c9f118e1ca5b339b47eaded01eeae32491510e51
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -404,11 +431,10 @@
         signed-off-by: Miguel Casqueira <miguel@balena.io>
       author: Miguel Casqueira
       nested: []
-    - subject: >-
-        Remove GITHUB_TOKEN from docs Defaults to the token in the Github
+    - subject: Remove GITHUB_TOKEN from docs Defaults to the token in the Github
         context instead of relying on the user to pass it
       hash: 588e58acd1394f7f808a6ee9e6af515ca21d1e57
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -418,7 +444,7 @@
       nested: []
     - subject: Reset CHANGELOG.md
       hash: 67ab860eca7f659d5dcf47a22f8bb3f88443c9b4
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -428,7 +454,7 @@
       nested: []
     - subject: Support finalizing multiple releases
       hash: f182f8b9f5669b15981af635e68c12bde82db611
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -438,7 +464,7 @@
       nested: []
     - subject: Allow passing in list of fleets to build release for
       hash: f599c5a867a316330eacf1ea30b6b85f983a04f8
-      body: ''
+      body: ""
       footer:
         Change-type: minor
         change-type: minor
@@ -448,7 +474,7 @@
       nested: []
     - subject: Pass balena_url input to CLI as BALENARC_BALENA_URL
       hash: 4fb6f00f6c3ee17c1f7e3092fc2b04fdd57620fd
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
@@ -458,7 +484,7 @@
       nested: []
     - subject: Check if context is PR before finalizing
       hash: 99ecc3a55d39f370c7169e69cff8bd42a6dbd925
-      body: ''
+      body: ""
       footer:
         Change-type: patch
         change-type: patch
