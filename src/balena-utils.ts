@@ -3,14 +3,11 @@ import { exec } from '@actions/exec';
 import { spawn } from 'child_process';
 import * as balena from 'balena-sdk';
 
-type Release = {
-	id: string;
-	isFinal: boolean;
-};
+import { Release } from './types';
 
 type Tags = {
 	sha: string;
-	pullRequestId?: string;
+	pullRequestId?: number;
 };
 
 type BuildOptions = {
@@ -38,10 +35,10 @@ export async function push(
 	source: string,
 	useCache: boolean,
 	options: Partial<BuildOptions>,
-): Promise<string> {
+): Promise<Release['id']> {
 	if (process.env.GITHUB_ACTIONS === 'false') {
 		core.debug('Not pushing source to builders because action is false.');
-		return '1910442'; // Do not actually build if this code is not being ran by Github
+		return 1910442; // Do not actually build if this code is not being ran by Github
 	}
 
 	const buildOpt = {
@@ -82,7 +79,7 @@ export async function push(
 
 	if (buildOpt.tags.pullRequestId) {
 		pushOpt.push('balena-ci-id');
-		pushOpt.push(buildOpt.tags.pullRequestId);
+		pushOpt.push(buildOpt.tags.pullRequestId.toString());
 	}
 
 	if (buildOpt.draft) {
@@ -127,7 +124,7 @@ export async function push(
 			}
 			core.info('Build process returned 0 exit code');
 			if (releaseId) {
-				resolve(releaseId);
+				resolve(parseInt(releaseId, 10));
 			} else {
 				reject('Was unable to find release ID from the build process.');
 			}
@@ -161,23 +158,27 @@ export async function getReleaseByTags(
 			},
 		},
 	};
-	// Filters on Pull Request ID
-	const idFilter = {
-		$any: {
-			$alias: 'rt',
-			$expr: {
-				rt: {
-					tag_key: 'balena-ci-id',
-					value: tags.pullRequestId!,
-				},
-			},
-		},
-	};
 	// If a PR ID is passed in the tags then filter on that and SHA
 	const filter = tags.pullRequestId
 		? {
+				// Filters on Pull Request ID as well as SHA
 				status: 'success',
-				$and: [{ release_tag: idFilter }, { release_tag: shaFilter }],
+				$and: [
+					{
+						release_tag: {
+							$any: {
+								$alias: 'rt',
+								$expr: {
+									rt: {
+										tag_key: 'balena-ci-id',
+										value: tags.pullRequestId!.toString(),
+									},
+								},
+							},
+						},
+					},
+					{ release_tag: shaFilter },
+				],
 		  }
 		: {
 				status: 'success',
@@ -195,7 +196,7 @@ export async function getReleaseByTags(
 	}
 
 	return {
-		id: application[0].id.toString(),
+		id: application[0].id,
 		isFinal: application[0].is_final,
 	};
 }
@@ -221,8 +222,10 @@ export async function getReleaseVersion(releaseId: number): Promise<string> {
 	return release.raw_version;
 }
 
-export async function finalize(releaseId: string): Promise<void> {
-	if ((await exec('balena', ['release', 'finalize', releaseId])) !== 0) {
+export async function finalize(releaseId: number): Promise<void> {
+	if (
+		(await exec('balena', ['release', 'finalize', releaseId.toString()])) !== 0
+	) {
 		throw new Error(`Failed to finalize release ${releaseId}.`);
 	}
 }

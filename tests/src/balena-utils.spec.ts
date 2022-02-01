@@ -160,7 +160,7 @@ describe('src/balena-utils', () => {
 					draft: false,
 					tags: { sha: 'fba0317620597271695087c168c50d8c94975a29' },
 				}),
-			).to.eventually.equal('149241');
+			).to.eventually.equal(149241);
 		});
 	});
 
@@ -283,7 +283,7 @@ describe('src/balena-utils', () => {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
 					pullRequestId: '412',
 				}),
-			).to.eventually.deep.equal({ id: '2008424', isFinal: false });
+			).to.eventually.deep.equal({ id: 2008424, isFinal: false });
 		});
 	});
 

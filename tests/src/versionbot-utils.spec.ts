@@ -6,10 +6,17 @@ import * as versionbot from '../../src/versionbot-utils';
 
 describe('src/versionbot-utils', () => {
 	let checksStub: SinonStub;
+	const prNumber = Math.floor(Math.random() * 10);
+	const prId = Math.floor(Math.random() * 10000);
 	const repoContext = {
 		owner: 'balena-io',
-		repo: 'deploy-to-balena-aciton',
-		ref: '123',
+		name: 'deploy-to-balena-aciton',
+		sha: '123',
+		pullRequest: {
+			id: prId,
+			number: prNumber,
+			merged: false,
+		},
 	};
 
 	before(() => {
@@ -30,10 +37,9 @@ describe('src/versionbot-utils', () => {
 			{ id: 2, name: 'AnotherAction/Action', status: 'completed' },
 			{ id: 3, name: 'Something/Else', status: 'running' },
 		]);
-		const prNumber = Math.floor(Math.random() * 10000);
-		await expect(
-			versionbot.getBranch(repoContext, prNumber),
-		).to.eventually.equal(`versionbot/pr/${prNumber}`);
+		await expect(versionbot.getBranch(repoContext)).to.eventually.equal(
+			`versionbot/pr/${prNumber}`,
+		);
 	});
 
 	it('waits until versionbot action completes', async () => {
@@ -50,10 +56,9 @@ describe('src/versionbot-utils', () => {
 				{ id: 3, name: 'Something/Else', status: 'running' },
 			]);
 		}, 2000);
-		const prNumber = Math.floor(Math.random() * 10000);
 		// Start checking for versionbot branch
-		await expect(
-			versionbot.getBranch(repoContext, prNumber),
-		).to.eventually.equal(`versionbot/pr/${prNumber}`);
+		await expect(versionbot.getBranch(repoContext)).to.eventually.equal(
+			`versionbot/pr/${prNumber}`,
+		);
 	});
 });

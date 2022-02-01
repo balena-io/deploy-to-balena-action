@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import { context } from '@actions/github';
 
-import Inputs from './inputs';
+import { Inputs } from './types';
 import * as action from './action';
 import * as githubUtils from './github-utils';
 import * as balenaUtils from './balena-utils';

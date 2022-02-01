@@ -4,7 +4,7 @@ import { context as contextType } from '@actions/github';
 import * as versionbot from './versionbot-utils';
 import * as balena from './balena-utils';
 import * as git from './git';
-import Inputs from './inputs';
+import { Inputs, RepoContext } from './types';
 import { createTag } from './github-utils';
 
 export async function run(
@@ -21,24 +21,31 @@ export async function run(
 	// File path to build release images from
 	const src = `${process.env.GITHUB_WORKSPACE!}/${inputs.source}`;
 	// Collect repo context
-	const repoContext = {
-		owner: context.payload.repository?.owner.login || '',
-		name: context.payload.repository?.name || '',
-		ref: context.payload.pull_request?.head.sha || '',
+	const repoContext: RepoContext = {
+		owner: context.payload.repository.owner.login || '',
+		name: context.payload.repository.name || '',
+		sha: context.payload.pull_request?.head.sha || context.sha,
+		pullRequest: context.payload.pull_request
+			? {
+					id: context.payload.pull_request.id,
+					number: context.payload.pull_request.number,
+					merged: context.payload.pull_request.merged,
+			  }
+			: null,
 	};
 
 	// ID of release built
-	let releaseId: string | null = null;
+	let releaseId: number | null = null;
 	// Version of release built
 	let rawVersion: string | null = null;
 
 	if (context.payload.action === 'closed') {
 		// If a pull request was closed and merged then just finalize the release!
-		if (context.payload.pull_request?.merged) {
+		if (repoContext.pullRequest && repoContext.pullRequest.merged) {
 			// Get the previous release built
 			const previousRelease = await balena.getReleaseByTags(inputs.fleet, {
-				sha: context.payload.pull_request?.head.sha,
-				pullRequestId: context.payload.pull_request?.id,
+				sha: repoContext.sha,
+				pullRequestId: repoContext.pullRequest.id,
 			});
 			if (!previousRelease) {
 				throw new Error(
@@ -59,10 +66,7 @@ export async function run(
 
 	// If the repository uses Versionbot then checkout Versionbot branch
 	if (inputs.versionbot) {
-		const versionbotBranch = await versionbot.getBranch(
-			repoContext,
-			context.payload.pull_request?.number!,
-		);
+		const versionbotBranch = await versionbot.getBranch(repoContext);
 		// This will checkout the branch to the `GITHUB_WORKSPACE` path
 		await git.fetch(); // fetch remote branches first
 		await git.checkout(versionbotBranch);
@@ -89,8 +93,8 @@ export async function run(
 		// Make a draft release because context is PR workflow
 		buildOptions = {
 			tags: {
-				sha: context.payload.pull_request?.head.sha,
-				pullRequestId: context.payload.pull_request?.id,
+				sha: repoContext.sha,
+				pullRequestId: repoContext.pullRequest!.id,
 			},
 		};
 	}
@@ -103,16 +107,13 @@ export async function run(
 		});
 
 	// Now that we built a release set the expected outputs
-	rawVersion = await balena.getReleaseVersion(parseInt(releaseId, 10));
+	rawVersion = await balena.getReleaseVersion(releaseId);
 	core.setOutput('version', rawVersion);
 	core.setOutput('release_id', releaseId);
 
 	if (inputs.createTag) {
 		try {
-			await createTag(
-				rawVersion,
-				context.payload.pull_request?.head.sha || context.sha,
-			);
+			await createTag(repoContext, rawVersion);
 		} catch (e: any) {
 			if (e.message !== 'Reference already exists') {
 				throw e;
