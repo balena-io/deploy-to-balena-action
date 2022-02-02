@@ -4,7 +4,7 @@
   "description": "Github action to build releases for a fleet",
   "homepage": "https://github.com/balena-io/deploy-to-balena-action",
   "private": true,
-  "main": "build/main.js",
+  "main": "build/src/main.js",
   "types": "build/main.d.ts",
   "keywords": [
     "balena",
@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "clean": "rimraf build",
-    "action": "npm run build && node -r dotenv/config build/main.js",
+    "action": "npm run build && node -r dotenv/config build/src/main.js",
     "action:open-pr": "npm run action dotenv_config_path=events/open-pr/.env",
     "action:sync-pr": "npm run action dotenv_config_path=events/sync-pr/.env",
     "action:close-pr": "npm run action dotenv_config_path=events/close-pr/.env",
@@ -32,10 +32,11 @@
     "build": "npm run clean && tsc",
     "lint": "balena-lint --typescript src tests",
     "lint-fix": "balena-lint --typescript --fix src tests",
-    "test:node": "mocha -r ts-node/register --reporter spec tests/**/*.spec.ts",
     "test:fast": "TEST=1 mocha --config tests/.mocharc.fast.js",
-    "test": "npm run build && npm run lint && npm run test:node",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+	"test": "npm run clean && npm run lint && npm run test:build && TEST=1 mocha --config tests/.mocharc.js",
+    "test:build": "tsc --project tsconfig.json && npm run testitems:copy",
+    "testitems:copy": "cp -r tests/data build/tests/"
   },
   "devDependencies": {
     "@balena/lint": "^6.2.0",

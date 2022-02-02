@@ -18,4 +18,4 @@ balena whoami
 git --version
 
 # Run action
-exec node /usr/src/app/build/main.js
+exec node /usr/src/app/build/src/main.js
