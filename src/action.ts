@@ -4,8 +4,8 @@ import { context as contextType } from '@actions/github';
 import * as versionbot from './versionbot-utils';
 import * as balena from './balena-utils';
 import * as git from './git';
+import * as github from './github-utils';
 import { Inputs, RepoContext } from './types';
-import { createTag } from './github-utils';
 
 export async function run(
 	context: typeof contextType,
@@ -100,11 +100,17 @@ export async function run(
 	}
 
 	// Finally send source to builders
-	releaseId = await balena
-		.push(inputs.fleet, src, inputs.cache, buildOptions)
-		.catch((e) => {
-			throw e;
-		});
+	try {
+		releaseId = await balena.push(
+			inputs.fleet,
+			src,
+			inputs.cache,
+			buildOptions,
+		);
+	} catch (e: any) {
+		core.error(e.message);
+		throw e;
+	}
 
 	// Now that we built a release set the expected outputs
 	rawVersion = await balena.getReleaseVersion(releaseId);
@@ -113,7 +119,7 @@ export async function run(
 
 	if (inputs.createTag) {
 		try {
-			await createTag(repoContext, rawVersion);
+			await github.createTag(repoContext, rawVersion);
 		} catch (e: any) {
 			if (e.message !== 'Reference already exists') {
 				throw e;
