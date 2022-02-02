@@ -24,10 +24,11 @@ const inputs: Inputs = {
 githubUtils.init(inputs.githubToken);
 
 // Initialize balena SDK
-balenaUtils.init(inputs.environment, inputs.balenaToken).then(async () => {
-	try {
-		await action.run(context, inputs);
-	} catch (e: any) {
+balenaUtils
+	.init(inputs.environment, inputs.balenaToken)
+	.then(() => {
+		action.run(context, inputs);
+	})
+	.catch((e) => {
 		core.setFailed(e.message);
-	}
-});
+	});

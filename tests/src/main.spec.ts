@@ -63,6 +63,10 @@ describe('src/main', () => {
 	});
 
 	it('initilizes action correctly', async () => {
+		const setFailedStub = stub(core, 'setFailed');
+		// Actions pass by default so make this fail to test if failure is set
+		actionStub.throws(new Error('Something went wrong'));
+
 		require('../../src/main'); // run code to test
 
 		// Check that requires modules were initilized before running the action
@@ -92,5 +96,9 @@ describe('src/main', () => {
 			source: '/workdir',
 			githubToken: 'ghTokenExample',
 		});
+		// Since github actions pass by default there's no need to check if the action passes
+		// So, let's check if the action correctly handles failures instead
+		expect(setFailedStub).to.have.been.calledWith('Something went wrong');
+		setFailedStub.restore();
 	});
 });
