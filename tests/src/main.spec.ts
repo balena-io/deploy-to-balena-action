@@ -65,7 +65,7 @@ describe('src/main', () => {
 	it('initilizes action correctly', async () => {
 		const setFailedStub = stub(core, 'setFailed');
 		// Actions pass by default so make this fail to test if failure is set
-		actionStub.throws(new Error('Something went wrong'));
+		actionStub.rejects(new Error('Something went wrong'));
 
 		require('../../src/main'); // run code to test
 

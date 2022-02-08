@@ -20,15 +20,14 @@ const inputs: Inputs = {
 	githubToken: core.getInput('github_token', { required: false }),
 };
 
-// Initialize github client
-githubUtils.init(inputs.githubToken);
-
-// Initialize balena SDK
-balenaUtils
-	.init(inputs.environment, inputs.balenaToken)
-	.then(() => {
-		action.run(context, inputs);
-	})
-	.catch((e) => {
+(async () => {
+	try {
+		// Initialize github client
+		githubUtils.init(inputs.githubToken);
+		// Initialize balena SDK
+		await balenaUtils.init(inputs.environment, inputs.balenaToken);
+		await action.run(context, inputs);
+	} catch (e: any) {
 		core.setFailed(e.message);
-	});
+	}
+})();
