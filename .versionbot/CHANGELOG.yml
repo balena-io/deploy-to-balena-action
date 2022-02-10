@@ -1,4 +1,28 @@
 - commits:
+    - subject: Define upstreams for embedded changelog support
+      hash: 9d03be9e4cc936aabb3216837dead362487bc4fb
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: Enable github releases on tagged versions
+      hash: 642bbc3a84e42699bcca2361e6ca3b01c400de6e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 0.5.8
+  title: "'Enable github releases on tagged versions'"
+  date: 2022-02-10T14:51:37.208Z
+- commits:
     - subject: Cleanup unit tests
       hash: b0ce3a0048202e6396713bdb07407f6538a68617
       body: ""
