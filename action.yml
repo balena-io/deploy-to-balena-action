@@ -31,6 +31,10 @@ inputs:
     description: 'Tag the git commit with the balena release version'
     required: false
     default: false
+  create_ref:
+    description: 'Tag the git commit with the balena release version'
+    required: false
+    default: false
   cache:
     description: 'If a release matching the commit already exists do not build'
     required: false
