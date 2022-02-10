@@ -2,6 +2,7 @@ import * as core from '@actions/core';
 import { expect } from 'chai';
 import { stub, SinonStub } from 'sinon';
 
+import { sleep } from '../lib/sleep';
 import * as action from '../../src/action';
 import * as githubUtils from '../../src/github-utils';
 import * as balenaUtils from '../../src/balena-utils';
@@ -80,9 +81,7 @@ describe('src/main', () => {
 			// Since the main file performs async operations without a way to know
 			// once it is done we will wait until the action is called.
 			// The test timeout will make this fail if it runs for longer then allowed time.
-			await new Promise((resolve) => {
-				setTimeout(resolve, 1);
-			});
+			await sleep(1);
 		}
 		// Check that the action was given correct input parameters
 		// Not checking first input which is the context as this is loaded by the github module

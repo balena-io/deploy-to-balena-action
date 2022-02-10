@@ -169,7 +169,7 @@ describe('src/balena-utils', () => {
 
 		before(() => {
 			sdkStub = stub(balena, 'getSdk');
-			sdkStub = sdkStub.returns({
+			sdkStub.returns({
 				auth: {
 					loginWithToken: authStub,
 				},
