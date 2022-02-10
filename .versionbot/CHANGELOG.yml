@@ -1,4 +1,20 @@
 - commits:
+    - subject: Add `create_ref` input back to action.yml so a default value is set
+      hash: 7059cc3d1fad16bb940263f61926e103e44e2dcb
+      body: ""
+      footer:
+        Closes: "#111"
+        closes: "#111"
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.5.9
+  title: "'Add  input back to action.yml so a default value is set'"
+  date: 2022-02-10T17:04:45.555Z
+- commits:
     - subject: Define upstreams for embedded changelog support
       hash: 9d03be9e4cc936aabb3216837dead362487bc4fb
       body: ""
