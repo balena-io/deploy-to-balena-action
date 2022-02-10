@@ -1,11 +1,7 @@
 import * as github from '@actions/github';
 import * as core from '@actions/core';
 
-const repoContext = {
-	owner: github.context.payload.repository?.owner.login || '',
-	name: github.context.payload.repository?.name || '',
-	ref: github.context.payload.pull_request?.head.sha || '',
-};
+import { RepoContext } from './types';
 
 type CheckRun = {
 	id: number;
@@ -13,9 +9,16 @@ type CheckRun = {
 	status: string;
 };
 
-export async function getChecks(): Promise<CheckRun[]> {
-	const token = core.getInput('github_token', { required: true });
-	const octokit = github.getOctokit(token);
+let octokit: ReturnType<typeof github.getOctokit> | null = null;
+
+export function init(token: string) {
+	octokit = github.getOctokit(token);
+}
+
+export async function getChecks(context: RepoContext): Promise<CheckRun[]> {
+	if (!octokit) {
+		throw new Error('Octokit has not been initialized');
+	}
 	// Get the checks for this commit
 	let response;
 	try {
@@ -23,33 +26,37 @@ export async function getChecks(): Promise<CheckRun[]> {
 			await octokit.request(
 				'GET /repos/{owner}/{repo}/commits/{ref}/check-runs',
 				{
-					owner: repoContext.owner,
-					repo: repoContext.name,
-					ref: repoContext.ref,
+					owner: context.owner,
+					repo: context.name,
+					ref: context.sha,
 				},
 			)
 		).data;
 	} catch (e: any) {
 		core.error(e.message);
 		throw new Error(
-			`Failed to fetch check runs for: ${repoContext.owner}/${repoContext.name}:${repoContext.ref}`,
+			`Failed to fetch check runs for: ${context.owner}/${context.name}:${context.sha}`,
 		);
 	}
 	return response.check_runs;
 }
 
 // https://docs.github.com/en/rest/reference/git#create-a-reference
-export async function createTag(tag: string, sha: string): Promise<string> {
-	const token = core.getInput('github_token', { required: true });
-	const octokit = github.getOctokit(token);
+export async function createTag(
+	context: RepoContext,
+	tag: string,
+): Promise<string> {
+	if (!octokit) {
+		throw new Error('Octokit has not been initialized');
+	}
 
 	core.info(`Creating refs/tags/${tag}`);
 
 	const response = await octokit.rest.git.createRef({
-		owner: github.context.repo.owner,
-		repo: github.context.repo.repo,
+		owner: context.owner,
+		repo: context.name,
 		ref: `refs/tags/${tag}`,
-		sha,
+		sha: context.sha,
 	});
 
 	return response.data.url;

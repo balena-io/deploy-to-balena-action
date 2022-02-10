@@ -4,7 +4,7 @@ BALENARC_BALENA_URL=${BALENA_URL}
 
 export BALENARC_BALENA_URL
 
-trap "{ echo 'Action failed to initialize'; exit 1; }" ERR
+set -eo pipefail
 
 [ -z "$BALENA_TOKEN" ] && echo "BALENA_TOKEN input cannot be empty" && exit 1
 
@@ -18,4 +18,4 @@ balena whoami
 git --version
 
 # Run action
-exec node /usr/src/app/build/main.js
+exec node /usr/src/app/build/src/main.js
