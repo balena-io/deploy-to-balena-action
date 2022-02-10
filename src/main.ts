@@ -13,9 +13,7 @@ const inputs: Inputs = {
 	environment: core.getInput('environment', { required: false }),
 	cache: core.getBooleanInput('cache', { required: false }),
 	versionbot: core.getBooleanInput('versionbot', { required: false }),
-	createTag:
-		core.getBooleanInput('create_tag', { required: false }) ||
-		core.getBooleanInput('create_ref', { required: false }),
+	createTag: core.getBooleanInput('create_tag', { required: false }),
 	source: core.getInput('source', { required: false }),
 	githubToken: core.getInput('github_token', { required: false }),
 };

@@ -42,7 +42,6 @@ describe('src/main', () => {
 				cache: false,
 				versionbot: true,
 				create_tag: true,
-				create_ref: false,
 			}[inputName];
 		});
 	});
