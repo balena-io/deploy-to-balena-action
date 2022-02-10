@@ -12,7 +12,9 @@ const sleep = (milliseconds: number) => {
 export async function getBranch(context: RepoContext): Promise<string> {
 	if (!context.pullRequest) {
 		throw new Error(
-			'Cannot find Versionbot branch for non-PR context: Json.stringify(context)',
+			`Cannot find Versionbot branch for non-PR context: ${JSON.stringify(
+				context,
+			)}`,
 		);
 	}
 	// Look up checks for this commit

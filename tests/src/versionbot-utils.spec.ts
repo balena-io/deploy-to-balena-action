@@ -42,6 +42,14 @@ describe('src/versionbot-utils', () => {
 		);
 	});
 
+	it('handles invalid context gracefully', async () => {
+		await expect(
+			versionbot.getBranch({ notAPullRequest: 123 } as any),
+		).to.eventually.be.rejectedWith(
+			'Cannot find Versionbot branch for non-PR context: {"notAPullRequest":123}',
+		);
+	});
+
 	it('waits until versionbot action completes', async () => {
 		checksStub.resolves([
 			{ id: 1, name: 'VersionBot/generate-version', status: 'running' }, // Versionbot is still running
