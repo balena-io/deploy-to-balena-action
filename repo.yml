@@ -1,1 +1,10 @@
 type: node
+release: github
+publishMetadata: true
+upstream:
+  - repo: 'balena-sdk'
+    url: 'https://github.com/balena-io/balena-sdk'
+    module: '@balena/balena-sdk'
+  - repo: 'balena-cli'
+    url: 'https://github.com/balena-io/balena-cli'
+    module: '@balena/balena-cli'
