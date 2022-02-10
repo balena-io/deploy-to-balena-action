@@ -1,4 +1,18 @@
 - commits:
+    - subject: Disable resin-ci builds
+      hash: 2a784519b6822944b7941587237916c2062fc3d6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.5.8
+  title: "'Disable resin-ci builds'"
+  date: 2022-02-10T06:19:14.553Z
+- commits:
     - subject: Cleanup unit tests
       hash: b0ce3a0048202e6396713bdb07407f6538a68617
       body: ""
