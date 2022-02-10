@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update balena-sdk to v16.13.4
+      hash: 178c6574298af27666d50cb4e23cc301d118b010
+      body: |
+        Update balena-sdk from 15.59.2 to 16.13.4
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 0.5.8
+  title: "'Update balena-sdk to v16.13.4'"
+  date: 2022-02-10T15:20:49.181Z
+- commits:
     - subject: Cleanup unit tests
       hash: b0ce3a0048202e6396713bdb07407f6538a68617
       body: ""
