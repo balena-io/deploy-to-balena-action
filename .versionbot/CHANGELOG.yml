@@ -1,4 +1,30 @@
 - commits:
+    - subject: Remove `create_ref` reference since it is not in action.yml
+      hash: b89a11a3c0b40d0e2b1377d4bdb7674a3480bc1c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Closes: "#111"
+        closes: "#111"
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Disable resin-ci builds
+      hash: 2a784519b6822944b7941587237916c2062fc3d6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.5.8
+  title: "'Remove create ref'"
+  date: 2022-02-10T16:51:23.596Z
+- commits:
     - subject: Cleanup unit tests
       hash: b0ce3a0048202e6396713bdb07407f6538a68617
       body: ""
