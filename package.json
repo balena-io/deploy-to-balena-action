@@ -1,6 +1,6 @@
 {
   "name": "deploy-to-balena-action",
-  "version": "0.5.10",
+  "version": "0.5.11",
   "description": "Github action to build releases for a fleet",
   "homepage": "https://github.com/balena-io/deploy-to-balena-action",
   "private": true,
@@ -71,6 +71,6 @@
     "balena-sdk": "^16.13.4"
   },
   "versionist": {
-    "publishedAt": "2022-02-10T17:40:53.071Z"
+    "publishedAt": "2022-02-10T17:54:06.592Z"
   }
 }
