@@ -1,4 +1,19 @@
 - commits:
+    - subject: Experiment with the node-cli repo type
+      hash: b6b1a4d3dbc35fe9fda06d61ebb84677055ec324
+      body: |
+        In theory this repo type can publish Github Releases.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 0.5.12
+  title: "'Experiment with the node-cli repo type'"
+  date: 2022-02-11T15:27:27.669Z
+- commits:
     - subject: "patch: bump balena-sdk from 15.59.2 to 16.13.4"
       hash: 3200070e95389951bb4ce8eb20e91d5c68847e26
       body: >
