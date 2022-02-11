@@ -1,4 +1,4 @@
-type: node
+type: node-cli
 release: github
 publishMetadata: true
 upstream:
