@@ -22,6 +22,7 @@ const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
 let sdk: ReturnType<typeof balena.getSdk> | null = null;
 
 export async function init(endpoint: string, token: string) {
+	core.info(`Initializing SDK for https://api.${endpoint})`);
 	// Specify API endpoint
 	sdk = balena.getSdk({
 		apiUrl: `https://api.${endpoint})}/`,
