@@ -1,4 +1,18 @@
 - commits:
+    - subject: Pipe CLI whoami test to /dev/null
+      hash: 47d9275d1c04016c382d96e0095bea9bd90bcbe6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.5.12
+  title: "'Pipe CLI whoami test to /dev/null'"
+  date: 2022-02-22T22:15:32.772Z
+- commits:
     - subject: "patch: bump balena-sdk from 15.59.2 to 16.13.4"
       hash: 3200070e95389951bb4ce8eb20e91d5c68847e26
       body: >
