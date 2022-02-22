@@ -12,7 +12,7 @@ set -eo pipefail
 balena login --token ${BALENA_TOKEN} 
 
 # Test CLI is working
-balena whoami 
+balena whoami > /dev/null 
 
 # Test git is working
 git --version
