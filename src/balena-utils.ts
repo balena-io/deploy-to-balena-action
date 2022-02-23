@@ -100,7 +100,10 @@ export async function push(
 
 		buildProcess.stdout.on('data', (data: Buffer) => {
 			const msg = stripAnsi(data.toString());
-			core.info(msg);
+			// Ignore logging messages if they are progress bar lines since they don't display correctly
+			if (!isProgressBar(msg) && !isEmptyCharacter(msg)) {
+				core.info(msg);
+			}
 			const match = msg.match(/Release: .{32} \(id: (\d*)\)/);
 			if (match) {
 				releaseId = match[1];
@@ -236,4 +239,12 @@ function stripAnsi(logLine: string): string {
 		/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g,
 		'',
 	);
+}
+
+function isEmptyCharacter(line: string): boolean {
+	return line.length === 0;
+}
+
+function isProgressBar(line: string): boolean {
+	return line.match(/] (\d{1,3})%/) !== null;
 }
