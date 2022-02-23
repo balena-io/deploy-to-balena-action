@@ -1,4 +1,18 @@
 - commits:
+    - subject: Do not log progress bars or empty lines
+      hash: af9f011736b6a2a47b2e569965d6f95c4efe466d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.5.13
+  title: "'Do not log progress bars or empty lines'"
+  date: 2022-02-23T00:43:07.152Z
+- commits:
     - subject: Pipe CLI whoami test to /dev/null
       hash: 47d9275d1c04016c382d96e0095bea9bd90bcbe6
       body: ""
