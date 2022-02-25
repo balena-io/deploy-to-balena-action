@@ -18,6 +18,7 @@ const inputs: Inputs = {
 		core.getBooleanInput('create_ref', { required: false }),
 	source: core.getInput('source', { required: false }),
 	githubToken: core.getInput('github_token', { required: false }),
+	layerCache: core.getBooleanInput('layer_cache', { required: false }),
 };
 
 (async () => {

@@ -101,12 +101,10 @@ export async function run(
 
 	// Finally send source to builders
 	try {
-		releaseId = await balena.push(
-			inputs.fleet,
-			src,
-			inputs.cache,
-			buildOptions,
-		);
+		releaseId = await balena.push(inputs.fleet, src, inputs.cache, {
+			...buildOptions,
+			noCache: inputs.layerCache,
+		});
 	} catch (e: any) {
 		core.error(e.message);
 		throw e;

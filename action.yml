@@ -43,6 +43,10 @@ inputs:
     description: 'Specify custom path to Dockerfile/docker-compose for building release images'
     required: false
     default: ''
+  layer_cache:
+    description: "Don't use cached layers of previously built images for this project."
+    required: false
+    default: false
 outputs:
   release_id:
     description: 'ID of the release built'

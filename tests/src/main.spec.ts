@@ -43,6 +43,7 @@ describe('src/main', () => {
 				versionbot: true,
 				create_tag: true,
 				create_ref: false,
+				layer_cache: false,
 			}[inputName];
 		});
 	});
@@ -94,6 +95,7 @@ describe('src/main', () => {
 			createTag: true,
 			source: '/workdir',
 			githubToken: 'ghTokenExample',
+			layerCache: false,
 		});
 		// Since github actions pass by default there's no need to check if the action passes
 		// So, let's check if the action correctly handles failures instead
