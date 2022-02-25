@@ -1,3 +1,4 @@
+import { join } from 'path';
 import * as core from '@actions/core';
 import { expect } from 'chai';
 import { stub, SinonStub } from 'sinon';
@@ -6,6 +7,15 @@ import { sleep } from '../lib/sleep';
 import * as action from '../../src/action';
 import * as githubUtils from '../../src/github-utils';
 import * as balenaUtils from '../../src/balena-utils';
+
+const WORKSPACE =
+	process.env.GITHUB_ACTIONS === '1' ? process.env.GITHUB_WORKSPACE! : '';
+
+// Since this tool accepts an input from the environment
+// the tests might run with or without the GITHUB_WORKSPACE value
+// Therefore, we dynamically set the source used in tests so that
+// tests pass in environments with this env var set or not
+const dynamicSource = join(WORKSPACE, '/src');
 
 describe('src/main', () => {
 	let getInputStub: SinonStub;
@@ -31,7 +41,7 @@ describe('src/main', () => {
 				balena_token: 'balenaTokenExample',
 				fleet: 'my-org/my-fleet',
 				environment: 'balena-cloud.com',
-				source: '/workdir',
+				source: dynamicSource,
 				github_token: 'ghTokenExample',
 			}[inputName];
 		});
@@ -93,7 +103,7 @@ describe('src/main', () => {
 			cache: false,
 			versionbot: true,
 			createTag: true,
-			source: '/workdir',
+			source: '/src',
 			githubToken: 'ghTokenExample',
 			layerCache: false,
 		});

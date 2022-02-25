@@ -1,3 +1,4 @@
+import { join } from 'path';
 import * as core from '@actions/core';
 import { context } from '@actions/github';
 
@@ -5,6 +6,10 @@ import { Inputs } from './types';
 import * as action from './action';
 import * as githubUtils from './github-utils';
 import * as balenaUtils from './balena-utils';
+
+// If a github action is running this then a GITHUB_WORKSPACE value will be set
+const WORKSPACE =
+	process.env.GITHUB_ACTIONS === '1' ? process.env.GITHUB_WORKSPACE! : '';
 
 // Capture inputs
 const inputs: Inputs = {
@@ -16,7 +21,7 @@ const inputs: Inputs = {
 	createTag:
 		core.getBooleanInput('create_tag', { required: false }) ||
 		core.getBooleanInput('create_ref', { required: false }),
-	source: core.getInput('source', { required: false }),
+	source: join(WORKSPACE, core.getInput('source', { required: false })),
 	githubToken: core.getInput('github_token', { required: false }),
 	layerCache: core.getBooleanInput('layer_cache', { required: false }),
 };

@@ -131,7 +131,7 @@ describe('src/action', () => {
 		await action.run(context, inputs);
 		// Check that the right parameters were passed
 		expect(pushStub.lastCall.firstArg).to.equal('my-org/my-fleet');
-		expect(pushStub.lastCall.args[1]).to.equal('undefined//src'); // TODO fix this string return
+		expect(pushStub.lastCall.args[1]).to.equal('/src');
 		expect(pushStub.lastCall.lastArg).to.deep.equal({
 			draft: false,
 			noCache: false,
