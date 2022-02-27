@@ -175,7 +175,7 @@ describe('src/action', () => {
 				},
 			};
 			// @ts-expect-error
-			await action.run(prContext, inputs);
+			await action.run(prContext, { ...inputs, createTag: true });
 			// Check that the last arg (buildOptions) does not contain draft: true
 			expect(pushStub.lastCall.lastArg).to.deep.equal({
 				noCache: false,
@@ -184,6 +184,7 @@ describe('src/action', () => {
 					pullRequestId: 4423422,
 				},
 			});
+			expect(createTagStub).to.have.not.been.called;
 		});
 
 		it('finalizes when a PR closes', async () => {
@@ -214,17 +215,20 @@ describe('src/action', () => {
 				isFinal: false,
 			});
 			// @ts-expect-error
-			await action.run(prContext, inputs);
+			await action.run(prContext, { ...inputs, createTag: true });
 			// Check that the release was finalized
 			expect(finalizeStub).to.have.been.calledWith(123456);
 			finalizeStub.restore();
+			expect(createTagStub).to.have.been.called;
+			// Check that create tag value was passed
+			expect(createTagStub.lastCall.args[1]).to.equal('v0.5.6');
 		});
 	});
 
 	describe('Main workflow', () => {
 		it('builds a finalized release', async () => {
 			// @ts-expect-error
-			await action.run(context, inputs);
+			await action.run(context, { ...inputs, createTag: true });
 			// Check that the last arg (buildOptions) does not contain draft: true
 			expect(pushStub.lastCall.lastArg).to.deep.equal({
 				noCache: false,
@@ -233,6 +237,9 @@ describe('src/action', () => {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
 				},
 			});
+			expect(createTagStub).to.have.been.called;
+			// Check that create tag value was passed
+			expect(createTagStub.lastCall.args[1]).to.equal('v0.5.6');
 		});
 	});
 });

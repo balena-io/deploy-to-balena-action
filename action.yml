@@ -28,11 +28,11 @@ inputs:
     required: false
     default: true
   create_tag:
-    description: 'Tag the git commit with the balena release version'
+    description: 'Tag the git commit with the final balena release version'
     required: false
     default: false
   create_ref:
-    description: 'Tag the git commit with the balena release version'
+    description: 'Tag the git commit with the final balena release version'
     required: false
     default: false
   cache:

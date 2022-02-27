@@ -38,7 +38,7 @@ Inputs are provided using the `with:` section of your workflow YML file.
 | environment | Domain of API hosting your fleets | false | balena-cloud.com |
 | cache | If a release matching the commit already exists do not build again | false | true |
 | versionbot | Tells action to use Versionbot branch for versioning | false | false |
-| create_tag | Create a ref on the git commit with the release version | false | false |
+| create_tag | Create a tag on the git commit with the final release version | false | false |
 | source | Specify a source directory (for `Dockerfile.template` or `docker-compose.yml`) | false | root directory |
 | layer_cache | Use cached layers of previously built images for this project | false | true |
 
