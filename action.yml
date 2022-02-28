@@ -44,9 +44,13 @@ inputs:
     required: false
     default: ''
   layer_cache:
-    description: "Use cached layers of previously built images for this project"
+    description: 'Use cached layers of previously built images for this project'
     required: false
     default: true 
+  registry_secrets:
+    description: 'Image registry credentrials (Balena secrets.json)'
+    required: false
+    default: '' 
 outputs:
   release_id:
     description: 'ID of the release built'
@@ -58,3 +62,4 @@ runs:
   env:
     BALENA_TOKEN: ${{ inputs.balena_token }}
     BALENA_URL: ${{ inputs.environment }}
+    REGISTRY_SECRETS: ${{ inputs.registry_secrets }}
