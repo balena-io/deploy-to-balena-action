@@ -1,4 +1,30 @@
 - commits:
+    - subject: Lifted creating src path into main.ts
+      hash: 8780ac8e2bd7490131eed56d868af843689ac9dd
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Added `layer_cache` input to set `--nocache` flag
+      hash: 7f2ea1b0c4b204f638551779900caf2d80e84117
+      body: ""
+      footer:
+        Closes: "#84"
+        closes: "#84"
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.6.0
+  title: "'Added  input to set  flag'"
+  date: 2022-02-25T22:29:55.975Z
+- commits:
     - subject: Do not log progress bars or empty lines
       hash: af9f011736b6a2a47b2e569965d6f95c4efe466d
       body: ""
