@@ -1,4 +1,18 @@
 - commits:
+    - subject: Upgrade to Node 14
+      hash: c8046d690e8f923c19d856a8ad15831804c52513
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.8.0
+  title: "'Upgrade to Node 14'"
+  date: 2022-02-28T20:30:08.301Z
+- commits:
     - subject: "patch: bump chai from 4.3.4 to 4.3.6"
       hash: 612454526b7a1d1493c64f5fc3ab247803bbb877
       body: |
