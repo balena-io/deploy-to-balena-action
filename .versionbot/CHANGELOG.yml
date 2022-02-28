@@ -1,4 +1,18 @@
 - commits:
+    - subject: Fix `layer_cache` input triggering `--nocache`
+      hash: 9f53f56516144b7f9f1bdc62db8310679451abaf
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.6.1
+  title: "'Fix  input triggering '"
+  date: 2022-02-28T18:00:10.013Z
+- commits:
     - subject: Lifted creating src path into main.ts
       hash: 8780ac8e2bd7490131eed56d868af843689ac9dd
       body: ""
