@@ -53,8 +53,25 @@ export async function run(
 				core.info('Release is already finalized so skipping.');
 				return;
 			}
-			// Finalize release and done!
-			return await balena.finalize(previousRelease.id);
+
+			// Finalize release!
+			await balena.finalize(previousRelease.id);
+
+			rawVersion = await balena.getReleaseVersion(previousRelease.id);
+
+			if (inputs.createTag && rawVersion) {
+				try {
+					await github.createTag(repoContext, rawVersion);
+				} catch (e: any) {
+					if (e.message !== 'Reference already exists') {
+						throw e;
+					}
+					core.info('Git reference already exists.');
+					return;
+				}
+			}
+
+			return;
 		} else {
 			// If the pull request was closed but not merged then do nothing
 			core.info('Pull request was closed but not merged, nothing to do.');
@@ -113,7 +130,7 @@ export async function run(
 	core.setOutput('version', rawVersion);
 	core.setOutput('release_id', releaseId);
 
-	if (inputs.createTag) {
+	if (inputs.createTag && buildOptions.draft === false) {
 		try {
 			await github.createTag(repoContext, rawVersion);
 		} catch (e: any) {
