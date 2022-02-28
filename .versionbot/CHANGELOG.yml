@@ -1,4 +1,27 @@
 - commits:
+    - subject: "patch: bump chai from 4.3.4 to 4.3.6"
+      hash: 612454526b7a1d1493c64f5fc3ab247803bbb877
+      body: |
+        Bumps [chai](https://github.com/chaijs/chai) from 4.3.4 to 4.3.6.
+        - [Release notes](https://github.com/chaijs/chai/releases)
+        - [Changelog](https://github.com/chaijs/chai/blob/4.x.x/History.md)
+        - [Commits](https://github.com/chaijs/chai/compare/v4.3.4...v4.3.6)
+
+        ---
+        updated-dependencies:
+        - dependency-name: chai
+          dependency-type: direct:development
+          update-type: version-update:semver-patch
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.7.1
+  title: "'patch: bump chai from 4.3.4 to 4.3.6'"
+  date: 2022-02-28T19:44:56.318Z
+- commits:
     - subject: Disable tagging of draft releases
       hash: 5e52ea44102437117abe6ef99fa7f28629324477
       body: |
