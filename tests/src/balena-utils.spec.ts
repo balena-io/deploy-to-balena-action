@@ -101,13 +101,14 @@ describe('src/balena-utils', () => {
 			).to.eventually.deep.equal(previousBuild.id);
 		});
 
-		it('passes correct arguments to build', async () => {
+		it('Does not set --draft or --nocache', async () => {
 			setTimeout(() => {
 				mockProcess.emit('exit', 0); // make process exit
 			}, 500);
 
 			try {
 				await balenaUtils.push('org/fleet', '/tmp/source', false, {
+					noCache: false,
 					draft: false,
 					tags: { sha: 'fba0317620597271695087c168c50d8c94975a29' },
 				});
@@ -123,6 +124,34 @@ describe('src/balena-utils', () => {
 				'--release-tag',
 				'balena-ci-commit-sha',
 				'fba0317620597271695087c168c50d8c94975a29',
+			]);
+		});
+
+		it('Sets --draft or --nocache', async () => {
+			setTimeout(() => {
+				mockProcess.emit('exit', 0); // make process exit
+			}, 500);
+
+			try {
+				await balenaUtils.push('org/fleet', '/tmp/source', false, {
+					noCache: true,
+					draft: true,
+					tags: { sha: 'fba0317620597271695087c168c50d8c94975a29' },
+				});
+			} catch (e) {
+				// expected this
+			}
+
+			expect(spawnStub).to.have.been.calledWith('balena', [
+				'push',
+				'org/fleet',
+				'--source',
+				'/tmp/source',
+				'--release-tag',
+				'balena-ci-commit-sha',
+				'fba0317620597271695087c168c50d8c94975a29',
+				'--draft',
+				'--nocache',
 			]);
 		});
 

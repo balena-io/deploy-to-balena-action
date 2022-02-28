@@ -18,8 +18,6 @@ export async function run(
 
 	// Get the master branch so we can infer intent
 	const target = context.payload.repository.master_branch;
-	// File path to build release images from
-	const src = `${process.env.GITHUB_WORKSPACE!}/${inputs.source}`;
 	// Collect repo context
 	const repoContext: RepoContext = {
 		owner: context.payload.repository.owner.login || '',
@@ -101,12 +99,10 @@ export async function run(
 
 	// Finally send source to builders
 	try {
-		releaseId = await balena.push(
-			inputs.fleet,
-			src,
-			inputs.cache,
-			buildOptions,
-		);
+		releaseId = await balena.push(inputs.fleet, inputs.source, inputs.cache, {
+			...buildOptions,
+			noCache: inputs.layerCache,
+		});
 	} catch (e: any) {
 		core.error(e.message);
 		throw e;

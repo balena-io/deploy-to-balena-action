@@ -7,6 +7,7 @@ import * as balena from '../../src/balena-utils';
 import * as git from '../../src/git';
 import * as github from '../../src/github-utils';
 import * as action from '../../src/action';
+import { Inputs } from '../../src/types';
 
 // Sample context
 const context = {
@@ -24,10 +25,11 @@ const context = {
 };
 
 // Sample inputs
-const inputs = {
+const inputs: Partial<Inputs> = {
 	fleet: 'my-org/my-fleet',
 	cache: true,
 	source: '/src',
+	layerCache: false,
 };
 
 describe('src/action', () => {
@@ -124,6 +126,21 @@ describe('src/action', () => {
 		expect(createTagStub.lastCall.args[1]).to.equal('v0.5.6');
 	});
 
+	it('passes correct build parameters to balena-utils', async () => {
+		// @ts-expect-error
+		await action.run(context, inputs);
+		// Check that the right parameters were passed
+		expect(pushStub.lastCall.firstArg).to.equal('my-org/my-fleet');
+		expect(pushStub.lastCall.args[1]).to.equal('/src');
+		expect(pushStub.lastCall.lastArg).to.deep.equal({
+			draft: false,
+			noCache: false,
+			tags: {
+				sha: 'fba0317620597271695087c168c50d8c94975a29',
+			},
+		});
+	});
+
 	it('exits if build command errors', async () => {
 		pushStub.throws(new Error('Build process returned non-0 exit code'));
 		// Check that the action throws the error from the push command
@@ -161,6 +178,7 @@ describe('src/action', () => {
 			await action.run(prContext, inputs);
 			// Check that the last arg (buildOptions) does not contain draft: true
 			expect(pushStub.lastCall.lastArg).to.deep.equal({
+				noCache: false,
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
 					pullRequestId: 4423422,
@@ -209,6 +227,7 @@ describe('src/action', () => {
 			await action.run(context, inputs);
 			// Check that the last arg (buildOptions) does not contain draft: true
 			expect(pushStub.lastCall.lastArg).to.deep.equal({
+				noCache: false,
 				draft: false,
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',

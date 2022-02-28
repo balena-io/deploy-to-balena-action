@@ -7,6 +7,7 @@ export type Inputs = {
 	cache: boolean;
 	versionbot: boolean;
 	createTag: boolean;
+	layerCache: boolean;
 };
 
 export type RepoContext = {

@@ -11,12 +11,14 @@ type Tags = {
 };
 
 type BuildOptions = {
+	noCache: boolean;
 	draft: boolean;
 	tags: Tags;
 };
 
 const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
 	draft: true,
+	noCache: false,
 };
 
 let sdk: ReturnType<typeof balena.getSdk> | null = null;
@@ -85,6 +87,10 @@ export async function push(
 
 	if (buildOpt.draft) {
 		pushOpt.push('--draft');
+	}
+
+	if (buildOpt.noCache) {
+		pushOpt.push('--nocache');
 	}
 
 	let releaseId: string | null = null;
