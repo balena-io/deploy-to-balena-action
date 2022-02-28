@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update dependencies
+      hash: ab1c9ba1330ef4c580f0136341bca2ed6fa35268
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.8.4
+  title: "'Update dependencies'"
+  date: 2022-02-28T22:14:39.934Z
+- commits:
     - subject: "patch: bump mocha from 9.1.3 to 9.2.1"
       hash: 6e1ec7044e141d160cef5305a3168350d7d9285a
       body: |
