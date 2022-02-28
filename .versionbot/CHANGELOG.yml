@@ -1,4 +1,19 @@
 - commits:
+    - subject: Disable tagging of draft releases
+      hash: 5e52ea44102437117abe6ef99fa7f28629324477
+      body: |
+        This avoids a lot of clutter and tags pointing to unmerged commits.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 0.7.0
+  title: "'action: Only tag final releases'"
+  date: 2022-02-28T19:03:27.247Z
+- commits:
     - subject: Fix `layer_cache` input triggering `--nocache`
       hash: 9f53f56516144b7f9f1bdc62db8310679451abaf
       body: ""
