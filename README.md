@@ -40,6 +40,7 @@ Inputs are provided using the `with:` section of your workflow YML file.
 | versionbot | Tells action to use Versionbot branch for versioning | false | false |
 | create_tag | Create a ref on the git commit with the release version | false | false |
 | source | Specify a source directory (for `Dockerfile.template` or `docker-compose.yml`) | false | root directory |
+| layer_cache | Use cached layers of previously built images for this project | false | true |
 
 `balena_token` and other tokens needs to be stored in GitHub as an [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) that GitHub Actions can access. 
 

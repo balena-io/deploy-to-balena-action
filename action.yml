@@ -44,9 +44,9 @@ inputs:
     required: false
     default: ''
   layer_cache:
-    description: "Don't use cached layers of previously built images for this project."
+    description: "Use cached layers of previously built images for this project"
     required: false
-    default: false
+    default: true 
 outputs:
   release_id:
     description: 'ID of the release built'
