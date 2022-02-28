@@ -45,12 +45,12 @@
   "devDependencies": {
     "@balena/lint": "^6.2.0",
     "@types/chai": "^4.3.0",
-    "@types/chai-as-promised": "^7.1.4",
+    "@types/chai-as-promised": "^7.1.5",
     "@types/chai-like": "^1.1.1",
     "@types/chai-things": "0.0.35",
     "@types/mocha": "^8.2.3",
     "@types/rewire": "^2.5.28",
-    "@types/sinon": "^10.0.6",
+    "@types/sinon": "^10.0.11",
     "@types/sinon-chai": "^3.2.8",
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
@@ -64,13 +64,13 @@
     "rimraf": "^3.0.2",
     "sinon": "^11.1.2",
     "sinon-chai": "^3.7.0",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.5"
   },
   "dependencies": {
     "@actions/core": "^1.6.0",
     "@actions/exec": "^1.1.0",
     "@actions/github": "^5.0.0",
-    "balena-cli": "^13.1.13",
+    "balena-cli": "^13.2.1",
     "balena-sdk": "^16.15.1"
   },
   "versionist": {
