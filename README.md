@@ -1,6 +1,6 @@
 # Deploy to Balena Github Action
 
-This action allows you to push to Balena builders as an automated way to create releases on your fleet. Depending on the context available to the action, it will either make your release a draft or not.
+This action allows you to push to Balena builders as an automated way to create releases on your Fleet or [Block](https://github.com/balenablocks). Depending on the context available to the action, it will either make your release a draft or not.
 
 ## Usage
 
