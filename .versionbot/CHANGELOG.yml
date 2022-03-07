@@ -1,4 +1,32 @@
 - commits:
+    - subject: "patch: bump lint-staged from 11.2.6 to 12.3.5"
+      hash: f8f44d97f6b9b5b7c76b93c265b5377233dff1ab
+      body: >
+        Bumps [lint-staged](https://github.com/okonet/lint-staged) from 11.2.6
+        to 12.3.5.
+
+        - [Release notes](https://github.com/okonet/lint-staged/releases)
+
+        - [Commits](https://github.com/okonet/lint-staged/compare/v11.2.6...v12.3.5)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: lint-staged
+          dependency-type: direct:development
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.8.5
+  title: "'patch: bump lint-staged from 11.2.6 to 12.3.5'"
+  date: 2022-03-07T08:15:48.110Z
+- commits:
     - subject: Update dependencies
       hash: ab1c9ba1330ef4c580f0136341bca2ed6fa35268
       body: ""
