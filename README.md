@@ -41,10 +41,23 @@ Inputs are provided using the `with:` section of your workflow YML file.
 | create_tag | Create a tag on the git commit with the final release version | false | false |
 | source | Specify a source directory (for `Dockerfile.template` or `docker-compose.yml`) | false | root directory |
 | layer_cache | Use cached layers of previously built images for this project | false | true |
+| registry_secrets | JSON string containing image registry credentials used to pull base images | false | |
 
 `balena_token` and other tokens needs to be stored in GitHub as an [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) that GitHub Actions can access. 
 
 `environment` can be used to specify a custom domain for the backend that will build and deploy your release. If for example you want to deploy to staging environment, you would set it to `balena-staging.com` or if you run your own instance of balenaCloud such as openBalena then specify your domain here.
+
+`registry_secrets` uses a standard secrets.json file format that contains the registry domain with username/password or token inside. You can pass a JSON file as a string like so in your workflow file:
+
+```
+         registry_secrets: |
+            {
+              "ghcr.io": {
+                "username": "${{ secrets.REGISTRY_USER }}",
+                "password": "${{ secrets.REGISTRY_PASS }}"
+              }
+            } 
+```
 
 ## Outputs
 

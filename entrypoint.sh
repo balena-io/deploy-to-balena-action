@@ -17,5 +17,10 @@ balena whoami > /dev/null
 # Test git is working
 git --version
 
+if [[ "${REGISTRY_SECRETS}" != "" ]]; then
+  mkdir -p "$HOME/.balena/"
+  echo ${REGISTRY_SECRETS} > "$HOME/.balena/secrets.json"
+fi
+
 # Run action
 exec node /usr/src/app/build/src/main.js
