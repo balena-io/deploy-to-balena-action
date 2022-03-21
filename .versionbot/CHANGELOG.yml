@@ -1,4 +1,24 @@
 - commits:
+    - subject: "patch: bump node from 14.19.0-alpine3.15 to 17.7.2-alpine3.15"
+      hash: 9acd98c0596e19681b602a6db9b4274d96d339b5
+      body: |
+        Bumps node from 14.19.0-alpine3.15 to 17.7.2-alpine3.15.
+
+        ---
+        updated-dependencies:
+        - dependency-name: node
+          dependency-type: direct:production
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.9.1
+  title: "'patch: bump node from 14.19.0-alpine3.15 to 17.7.2-alpine3.15'"
+  date: 2022-03-21T08:12:40.278Z
+- commits:
     - subject: Added `registry-secrets` input to authenticate with private registries
       hash: e064c677025384dd8eb4a82fa7c9af1562d2a1df
       body: ""
