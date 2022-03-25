@@ -1,4 +1,18 @@
 - commits:
+    - subject: Build images on tagged commits
+      hash: e0bcc0ecbd8392ff5afeac67306ad6b20f2e6566
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.10.2
+  title: "'Build images on tagged commits'"
+  date: 2022-03-25T05:04:18.053Z
+- commits:
     - subject: Only build when event is on master
       hash: 30c36719d585149a90f55d2d2efe8ebb764715be
       body: ""
