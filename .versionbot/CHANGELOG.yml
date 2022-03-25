@@ -1,4 +1,18 @@
 - commits:
+    - subject: Build and push action as docker image
+      hash: 411241f6afa6c87f413acc5bbc9660c706a18ed5
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.10.0
+  title: "'Build and push action as docker image'"
+  date: 2022-03-24T19:19:14.375Z
+- commits:
     - subject: Added `registry-secrets` input to authenticate with private registries
       hash: e064c677025384dd8eb4a82fa7c9af1562d2a1df
       body: ""
