@@ -1,4 +1,18 @@
 - commits:
+    - subject: Use single quotes on workflow
+      hash: b4e8a5b2d88ad2db705b30cd0121f6e34bf216de
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.10.4
+  title: "'Use single quotes on workflow'"
+  date: 2022-03-25T05:33:54.194Z
+- commits:
     - subject: Run image build on base_ref master
       hash: b2ae8c396e5b2c0d3353bcfb2e64ae16ca0fd1f8
       body: ""
