@@ -1,4 +1,18 @@
 - commits:
+    - subject: Correctly detect events to build package
+      hash: aaa0b8d07dca566e089a88a36af2360445a16dc0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.10.5
+  title: "'Correctly detect events to build package'"
+  date: 2022-03-25T17:02:04.592Z
+- commits:
     - subject: Use single quotes on workflow
       hash: b4e8a5b2d88ad2db705b30cd0121f6e34bf216de
       body: ""
