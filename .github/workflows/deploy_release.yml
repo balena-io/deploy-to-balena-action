@@ -4,13 +4,13 @@ on:
   push:
     tags:
       - 'v*'
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-and-push-image:
-    if: "!contains(github.event.head_commit.author.name, 'versionist’)"
     runs-on: ubuntu-latest
     permissions:
       contents: read
