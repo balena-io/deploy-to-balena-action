@@ -1,4 +1,24 @@
 - commits:
+    - subject: "patch: bump node from 14.19.0-alpine3.15 to 17.8.0-alpine3.15"
+      hash: 9f6d3fe929cd33bf7590ceb1c0ecf178396483d0
+      body: |
+        Bumps node from 14.19.0-alpine3.15 to 17.8.0-alpine3.15.
+
+        ---
+        updated-dependencies:
+        - dependency-name: node
+          dependency-type: direct:production
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.10.7
+  title: "'patch: bump node from 14.19.0-alpine3.15 to 17.8.0-alpine3.15'"
+  date: 2022-03-25T18:26:02.227Z
+- commits:
     - subject: Don't check author of tag
       hash: 12bccc3c11b10d880044fada84b540a3cf3ae52e
       body: ""
