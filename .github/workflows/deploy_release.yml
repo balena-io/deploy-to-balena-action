@@ -10,7 +10,7 @@ env:
 
 jobs:
   build-and-push-image:
-    if: github.event.base_ref == 'refs/heads/master'
+    if: "!contains(github.event.head_commit.author.name, 'versionist’)"
     runs-on: ubuntu-latest
     permissions:
       contents: read
