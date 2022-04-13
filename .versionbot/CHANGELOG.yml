@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add git WORKDIR as git safe directory
+      hash: 83b776efedfdcb288eb6935cdbad6a2ca83bd7b4
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.10.7
+  title: "'Add git WORKDIR as git safe directory'"
+  date: 2022-04-13T19:12:17.641Z
+- commits:
     - subject: Don't check author of tag
       hash: 12bccc3c11b10d880044fada84b540a3cf3ae52e
       body: ""
