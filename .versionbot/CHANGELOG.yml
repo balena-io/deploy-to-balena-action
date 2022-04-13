@@ -1,4 +1,24 @@
 - commits:
+    - subject: "patch: bump node from 14.19.0-alpine3.15 to 17.9.0-alpine3.15"
+      hash: dddc50b39e042ed1ac5ee85d8ece0467b54d1687
+      body: |
+        Bumps node from 14.19.0-alpine3.15 to 17.9.0-alpine3.15.
+
+        ---
+        updated-dependencies:
+        - dependency-name: node
+          dependency-type: direct:production
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.10.8
+  title: "'patch: bump node from 14.19.0-alpine3.15 to 17.9.0-alpine3.15'"
+  date: 2022-04-13T19:19:56.085Z
+- commits:
     - subject: Add git WORKDIR as git safe directory
       hash: 83b776efedfdcb288eb6935cdbad6a2ca83bd7b4
       body: ""
