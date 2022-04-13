@@ -1,4 +1,33 @@
 - commits:
+    - subject: "patch: bump @types/mocha from 8.2.3 to 9.1.0"
+      hash: 22193f3461367610305ab40f0147c91fcede460a
+      body: >
+        Bumps
+        [@types/mocha](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/mocha)
+        from 8.2.3 to 9.1.0.
+
+        - [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)
+
+        - [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/mocha)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: "@types/mocha"
+          dependency-type: direct:development
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.10.8
+  title: "'patch: bump @types/mocha from 8.2.3 to 9.1.0'"
+  date: 2022-04-13T19:21:54.911Z
+- commits:
     - subject: Add git WORKDIR as git safe directory
       hash: 83b776efedfdcb288eb6935cdbad6a2ca83bd7b4
       body: ""
