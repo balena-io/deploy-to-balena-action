@@ -48,7 +48,7 @@
     "@types/chai-as-promised": "^7.1.5",
     "@types/chai-like": "^1.1.1",
     "@types/chai-things": "0.0.35",
-    "@types/mocha": "^8.2.3",
+    "@types/mocha": "^9.1.1",
     "@types/rewire": "^2.5.28",
     "@types/sinon": "^10.0.11",
     "@types/sinon-chai": "^3.2.8",
