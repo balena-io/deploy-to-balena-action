@@ -1,4 +1,32 @@
 - commits:
+    - subject: "patch: bump lint-staged from 11.2.6 to 12.4.0"
+      hash: d76e8e102908be9f8aeb74797ce465e39e44696e
+      body: >
+        Bumps [lint-staged](https://github.com/okonet/lint-staged) from 11.2.6
+        to 12.4.0.
+
+        - [Release notes](https://github.com/okonet/lint-staged/releases)
+
+        - [Commits](https://github.com/okonet/lint-staged/compare/v11.2.6...v12.4.0)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: lint-staged
+          dependency-type: direct:development
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.10.8
+  title: "'patch: bump lint-staged from 11.2.6 to 12.4.0'"
+  date: 2022-04-25T08:15:52.046Z
+- commits:
     - subject: Add git WORKDIR as git safe directory
       hash: 83b776efedfdcb288eb6935cdbad6a2ca83bd7b4
       body: ""
