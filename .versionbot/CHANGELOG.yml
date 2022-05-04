@@ -1,4 +1,18 @@
 - commits:
+    - subject: Enable publishing docker image to dockerhub via balenaCI
+      hash: 5281567042f6598fa2a3b8ddc22e2895c130a4c0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 0.10.8
+  title: "'Enable publishing docker image to dockerhub via balenaCI'"
+  date: 2022-05-04T16:53:23.145Z
+- commits:
     - subject: Add git WORKDIR as git safe directory
       hash: 83b776efedfdcb288eb6935cdbad6a2ca83bd7b4
       body: ""
