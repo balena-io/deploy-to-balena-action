@@ -3,8 +3,8 @@ docker:
   builds:
     - path: .
       dockerfile: Dockerfile
-      docker_repo: balena-io/balena-ci
-      publish: false
+      docker_repo: balena/deploy-to-balena-action
+      publish: true
 npm:
   platforms:
     - name: linux
