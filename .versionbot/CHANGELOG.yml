@@ -1,4 +1,26 @@
 - commits:
+    - subject: "patch: bump husky from 4.3.8 to 8.0.0"
+      hash: f3129aa35d37cf28a22d9ef79bd396e81bbc16f9
+      body: |
+        Bumps [husky](https://github.com/typicode/husky) from 4.3.8 to 8.0.0.
+        - [Release notes](https://github.com/typicode/husky/releases)
+        - [Commits](https://github.com/typicode/husky/compare/v4.3.8...v8.0.0)
+
+        ---
+        updated-dependencies:
+        - dependency-name: husky
+          dependency-type: direct:development
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.10.8
+  title: "'patch: bump husky from 4.3.8 to 8.0.0'"
+  date: 2022-05-09T08:18:48.208Z
+- commits:
     - subject: Add git WORKDIR as git safe directory
       hash: 83b776efedfdcb288eb6935cdbad6a2ca83bd7b4
       body: ""
