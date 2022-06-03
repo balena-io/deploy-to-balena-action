@@ -1,36 +1,49 @@
 # https://hub.docker.com/_/node
-FROM node:14.19.0-alpine3.15
+FROM node:14.19.3-bullseye-slim as base
 
-# Defines our working directory in container
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Install all dependencies, run build, purge dev dependencies
-# hadolint ignore=DL3018
-RUN apk add --no-cache git && \
-    apk add --no-cache -t .build-deps \
-        build-base \
-        curl \
-        linux-headers \
-        python3
+ENV DEBIAN_FRONTEND noninteractive
 
-# Copy package.json first for caching
-COPY package.json ./package.json
-COPY package-lock.json ./package-lock.json
+# hadolint ignore=DL3008
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    ca-certificates git wget unzip && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Install packages
+ARG BALENA_CLI_VERSION=v13.5.3
+
+# Install balena-cli via standlone zip to save install time
+RUN wget -q -O balena-cli.zip "https://github.com/balena-io/balena-cli/releases/download/${BALENA_CLI_VERSION}/balena-cli-${BALENA_CLI_VERSION}-linux-x64-standalone.zip" && \
+    unzip balena-cli.zip && rm balena-cli.zip
+
+FROM base AS dev
+
+COPY *.json ./
+
+# Install all dependencies required for building
 RUN npm ci
 
-# Copy rest of files (all) see we can build application 
-# This is done in another step so dependencies have their own layer cached 
-COPY . ./
+FROM dev as build
 
-# Build source and delete extra dependencies
-RUN npm run build && npm run --production && \
-	apk del --purge .build-deps
+COPY src/ src/
 
-# Install balena binary in PATH
-RUN ln -sf /usr/src/app/node_modules/balena-cli/bin/balena /usr/bin/balena && \
-    balena version
+# Full build with dev devependencies
+RUN npm run build
+
+FROM base AS prod
+
+# Copy built files and package files only
+COPY --from=build /app/package*.json ./
+COPY --from=build /app/build /app/build
+
+# Add balena-cli to PATH
+ENV PATH /app/balena-cli:$PATH
+
+# Install production dependencies only
+RUN balena version && npm ci --production
+
+COPY entrypoint.sh /app/entrypoint.sh
 
 # Start
-ENTRYPOINT [ "/usr/src/app/entrypoint.sh" ]
+ENTRYPOINT [ "/app/entrypoint.sh" ]

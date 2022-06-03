@@ -4,12 +4,12 @@ BALENARC_BALENA_URL=${BALENA_URL}
 
 export BALENARC_BALENA_URL
 
-set -eo pipefail
+set -e
 
-[ -z "$BALENA_TOKEN" ] && echo "BALENA_TOKEN input cannot be empty" && exit 1
+[ -z "${BALENA_TOKEN}" ] && echo "BALENA_TOKEN input cannot be empty" && exit 1
 
 # Authenticate CLI with token
-balena login --token ${BALENA_TOKEN} 
+balena login --token "${BALENA_TOKEN}" 
 
 # Test CLI is working
 balena whoami > /dev/null 
@@ -20,10 +20,10 @@ git --version
 # Fix for https://github.com/actions/checkout/issues/760
 git config --global --add safe.directory /github/workspace 
 
-if [[ "${REGISTRY_SECRETS}" != "" ]]; then
-  mkdir -p "$HOME/.balena/"
-  echo ${REGISTRY_SECRETS} > "$HOME/.balena/secrets.json"
+if [ -n "${REGISTRY_SECRETS}" ]; then
+  mkdir -p "${HOME}/.balena/"
+  echo "${REGISTRY_SECRETS}" > "$HOME/.balena/secrets.json"
 fi
 
 # Run action
-exec node /usr/src/app/build/src/main.js
+exec node /app/build/main.js
