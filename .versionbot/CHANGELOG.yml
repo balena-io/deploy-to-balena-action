@@ -1,4 +1,32 @@
 - commits:
+    - subject: "patch: bump lint-staged from 11.2.6 to 13.0.0"
+      hash: 16c24d991850fb97af43c95aa7d9e44d0c83d6dd
+      body: >
+        Bumps [lint-staged](https://github.com/okonet/lint-staged) from 11.2.6
+        to 13.0.0.
+
+        - [Release notes](https://github.com/okonet/lint-staged/releases)
+
+        - [Commits](https://github.com/okonet/lint-staged/compare/v11.2.6...v13.0.0)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: lint-staged
+          dependency-type: direct:development
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.11.1
+  title: "'patch: bump lint-staged from 11.2.6 to 13.0.0'"
+  date: 2022-06-03T16:43:59.356Z
+- commits:
     - subject: "entrypoint: Remove pipefail option and fix shellcheck warnings"
       hash: 7f477821553aec5bf82401470bdad1228542f835
       body: ""
