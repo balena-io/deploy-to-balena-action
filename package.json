@@ -70,7 +70,6 @@
     "@actions/core": "^1.6.0",
     "@actions/exec": "^1.1.0",
     "@actions/github": "^5.0.0",
-    "balena-cli": "^13.2.1",
     "balena-sdk": "^16.15.1"
   },
   "versionist": {
