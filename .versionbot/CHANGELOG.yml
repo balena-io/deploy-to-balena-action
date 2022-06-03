@@ -1,4 +1,24 @@
 - commits:
+    - subject: "patch: bump node from 14.19.3-bullseye-slim to 18.2.0-bullseye-slim"
+      hash: 46a32c5a10b1e51b85148d5c0b7305314bc5de1d
+      body: |
+        Bumps node from 14.19.3-bullseye-slim to 18.2.0-bullseye-slim.
+
+        ---
+        updated-dependencies:
+        - dependency-name: node
+          dependency-type: direct:production
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.11.1
+  title: "'patch: bump node from 14.19.3-bullseye-slim to 18.2.0-bullseye-slim'"
+  date: 2022-06-03T16:44:38.161Z
+- commits:
     - subject: "entrypoint: Remove pipefail option and fix shellcheck warnings"
       hash: 7f477821553aec5bf82401470bdad1228542f835
       body: ""
