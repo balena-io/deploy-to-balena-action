@@ -1,4 +1,45 @@
 - commits:
+    - subject: "entrypoint: Remove pipefail option and fix shellcheck warnings"
+      hash: 7f477821553aec5bf82401470bdad1228542f835
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: "docker: Update balena CLI to v13.5.3"
+      hash: 2b4ed0989eac067b2b672f0ab3740e4907f7bef2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+    - subject: "docker: Install CLI from standalone zip"
+      hash: 09d01674aa6c1b84a37231543a6a3f9867476f1b
+      body: |
+        This saves tons of time during the build stage of the action.
+
+        The downside being we can't use dependabot to bump the CLI version
+        automatically.
+
+        It also required a debian base image as the standalone zip requires
+        glibc and not musl.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 0.11.0
+  title: "'docker: Install CLI from standalone zip'"
+  date: 2022-06-03T16:37:11.953Z
+- commits:
     - subject: Add git WORKDIR as git safe directory
       hash: 83b776efedfdcb288eb6935cdbad6a2ca83bd7b4
       body: ""
