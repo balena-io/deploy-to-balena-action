@@ -5,9 +5,16 @@ import * as balena from 'balena-sdk';
 
 import { Release } from './types';
 
+const TagKeyMap = {
+	sha: 'balena-ci-commit-sha',
+	pullRequestId: 'balena-ci-id',
+	tag: 'balena-ci-git-tag',
+};
+
 type Tags = {
 	sha: string;
 	pullRequestId?: number;
+	tag?: string;
 };
 
 type BuildOptions = {
@@ -76,14 +83,13 @@ export async function push(
 		'--source',
 		source,
 		'--release-tag',
-		'balena-ci-commit-sha',
-		buildOpt.tags.sha,
+		...Object.entries(buildOpt.tags).flatMap(([key, value]) => [
+			TagKeyMap[key as keyof typeof TagKeyMap],
+			typeof value === 'string' && value.includes(' ')
+				? `"${value}"`
+				: String(value),
+		]),
 	];
-
-	if (buildOpt.tags.pullRequestId) {
-		pushOpt.push('balena-ci-id');
-		pushOpt.push(buildOpt.tags.pullRequestId.toString());
-	}
 
 	if (buildOpt.draft) {
 		pushOpt.push('--draft');
