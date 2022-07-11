@@ -90,11 +90,21 @@ export async function run(
 	let buildOptions = null;
 
 	// If we are pushing directly to the target branch then just build a release without draft flag
-	if (context.eventName === 'push' && context.ref === `refs/heads/${target}`) {
+	if (
+		context.eventName === 'push' &&
+		(context.ref === `refs/heads/${target}` ||
+			context.ref.startsWith('refs/tags/'))
+	) {
+		// TODO: Update this to use ref_type & ref_name once that becomes available
+		// See: https://github.com/actions/toolkit/pull/935/files
+		const tagName = context.ref.match(/^refs\/tags\/(.+)$/)?.[1];
 		// Make a final release because context is master workflow
 		buildOptions = {
 			draft: false,
-			tags: { sha: context.sha },
+			tags: {
+				sha: context.sha,
+				...(!!tagName && { tag: tagName }),
+			},
 		};
 	} else if (context.eventName !== 'pull_request') {
 		// Make sure the only events now are Pull Requests
