@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-ARG BALENA_CLI_VERSION=v13.5.3
+ARG BALENA_CLI_VERSION=v13.10.0
 
 # Install balena-cli via standlone zip to save install time
 RUN wget -q -O balena-cli.zip "https://github.com/balena-io/balena-cli/releases/download/${BALENA_CLI_VERSION}/balena-cli-${BALENA_CLI_VERSION}-linux-x64-standalone.zip" && \
