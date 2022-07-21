@@ -1,4 +1,24 @@
 - commits:
+    - subject: "patch: bump node from 14.19.3-bullseye-slim to 18.6.0-bullseye-slim"
+      hash: 49da0762517a41f6d31d292f5085d1569e30a7e0
+      body: |
+        Bumps node from 14.19.3-bullseye-slim to 18.6.0-bullseye-slim.
+
+        ---
+        updated-dependencies:
+        - dependency-name: node
+          dependency-type: direct:production
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.12.2
+  title: "'patch: bump node from 14.19.3-bullseye-slim to 18.6.0-bullseye-slim'"
+  date: 2022-07-21T20:46:04.785Z
+- commits:
     - subject: Bump balena-cli version
       hash: 8688164d2c5df884fc8951334b161e12526f90e0
       body: ""
