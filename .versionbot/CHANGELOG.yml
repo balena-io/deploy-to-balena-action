@@ -1,4 +1,16 @@
 - commits:
+    - subject: Bump balena-cli version
+      hash: 8688164d2c5df884fc8951334b161e12526f90e0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: ab77
+      nested: []
+  version: 0.12.1
+  title: "'Bump balena-cli version'"
+  date: 2022-07-21T20:41:26.938Z
+- commits:
     - subject: Add support for working with tag pushes
       hash: 3c734e5af5e8710238f956b9fc9811cea26fd383
       body: ""
