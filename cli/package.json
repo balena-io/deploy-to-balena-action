@@ -1,0 +1,22 @@
+{
+  "name": "cli-deploy-to-balena-action",
+  "version": "0.0.0",
+  "description": "An unused package.json to allow Dependabot updates of the CLI",
+  "main": "none.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balena-io/deploy-to-balena-action.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/balena-io/deploy-to-balena-action/issues"
+  },
+  "homepage": "https://github.com/balena-io/deploy-to-balena-action#readme",
+  "dependencies": {
+    "balena-cli": "^13.10.0"
+  }
+}
