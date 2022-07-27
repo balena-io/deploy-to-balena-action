@@ -1,4 +1,38 @@
 - commits:
+    - subject: Bump balena-cli version
+      hash: 8688164d2c5df884fc8951334b161e12526f90e0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: ab77
+      nested: []
+  version: 0.12.1
+  title: "'Bump balena-cli version'"
+  date: 2022-07-21T20:41:26.938Z
+- commits:
+    - subject: Add support for working with tag pushes
+      hash: 3c734e5af5e8710238f956b9fc9811cea26fd383
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Thodoris Greasidis
+      nested: []
+    - subject: "tsconfig: Update the target to es2019"
+      hash: fe75e4eca2bab9ba2875dad56ad6558eb3d1d4f4
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Thodoris Greasidis <thodoris@balena.io>
+        signed-off-by: Thodoris Greasidis <thodoris@balena.io>
+      author: Thodoris Greasidis
+      nested: []
+  version: 0.12.0
+  title: "'Add support for working with tag pushes'"
+  date: 2022-06-23T17:32:37.911Z
+- commits:
     - subject: "entrypoint: Remove pipefail option and fix shellcheck warnings"
       hash: 7f477821553aec5bf82401470bdad1228542f835
       body: ""
