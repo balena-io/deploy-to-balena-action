@@ -1,4 +1,24 @@
 - commits:
+    - subject: "patch: bump node from 14.19.3-bullseye-slim to 18.7.0-bullseye-slim"
+      hash: 06a4b5ec2194b8d361cfffffade8a1fc8ffbb633
+      body: |
+        Bumps node from 14.19.3-bullseye-slim to 18.7.0-bullseye-slim.
+
+        ---
+        updated-dependencies:
+        - dependency-name: node
+          dependency-type: direct:production
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.13.1
+  title: "'patch: bump node from 14.19.3-bullseye-slim to 18.7.0-bullseye-slim'"
+  date: 2022-08-18T20:37:20.756Z
+- commits:
     - subject: "fix(deps): update dependency @actions/core to 1.9.1 [security]"
       hash: 1f947ba5eaf29f7195c38a63a7b995dedbddf6e6
       body: |
