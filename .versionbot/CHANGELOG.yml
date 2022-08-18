@@ -1,4 +1,26 @@
 - commits:
+    - subject: "patch: bump husky from 4.3.8 to 8.0.1"
+      hash: fb1cfca7054d5369c0749d197415a8b616c4edbb
+      body: |
+        Bumps [husky](https://github.com/typicode/husky) from 4.3.8 to 8.0.1.
+        - [Release notes](https://github.com/typicode/husky/releases)
+        - [Commits](https://github.com/typicode/husky/compare/v4.3.8...v8.0.1)
+
+        ---
+        updated-dependencies:
+        - dependency-name: husky
+          dependency-type: direct:development
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.13.1
+  title: "'patch: bump husky from 4.3.8 to 8.0.1'"
+  date: 2022-08-18T20:40:03.180Z
+- commits:
     - subject: "fix(deps): update dependency @actions/core to 1.9.1 [security]"
       hash: 1f947ba5eaf29f7195c38a63a7b995dedbddf6e6
       body: |
