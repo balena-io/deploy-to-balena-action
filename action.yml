@@ -58,7 +58,7 @@ outputs:
     description: 'Version of the release built'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ghcr.io/balena-io/deploy-to-balena-action:latest'
   env:
     BALENA_TOKEN: ${{ inputs.balena_token }}
     BALENA_URL: ${{ inputs.environment }}
