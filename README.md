@@ -11,6 +11,7 @@ on:
  pull_request:
     types: [opened, synchronize, closed]
     branches:
+      - main
       - master
 
 jobs:
@@ -80,9 +81,9 @@ In the sample config shown above under [usage](#usage) we are triggering the act
 
 Now, devices tracking latest will automatically download the release and this was all powered through your github workflow!
 
-### Commit to master
+### Commit to main
 
-This workflow is useful if you push directly to master. This workflow will build your release and notice that it is merging directly to the default branch so not build them as drafts. Devices tracking latest will automatically download these new releases.
+This workflow is useful if you push directly to main. This workflow will build your release and notice that it is merging directly to the default branch so not build them as drafts. Devices tracking latest will automatically download these new releases.
 
 To use this workflow just replace the events found from the sample workflow config under [usage](#usage) with:
 
@@ -90,7 +91,7 @@ To use this workflow just replace the events found from the sample workflow conf
 on:
   push:
     branches:
-      - master
+      - main
 ```
 
 ### Additional comments about workflows
