@@ -1,4 +1,24 @@
 - commits:
+    - subject: "patch: bump node from 14.19.3-bullseye-slim to 18.9.0-bullseye-slim"
+      hash: 5cdf58f6195fc02576afcfc7d25657db336dce5a
+      body: |
+        Bumps node from 14.19.3-bullseye-slim to 18.9.0-bullseye-slim.
+
+        ---
+        updated-dependencies:
+        - dependency-name: node
+          dependency-type: direct:production
+          update-type: version-update:semver-major
+        ...
+      footer:
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+      nested: []
+  version: 0.13.2
+  title: "'patch: bump node from 14.19.3-bullseye-slim to 18.9.0-bullseye-slim'"
+  date: 2022-09-12T08:30:09.969Z
+- commits:
     - subject: "patch: Change `master` branch to `main` in README"
       hash: fe3ecd4f5f51ba164187b5d87ed5a32492517128
       body: >-
