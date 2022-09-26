@@ -1,4 +1,16 @@
 - commits:
+    - subject: "WIP: Add option to use balena deploy as command"
+      hash: 718cf56b2b84c01e13d46cf7ff8a81e38de2563b
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Felipe Lalanne
+      nested: []
+  version: 0.14.0
+  title: "'WIP: Add option to use balena deploy as command'"
+  date: 2022-09-26T23:08:32.549Z
+- commits:
     - subject: "patch: Change `master` branch to `main` in README"
       hash: fe3ecd4f5f51ba164187b5d87ed5a32492517128
       body: >-
