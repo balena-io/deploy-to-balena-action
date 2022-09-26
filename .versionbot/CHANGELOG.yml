@@ -1,4 +1,16 @@
 - commits:
+    - subject: Run pre-built Docker image
+      hash: 3ebea613c032c14a8ed500049aff96042bcc87ff
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: belodetek
+      nested: []
+  version: 0.14.0
+  title: "'Run pre-built Docker image'"
+  date: 2022-09-26T23:18:27.177Z
+- commits:
     - subject: "patch: Change `master` branch to `main` in README"
       hash: fe3ecd4f5f51ba164187b5d87ed5a32492517128
       body: >-
