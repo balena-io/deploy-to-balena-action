@@ -32,19 +32,20 @@ jobs:
 
 Inputs are provided using the `with:` section of your workflow YML file.
 
-| key | Description | Required | Default |
-| --- | --- | --- | --- |
-| balena_token | API key to balenaCloud | true | |
-| fleet | The slug of the fleet (eg: `my_org/sample_fleet`) for which the release is for | true | |
-| environment | Domain of API hosting your fleets | false | balena-cloud.com |
-| cache | If a release matching the commit already exists do not build again | false | true |
-| versionbot | Tells action to use Versionbot branch for versioning | false | false |
-| create_tag | Create a tag on the git commit with the final release version | false | false |
-| source | Specify a source directory (for `Dockerfile.template` or `docker-compose.yml`) | false | root directory |
-| layer_cache | Use cached layers of previously built images for this project | false | true |
-| registry_secrets | JSON string containing image registry credentials used to pull base images | false | |
+| key              | Description                                                                    | Required | Default          |
+| ---------------- | ------------------------------------------------------------------------------ | -------- | ---------------- |
+| balena_token     | API key to balenaCloud                                                         | true     |                  |
+| fleet            | The slug of the fleet (eg: `my_org/sample_fleet`) for which the release is for | true     |                  |
+| environment      | Domain of API hosting your fleets                                              | false    | balena-cloud.com |
+| cache            | If a release matching the commit already exists do not build again             | false    | true             |
+| versionbot       | Tells action to use Versionbot branch for versioning                           | false    | false            |
+| create_tag       | Create a tag on the git commit with the final release version                  | false    | false            |
+| source           | Specify a source directory (for `Dockerfile.template` or `docker-compose.yml`) | false    | root directory   |
+| layer_cache      | Use cached layers of previously built images for this project                  | false    | true             |
+| registry_secrets | JSON string containing image registry credentials used to pull base images     | false    |                  |
+| use_deploy       | Use `balena deploy` instead of `balena push` for creating the release          | false    |                  |
 
-`balena_token` and other tokens needs to be stored in GitHub as an [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) that GitHub Actions can access. 
+`balena_token` and other tokens needs to be stored in GitHub as an [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) that GitHub Actions can access.
 
 `environment` can be used to specify a custom domain for the backend that will build and deploy your release. If for example you want to deploy to staging environment, you would set it to `balena-staging.com` or if you run your own instance of balenaCloud such as openBalena then specify your domain here.
 
@@ -57,18 +58,18 @@ Inputs are provided using the `with:` section of your workflow YML file.
                 "username": "${{ secrets.REGISTRY_USER }}",
                 "password": "${{ secrets.REGISTRY_PASS }}"
               }
-            } 
+            }
 ```
 
 ## Outputs
 
-| key | Description | Nullable |
-| --- | --- | --- |
-| release_id | ID of the release built | true |
-| version | Version of the release built | true |
+| key        | Description                  | Nullable |
+| ---------- | ---------------------------- | -------- |
+| release_id | ID of the release built      | true     |
+| version    | Version of the release built | true     |
 
 The `release_id` output could be null because the action might just finalize previously built releases.
- 
+
 ## Workflows
 
 This action is leveraging the `is_final` trait of a release to enable you to develop releases in a way that make it easier to test.
@@ -96,7 +97,7 @@ on:
 
 ### Additional comments about workflows
 
-If you need to build a release for multiple fleets across several environments (balena-cloud.com, balena-staging.com, etc) you can create multiple workflow files for each environment and use a matrix to pass a list of fleet names into 1 job. See how Balena's Supervisor does this with the [staging deployment workflow](https://github.com/balena-os/balena-supervisor/blob/caf3c1fd5867c127346058742cfa4864e9072313/.github/workflows/staging-balena-ci.yml). 
+If you need to build a release for multiple fleets across several environments (balena-cloud.com, balena-staging.com, etc) you can create multiple workflow files for each environment and use a matrix to pass a list of fleet names into 1 job. See how Balena's Supervisor does this with the [staging deployment workflow](https://github.com/balena-os/balena-supervisor/blob/caf3c1fd5867c127346058742cfa4864e9072313/.github/workflows/staging-balena-ci.yml).
 
 ## Development
 

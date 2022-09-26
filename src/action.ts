@@ -124,9 +124,11 @@ export async function run(
 		};
 	}
 
+	const operation = inputs.useDeploy ? balena.deploy : balena.push;
+
 	// Finally send source to builders
 	try {
-		releaseId = await balena.push(inputs.fleet, inputs.source, inputs.cache, {
+		releaseId = await operation(inputs.fleet, inputs.source, inputs.cache, {
 			...buildOptions,
 			noCache: inputs.layerCache === false,
 		});

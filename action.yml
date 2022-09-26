@@ -2,7 +2,7 @@
 name: 'Deploy to Balena'
 description: 'Automate release builds and deployments'
 branding:
-  icon: 'code'  
+  icon: 'code'
   color: 'blue'
 inputs:
   balena_token:
@@ -46,11 +46,15 @@ inputs:
   layer_cache:
     description: 'Use cached layers of previously built images for this project'
     required: false
-    default: true 
+    default: true
   registry_secrets:
     description: 'Image registry credentrials (Balena secrets.json)'
     required: false
-    default: '' 
+    default: ''
+  use_deploy:
+    description: 'Use `balena deploy` instead of `balena push` for creating the new release.'
+    required: false
+    default: false
 outputs:
   release_id:
     description: 'ID of the release built'
