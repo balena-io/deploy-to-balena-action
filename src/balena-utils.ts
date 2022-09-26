@@ -40,10 +40,11 @@ export async function init(endpoint: string, token: string) {
 	await sdk.auth.loginWithToken(token);
 }
 
-export async function push(
+async function pushOrDeploy(
 	fleet: string,
 	source: string,
 	useCache: boolean,
+	useDeploy = false,
 	options: Partial<BuildOptions>,
 ): Promise<Release['id']> {
 	if (process.env.GITHUB_ACTIONS === 'false') {
@@ -77,12 +78,13 @@ export async function push(
 		}
 	}
 
-	const pushOpt = [
-		'push',
+	const cliOpts = [
+		useDeploy ? 'deploy' : 'push',
 		fleet,
 		'--source',
 		source,
 		'--release-tag',
+		...(useDeploy ? ['--projectName', fleet] : []),
 		...Object.entries(buildOpt.tags).flatMap(([key, value]) => [
 			TagKeyMap[key as keyof typeof TagKeyMap],
 			typeof value === 'string' && value.includes(' ')
@@ -92,25 +94,25 @@ export async function push(
 	];
 
 	if (buildOpt.draft) {
-		pushOpt.push('--draft');
+		cliOpts.push('--draft');
 	}
 
 	if (buildOpt.noCache) {
-		pushOpt.push('--nocache');
+		cliOpts.push('--nocache');
 	}
 
 	let releaseId: string | null = null;
 
 	return new Promise((resolve, reject) => {
-		core.debug(`balena ${pushOpt.join(' ')}`);
+		core.debug(`balena ${cliOpts.join(' ')}`);
 
-		const buildProcess = spawn('balena', pushOpt, {
+		const cliProcess = spawn('balena', cliOpts, {
 			stdio: 'pipe',
 		});
 
-		buildProcess.stdout.setEncoding('utf8');
+		cliProcess.stdout.setEncoding('utf8');
 
-		buildProcess.stdout.on('data', (data: Buffer) => {
+		cliProcess.stdout.on('data', (data: Buffer) => {
 			const msg = stripAnsi(data.toString());
 			// Ignore logging messages if they are progress bar lines since they don't display correctly
 			if (!isProgressBar(msg) && !isEmptyCharacter(msg)) {
@@ -122,19 +124,19 @@ export async function push(
 			}
 		});
 
-		buildProcess.stderr.on('data', (data: Buffer) => {
+		cliProcess.stderr.on('data', (data: Buffer) => {
 			core.error(stripAnsi(data.toString()));
 		});
 
 		process.on('SIGTERM', () => {
-			buildProcess.kill('SIGINT');
+			cliProcess.kill('SIGINT');
 		});
 
 		process.on('SIGINT', () => {
-			buildProcess.kill('SIGINT');
+			cliProcess.kill('SIGINT');
 		});
 
-		buildProcess.on('exit', (code: number) => {
+		cliProcess.on('exit', (code: number) => {
 			if (code !== 0) {
 				return reject('Build process returned non-0 exit code');
 			}
@@ -146,6 +148,34 @@ export async function push(
 			}
 		});
 	});
+}
+
+export async function push(
+	fleet: string,
+	source: string,
+	useCache: boolean,
+	options: Partial<BuildOptions>,
+): Promise<Release['id']> {
+	return pushOrDeploy(fleet, source, useCache, false, options);
+}
+
+export async function deploy(
+	fleet: string,
+	source: string,
+	useCache: boolean,
+	options: Partial<BuildOptions>,
+): Promise<Release['id']> {
+	// TODO: Parse docker compose
+	// for services with `build`, look for a `<fleet>_<serviceName>:<arch>` image or a `<fleet>_<serviceName>:latest`
+	// image, where `<arch>` is the architecture deduced from the fleet. It should look for both
+	// balena architecture ids and docker architecture ids: e.g. `armv7hf` and `armv7` are valid tags
+
+	// TODO: use dockerode to look for the images in the local context, if they don't exist
+	// throw an error
+
+	// TODO: If different than `latest`, pass the `--tag` argument to deploy
+
+	return pushOrDeploy(fleet, source, useCache, true, options);
 }
 
 export async function getReleaseByTags(

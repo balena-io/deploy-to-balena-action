@@ -24,6 +24,7 @@ const inputs: Inputs = {
 	source: join(WORKSPACE, core.getInput('source', { required: false })),
 	githubToken: core.getInput('github_token', { required: false }),
 	layerCache: core.getBooleanInput('layer_cache', { required: false }),
+	useDeploy: core.getBooleanInput('use_deploy', { required: false }),
 };
 
 (async () => {
