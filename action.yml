@@ -50,6 +50,10 @@ inputs:
   registry_secrets:
     description: 'Image registry credentrials (Balena secrets.json)'
     required: false
+    default: ''
+  default_branch:
+    description: 'Branch for finalizing releases'
+    required: false
     default: '' 
 outputs:
   release_id:

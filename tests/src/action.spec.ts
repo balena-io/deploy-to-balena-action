@@ -30,6 +30,7 @@ const inputs: Partial<Inputs> = {
 	cache: true,
 	source: '/src',
 	layerCache: true,
+	defaultBranch: '',
 };
 
 describe('src/action', () => {
@@ -240,6 +241,47 @@ describe('src/action', () => {
 			expect(createTagStub).to.have.been.called;
 			// Check that create tag value was passed
 			expect(createTagStub.lastCall.args[1]).to.equal('v0.5.6');
+		});
+
+		it('uses DEFAULT_BRANCH input', async () => {
+			const customInputs: Partial<Inputs> = {
+				...inputs,
+				defaultBranch: 'target_branch_123',
+			};
+			await action.run(
+				// @ts-expect-error
+				{ ...context, ref: 'refs/heads/target_branch_123' },
+				{ ...customInputs, createTag: true },
+			);
+			// Check that the last arg (buildOptions) does not contain draft: true
+			expect(pushStub.lastCall.lastArg).to.deep.equal({
+				noCache: false,
+				draft: false,
+				tags: {
+					sha: 'fba0317620597271695087c168c50d8c94975a29',
+				},
+			});
+			expect(createTagStub).to.have.been.called;
+			// Check that create tag value was passed
+			expect(createTagStub.lastCall.args[1]).to.equal('v0.5.6');
+		});
+
+		it('detects incorrect target branch', async () => {
+			const customInputs: Partial<Inputs> = {
+				...inputs,
+				defaultBranch: 'branch123',
+			};
+			let e: Error | null = null;
+			try {
+				// @ts-expect-error
+				await action.run(context, { ...customInputs, createTag: true });
+			} catch (err: any) {
+				e = err;
+			}
+			// @ts-expect-error
+			expect(e.message).to.equal(
+				'Push workflow only works with branch123 branch. Event tried pushing to: refs/heads/main',
+			);
 		});
 	});
 });

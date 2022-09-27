@@ -43,6 +43,7 @@ describe('src/main', () => {
 				environment: 'balena-cloud.com',
 				source: dynamicSource,
 				github_token: 'ghTokenExample',
+				default_branch: '',
 			}[inputName];
 		});
 
@@ -106,6 +107,7 @@ describe('src/main', () => {
 			source: '/src',
 			githubToken: 'ghTokenExample',
 			layerCache: true,
+			defaultBranch: '',
 		});
 		// Since github actions pass by default there's no need to check if the action passes
 		// So, let's check if the action correctly handles failures instead
