@@ -43,6 +43,7 @@ Inputs are provided using the `with:` section of your workflow YML file.
 | source | Specify a source directory (for `Dockerfile.template` or `docker-compose.yml`) | false | root directory |
 | layer_cache | Use cached layers of previously built images for this project | false | true |
 | registry_secrets | JSON string containing image registry credentials used to pull base images | false | |
+| default_branch | Used to finalize a release when code is pushed to this branch | false | Repo configured [default branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch) |
 
 `balena_token` and other tokens needs to be stored in GitHub as an [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) that GitHub Actions can access. 
 

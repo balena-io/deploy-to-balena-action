@@ -8,6 +8,7 @@ export type Inputs = {
 	versionbot: boolean;
 	createTag: boolean;
 	layerCache: boolean;
+	defaultBranch: string;
 };
 
 export type RepoContext = {
