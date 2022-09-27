@@ -1,4 +1,16 @@
 - commits:
+    - subject: Add default branch
+      hash: 334fc9059512b5dd39655b7de24f199e24b184d9
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Kakhaber Bazerashvili
+      nested: []
+  version: 0.14.0
+  title: "'Add default branch'"
+  date: 2022-09-27T18:34:21.889Z
+- commits:
     - subject: "patch: Change `master` branch to `main` in README"
       hash: fe3ecd4f5f51ba164187b5d87ed5a32492517128
       body: >-
