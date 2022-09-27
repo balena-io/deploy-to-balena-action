@@ -17,7 +17,8 @@ export async function run(
 	}
 
 	// Get the master branch so we can infer intent
-	const target = context.payload.repository.master_branch;
+	const target =
+		inputs.defaultBranch || context.payload.repository.master_branch;
 	// Collect repo context
 	const repoContext: RepoContext = {
 		owner: context.payload.repository.owner.login || '',
