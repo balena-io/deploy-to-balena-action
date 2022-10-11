@@ -1,4 +1,15 @@
 - commits:
+    - subject: Remove dependabot
+      hash: 29503e25925291e8c39b43f4984885109557b8dc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: ab77
+  version: 0.20.2
+  title: ""
+  date: 2022-10-11T22:01:56.538Z
+- commits:
     - subject: Update dependency lint-staged to 13.0.3
       hash: 5a65bf225c2c015ddae6b52a148ec9de78b24d20
       body: |
