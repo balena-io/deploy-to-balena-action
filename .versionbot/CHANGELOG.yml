@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update actions/checkout action to 3
+      hash: a6ad8a0ffb39667efdd3a2103672107b9c001c20
+      body: |
+        Update actions/checkout to 3
+
+        Update actions/checkout from 2 to 3
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+  version: 0.20.0
+  title: ""
+  date: 2022-10-11T21:33:42.004Z
+- commits:
     - subject: Update dependency dotenv to 16.0.3
       hash: c6bb52e57dcdb2b8101932dace61862dfce0c9cd
       body: |
