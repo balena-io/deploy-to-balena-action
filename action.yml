@@ -1,68 +1,68 @@
-# action.yml
-name: 'Deploy to Balena'
-description: 'Automate release builds and deployments'
+name: Deploy to Balena
+description: Automate release builds and deployments
 branding:
-  icon: 'code'  
-  color: 'blue'
+  icon: code
+  color: blue
 inputs:
   balena_token:
-    description: 'Your balenaCloud API token'
+    description: Your balenaCloud API token
     required: true
   fleet:
-    description: 'Name of the fleet you want to build the release for'
+    description: Name of the fleet you want to build the release for
     required: true
   github_token:
-    description: 'Github access token'
+    description: Github access token
     required: false
     default: ${{ github.token }}
   environment:
-    description: 'Domain for the backend services to build your release'
+    description: Domain for the backend services to build your release
     required: false
-    default: 'balena-cloud.com'
+    default: balena-cloud.com
   versionbot:
-    description: 'Does the repository use VersionBot ?'
+    description: Does the repository use VersionBot ?
     required: false
     default: false
   finalize:
-    description: 'Should the action finalize a release after building'
+    description: Should the action finalize a release after building
     required: false
     default: true
   create_tag:
-    description: 'Tag the git commit with the final balena release version'
+    description: Tag the git commit with the final balena release version
     required: false
     default: false
   create_ref:
-    description: 'Tag the git commit with the final balena release version'
+    description: Tag the git commit with the final balena release version
     required: false
     default: false
   cache:
-    description: 'If a release matching the commit already exists do not build'
+    description: If a release matching the commit already exists do not build
     required: false
     default: true
   source:
-    description: 'Specify custom path to Dockerfile/docker-compose for building release images'
+    description: Specify custom path to Dockerfile/docker-compose for building
+      release images
     required: false
-    default: ''
+    default: ""
   layer_cache:
-    description: 'Use cached layers of previously built images for this project'
+    description: Use cached layers of previously built images for this project
     required: false
-    default: true 
+    default: true
   registry_secrets:
-    description: 'Image registry credentrials (Balena secrets.json)'
+    description: Image registry credentrials (Balena secrets.json)
     required: false
-    default: ''
+    default: ""
   default_branch:
-    description: 'Branch for finalizing releases'
+    description: Branch for finalizing releases
     required: false
-    default: '' 
+    default: ""
 outputs:
   release_id:
-    description: 'ID of the release built'
+    description: ID of the release built
   version:
-    description: 'Version of the release built'
+    description: Version of the release built
 runs:
-  using: 'docker'
-  image: 'docker://ghcr.io/balena-io/deploy-to-balena-action:latest'
+  using: docker
+  image: docker://ghcr.io/balena-io/deploy-to-balena-action:v0.14.2
   env:
     BALENA_TOKEN: ${{ inputs.balena_token }}
     BALENA_URL: ${{ inputs.environment }}

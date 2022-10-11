@@ -1,4 +1,16 @@
 - commits:
+    - subject: Run pre-built Docker image
+      hash: e8769e22b5328088e8c546f653ccd92b925fcc01
+      body: |
+        Co-authored-by: Page- <page@balena.io>
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: belodetek
+  version: 0.14.2
+  title: ""
+  date: 2022-10-11T16:47:52.651Z
+- commits:
     - subject: Switch from balenaCI to flowzone
       hash: e1aa5ea894c78992ecb5fcc32cd34e49ce0c860d
       body: ""
