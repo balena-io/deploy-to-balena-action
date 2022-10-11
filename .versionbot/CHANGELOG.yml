@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update docker/metadata-action digest to 210d783
+      hash: 60b95ec87de4259e9091f9bcffba2a58cbcd57c3
+      body: |
+        Update docker/metadata-action to
+
+        Update docker/metadata-action from  to
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+  version: 0.16.0
+  title: ""
+  date: 2022-10-11T17:30:46.749Z
+- commits:
     - subject: Update docker/build-push-action digest to f97d6e2
       hash: c44e7650e76ec54c4e18ad496cd262d7ddbab68b
       body: |
