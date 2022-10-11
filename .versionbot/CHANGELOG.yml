@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update docker/build-push-action digest to f97d6e2
+      hash: c44e7650e76ec54c4e18ad496cd262d7ddbab68b
+      body: |
+        Update docker/build-push-action to
+
+        Update docker/build-push-action from  to
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+  version: 0.15.0
+  title: ""
+  date: 2022-10-11T17:05:19.549Z
+- commits:
     - subject: Run pre-built Docker image
       hash: e8769e22b5328088e8c546f653ccd92b925fcc01
       body: |
