@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update dependency husky to 8.0.1
+      hash: eac1bcd1b9b7e6981c2b6a4dc530ee52f583f819
+      body: |
+        Update husky to 8.0.1
+
+        Update husky from 4.3.8 to 8.0.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+  version: 0.20.4
+  title: ""
+  date: 2022-10-11T22:50:27.846Z
+- commits:
     - subject: Update dependency mocha to 10.0.0
       hash: 4c94917ac69e1602dc7b2461066bcb2cc9ca89ca
       body: |
