@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update docker/login-action digest to f4ef78c
+      hash: 823ed46df107f38d358c22a117ce385b81b74603
+      body: |
+        Update docker/login-action to
+
+        Update docker/login-action from  to
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+  version: 0.19.0
+  title: ""
+  date: 2022-10-11T21:02:55.148Z
+- commits:
     - subject: Update Node.js to v18
       hash: 6544ac92f7c6f2d897eb43a8e4fd4ed20dd40385
       body: |
