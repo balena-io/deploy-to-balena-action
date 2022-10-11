@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update dependency dotenv to 16.0.3
+      hash: c6bb52e57dcdb2b8101932dace61862dfce0c9cd
+      body: |
+        Update dotenv to 16.0.3
+
+        Update dotenv from 10.0.0 to 16.0.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+  version: 0.19.1
+  title: ""
+  date: 2022-10-11T21:17:59.908Z
+- commits:
     - subject: Update docker/login-action digest to f4ef78c
       hash: 823ed46df107f38d358c22a117ce385b81b74603
       body: |
