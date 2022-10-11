@@ -6,10 +6,14 @@ export BALENARC_BALENA_URL
 
 set -e
 
-[ -z "${BALENA_TOKEN}" ] && echo "BALENA_TOKEN input cannot be empty" && exit 1
+BALENA_API_KEY=${BALENA_API_KEY:=${BALENA_TOKEN:=}}
 
-# Authenticate CLI with token
-balena login --token "${BALENA_TOKEN}" 
+[ -z "${BALENA_API_KEY}" ] && \
+  echo "::error::One of balena_api_key or balena_token inputs must not be empty" && \
+  exit 1
+
+# Authenticate CLI with API key
+balena login --token "${BALENA_API_KEY}"
 
 # Test CLI is working
 balena whoami > /dev/null 

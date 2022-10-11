@@ -13,7 +13,8 @@ const WORKSPACE =
 
 // Capture inputs
 const inputs: Inputs = {
-	balenaToken: core.getInput('balena_token', { required: true }),
+	balenaApiKey: core.getInput('balena_api_key', { required: false }),
+	balenaToken: core.getInput('balena_token', { required: false }),
 	fleet: core.getInput('fleet', { required: true }),
 	environment: core.getInput('environment', { required: false }),
 	cache: core.getBooleanInput('cache', { required: false }),
@@ -32,7 +33,10 @@ const inputs: Inputs = {
 		// Initialize github client
 		githubUtils.init(inputs.githubToken);
 		// Initialize balena SDK
-		await balenaUtils.init(inputs.environment, inputs.balenaToken);
+		await balenaUtils.init(
+			inputs.environment,
+			inputs.balenaApiKey || inputs.balenaToken,
+		);
 		await action.run(context, inputs);
 	} catch (e: any) {
 		core.setFailed(e.message);

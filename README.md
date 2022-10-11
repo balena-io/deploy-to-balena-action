@@ -22,7 +22,7 @@ jobs:
       - uses: balena-io/deploy-to-balena-action@master
         id: build
         with:
-          balena_token: ${{ secrets.BALENA_TOKEN }}
+          balena_api_key: ${{ secrets.BALENA_API_KEY }}
           fleet: my_org/sample_fleet
       - name: Log release ID built
         run: echo "Built release ID ${{ steps.build.outputs.release_id }}"
@@ -34,7 +34,7 @@ Inputs are provided using the `with:` section of your workflow YML file.
 
 | key | Description | Required | Default |
 | --- | --- | --- | --- |
-| balena_token | API key to balenaCloud | true | |
+| balena_api_key | API key to balenaCloud | true | |
 | fleet | The slug of the fleet (eg: `my_org/sample_fleet`) for which the release is for | true | |
 | environment | Domain of API hosting your fleets | false | balena-cloud.com |
 | cache | If a release matching the commit already exists do not build again | false | true |
@@ -45,7 +45,7 @@ Inputs are provided using the `with:` section of your workflow YML file.
 | registry_secrets | JSON string containing image registry credentials used to pull base images | false | |
 | default_branch | Used to finalize a release when code is pushed to this branch | false | Repo configured [default branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch) |
 
-`balena_token` and other tokens needs to be stored in GitHub as an [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) that GitHub Actions can access. 
+`balena_api_key` and other tokens needs to be stored in GitHub as an [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) that GitHub Actions can access. 
 
 `environment` can be used to specify a custom domain for the backend that will build and deploy your release. If for example you want to deploy to staging environment, you would set it to `balena-staging.com` or if you run your own instance of balenaCloud such as openBalena then specify your domain here.
 

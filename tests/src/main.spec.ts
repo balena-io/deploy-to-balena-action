@@ -38,6 +38,7 @@ describe('src/main', () => {
 		// Return some sample inputs
 		getInputStub.callsFake((inputName: string) => {
 			return {
+				balena_api_key: 'balenaApiKeyExample',
 				balena_token: 'balenaTokenExample',
 				fleet: 'my-org/my-fleet',
 				environment: 'balena-cloud.com',
@@ -75,7 +76,7 @@ describe('src/main', () => {
 		balenaUtilStub.restore();
 	});
 
-	it('initilizes action correctly', async () => {
+	it('initializes action correctly', async () => {
 		const setFailedStub = stub(core, 'setFailed');
 		// Actions pass by default so make this fail to test if failure is set
 		actionStub.rejects(new Error('Something went wrong'));
@@ -84,9 +85,10 @@ describe('src/main', () => {
 
 		// Check that requires modules were initilized before running the action
 		expect(ghUtilStub).to.have.been.calledWith('ghTokenExample');
+		// Prefer balenaApiKey input over deprecated balenaToken
 		expect(balenaUtilStub).to.have.been.calledWith(
 			'balena-cloud.com',
-			'balenaTokenExample',
+			'balenaApiKeyExample',
 		);
 
 		while (!actionStub.lastCall) {
@@ -98,6 +100,7 @@ describe('src/main', () => {
 		// Check that the action was given correct input parameters
 		// Not checking first input which is the context as this is loaded by the github module
 		expect(actionStub.lastCall.args[1]).to.deep.equal({
+			balenaApiKey: 'balenaApiKeyExample',
 			balenaToken: 'balenaTokenExample',
 			fleet: 'my-org/my-fleet',
 			environment: 'balena-cloud.com',

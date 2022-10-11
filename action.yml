@@ -4,9 +4,14 @@ branding:
   icon: code
   color: blue
 inputs:
+  balena_api_key:
+    description: Your balenaCloud API key.
+    required: false
+    default: ""
   balena_token:
-    description: Your balenaCloud API token
-    required: true
+    description: Deprecated; Use balena_api_key instead.
+    required: false
+    default: ""
   fleet:
     description: Name of the fleet you want to build the release for
     required: true
@@ -63,7 +68,10 @@ outputs:
 runs:
   using: docker
   image: docker://ghcr.io/balena-io/deploy-to-balena-action:v0.20.6
+  pre-entrypoint: echo "::warning::balena_token is deprecated, please use balena_api_key instead."
+  pre-if: ${{ inputs.balena_token != "" }}
   env:
+    BALENA_API_KEY: ${{ inputs.balena_api_key }}
     BALENA_TOKEN: ${{ inputs.balena_token }}
     BALENA_URL: ${{ inputs.environment }}
     REGISTRY_SECRETS: ${{ inputs.registry_secrets }}

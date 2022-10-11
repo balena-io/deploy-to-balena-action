@@ -2,6 +2,7 @@ export type Inputs = {
 	fleet: string;
 	source: string;
 	environment: string;
+	balenaApiKey: string;
 	balenaToken: string;
 	githubToken: string;
 	cache: boolean;
