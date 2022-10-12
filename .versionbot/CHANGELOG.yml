@@ -1,4 +1,15 @@
 - commits:
+    - subject: Publish image(s) to ghcr.io
+      hash: f6524fc8edcb0eaa251b3cda23736c4c6386c517
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: ab77
+  version: 0.20.6
+  title: ""
+  date: 2022-10-12T00:19:31.413Z
+- commits:
     - subject: Update dependency sinon to 14.0.1
       hash: add63afc9a2ba1b2e8e4c899a1017aeacfd06c31
       body: |
