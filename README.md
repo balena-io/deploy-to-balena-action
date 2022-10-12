@@ -18,7 +18,7 @@ jobs:
   balena_cloud_build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: balena-io/deploy-to-balena-action@master
         id: build
         with:
