@@ -1,4 +1,15 @@
 - commits:
+    - subject: Update actions/checkout to v3
+      hash: 0a624948998e71403463585a3773d48df6709477
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Sven Serlier
+  version: 0.20.7
+  title: ""
+  date: 2022-10-12T20:39:03.803Z
+- commits:
     - subject: Publish image(s) to ghcr.io
       hash: f6524fc8edcb0eaa251b3cda23736c4c6386c517
       body: ""
