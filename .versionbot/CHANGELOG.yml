@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update Node.js to v18.11.0
+      hash: fd4bcf1133bc1dd9a7420e56b519e126143c75cb
+      body: |
+        Update node to 18.11.0
+
+        Update node from 18.10.0 to 18.11.0
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+  version: 0.21.0
+  title: ""
+  date: 2022-10-14T21:02:52.948Z
+- commits:
     - subject: Update actions/checkout to v3
       hash: 0a624948998e71403463585a3773d48df6709477
       body: ""
@@ -225,8 +239,8 @@
     - subject: "patch: Change `master` branch to `main` in README"
       hash: fe3ecd4f5f51ba164187b5d87ed5a32492517128
       body: >-
-        Changed references to `master` branch to `main` in alignment with
-        GitHub's shift to a new default.
+        Changed references to `master` branch to `main` in alignment with GitHub's
+        shift to a new default.
 
 
         GitHub repos now default to `main` instead of `master`. When I created a new repo which had a default branch of `main` and I used the example from the README the workflow didn't trigger because it was pointing to `master`. This change amends the README to refer to the new default, and changes the example action to trigger on both `master` and `main` branches to be backwards compatible. 
@@ -954,8 +968,7 @@
                             - subject: "**BREAKING**: Stop actively supporting node 10"
                               hash: 3a97c6adb6e16b11a4a9aafff05ed01d5fedfe36
                               body: >
-                                Node 10 may well still work with the SDK for
-                                quite a
+                                Node 10 may well still work with the SDK for quite a
 
                                 while, but we'll no longer actively test against them
 
@@ -984,8 +997,7 @@
                             - subject: "**BREAKING** Change apiKey.getAll() to return all key variants"
                               hash: bc9fe542ad788c0793b1035273073298a73a9337
                               body: >
-                                The apiKeys.getAllNamedUserApiKeys will be
-                                offering
+                                The apiKeys.getAllNamedUserApiKeys will be offering
 
                                 the old behavior.
                               footer:
@@ -1356,8 +1368,7 @@
                                 node"
                               hash: acb6c922176eedda4cc6bef4f28c4bd28a49bcf8
                               body: >
-                                The "given 55 registered offline device" was
-                                failing
+                                The "given 55 registered offline device" was failing
 
                                 on node with "uuid" must be unique.
                               footer:
@@ -1591,8 +1602,7 @@
                                     - subject: Allow more lenient gzip decompression
                                       hash: 9c7bc3051b279c9d09ec501a78dbe9f506d65650
                                       body: >
-                                        Be more lenient with decoding compressed
-                                        responses, since (very rarely)
+                                        Be more lenient with decoding compressed responses, since (very rarely)
 
                                         servers send slightly invalid gzip responses that are still accepted
 
@@ -1640,8 +1650,7 @@
                             - subject: Deprecate the release.release_version property
                               hash: ad635d40a3682bd80f50263e560ed3031f27e0a7
                               body: >
-                                Setting a 3-digit semver to the release.semver
-                                field
+                                Setting a 3-digit semver to the release.semver field
 
                                 is the suggested approach.
                               footer:
@@ -1654,8 +1663,7 @@
                             - subject: "typings: Add the release versioning properties"
                               hash: 777f01fb2db9fed304cd6896f8138bd0838d1f72
                               body: >
-                                Setting a 3-digit semver to the release.semver
-                                field
+                                Setting a 3-digit semver to the release.semver field
 
                                 is the suggested approach, instead of setting the
 
@@ -2009,8 +2017,7 @@
             - subject: "os versions, os download: Replace deprecated version fields"
               hash: b2d932afabb9c1ca131c0839397d0492f2f1a272
               body: >
-                Replace deprecated `rawVersion` and `formattedVersion` fields
-                and use
+                Replace deprecated `rawVersion` and `formattedVersion` fields and use
 
                 alternative overload of `getAvailableOsVersions`. As a result, the word
 
