@@ -107,7 +107,7 @@ export async function run(
 				...(!!tagName && { tag: tagName }),
 			},
 		};
-	} else if (context.eventName !== 'pull_request') {
+	} else if (! [ 'pull_request_target', 'pull_request' ].includes(context.eventName)) {
 		// Make sure the only events now are Pull Requests
 		if (context.eventName === 'push') {
 			throw new Error(
