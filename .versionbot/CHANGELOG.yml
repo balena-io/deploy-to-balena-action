@@ -1,4 +1,24 @@
 - commits:
+    - subject: Add ALLOWED_EVENTS to managed list of events to support
+      hash: d315deed50a2692d87d7138fd943f66bbf71a060
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+    - subject: Allow pull_request_target event
+      hash: 6b6ed44e8523ae63dc0a32bb3eaa252e38a6be2e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Anton Belodedenko
+  version: 0.22.2
+  title: ""
+  date: 2022-12-01T01:44:48.433Z
+- commits:
     - subject: Update Node.js to v18.12.1
       hash: 682ef559446569dbd1c3df30b76285012a34216a
       body: |
