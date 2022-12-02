@@ -7,7 +7,6 @@ export async function test(device: string, command: string, timeout: number) {
     const test = spawn(
         "which node",
         {
-            shell: true,
             stdio: 'inherit',
             env: {
                 DEVICE_UUID: device,
