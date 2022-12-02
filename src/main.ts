@@ -30,10 +30,16 @@ const inputs: Inputs = {
 		await balenaUtils.init(inputs.environment, inputs.balenaToken);
 		// acquire a test device
 		const device = await balenaUtils.setupDevice(inputs.fleet, inputs.release);
-		// run user tests
-		await action.test(device, inputs.testCommand, inputs.testTimeout);
-		// teardown device
-		await balenaUtils.teardownDevice(device);
+
+		try {
+			// run user tests
+			await action.test(device, inputs.testCommand, inputs.testTimeout);
+		} catch (error) {
+			throw error;
+		} finally {
+			// teardown device
+			await balenaUtils.teardownDevice(device);
+		}
 	} catch (e: any) {
 		core.setFailed(e.message);
 	}

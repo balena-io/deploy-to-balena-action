@@ -24,7 +24,7 @@ inputs:
   test_command:
     description: command to be run to start tests
     required: false
-    default: exec npm install && exec npm run test
+    default: npm install && npm run test
   test_timeout:
     description: timeout for tests
     required: false
