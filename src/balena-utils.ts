@@ -60,11 +60,11 @@ export async function setupDevice(fleet: string, release_id: string, tag_key: st
 					is_running__release: null,
 				}
 			],
-			is_online: false
+			is_online: true
 		},
 	})
 
-	core.info(`Acquired device ${availableDevice[0]['device_name']} for testing draft release ${release_id})`);
+	core.info(`Acquired device ${availableDevice[0]['uuid']} for testing draft release ${release_id})`);
 
 	await sdk.models.device.pinToRelease(availableDevice[0]['uuid'], release_id);
 
@@ -88,7 +88,7 @@ export async function setupDevice(fleet: string, release_id: string, tag_key: st
 		)
 	})
 
-	core.info(`Device ${availableDevice[0]['device_name']} ready for testing`);
+	core.info(`Device ${availableDevice[0]['uuid']} ready for testing`);
 
 	return availableDevice[0]['uuid'];
 }
