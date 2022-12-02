@@ -1,6 +1,7 @@
-# Deploy to Balena Github Action
+# Test with Balena Github Action
 
-This action allows you to push to Balena builders as an automated way to create releases on your fleet. Depending on the context available to the action, it will either make your release a draft or not.
+This action allows you to pin to balena devices as an automated way to test releases against your fleet.
+Depending on the success status of the test, can be used to prevent deploying problematic releases.
 
 ## Usage
 
@@ -45,7 +46,7 @@ Inputs are provided using the `with:` section of your workflow YML file.
 | registry_secrets | JSON string containing image registry credentials used to pull base images | false | |
 | default_branch | Used to finalize a release when code is pushed to this branch | false | Repo configured [default branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch) |
 
-`balena_token` and other tokens needs to be stored in GitHub as an [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) that GitHub Actions can access. 
+`balena_token` and other tokens needs to be stored in GitHub as an [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) that GitHub Actions can access.
 
 `environment` can be used to specify a custom domain for the backend that will build and deploy your release. If for example you want to deploy to staging environment, you would set it to `balena-staging.com` or if you run your own instance of balenaCloud such as openBalena then specify your domain here.
 
@@ -69,7 +70,7 @@ Inputs are provided using the `with:` section of your workflow YML file.
 | version | Version of the release built | true |
 
 The `release_id` output could be null because the action might just finalize previously built releases.
- 
+
 ## Workflows
 
 This action is leveraging the `is_final` trait of a release to enable you to develop releases in a way that make it easier to test.
@@ -97,7 +98,7 @@ on:
 
 ### Additional comments about workflows
 
-If you need to build a release for multiple fleets across several environments (balena-cloud.com, balena-staging.com, etc) you can create multiple workflow files for each environment and use a matrix to pass a list of fleet names into 1 job. See how Balena's Supervisor does this with the [staging deployment workflow](https://github.com/balena-os/balena-supervisor/blob/caf3c1fd5867c127346058742cfa4864e9072313/.github/workflows/staging-balena-ci.yml). 
+If you need to build a release for multiple fleets across several environments (balena-cloud.com, balena-staging.com, etc) you can create multiple workflow files for each environment and use a matrix to pass a list of fleet names into 1 job. See how Balena's Supervisor does this with the [staging deployment workflow](https://github.com/balena-os/balena-supervisor/blob/caf3c1fd5867c127346058742cfa4864e9072313/.github/workflows/staging-balena-ci.yml).
 
 ## Development
 

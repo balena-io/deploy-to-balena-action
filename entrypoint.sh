@@ -25,5 +25,9 @@ if [ -n "${REGISTRY_SECRETS}" ]; then
   echo "${REGISTRY_SECRETS}" > "$HOME/.balena/secrets.json"
 fi
 
+# Update path to include node
+PATH="/usr/bin/node:$PATH"
+ln -s /usr/bin/nodejs /usr/bin/node
+
 # Run action
 exec node /app/build/main.js
