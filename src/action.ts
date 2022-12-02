@@ -5,7 +5,7 @@ import * as core from '@actions/core';
 export async function test(device: string, command: string, timeout: number) {
     core.info(`Entering tests with ${command}`)
     const test = spawn(
-        "/usr/local/bin/node -v",
+        "node -v && npm -v",
         {
             shell: true,
             stdio: 'inherit',

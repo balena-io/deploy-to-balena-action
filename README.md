@@ -25,10 +25,15 @@ jobs:
       - uses: balena-io/deploy-to-balena-action@master
         id: build
         with:
-          balena_token: ${{ secrets.BALENA_TOKEN }}
-          fleet: my_org/sample_fleet
+          balena_token: ${{ secrets.BALENA_API_KEY }}
+          fleet: gh_rcooke_warwick/connector-block-test
       - name: Log release ID built
         run: echo "Built release ID ${{ steps.build.outputs.release_id }}"
+      - uses: balena-io-experimental/test-with-balena-action@initial
+        with:
+            balena_token: ${{ secrets.BALENA_API_KEY }}
+            fleet: gh_rcooke_warwick/connector-block-test
+            release_id: ${{ steps.build.outputs.release_id }}
 ```
 
 ## Inputs
