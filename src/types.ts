@@ -1,14 +1,11 @@
 export type Inputs = {
 	fleet: string;
-	source: string;
+	release: string;
 	environment: string;
+	testCommand: string;
+	testTimeout: number;
 	balenaToken: string;
 	githubToken: string;
-	cache: boolean;
-	versionbot: boolean;
-	createTag: boolean;
-	layerCache: boolean;
-	defaultBranch: string;
 };
 
 export type RepoContext = {
@@ -24,7 +21,3 @@ export type PullRequest = {
 	merged: boolean;
 };
 
-export type Release = {
-	id: number;
-	isFinal: boolean;
-};

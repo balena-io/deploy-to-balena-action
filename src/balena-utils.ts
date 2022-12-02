@@ -1,32 +1,5 @@
 import * as core from '@actions/core';
-import { exec } from '@actions/exec';
-import { spawn } from 'child_process';
 import * as balena from 'balena-sdk';
-
-import { Release } from './types';
-
-const TagKeyMap = {
-	sha: 'balena-ci-commit-sha',
-	pullRequestId: 'balena-ci-id',
-	tag: 'balena-ci-git-tag',
-};
-
-type Tags = {
-	sha: string;
-	pullRequestId?: number;
-	tag?: string;
-};
-
-type BuildOptions = {
-	noCache: boolean;
-	draft: boolean;
-	tags: Tags;
-};
-
-const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
-	draft: true,
-	noCache: false,
-};
 
 let sdk: ReturnType<typeof balena.getSdk> | null = null;
 
@@ -40,223 +13,134 @@ export async function init(endpoint: string, token: string) {
 	await sdk.auth.loginWithToken(token);
 }
 
-export async function push(
-	fleet: string,
-	source: string,
-	useCache: boolean,
-	options: Partial<BuildOptions>,
-): Promise<Release['id']> {
-	if (process.env.GITHUB_ACTIONS === 'false') {
-		core.debug('Not pushing source to builders because action is false.');
-		return 1910442; // Do not actually build if this code is not being ran by Github
-	}
-
-	const buildOpt = {
-		...DEFAULT_BUILD_OPTIONS,
-		...options,
-	} as BuildOptions;
-
-	// Check if we want to use a cache release
-	if (useCache) {
-		core.info('Checking if a release has already been built.');
-		const tags: Tags = {
-			sha: buildOpt.tags.sha,
-			pullRequestId: buildOpt.tags.pullRequestId,
-		};
-		try {
-			const cachedRelease = await getReleaseByTags(fleet, tags);
-			core.info('Found existing release.');
-			// Found an existing release matching this SHA
-			return cachedRelease.id;
-		} catch (e: any) {
-			if (e.message !== 'Did not find any matching releases') {
-				throw e;
-			}
-			// Release was not found so continue to build
-			core.info('Did not find existing release so building a new one.');
-		}
-	}
-
-	const pushOpt = [
-		'push',
-		fleet,
-		'--source',
-		source,
-		'--release-tag',
-		...Object.entries(buildOpt.tags).flatMap(([key, value]) => [
-			TagKeyMap[key as keyof typeof TagKeyMap],
-			typeof value === 'string' && value.includes(' ')
-				? `"${value}"`
-				: String(value),
-		]),
-	];
-
-	if (buildOpt.draft) {
-		pushOpt.push('--draft');
-	}
-
-	if (buildOpt.noCache) {
-		pushOpt.push('--nocache');
-	}
-
-	let releaseId: string | null = null;
-
-	return new Promise((resolve, reject) => {
-		core.debug(`balena ${pushOpt.join(' ')}`);
-
-		const buildProcess = spawn('balena', pushOpt, {
-			stdio: 'pipe',
-		});
-
-		buildProcess.stdout.setEncoding('utf8');
-
-		buildProcess.stdout.on('data', (data: Buffer) => {
-			const msg = stripAnsi(data.toString());
-			// Ignore logging messages if they are progress bar lines since they don't display correctly
-			if (!isProgressBar(msg) && !isEmptyCharacter(msg)) {
-				core.info(msg);
-			}
-			const match = msg.match(/Release: .{32} \(id: (\d*)\)/);
-			if (match) {
-				releaseId = match[1];
-			}
-		});
-
-		buildProcess.stderr.on('data', (data: Buffer) => {
-			core.error(stripAnsi(data.toString()));
-		});
-
-		process.on('SIGTERM', () => {
-			buildProcess.kill('SIGINT');
-		});
-
-		process.on('SIGINT', () => {
-			buildProcess.kill('SIGINT');
-		});
-
-		buildProcess.on('exit', (code: number) => {
-			if (code !== 0) {
-				return reject('Build process returned non-0 exit code');
-			}
-			core.info('Build process returned 0 exit code');
-			if (releaseId) {
-				resolve(parseInt(releaseId, 10));
-			} else {
-				reject('Was unable to find release ID from the build process.');
-			}
-		});
-	});
-}
-
-export async function getReleaseByTags(
-	fleet: string,
-	tags: Tags,
-): Promise<Release> {
+export async function setupDevice(fleet: string, release_id: string, tag_key: string = 'test_with_balena'): Promise<string> {
 	if (!sdk) {
 		throw new Error('balena SDK has not been initialized');
 	}
 
-	core.debug(
-		`Getting Release for ${fleet} fleet with Tag values: ${JSON.stringify(
-			tags,
-		)}`,
-	);
-
-	// Filters on commit SHA tag
-	const shaFilter = {
-		$any: {
-			$alias: 'rt',
-			$expr: {
-				rt: {
-					tag_key: 'balena-ci-commit-sha',
-					value: tags.sha,
-				},
+	// get an available device for testing: tagged, not running a draft release and online
+	let availableDevice = await sdk.models.device.getAll({
+		$select: 'uuid',
+		$top: 1,
+		$filter: {
+			belongs_to__application: {
+				$any: {
+					$alias: 'bta',
+					$expr: {
+						bta: {
+							slug: fleet
+						}
+					}
+				}
 			},
-		},
-	};
-	// If a PR ID is passed in the tags then filter on that and SHA
-	const filter = tags.pullRequestId
-		? {
-				// Filters on Pull Request ID as well as SHA
-				status: 'success',
-				$and: [
-					{
-						release_tag: {
-							$any: {
-								$alias: 'rt',
-								$expr: {
-									rt: {
-										tag_key: 'balena-ci-id',
-										value: tags.pullRequestId!.toString(),
-									},
+			device_tag: {
+				$any: {
+					$alias: 't',
+					$expr: {
+						t: {
+							tag_key: tag_key
+						}
+					}
+				}
+			},
+			$or: [
+				{
+					is_running__release: {
+						$any: {
+							$alias: 't',
+							$expr: {
+								t: {
+									is_final: false,
 								},
-							},
+							}
 						},
 					},
-					{ release_tag: shaFilter },
-				],
-		  }
-		: {
-				status: 'success',
-				release_tag: shaFilter,
-		  };
-	const application = await sdk.models.release.getAllByApplication(fleet, {
-		$top: 1,
-		$select: ['id', 'is_final'],
-		$filter: filter,
-		$orderby: { created_at: 'desc' },
-	});
+				},
+				{
+					is_running__release: null,
+				}
+			],
+			is_online: false
+		},
+	})
 
-	if (application.length !== 1) {
-		throw new Error('Did not find any matching releases');
-	}
+	core.info(`Acquired device ${availableDevice[0]['device_name']} for testing draft release ${release_id})`);
 
-	return {
-		id: application[0].id,
-		isFinal: application[0].is_final,
-	};
+	await sdk.models.device.pinToRelease(availableDevice[0]['uuid'], release_id);
+
+	await new Promise<void>((resolve, reject) => {
+		let wait: number = 5000;
+		const waitForReady = setInterval(
+			async () => {
+				if (await checkIfRunningRelease(availableDevice[0]['uuid'], release_id)) {
+					clearInterval(waitForReady);
+					resolve();
+				}
+
+				if (!await checkOnline(availableDevice[0]['uuid'])) {
+					clearInterval(waitForReady);
+					reject("test device is offline...");
+				}
+
+				wait += 1000;
+			},
+			wait
+		)
+	})
+
+	core.info(`Device ${availableDevice[0]['device_name']} ready for testing`);
+
+	return availableDevice[0]['uuid'];
 }
 
-// https://www.balena.io/docs/reference/sdk/node-sdk/#balena.models.release.get
-export async function getReleaseVersion(releaseId: number): Promise<string> {
+export async function teardownDevice(device: string) {
 	if (!sdk) {
 		throw new Error('balena SDK has not been initialized');
 	}
 
-	core.debug(`Getting version for release ID ${releaseId}`);
+	core.info(`Tearing down ${device}; returning to application release tracking`);
+	// return device back to application release tracking
+	await sdk.models.device.trackApplicationRelease(device);
+}
 
-	const release = await sdk.models.release.get(releaseId, {
-		$select: 'raw_version',
-	});
-
-	if (!release.raw_version) {
-		throw new Error(`Release raw_version returned empty!`);
+async function checkOnline(device: string): Promise<boolean> {
+	if (!sdk) {
+		throw new Error('balena SDK has not been initialized');
 	}
 
-	core.debug(`Release version is ${release.raw_version}`);
-
-	return release.raw_version;
+	return await sdk.models.device.isOnline(device);
 }
 
-export async function finalize(releaseId: number): Promise<void> {
-	if (
-		(await exec('balena', ['release', 'finalize', releaseId.toString()])) !== 0
-	) {
-		throw new Error(`Failed to finalize release ${releaseId}.`);
+async function checkIfRunningRelease(device: string, release: string): Promise<boolean> {
+	if (!sdk) {
+		throw new Error('balena SDK has not been initialized');
 	}
+
+	let state = await sdk.models.device.getAll({
+		$top: 1,
+		$expand: ['is_running__release'],
+		$select: ['is_online'],
+		$filter: {
+			uuid: device,
+			$and: [
+				{
+					is_running__release: {
+						commit: release
+					},
+				},
+				{
+					is_running__release: {
+						status: 'success'
+					},
+				},
+			]
+		},
+	})
+
+	if (state[0]['is_online'] !== true) {
+		throw new Error(`Device ${device} appears to be offline...`);
+	}
+
+	return (state.length !== 0);
 }
 
-function stripAnsi(logLine: string): string {
-	return logLine.replace(
-		/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g,
-		'',
-	);
-}
-
-function isEmptyCharacter(line: string): boolean {
-	return line.length === 0;
-}
-
-function isProgressBar(line: string): boolean {
-	return line.match(/] (\d{1,3})%/) !== null;
-}

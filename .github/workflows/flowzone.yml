@@ -17,4 +17,4 @@ jobs:
       GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
     with:
       docker_images: |
-        ghcr.io/balena-io/deploy-to-balena-action
+        ghcr.io/balena-io-experimental/test-with-balena-action

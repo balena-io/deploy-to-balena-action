@@ -1,5 +1,5 @@
-name: Deploy to Balena
-description: Automate release builds and deployments
+name: Test with Balena
+description: Automate release testing with balenaCloud
 branding:
   icon: code
   color: blue
@@ -18,48 +18,20 @@ inputs:
     description: Domain for the backend services to build your release
     required: false
     default: balena-cloud.com
-  versionbot:
-    description: Does the repository use VersionBot ?
-    required: false
-    default: false
-  finalize:
-    description: Should the action finalize a release after building
-    required: false
-    default: true
-  create_tag:
-    description: Tag the git commit with the final balena release version
-    required: false
-    default: false
-  create_ref:
-    description: Tag the git commit with the final balena release version
-    required: false
-    default: false
-  cache:
-    description: If a release matching the commit already exists do not build
-    required: false
-    default: true
-  source:
-    description: Specify custom path to Dockerfile/docker-compose for building
-      release images
-    required: false
-    default: ""
-  layer_cache:
-    description: Use cached layers of previously built images for this project
-    required: false
-    default: true
-  registry_secrets:
-    description: Image registry credentrials (Balena secrets.json)
-    required: false
-    default: ""
-  default_branch:
-    description: Branch for finalizing releases
-    required: false
-    default: ""
-outputs:
   release_id:
-    description: ID of the release built
-  version:
-    description: Version of the release built
+    description: release ID of release to be tested
+    required: true
+  test_command:
+    description: command to be run to start tests
+    required: false
+    default: npm install && npm run test
+  test_timeout:
+    description: timeout for tests
+    required: false
+    default: 100000
+outputs:
+  device_uuid:
+    description: The UUID of the test device
 runs:
   using: docker
   image: docker://ghcr.io/balena-io/deploy-to-balena-action:v0.22.2
