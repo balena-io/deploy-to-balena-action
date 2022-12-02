@@ -27,7 +27,8 @@ fi
 
 # Update path to include node
 # PATH="/usr/bin/node:$PATH"
-# ln -s /usr/bin/nodejs /usr/bin/node
+ln -s /usr/local/bin/node /usr/bin/node
+ln -s /usr/local/bin/npm /usr/bin/npm
 
 which node
 which npm
