@@ -10,6 +10,9 @@ inputs:
   fleet:
     description: Name of the fleet you want to build the release for
     required: true
+  release_id:
+    description: release ID of release to be tested
+    required: true
   github_token:
     description: Github access token
     required: false
@@ -18,9 +21,6 @@ inputs:
     description: Domain for the backend services to build your release
     required: false
     default: balena-cloud.com
-  release_id:
-    description: release ID of release to be tested
-    required: true
   test_command:
     description: command to be run to start tests
     required: false
@@ -34,7 +34,7 @@ outputs:
     description: The UUID of the test device
 runs:
   using: docker
-  image: docker://ghcr.io/balena-io/deploy-to-balena-action:v0.22.2
+  image: 'Dockerfile'
   env:
     BALENA_TOKEN: ${{ inputs.balena_token }}
     BALENA_URL: ${{ inputs.environment }}
