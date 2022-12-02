@@ -20,7 +20,7 @@ export async function setupDevice(fleet: string, release_id: string, tag_key: st
 
 	// get an available device for testing: tagged, not running a draft release and online
 	let availableDevice = await sdk.models.device.getAll({
-		$select: 'uuid',
+		// $select: 'uuid',
 		$top: 1,
 		$filter: {
 			belongs_to__application: {
@@ -50,7 +50,7 @@ export async function setupDevice(fleet: string, release_id: string, tag_key: st
 							$alias: 't',
 							$expr: {
 								t: {
-									is_final: false,
+									is_final: true,
 								},
 							}
 						},
@@ -63,6 +63,8 @@ export async function setupDevice(fleet: string, release_id: string, tag_key: st
 			is_online: true
 		},
 	})
+
+
 
 	core.info(`Acquired device ${availableDevice[0]['uuid']} for testing draft release ${release_id})`);
 
