@@ -1,6 +1,6 @@
 export type Inputs = {
 	fleet: string;
-	release: string;
+	release: number;
 	environment: string;
 	testCommand: string;
 	testTimeout: number;

@@ -15,7 +15,7 @@ import * as balenaUtils from './balena-utils';
 const inputs: Inputs = {
 	balenaToken: core.getInput('balena_token', { required: true }),
 	fleet: core.getInput('fleet', { required: true }),
-	release: core.getInput('release_id', { required: true }),
+	release: parseInt(core.getInput('release_id', { required: true })),
 	environment: core.getInput('environment', { required: false }),
 	testCommand: core.getInput('test_command', { required: false }),
 	testTimeout: parseInt(core.getInput('test_timeout', { required: false })),

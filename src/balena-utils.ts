@@ -13,7 +13,7 @@ export async function init(endpoint: string, token: string) {
 	await sdk.auth.loginWithToken(token);
 }
 
-export async function setupDevice(fleet: string, release_id: string, tag_key: string = 'test_with_balena'): Promise<string> {
+export async function setupDevice(fleet: string, release_id: number, tag_key: string = 'test_with_balena'): Promise<string> {
 	if (!sdk) {
 		throw new Error('balena SDK has not been initialized');
 	}
@@ -113,7 +113,7 @@ async function checkOnline(device: string): Promise<boolean> {
 	return await sdk.models.device.isOnline(device);
 }
 
-async function checkIfRunningRelease(device: string, release: string): Promise<boolean> {
+async function checkIfRunningRelease(device: string, release: number): Promise<boolean> {
 	if (!sdk) {
 		throw new Error('balena SDK has not been initialized');
 	}
@@ -127,7 +127,7 @@ async function checkIfRunningRelease(device: string, release: string): Promise<b
 			$and: [
 				{
 					is_running__release: {
-						commit: release
+						id: release
 					},
 				},
 				{
