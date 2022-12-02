@@ -1,13 +1,14 @@
-import { exec } from 'child_process';
+import { spawn } from 'child_process';
 import * as core from '@actions/core';
 
 
 export async function test(device: string, command: string, timeout: number) {
     core.info(`Entering tests with ${command}`)
-    const test = exec(
+    const test = spawn(
         command,
         {
-            // stdio: 'inherit',
+            shell: true,
+            stdio: 'inherit',
             env: {
                 DEVICE_UUID: device,
                 BALENA_TOKEN: process.env.BALENA_TOKEN

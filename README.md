@@ -5,9 +5,11 @@ Depending on the success status of the test, can be used to prevent deploying pr
 
 ## Usage
 
-Here is an example workflow.yml file. Workflow files should be added to the `.github/workflows/` directory within your project. See our [workflows](#workflows) section to find out more.
+Here is an example workflow.yml file.
+Workflow files should be added to the `.github/workflows/` directory within your project.
+See our [workflows](#workflows) section to find out more.
 
-```
+```yaml
 on:
  pull_request:
     types: [opened, synchronize, closed]
@@ -33,18 +35,18 @@ jobs:
 
 Inputs are provided using the `with:` section of your workflow YML file.
 
-| key | Description | Required | Default |
-| --- | --- | --- | --- |
-| balena_token | API key to balenaCloud | true | |
-| fleet | The slug of the fleet (eg: `my_org/sample_fleet`) for which the release is for | true | |
-| environment | Domain of API hosting your fleets | false | balena-cloud.com |
-| cache | If a release matching the commit already exists do not build again | false | true |
-| versionbot | Tells action to use Versionbot branch for versioning | false | false |
-| create_tag | Create a tag on the git commit with the final release version | false | false |
-| source | Specify a source directory (for `Dockerfile.template` or `docker-compose.yml`) | false | root directory |
-| layer_cache | Use cached layers of previously built images for this project | false | true |
-| registry_secrets | JSON string containing image registry credentials used to pull base images | false | |
-| default_branch | Used to finalize a release when code is pushed to this branch | false | Repo configured [default branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch) |
+| key              | Description                                                                    | Required | Default                                                                                                                                                                                               |
+| ---------------- | ------------------------------------------------------------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| balena_token     | API key to balenaCloud                                                         | true     |                                                                                                                                                                                                       |
+| fleet            | The slug of the fleet (eg: `my_org/sample_fleet`) for which the release is for | true     |                                                                                                                                                                                                       |
+| environment      | Domain of API hosting your fleets                                              | false    | balena-cloud.com                                                                                                                                                                                      |
+| cache            | If a release matching the commit already exists do not build again             | false    | true                                                                                                                                                                                                  |
+| versionbot       | Tells action to use Versionbot branch for versioning                           | false    | false                                                                                                                                                                                                 |
+| create_tag       | Create a tag on the git commit with the final release version                  | false    | false                                                                                                                                                                                                 |
+| source           | Specify a source directory (for `Dockerfile.template` or `docker-compose.yml`) | false    | root directory                                                                                                                                                                                        |
+| layer_cache      | Use cached layers of previously built images for this project                  | false    | true                                                                                                                                                                                                  |
+| registry_secrets | JSON string containing image registry credentials used to pull base images     | false    |                                                                                                                                                                                                       |
+| default_branch   | Used to finalize a release when code is pushed to this branch                  | false    | Repo configured [default branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch) |
 
 `balena_token` and other tokens needs to be stored in GitHub as an [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) that GitHub Actions can access.
 
@@ -52,7 +54,7 @@ Inputs are provided using the `with:` section of your workflow YML file.
 
 `registry_secrets` uses a standard secrets.json file format that contains the registry domain with username/password or token inside. You can pass a JSON file as a string like so in your workflow file:
 
-```
+```yaml
          registry_secrets: |
             {
               "ghcr.io": {
@@ -64,10 +66,10 @@ Inputs are provided using the `with:` section of your workflow YML file.
 
 ## Outputs
 
-| key | Description | Nullable |
-| --- | --- | --- |
-| release_id | ID of the release built | true |
-| version | Version of the release built | true |
+| key        | Description                  | Nullable |
+| ---------- | ---------------------------- | -------- |
+| release_id | ID of the release built      | true     |
+| version    | Version of the release built | true     |
 
 The `release_id` output could be null because the action might just finalize previously built releases.
 
@@ -89,7 +91,7 @@ This workflow is useful if you push directly to main. This workflow will build y
 
 To use this workflow just replace the events found from the sample workflow config under [usage](#usage) with:
 
-```
+```yaml
 on:
   push:
     branches:

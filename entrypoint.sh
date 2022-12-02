@@ -26,8 +26,11 @@ if [ -n "${REGISTRY_SECRETS}" ]; then
 fi
 
 # Update path to include node
-PATH="/usr/bin/node:$PATH"
-ln -s /usr/bin/nodejs /usr/bin/node
+# PATH="/usr/bin/node:$PATH"
+# ln -s /usr/bin/nodejs /usr/bin/node
+
+which node
+which npm
 
 # Run action
 exec node /app/build/main.js
