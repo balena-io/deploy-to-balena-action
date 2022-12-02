@@ -48,5 +48,7 @@ COPY entrypoint.sh /app/entrypoint.sh
 # Update path to include node
 ENV PATH /usr/bin/node:$PATH
 
+RUN ln -s /usr/bin/nodejs /usr/bin/node
+
 # Start
 ENTRYPOINT [ "/app/entrypoint.sh" ]
