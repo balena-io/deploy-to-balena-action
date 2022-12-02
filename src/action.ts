@@ -5,7 +5,7 @@ import * as core from '@actions/core';
 export async function test(device: string, command: string, timeout: number) {
     core.info(`Entering tests with ${command}`)
     const test = spawn(
-        "whoami",
+        "echo $PATH",
         {
             shell: true,
             stdio: 'inherit',
