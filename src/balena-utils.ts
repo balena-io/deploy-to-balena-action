@@ -20,7 +20,7 @@ export async function setupDevice(fleet: string, release_id: number, tag_key: st
 
 	// get an available device for testing: tagged, not running a draft release and online
 	let availableDevice = await sdk.models.device.getAll({
-		// $select: 'uuid',
+		$select: 'uuid',
 		$top: 1,
 		$filter: {
 			belongs_to__application: {
@@ -65,8 +65,7 @@ export async function setupDevice(fleet: string, release_id: number, tag_key: st
 	})
 
 
-
-	core.info(`Acquired device ${availableDevice[0]['uuid']} for testing draft release ${release_id})`);
+	core.info(`Acquired device ${availableDevice[0]['uuid']} for testing draft release ${release_id}`);
 
 	await sdk.models.device.pinToRelease(availableDevice[0]['uuid'], release_id);
 
@@ -118,6 +117,9 @@ async function checkIfRunningRelease(device: string, release: number): Promise<b
 		throw new Error('balena SDK has not been initialized');
 	}
 
+	// let device = "eaba73779a77f6e7d85c81fee42791a6";
+	// let release = 2395806
+
 	let state = await sdk.models.device.getAll({
 		$top: 1,
 		$expand: ['is_running__release'],
@@ -139,10 +141,15 @@ async function checkIfRunningRelease(device: string, release: number): Promise<b
 		},
 	})
 
-	if (state[0]['is_online'] !== true) {
-		throw new Error(`Device ${device} appears to be offline...`);
+	if (state.length !== 0) {
+		if (state[0]['is_online'] !== true) {
+			throw new Error(`Device ${device} appears to be offline...`);
+		}
+		return true
+	}
+	else {
+		return false;
 	}
 
-	return (state.length !== 0);
 }
 
