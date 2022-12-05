@@ -4,7 +4,7 @@ import * as balena from 'balena-sdk';
 let sdk: ReturnType<typeof balena.getSdk> | null = null;
 
 export async function init(endpoint: string, token: string) {
-	core.info(`Initializing SDK for https://api.${endpoint})`);
+	core.info(`Initializing SDK for https://api.${endpoint}`);
 	// Specify API endpoint
 	sdk = balena.getSdk({
 		apiUrl: `https://api.${endpoint})}/`,
@@ -64,6 +64,10 @@ export async function setupDevice(fleet: string, release_id: number, tag_key: st
 		},
 	})
 
+	if (availableDevice.length === 0) {
+		// TODO - add waiting function to handle busy devices 
+		throw new Error("No test devices found...");
+	}
 
 	core.info(`Acquired device ${availableDevice[0]['uuid']} for testing draft release ${release_id}`);
 
