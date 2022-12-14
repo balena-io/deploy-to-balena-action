@@ -1,4 +1,36 @@
 - commits:
+    - subject: "patch: bump @actions/core from 1.9.1 to 1.10.0"
+      hash: f79fec2f2f8c797e4dc4c815219aad398bf2bab2
+      body: >
+        Bumps
+        [@actions/core](https://github.com/actions/toolkit/tree/HEAD/packages/core)
+        from 1.9.1 to 1.10.0.
+
+        - [Release notes](https://github.com/actions/toolkit/releases)
+
+        - [Changelog](https://github.com/actions/toolkit/blob/main/packages/core/RELEASES.md)
+
+        - [Commits](https://github.com/actions/toolkit/commits/HEAD/packages/core)
+
+
+        ---
+
+        updated-dependencies:
+
+        - dependency-name: "@actions/core"
+          dependency-type: direct:production
+          update-type: version-update:semver-minor
+        ...
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: dependabot[bot] <support@github.com>
+        signed-off-by: dependabot[bot] <support@github.com>
+      author: dependabot[bot]
+  version: 0.22.3
+  title: ""
+  date: 2022-12-14T20:16:01.940Z
+- commits:
     - subject: Add ALLOWED_EVENTS to managed list of events to support
       hash: d315deed50a2692d87d7138fd943f66bbf71a060
       body: ""
