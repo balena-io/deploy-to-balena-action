@@ -1,4 +1,18 @@
 - commits:
+    - subject: "chore(deps): update dependency sinon to 15.0.0"
+      hash: 879e5db6ce2c2b7e6bcb9cf0014ddfcf389fae49
+      body: |
+        Update sinon to 15.0.0
+
+        Update sinon from 14.0.1 to 15.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+  version: 0.22.4
+  title: ""
+  date: 2022-12-14T21:01:51.555Z
+- commits:
     - subject: "patch: bump @actions/core from 1.9.1 to 1.10.0"
       hash: f79fec2f2f8c797e4dc4c815219aad398bf2bab2
       body: >
