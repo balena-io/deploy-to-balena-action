@@ -67,7 +67,7 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "@actions/core": "^1.6.0",
+    "@actions/core": "^1.10.0",
     "@actions/exec": "^1.1.0",
     "@actions/github": "^5.0.0",
     "balena-sdk": "^16.15.1"
