@@ -1,4 +1,15 @@
 - commits:
+    - subject: Remove versionbot reference from the README
+      hash: c46d35701b81f43d67ac4c089b6e5902b21e22a2
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: maggie0002
+  version: 0.23.0
+  title: ""
+  date: 2023-01-05T15:48:52.095Z
+- commits:
     - subject: "chore(deps): update dependency sinon to 15.0.0"
       hash: 879e5db6ce2c2b7e6bcb9cf0014ddfcf389fae49
       body: |
