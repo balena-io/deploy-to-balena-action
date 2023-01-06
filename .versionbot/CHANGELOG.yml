@@ -1,4 +1,18 @@
 - commits:
+    - subject: "chore(deps): update node.js to v18.13.0"
+      hash: da964f4a7dbed3bec93e4309410251203ce4141a
+      body: |
+        Update node to 18.13.0
+
+        Update node from 18.12.1 to 18.13.0
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+  version: 0.24.0
+  title: ""
+  date: 2023-01-06T20:57:58.822Z
+- commits:
     - subject: Remove versionbot reference from the README
       hash: c46d35701b81f43d67ac4c089b6e5902b21e22a2
       body: ""
