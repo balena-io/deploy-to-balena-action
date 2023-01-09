@@ -1,4 +1,15 @@
 - commits:
+    - subject: Revert previous
+      hash: 5f35022a0711fd159172c02aae745ba0ad439bdc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: ab77
+  version: 0.24.1
+  title: ""
+  date: 2023-01-09T21:45:53.941Z
+- commits:
     - subject: "chore(deps): update node.js to v18.13.0"
       hash: da964f4a7dbed3bec93e4309410251203ce4141a
       body: |
