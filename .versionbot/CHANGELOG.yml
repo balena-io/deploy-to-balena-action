@@ -1,4 +1,18 @@
 - commits:
+    - subject: "chore(deps): update node.js to v19"
+      hash: 17d16661aa07bbc7bfbf2eeadb910f826af86978
+      body: |
+        Update node to 19.4.0
+
+        Update node from 18.12.1 to 19.4.0
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+  version: 0.25.0
+  title: ""
+  date: 2023-01-09T21:58:21.076Z
+- commits:
     - subject: Revert previous
       hash: 5f35022a0711fd159172c02aae745ba0ad439bdc
       body: ""
