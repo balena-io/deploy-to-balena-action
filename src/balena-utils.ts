@@ -34,7 +34,7 @@ export async function init(endpoint: string, token: string) {
 	core.info(`Initializing SDK for https://api.${endpoint})`);
 	// Specify API endpoint
 	sdk = balena.getSdk({
-		apiUrl: `https://api.${endpoint})}/`,
+		apiUrl: `https://api.${endpoint}}/`,
 	});
 	// Authenticate client with token
 	await sdk.auth.loginWithToken(token);
