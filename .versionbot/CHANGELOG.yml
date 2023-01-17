@@ -1,4 +1,18 @@
 - commits:
+    - subject: "chore(deps): update dependency rimraf to 4.0.1"
+      hash: a0941ac95335c81524e7134bf5a5e9762c287499
+      body: |
+        Update rimraf to 4.0.1
+
+        Update rimraf from 3.0.2 to 4.0.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+  version: 0.24.2
+  title: ""
+  date: 2023-01-17T10:16:53.736Z
+- commits:
     - subject: Revert previous
       hash: 5f35022a0711fd159172c02aae745ba0ad439bdc
       body: ""
