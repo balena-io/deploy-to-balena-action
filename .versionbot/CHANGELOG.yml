@@ -1,4 +1,17 @@
 - commits:
+    - subject: Set outputs on finalize
+      hash: cc1d347ecdb81110227fd3b1ef35f319f3040a9a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 0.26.1
+  title: ""
+  date: 2023-01-30T22:03:10.195Z
+- commits:
     - subject: Mark versionbot as Deprecated in action.yml
       hash: d7aded8a4900e38107b8fa0395ee9bb010c2ac67
       body: ""
