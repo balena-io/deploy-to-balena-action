@@ -62,6 +62,10 @@ export async function run(
 
 			rawVersion = await balena.getReleaseVersion(previousRelease.id);
 
+			// set outputs on finalize
+			core.setOutput("version", rawVersion);
+			core.setOutput("release_id", previousRelease.id);
+
 			if (inputs.createTag && rawVersion) {
 				try {
 					await github.createTag(repoContext, rawVersion);
