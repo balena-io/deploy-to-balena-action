@@ -29,6 +29,7 @@ jobs:
 
       - name: Replace the build image and Dockerfile for testing
         run: |
+          cat action.yml
           # Use the Docker image built from the PR
           yq e -i '.runs.image = "docker://ghcr.io/balena-io/deploy-to-balena-action:${{ github.event.pull_request.head.sha }}"' \
             action.yml
