@@ -9,6 +9,7 @@ export type Inputs = {
 	createTag: boolean;
 	layerCache: boolean;
 	defaultBranch: string;
+	multiDockerignore: boolean;
 };
 
 export type RepoContext = {

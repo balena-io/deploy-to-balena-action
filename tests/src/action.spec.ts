@@ -31,6 +31,7 @@ const inputs: Partial<Inputs> = {
 	source: '/src',
 	layerCache: true,
 	defaultBranch: '',
+	multiDockerignore: true,
 };
 
 describe('src/action', () => {
@@ -135,6 +136,7 @@ describe('src/action', () => {
 		expect(pushStub.lastCall.args[1]).to.equal('/src');
 		expect(pushStub.lastCall.lastArg).to.deep.equal({
 			draft: false,
+			multiDockerignore: true,
 			noCache: true,
 			tags: {
 				sha: 'fba0317620597271695087c168c50d8c94975a29',
@@ -179,6 +181,7 @@ describe('src/action', () => {
 			await action.run(prContext, { ...inputs, createTag: true });
 			// Check that the last arg (buildOptions) does not contain draft: true
 			expect(pushStub.lastCall.lastArg).to.deep.equal({
+				multiDockerignore: true,
 				noCache: false,
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
@@ -234,6 +237,7 @@ describe('src/action', () => {
 			expect(pushStub.lastCall.lastArg).to.deep.equal({
 				noCache: false,
 				draft: false,
+				multiDockerignore: true,
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
 				},
@@ -256,6 +260,7 @@ describe('src/action', () => {
 			// Check that the last arg (buildOptions) does not contain draft: true
 			expect(pushStub.lastCall.lastArg).to.deep.equal({
 				noCache: false,
+				multiDockerignore: true,
 				draft: false,
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
