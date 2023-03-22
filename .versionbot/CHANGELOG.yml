@@ -1,4 +1,19 @@
 - commits:
+    - subject: Bump balena-cli to 15.1.1
+      hash: e2a44f6f2f8ae011ad70462c0215f5a883a5b492
+      body: |
+        In order to take advantage of the latest improvements brought by
+        balena-compose.
+      footer:
+        Relates-to: balena-io/balena-cli#2599
+        relates-to: balena-io/balena-cli#2599
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+  version: 0.26.2
+  title: ""
+  date: 2023-03-22T22:45:42.080Z
+- commits:
     - subject: Set outputs on finalize
       hash: cc1d347ecdb81110227fd3b1ef35f319f3040a9a
       body: ""
