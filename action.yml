@@ -19,7 +19,7 @@ inputs:
     required: false
     default: balena-cloud.com
   versionbot:
-    description: "(Deprecated) Does the repository use VersionBot?"
+    description: "Does the repository use VersionBot? (Deprecated)"
     required: false
     default: false
   finalize:
