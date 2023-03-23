@@ -19,7 +19,7 @@ inputs:
     required: false
     default: balena-cloud.com
   versionbot:
-    description: (Deprecated) Does the repository use VersionBot?
+    description: "(Deprecated) Does the repository use VersionBot?"
     required: false
     default: false
   finalize:
@@ -48,7 +48,7 @@ inputs:
     required: false
     default: true
   registry_secrets:
-    description: Image registry credentials (Balena secrets.json)
+    description: "Image registry credentials (balena secrets.json)"
     required: false
     default: ""
   default_branch:
