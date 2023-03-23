@@ -1,4 +1,15 @@
 - commits:
+    - subject: "Flowzone: Allow external contributions"
+      hash: 4daa1799fd07c3c5ddc2be607a8b0808970e722a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thodoris Greasidis
+  version: 0.26.3
+  title: ""
+  date: 2023-03-23T19:01:26.189Z
+- commits:
     - subject: Bump balena-cli to 15.1.1
       hash: e2a44f6f2f8ae011ad70462c0215f5a883a5b492
       body: |
