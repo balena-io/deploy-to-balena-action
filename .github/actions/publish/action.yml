@@ -1,0 +1,35 @@
+# https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+name: "Test deploy to balenaCloud"
+description: "Custom test step to run during a pull request"
+# this inputs are always provided by flowzone, so they must always be defined on the composite action
+inputs:
+  json:
+    description: "JSON stringified object containing all the inputs from the calling workflow"
+    required: true
+  secrets:
+    description: "JSON stringified object containing all the secrets from the calling workflow"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Replace the build image and Dockerfile for testing
+      shell: bash
+      run: |
+        image="ghcr.io/balena-io/deploy-to-balena-action:${{ github.event.pull_request.head.sha }}"
+        while ! docker buildx imagetools inspect "${image}" >/dev/null 2>&1
+        do
+          echo "waiting for ${image}..."
+          sleep $(((RANDOM % 10) + 10))
+        done
+        # Use the Docker image built from the PR
+        yq e -i '.runs.image = "docker://ghcr.io/balena-io/deploy-to-balena-action:${{ github.event.pull_request.head.sha }}"' \
+          action.yml
+        # Overwrite the Dockerfile with minimal number of steps so the test deploy finishes quickly
+        echo FROM busybox > Dockerfile
+
+    - name: Deploy to a test fleet
+      uses: ./
+      with:
+        balena_token: ${{ fromJSON(inputs.secrets).BALENA_API_KEY }}
+        fleet: balena/deploy_to_balena_action
+        cache: false
