@@ -1,4 +1,15 @@
 - commits:
+    - subject: Add multi_dockerignore option
+      hash: db2cedeef4948ef79b8741119604cb9dec586dfb
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: karaxuna
+  version: 0.27.0
+  title: ""
+  date: 2023-03-27T09:19:53.420Z
+- commits:
     - subject: Move the deploy test action to a custom flowzone test
       hash: abbe2922f3f674203fd6d14339186f890ded37ee
       body: ""
