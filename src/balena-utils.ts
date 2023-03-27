@@ -21,11 +21,13 @@ type BuildOptions = {
 	noCache: boolean;
 	draft: boolean;
 	tags: Tags;
+	multiDockerignore: boolean;
 };
 
 const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
 	draft: true,
 	noCache: false,
+	multiDockerignore: false,
 };
 
 let sdk: ReturnType<typeof balena.getSdk> | null = null;
@@ -97,6 +99,10 @@ export async function push(
 
 	if (buildOpt.noCache) {
 		pushOpt.push('--nocache');
+	}
+
+	if (buildOpt.multiDockerignore) {
+		pushOpt.push('--multi-dockerignore');
 	}
 
 	let releaseId: string | null = null;

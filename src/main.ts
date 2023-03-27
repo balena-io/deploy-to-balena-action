@@ -25,6 +25,7 @@ const inputs: Inputs = {
 	githubToken: core.getInput('github_token', { required: false }),
 	layerCache: core.getBooleanInput('layer_cache', { required: false }),
 	defaultBranch: core.getInput('default_branch', { required: false }),
+	multiDockerignore: core.getBooleanInput('multi_dockerignore', { required: false }),
 };
 
 (async () => {

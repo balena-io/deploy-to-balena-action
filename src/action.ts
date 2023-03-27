@@ -136,6 +136,7 @@ export async function run(
 		releaseId = await balena.push(inputs.fleet, inputs.source, inputs.cache, {
 			...buildOptions,
 			noCache: inputs.layerCache === false,
+			multiDockerignore: inputs.multiDockerignore,
 		});
 	} catch (e: any) {
 		core.error(e.message);

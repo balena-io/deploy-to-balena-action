@@ -127,7 +127,7 @@ describe('src/balena-utils', () => {
 			]);
 		});
 
-		it('Sets --draft or --nocache', async () => {
+		it('Sets --draft, --nocache and --multi-dockerignore', async () => {
 			setTimeout(() => {
 				mockProcess.emit('exit', 0); // make process exit
 			}, 500);
@@ -136,6 +136,7 @@ describe('src/balena-utils', () => {
 				await balenaUtils.push('org/fleet', '/tmp/source', false, {
 					noCache: true,
 					draft: true,
+					multiDockerignore: true,
 					tags: { sha: 'fba0317620597271695087c168c50d8c94975a29' },
 				});
 			} catch (e) {
@@ -152,6 +153,7 @@ describe('src/balena-utils', () => {
 				'fba0317620597271695087c168c50d8c94975a29',
 				'--draft',
 				'--nocache',
+				'--multi-dockerignore',
 			]);
 		});
 
