@@ -7,7 +7,7 @@ import * as git from "./git";
 import * as github from "./github-utils";
 import { Inputs, RepoContext } from "./types";
 
-const ALLOWED_EVENTS = ["pull_request_target", "pull_request"];
+const ALLOWED_EVENTS = ["pull_request_target", "pull_request", "workflow_dispatch"];
 
 export async function run(
 	context: typeof contextType,
