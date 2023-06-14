@@ -122,11 +122,15 @@ export async function run(
 		}
 		throw new Error(`Unsure how to proceed with event: ${context.eventName}`);
 	} else {
-		// Make a draft release because context is PR workflow
+		// TODO: Update this to use ref_type & ref_name once that becomes available
+		// See: https://github.com/actions/toolkit/pull/935/files
+		const tagName = context.ref.match(/^refs\/tags\/(.+)$/)?.[1];
+		// Make a final release because context is master workflow
 		buildOptions = {
+			draft: false,
 			tags: {
-				sha: repoContext.sha,
-				pullRequestId: repoContext.pullRequest!.id,
+				sha: context.sha,
+				...(!!tagName && { tag: tagName }),
 			},
 		};
 	}
