@@ -127,7 +127,7 @@ describe('src/balena-utils', () => {
 			]);
 		});
 
-		it('Sets --draft, --nocache and --multi-dockerignore', async () => {
+		it('Sets --draft, --nocache and --multi-dockerignore and --debug', async () => {
 			setTimeout(() => {
 				mockProcess.emit('exit', 0); // make process exit
 			}, 500);
@@ -137,6 +137,7 @@ describe('src/balena-utils', () => {
 					noCache: true,
 					draft: true,
 					multiDockerignore: true,
+					debug: true,
 					tags: { sha: 'fba0317620597271695087c168c50d8c94975a29' },
 				});
 			} catch (e) {
@@ -154,6 +155,7 @@ describe('src/balena-utils', () => {
 				'--draft',
 				'--nocache',
 				'--multi-dockerignore',
+				'--debug',
 			]);
 		});
 

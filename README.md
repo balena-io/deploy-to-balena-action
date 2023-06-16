@@ -44,6 +44,7 @@ Inputs are provided using the `with:` section of your workflow YML file.
 | registry_secrets | JSON string containing image registry credentials used to pull base images | false | |
 | default_branch | Used to finalize a release when code is pushed to this branch | false | Repo configured [default branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch) |
 | multi_dockerignore | Respect .dockerignore in each service | false | false |
+| debug | Enable debug logs for balena push build | false | false |
 
 `balena_token` and other tokens needs to be stored in GitHub as an [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) that GitHub Actions can access. 
 

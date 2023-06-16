@@ -26,6 +26,7 @@ const inputs: Inputs = {
 	layerCache: core.getBooleanInput('layer_cache', { required: false }),
 	defaultBranch: core.getInput('default_branch', { required: false }),
 	multiDockerignore: core.getBooleanInput('multi_dockerignore', { required: false }),
+	debug: core.getBooleanInput('debug', { required: false }),
 };
 
 (async () => {

@@ -10,6 +10,7 @@ export type Inputs = {
 	layerCache: boolean;
 	defaultBranch: string;
 	multiDockerignore: boolean;
+	debug: boolean;
 };
 
 export type RepoContext = {
