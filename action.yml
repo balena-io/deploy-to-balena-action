@@ -70,7 +70,7 @@ outputs:
     description: Version of the release built
 runs:
   using: docker
-  image: docker://ghcr.io/balena-io/deploy-to-balena-action:v0.27.0
+  image: docker://ghcr.io/balena-io/deploy-to-balena-action:v0.28.0
   env:
     BALENA_TOKEN: ${{ inputs.balena_token }}
     BALENA_URL: ${{ inputs.environment }}
