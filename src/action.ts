@@ -137,6 +137,7 @@ export async function run(
 			...buildOptions,
 			noCache: inputs.layerCache === false,
 			multiDockerignore: inputs.multiDockerignore,
+			debug: inputs.debug,
 		});
 	} catch (e: any) {
 		core.error(e.message);

@@ -59,6 +59,10 @@ inputs:
     description: Use service's dockerignore file
     required: false
     default: false
+  debug:
+    description: Enable debug logs for balena push build
+    required: false
+    default: false
 outputs:
   release_id:
     description: ID of the release built

@@ -56,6 +56,7 @@ describe('src/main', () => {
 				create_ref: false,
 				layer_cache: true,
 				multi_dockerignore: true,
+				debug: true,
 			}[inputName];
 		});
 	});
@@ -110,6 +111,7 @@ describe('src/main', () => {
 			layerCache: true,
 			defaultBranch: '',
 			multiDockerignore: true,
+			debug: true,
 		});
 		// Since github actions pass by default there's no need to check if the action passes
 		// So, let's check if the action correctly handles failures instead

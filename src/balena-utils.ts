@@ -22,12 +22,14 @@ type BuildOptions = {
 	draft: boolean;
 	tags: Tags;
 	multiDockerignore: boolean;
+	debug: boolean;
 };
 
 const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
 	draft: true,
 	noCache: false,
 	multiDockerignore: false,
+	debug: false,
 };
 
 let sdk: ReturnType<typeof balena.getSdk> | null = null;
@@ -103,6 +105,10 @@ export async function push(
 
 	if (buildOpt.multiDockerignore) {
 		pushOpt.push('--multi-dockerignore');
+	}
+
+	if (buildOpt.debug) {
+		pushOpt.push('--debug');
 	}
 
 	let releaseId: string | null = null;

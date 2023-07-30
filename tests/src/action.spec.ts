@@ -32,6 +32,7 @@ const inputs: Partial<Inputs> = {
 	layerCache: true,
 	defaultBranch: '',
 	multiDockerignore: true,
+	debug: true,
 };
 
 describe('src/action', () => {
@@ -137,6 +138,7 @@ describe('src/action', () => {
 		expect(pushStub.lastCall.lastArg).to.deep.equal({
 			draft: false,
 			multiDockerignore: true,
+			debug: true,
 			noCache: true,
 			tags: {
 				sha: 'fba0317620597271695087c168c50d8c94975a29',
@@ -182,6 +184,7 @@ describe('src/action', () => {
 			// Check that the last arg (buildOptions) does not contain draft: true
 			expect(pushStub.lastCall.lastArg).to.deep.equal({
 				multiDockerignore: true,
+				debug: true,
 				noCache: false,
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
@@ -238,6 +241,7 @@ describe('src/action', () => {
 				noCache: false,
 				draft: false,
 				multiDockerignore: true,
+				debug: true,
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
 				},
@@ -261,6 +265,7 @@ describe('src/action', () => {
 			expect(pushStub.lastCall.lastArg).to.deep.equal({
 				noCache: false,
 				multiDockerignore: true,
+				debug: true,
 				draft: false,
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
