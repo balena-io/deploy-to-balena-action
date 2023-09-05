@@ -1,4 +1,15 @@
 - commits:
+    - subject: Update balena CLI to v17.0.0
+      hash: 94230b89430ef061c338fe13493b1ed6a67895dc
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Kyle Harding
+  version: 0.29.0
+  title: ""
+  date: 2023-09-05T19:09:18.237Z
+- commits:
     - subject: Add debug build logs option
       hash: f0f1035f3824c214bf6673699670ea8f53031912
       body: ""
