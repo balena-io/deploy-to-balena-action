@@ -1,4 +1,15 @@
 - commits:
+    - subject: Update minimum node engine to 16
+      hash: 2a943a368faffc9734b10fdc8be99cc2ee902b7b
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Kyle Harding
+  version: 1.0.0
+  title: ""
+  date: 2023-09-06T15:31:22.448Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v17.1.1
       hash: 90b30ba31ae8050d6e400419c43d54b255373c2c
       body: |
