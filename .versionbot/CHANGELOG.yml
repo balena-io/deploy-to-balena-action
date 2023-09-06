@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency @types/chai-things to v0.0.36
+      hash: 2776dbfac302f3351ec29bcfbeb7b16cb4b7d878
+      body: |
+        Update @types/chai-things from 0.0.35 to 0.0.36
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.0.1
+  title: ""
+  date: 2023-09-06T16:18:18.284Z
+- commits:
     - subject: Update minimum node engine to 16
       hash: 2a943a368faffc9734b10fdc8be99cc2ee902b7b
       body: ""
