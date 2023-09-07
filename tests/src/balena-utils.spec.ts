@@ -222,7 +222,7 @@ describe('src/balena-utils', () => {
 			const token = '12345';
 			await balenaUtils.init(endpoint, token);
 			expect(sdkStub).to.have.been.calledWith({
-				apiUrl: `https://api.${endpoint})}/`, // Check that the right apiUrl was set
+				apiUrl: `https://api.${endpoint}/`, // Check that the right apiUrl was set
 			});
 			expect(authStub).to.have.been.calledWith(token); // Check that the right token was used
 			expect(balenaUtils.__get__('sdk')).to.not.be.null; // Check that authenticate SDK was set to local instance
