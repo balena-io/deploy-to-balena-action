@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update Node.js to v18.17.1
+      hash: 72b64059e80772ea8400098a6bf04bbf4e7019a0
+      body: |
+        Update node from 18.12.1 to 18.17.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.0.3
+  title: ""
+  date: 2023-09-07T18:35:00.948Z
+- commits:
     - subject: Update dependency balena-sdk to v18
       hash: d94fe1ba837450c2e8d30407927b544b34cd51b7
       body: |
