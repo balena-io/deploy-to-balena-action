@@ -44,6 +44,7 @@ describe('src/main', () => {
 				source: dynamicSource,
 				github_token: 'ghTokenExample',
 				default_branch: '',
+				note: 'My useful note',
 			}[inputName];
 		});
 
@@ -112,6 +113,7 @@ describe('src/main', () => {
 			defaultBranch: '',
 			multiDockerignore: true,
 			debug: true,
+			note: 'My useful note',
 		});
 		// Since github actions pass by default there's no need to check if the action passes
 		// So, let's check if the action correctly handles failures instead

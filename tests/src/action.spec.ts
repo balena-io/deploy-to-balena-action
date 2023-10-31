@@ -33,6 +33,7 @@ const inputs: Partial<Inputs> = {
 	defaultBranch: '',
 	multiDockerignore: true,
 	debug: true,
+	note: 'My useful note',
 };
 
 describe('src/action', () => {
@@ -139,6 +140,7 @@ describe('src/action', () => {
 			draft: false,
 			multiDockerignore: true,
 			debug: true,
+			note: 'My useful note',
 			noCache: true,
 			tags: {
 				sha: 'fba0317620597271695087c168c50d8c94975a29',
@@ -185,6 +187,7 @@ describe('src/action', () => {
 			expect(pushStub.lastCall.lastArg).to.deep.equal({
 				multiDockerignore: true,
 				debug: true,
+				note: 'My useful note',
 				noCache: false,
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
@@ -242,6 +245,7 @@ describe('src/action', () => {
 				draft: false,
 				multiDockerignore: true,
 				debug: true,
+				note: 'My useful note',
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
 				},
@@ -266,6 +270,7 @@ describe('src/action', () => {
 				noCache: false,
 				multiDockerignore: true,
 				debug: true,
+				note: 'My useful note',
 				draft: false,
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',

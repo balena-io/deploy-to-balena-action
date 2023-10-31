@@ -63,6 +63,10 @@ inputs:
     description: Enable debug logs for balena push build
     required: false
     default: "false"
+  note:
+    description: Enable adding a note to the release
+    required: false
+    default: ""
 outputs:
   release_id:
     description: ID of the release built
