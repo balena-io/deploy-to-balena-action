@@ -1,4 +1,15 @@
 - commits:
+    - subject: Allow custom actions to run for external contributions
+      hash: 952291d058d8eb401c88bd62a6bfd46c0ff488f5
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Kyle Harding
+  version: 1.0.4
+  title: ""
+  date: 2023-11-01T15:55:45.384Z
+- commits:
     - subject: Update Node.js to v18.17.1
       hash: 72b64059e80772ea8400098a6bf04bbf4e7019a0
       body: |
