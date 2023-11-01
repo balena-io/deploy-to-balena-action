@@ -11,6 +11,7 @@ export type Inputs = {
 	defaultBranch: string;
 	multiDockerignore: boolean;
 	debug: boolean;
+	note: string;
 };
 
 export type RepoContext = {

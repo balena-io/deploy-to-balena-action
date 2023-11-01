@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import { exec } from '@actions/exec';
-import { spawn } from 'child_process';
 import * as balena from 'balena-sdk';
+import { spawn } from 'child_process';
 
 import { Release } from './types';
 
@@ -23,6 +23,7 @@ type BuildOptions = {
 	tags: Tags;
 	multiDockerignore: boolean;
 	debug: boolean;
+	note: string;
 };
 
 const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
@@ -30,6 +31,7 @@ const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
 	noCache: false,
 	multiDockerignore: false,
 	debug: false,
+	note: "",
 };
 
 let sdk: ReturnType<typeof balena.getSdk> | null = null;
@@ -109,6 +111,14 @@ export async function push(
 
 	if (buildOpt.debug) {
 		pushOpt.push('--debug');
+	}
+
+	if (buildOpt.note.trim()) {
+		pushOpt.push('--note');
+
+		// sanitize note string to escape quotes
+		const note = buildOpt.note.trim().replace(/"/g, '\\"').replace(/'/g, "\\'");
+		pushOpt.push(`"${note}"`);
 	}
 
 	let releaseId: string | null = null;

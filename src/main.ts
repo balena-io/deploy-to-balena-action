@@ -27,6 +27,7 @@ const inputs: Inputs = {
 	defaultBranch: core.getInput('default_branch', { required: false }),
 	multiDockerignore: core.getBooleanInput('multi_dockerignore', { required: false }),
 	debug: core.getBooleanInput('debug', { required: false }),
+	note: core.getInput('note', { required: false }),
 };
 
 (async () => {
