@@ -1,4 +1,15 @@
 - commits:
+    - subject: Enable adding a note to the release
+      hash: 4bf3f04bb2d668bbb7cc43c9fd6daab531ebcf58
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Trey Gilliland
+  version: 1.1.0
+  title: ""
+  date: 2023-11-01T20:07:07.513Z
+- commits:
     - subject: Allow custom actions to run for external contributions
       hash: 952291d058d8eb401c88bd62a6bfd46c0ff488f5
       body: ""
