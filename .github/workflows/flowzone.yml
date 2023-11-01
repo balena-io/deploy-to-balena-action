@@ -26,3 +26,4 @@ jobs:
     with:
       docker_images: |
         ghcr.io/balena-io/deploy-to-balena-action
+      restrict_custom_actions: false
