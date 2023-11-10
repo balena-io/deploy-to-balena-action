@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency rimraf to v5
+      hash: f280d63e82502879f0c3650029de0900477cafd9
+      body: |
+        Update rimraf from 4.0.1 to 5.0.5
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.4
+  title: ""
+  date: 2023-11-10T23:09:54.078Z
+- commits:
     - subject: Update Node.js to v18.18.2
       hash: 726798a709c589e5f7fbe41f6a00c9495baa6e47
       body: |
