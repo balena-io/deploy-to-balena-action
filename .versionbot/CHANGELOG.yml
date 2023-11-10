@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency @types/chai-things to v0.0.38
+      hash: 957898dd42299ac0f5abbfffce870dd3ac9160a9
+      body: |
+        Update @types/chai-things from 0.0.36 to 0.0.38
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.1
+  title: ""
+  date: 2023-11-10T20:08:52.737Z
+- commits:
     - subject: Enable adding a note to the release
       hash: 4bf3f04bb2d668bbb7cc43c9fd6daab531ebcf58
       body: ""
