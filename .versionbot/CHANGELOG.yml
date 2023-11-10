@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-io/balena-cli to v17.4.0
+      hash: 59f8828557ca7a4517707760b5185fec72a8a4c1
+      body: |
+        Update balena-io/balena-cli from 17.1.1 to 17.4.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.2
+  title: ""
+  date: 2023-11-10T21:09:05.956Z
+- commits:
     - subject: Update dependency @types/chai-things to v0.0.38
       hash: 957898dd42299ac0f5abbfffce870dd3ac9160a9
       body: |
