@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency @actions/github to v6
+      hash: b369cdc8b1915afdbc2373022cc22bfb0eb8173b
+      body: |
+        Update @actions/github from 5.0.0 to 6.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.5
+  title: ""
+  date: 2023-11-11T00:09:49.392Z
+- commits:
     - subject: Update dependency rimraf to v5
       hash: f280d63e82502879f0c3650029de0900477cafd9
       body: |
