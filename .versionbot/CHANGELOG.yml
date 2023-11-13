@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency rewire to v7
+      hash: b0226838b060fef57dea13df3323494e6cb424af
+      body: |
+        Update rewire from 6.0.0 to 7.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.8
+  title: ""
+  date: 2023-11-13T17:06:46.656Z
+- commits:
     - subject: Update dependency balena-sdk to v19
       hash: d4c66579f0b4186fabdd909e72bea787d3f5c016
       body: |
