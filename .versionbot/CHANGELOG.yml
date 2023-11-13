@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-sdk to v19
+      hash: d4c66579f0b4186fabdd909e72bea787d3f5c016
+      body: |
+        Update balena-sdk from 18.3.0 to 19.1.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.7
+  title: ""
+  date: 2023-11-13T16:18:08.855Z
+- commits:
     - subject: Lock file maintenance
       hash: ee4e2a30261e50906f46633290463ad5d70aa702
       body: |
