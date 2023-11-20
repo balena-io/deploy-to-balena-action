@@ -84,7 +84,7 @@ describe('src/action', () => {
 
 	it('exits early on missing data', async () => {
 		await expect(
-			// @ts-expect-error
+			// @ts-expect-error: not assignable to parameter of type 'Context'
 			action.run({ payload: {} }, inputs),
 		).to.be.rejectedWith('Workflow payload was missing repository object');
 	});
@@ -92,7 +92,7 @@ describe('src/action', () => {
 	it('errors on unknown workflow', async () => {
 		await expect(
 			action.run(
-				// @ts-expect-error
+				// @ts-expect-error: not assignable to parameter of type 'Context'
 				{ ...context, eventName: 'pull_request_review_comment' },
 				inputs,
 			),
@@ -102,14 +102,14 @@ describe('src/action', () => {
 	});
 
 	it('gets versionbot branch', async () => {
-		// @ts-expect-error
+		// @ts-expect-error: not assignable to parameter of type 'Context'
 		await action.run(context, { ...inputs, versionbot: true });
 		expect(vbBranchStub).to.have.been.calledOnce;
 		expect(checkoutStub).to.have.been.calledWith('vb-branch-123');
 	});
 
 	it('set correct outputs', async () => {
-		// @ts-expect-error
+		// @ts-expect-error: not assignable to parameter of type 'Context'
 		await action.run(context, { ...inputs, versionbot: true });
 		expect(setOutputStub).to.have.been.calledTwice;
 		expect(setOutputStub.getCall(0)).to.have.been.calledWith(
@@ -123,7 +123,7 @@ describe('src/action', () => {
 	});
 
 	it('creates a tag', async () => {
-		// @ts-expect-error
+		// @ts-expect-error: not assignable to parameter of type 'Context'
 		await action.run(context, { ...inputs, createTag: true });
 		expect(createTagStub).to.have.been.called;
 		// Check that create tag value was passed
@@ -131,7 +131,7 @@ describe('src/action', () => {
 	});
 
 	it('passes correct build parameters to balena-utils', async () => {
-		// @ts-expect-error
+		// @ts-expect-error: not assignable to parameter of type 'Context'
 		await action.run(context, { ...inputs, layerCache: false });
 		// Check that the right parameters were passed
 		expect(pushStub.lastCall.firstArg).to.equal('my-org/my-fleet');
@@ -173,6 +173,7 @@ describe('src/action', () => {
 					},
 					pull_request: {
 						id: 4423422,
+						// eslint-disable-next-line id-denylist
 						number: 44,
 						merged: false,
 						head: {
@@ -181,7 +182,7 @@ describe('src/action', () => {
 					},
 				},
 			};
-			// @ts-expect-error
+			// @ts-expect-error: not assignable to parameter of type 'Context'
 			await action.run(prContext, { ...inputs, createTag: true });
 			// Check that the last arg (buildOptions) does not contain draft: true
 			expect(pushStub.lastCall.lastArg).to.deep.equal({
@@ -210,6 +211,7 @@ describe('src/action', () => {
 					},
 					pull_request: {
 						id: 4423422,
+						// eslint-disable-next-line id-denylist
 						number: 44,
 						merged: true,
 						head: {
@@ -224,7 +226,7 @@ describe('src/action', () => {
 				id: 123456,
 				isFinal: false,
 			});
-			// @ts-expect-error
+			// @ts-expect-error: not assignable to parameter of type 'Context'
 			await action.run(prContext, { ...inputs, createTag: true });
 			// Check that the release was finalized
 			expect(finalizeStub).to.have.been.calledWith(123456);
@@ -237,7 +239,7 @@ describe('src/action', () => {
 
 	describe('Main workflow', () => {
 		it('builds a finalized release', async () => {
-			// @ts-expect-error
+			// @ts-expect-error: not assignable to parameter of type 'Context'
 			await action.run(context, { ...inputs, createTag: true });
 			// Check that the last arg (buildOptions) does not contain draft: true
 			expect(pushStub.lastCall.lastArg).to.deep.equal({
@@ -261,7 +263,7 @@ describe('src/action', () => {
 				defaultBranch: 'target_branch_123',
 			};
 			await action.run(
-				// @ts-expect-error
+				// @ts-expect-error: not assignable to parameter of type 'Context'
 				{ ...context, ref: 'refs/heads/target_branch_123' },
 				{ ...customInputs, createTag: true },
 			);
@@ -288,13 +290,13 @@ describe('src/action', () => {
 			};
 			let e: Error | null = null;
 			try {
-				// @ts-expect-error
+				// @ts-expect-error: not assignable to parameter of type 'Context'
 				await action.run(context, { ...customInputs, createTag: true });
 			} catch (err: any) {
 				e = err;
 			}
-			// @ts-expect-error
-			expect(e.message).to.equal(
+
+			expect(e?.message).to.equal(
 				'Push workflow only works with branch123 branch. Event tried pushing to: refs/heads/main',
 			);
 		});

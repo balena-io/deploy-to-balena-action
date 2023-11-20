@@ -14,6 +14,7 @@ describe('src/versionbot-utils', () => {
 		sha: '123',
 		pullRequest: {
 			id: prId,
+			// eslint-disable-next-line id-denylist
 			number: prNumber,
 			merged: false,
 		},

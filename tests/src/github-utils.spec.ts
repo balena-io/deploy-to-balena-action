@@ -19,7 +19,7 @@ describe('src/github-utils', () => {
 		const requestStub = stub();
 		before(() => {
 			getOctokitStub.returns({
-				// @ts-expect-error
+				// @ts-expect-error: missing properties from type 'RequestInterface<object>'
 				request: requestStub,
 			});
 			githubUtils.init('123'); // initilize module so interal client uses requestStub
@@ -87,7 +87,7 @@ describe('src/github-utils', () => {
 			getOctokitStub.returns({
 				rest: {
 					git: {
-						// @ts-expect-error
+						// @ts-expect-error: 'SinonStub<any[], any>' is missing properties from git.createRef
 						createRef: createRefStub,
 					},
 				},

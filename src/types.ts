@@ -23,6 +23,7 @@ export type RepoContext = {
 
 export type PullRequest = {
 	id: number;
+	// eslint-disable-next-line id-denylist
 	number: number;
 	merged: boolean;
 };

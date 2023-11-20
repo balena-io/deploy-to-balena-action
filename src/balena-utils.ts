@@ -31,7 +31,7 @@ const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
 	noCache: false,
 	multiDockerignore: false,
 	debug: false,
-	note: "",
+	note: '',
 };
 
 let sdk: ReturnType<typeof balena.getSdk> | null = null;
@@ -270,6 +270,7 @@ export async function finalize(releaseId: number): Promise<void> {
 
 function stripAnsi(logLine: string): string {
 	return logLine.replace(
+		// eslint-disable-next-line no-control-regex -- We need to check for ansi control codes specifically
 		/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g,
 		'',
 	);

@@ -1,21 +1,21 @@
-import * as core from "@actions/core";
-import { context as contextType } from "@actions/github";
+import * as core from '@actions/core';
+import { context as contextType } from '@actions/github';
 
-import * as versionbot from "./versionbot-utils";
-import * as balena from "./balena-utils";
-import * as git from "./git";
-import * as github from "./github-utils";
-import { Inputs, RepoContext } from "./types";
+import * as versionbot from './versionbot-utils';
+import * as balena from './balena-utils';
+import * as git from './git';
+import * as github from './github-utils';
+import { Inputs, RepoContext } from './types';
 
-const ALLOWED_EVENTS = ["pull_request_target", "pull_request"];
+const ALLOWED_EVENTS = ['pull_request_target', 'pull_request'];
 
 export async function run(
 	context: typeof contextType,
-	inputs: Inputs
+	inputs: Inputs,
 ): Promise<void> {
 	// If the payload does not have a repository object then fail early (the events we are interested in always have this)
 	if (!context.payload.repository) {
-		throw new Error("Workflow payload was missing repository object");
+		throw new Error('Workflow payload was missing repository object');
 	}
 
 	// Get the master branch so we can infer intent
@@ -23,12 +23,13 @@ export async function run(
 		inputs.defaultBranch || context.payload.repository.master_branch;
 	// Collect repo context
 	const repoContext: RepoContext = {
-		owner: context.payload.repository.owner.login || "",
-		name: context.payload.repository.name || "",
+		owner: context.payload.repository.owner.login || '',
+		name: context.payload.repository.name || '',
 		sha: context.payload.pull_request?.head.sha || context.sha,
 		pullRequest: context.payload.pull_request
 			? {
 					id: context.payload.pull_request.id,
+					// eslint-disable-next-line id-denylist
 					number: context.payload.pull_request.number,
 					merged: context.payload.pull_request.merged,
 			  }
@@ -40,7 +41,7 @@ export async function run(
 	// Version of release built
 	let rawVersion: string | null = null;
 
-	if (context.payload.action === "closed") {
+	if (context.payload.action === 'closed') {
 		// If a pull request was closed and merged then just finalize the release!
 		if (repoContext.pullRequest && repoContext.pullRequest.merged) {
 			// Get the previous release built
@@ -50,10 +51,10 @@ export async function run(
 			});
 			if (!previousRelease) {
 				throw new Error(
-					"Action reached point of finalizing a release but did not find one"
+					'Action reached point of finalizing a release but did not find one',
 				);
 			} else if (previousRelease.isFinal) {
-				core.info("Release is already finalized so skipping.");
+				core.info('Release is already finalized so skipping.');
 				return;
 			}
 
@@ -63,17 +64,17 @@ export async function run(
 			rawVersion = await balena.getReleaseVersion(previousRelease.id);
 
 			// set outputs on finalize
-			core.setOutput("version", rawVersion);
-			core.setOutput("release_id", previousRelease.id);
+			core.setOutput('version', rawVersion);
+			core.setOutput('release_id', previousRelease.id);
 
 			if (inputs.createTag && rawVersion) {
 				try {
 					await github.createTag(repoContext, rawVersion);
 				} catch (e: any) {
-					if (e.message !== "Reference already exists") {
+					if (e.message !== 'Reference already exists') {
 						throw e;
 					}
-					core.info("Git reference already exists.");
+					core.info('Git reference already exists.');
 					return;
 				}
 			}
@@ -81,7 +82,7 @@ export async function run(
 			return;
 		} else {
 			// If the pull request was closed but not merged then do nothing
-			core.info("Pull request was closed but not merged, nothing to do.");
+			core.info('Pull request was closed but not merged, nothing to do.');
 			return;
 		}
 	}
@@ -98,9 +99,9 @@ export async function run(
 
 	// If we are pushing directly to the target branch then just build a release without draft flag
 	if (
-		context.eventName === "push" &&
+		context.eventName === 'push' &&
 		(context.ref === `refs/heads/${target}` ||
-			context.ref.startsWith("refs/tags/"))
+			context.ref.startsWith('refs/tags/'))
 	) {
 		// TODO: Update this to use ref_type & ref_name once that becomes available
 		// See: https://github.com/actions/toolkit/pull/935/files
@@ -115,9 +116,9 @@ export async function run(
 		};
 	} else if (!ALLOWED_EVENTS.includes(context.eventName)) {
 		// Make sure the only events now are ones we expect
-		if (context.eventName === "push") {
+		if (context.eventName === 'push') {
 			throw new Error(
-				`Push workflow only works with ${target} branch. Event tried pushing to: ${context.ref}`
+				`Push workflow only works with ${target} branch. Event tried pushing to: ${context.ref}`,
 			);
 		}
 		throw new Error(`Unsure how to proceed with event: ${context.eventName}`);
@@ -147,17 +148,17 @@ export async function run(
 
 	// Now that we built a release set the expected outputs
 	rawVersion = await balena.getReleaseVersion(releaseId);
-	core.setOutput("version", rawVersion);
-	core.setOutput("release_id", releaseId);
+	core.setOutput('version', rawVersion);
+	core.setOutput('release_id', releaseId);
 
 	if (inputs.createTag && buildOptions.draft === false) {
 		try {
 			await github.createTag(repoContext, rawVersion);
 		} catch (e: any) {
-			if (e.message !== "Reference already exists") {
+			if (e.message !== 'Reference already exists') {
 				throw e;
 			}
-			core.info("Git reference already exists.");
+			core.info('Git reference already exists.');
 		}
 	}
 }
