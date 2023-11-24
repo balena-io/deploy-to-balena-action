@@ -64,7 +64,7 @@
     "rimraf": "^5.0.0",
     "sinon": "^15.0.0",
     "sinon-chai": "^3.7.0",
-    "typescript": "^4.5.5"
+    "typescript": "^5.0.0"
   },
   "dependencies": {
     "@actions/core": "^1.10.0",
