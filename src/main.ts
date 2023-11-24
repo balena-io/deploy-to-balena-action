@@ -25,12 +25,14 @@ const inputs: Inputs = {
 	githubToken: core.getInput('github_token', { required: false }),
 	layerCache: core.getBooleanInput('layer_cache', { required: false }),
 	defaultBranch: core.getInput('default_branch', { required: false }),
-	multiDockerignore: core.getBooleanInput('multi_dockerignore', { required: false }),
+	multiDockerignore: core.getBooleanInput('multi_dockerignore', {
+		required: false,
+	}),
 	debug: core.getBooleanInput('debug', { required: false }),
 	note: core.getInput('note', { required: false }),
 };
 
-(async () => {
+void (async () => {
 	try {
 		// Initialize github client
 		githubUtils.init(inputs.githubToken);

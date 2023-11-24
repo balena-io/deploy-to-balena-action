@@ -34,8 +34,8 @@
     "action:close-pr": "npm run action dotenv_config_path=events/close-pr/.env",
     "action:push": "npm run action dotenv_config_path=events/push/.env",
     "build": "npm run clean && tsc",
-    "lint": "balena-lint --typescript src tests",
-    "lint-fix": "balena-lint --typescript --fix src tests",
+    "lint": "balena-lint src tests",
+    "lint-fix": "balena-lint --fix src tests",
     "test:fast": "TEST=1 mocha --config tests/.mocharc.fast.js",
     "prepack": "npm run build",
     "test": "npm run clean && npm run lint && npm run test:build && TEST=1 mocha --config tests/.mocharc.js",
@@ -43,7 +43,7 @@
     "testitems:copy": "cp -r tests/data build/tests/"
   },
   "devDependencies": {
-    "@balena/lint": "^6.2.0",
+    "@balena/lint": "^7.0.0",
     "@types/chai": "^4.3.0",
     "@types/chai-as-promised": "^7.1.5",
     "@types/chai-like": "^1.1.1",
