@@ -1,4 +1,16 @@
 - commits:
+    - subject: Lock file maintenance
+      hash: d72fb58c29920a7177650671be6dfab29b1a06b8
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.2
+  title: ""
+  date: 2024-01-03T16:22:03.887Z
+- commits:
     - subject: Update sinon with types to v17
       hash: a7c1c959327d7ef92a65e8fac7cba1a6f842b6ea
       body: |
