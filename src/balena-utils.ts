@@ -217,11 +217,11 @@ export async function getReleaseByTags(
 					},
 					{ release_tag: shaFilter },
 				],
-		  }
+			}
 		: {
 				status: 'success',
 				release_tag: shaFilter,
-		  };
+			};
 	const application = await sdk.models.release.getAllByApplication(fleet, {
 		$top: 1,
 		$select: ['id', 'is_final'],

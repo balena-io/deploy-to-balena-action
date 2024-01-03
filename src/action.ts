@@ -32,7 +32,7 @@ export async function run(
 					// eslint-disable-next-line id-denylist
 					number: context.payload.pull_request.number,
 					merged: context.payload.pull_request.merged,
-			  }
+				}
 			: null,
 	};
 
