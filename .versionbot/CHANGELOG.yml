@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update sinon with types to v17
+      hash: a7c1c959327d7ef92a65e8fac7cba1a6f842b6ea
+      body: |
+        Update @types/sinon from 10.0.20 to 17.0.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.1
+  title: ""
+  date: 2024-01-03T15:03:12.471Z
+- commits:
     - subject: Drop support for node 16 and npm 8
       hash: fb69fc350b3d85f6d77f75e4f0584a22bdae4920
       body: >
