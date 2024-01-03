@@ -1,4 +1,21 @@
 - commits:
+    - subject: Drop support for node 16 and npm 8
+      hash: fb69fc350b3d85f6d77f75e4f0584a22bdae4920
+      body: >
+        This release drops support for Node.js 16, which is EOL after
+        2023-09-11.
+
+        Please upgrade your Node.js to the latest version.
+      footer:
+        Change-type: major
+        change-type: major
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 2.0.0
+  title: ""
+  date: 2024-01-03T13:43:33.789Z
+- commits:
     - subject: Update dependency lint-staged to v15
       hash: 9998ebe47fd8ed7b12c3311602fe5a6a9d280729
       body: |
