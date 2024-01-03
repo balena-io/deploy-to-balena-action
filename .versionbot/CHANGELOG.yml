@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency typescript to v5
+      hash: 1c4655e980573bf049d9ba4f88b49e3dda5b9594
+      body: |
+        Update typescript from 4.9.5 to 5.3.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.3
+  title: ""
+  date: 2024-01-03T17:01:26.895Z
+- commits:
     - subject: Lock file maintenance
       hash: d72fb58c29920a7177650671be6dfab29b1a06b8
       body: |
