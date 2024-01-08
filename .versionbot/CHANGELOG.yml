@@ -1,4 +1,19 @@
 - commits:
+    - subject: Rebuild package-lock from package.json to fix version drift
+      hash: ef940e0caaa734db5e0b7a967e3a33f3926eabbc
+      body: |
+        Since commit d5ca226 the versions between package.json
+        and package-lock.json have been out-of-sync.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 2.0.9
+  title: ""
+  date: 2024-01-08T17:38:52.863Z
+- commits:
     - subject: Lock file maintenance
       hash: e567753d294293c7ec64b57225cffb9e01ca227c
       body: |
