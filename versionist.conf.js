@@ -28,6 +28,11 @@ module.exports = {
     const packageData = require(packageFile);
     packageData.version = version;
     fs.writeFileSync(packageFile, JSON.stringify(packageData, null, 2));
+    const packageLockFile = `${cwd}/package-lock.json`;
+    const packageLockData = require(packageLockFile);
+    packageLockData.version = version;
+    packageLockData.packages[""].version = version;
+    fs.writeFileSync(packageLockFile, JSON.stringify(packageLockData, null, 2));
     const actionYml = `${cwd}/action.yml`;
     const action = yaml.parse(fs.readFileSync(actionYml, 'utf8'));
     action.runs.image = action.runs.image.replace(regex, `$1:v${version}`);
