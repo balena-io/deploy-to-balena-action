@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update package-lock with versionist
+      hash: e1592d35bc546f26457c2d33c0b8862d7947973e
+      body: |
+        We are currently updating package.json and action.yml
+        but that leaves package-lock out-of-sync.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 2.0.14
+  title: ""
+  date: 2024-01-16T10:23:23.080Z
+- commits:
     - subject: Lock file maintenance
       hash: 4ad1939332ac83ab29ed419730a8a25b60c805ff
       body: |
