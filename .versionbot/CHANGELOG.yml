@@ -1,4 +1,19 @@
 - commits:
+    - subject: Append a newline to the package-lock with versionist
+      hash: 40c207773563bedf3b6ba7e817c6f75a36918ac5
+      body: |
+        Renovate's lock-file maintenance includes a newline
+        so avoid recursive commits and avoid stripping it.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 2.0.20
+  title: ""
+  date: 2024-01-22T15:16:48.867Z
+- commits:
     - subject: Lock file maintenance
       hash: 9d99c19e286558f4ac8347fdfe1e30b2acfa4078
       body: |
