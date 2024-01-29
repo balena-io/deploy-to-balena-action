@@ -1,4 +1,16 @@
 - commits:
+    - subject: Lock file maintenance
+      hash: 5db4b278c03d1efedfe5f6df1343b00cff8395e9
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.22
+  title: ""
+  date: 2024-01-29T01:17:44.045Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v17.5.0
       hash: 9040008179ae8e305da5f10d63b412a0f88f8b80
       body: |
