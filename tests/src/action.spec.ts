@@ -7,7 +7,7 @@ import * as balena from '../../src/balena-utils';
 import * as git from '../../src/git';
 import * as github from '../../src/github-utils';
 import * as action from '../../src/action';
-import { Inputs } from '../../src/types';
+import type { Inputs } from '../../src/types';
 
 // Sample context
 const context = {
