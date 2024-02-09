@@ -1,4 +1,15 @@
 - commits:
+    - subject: Update dependencies
+      hash: b3dcbe21f8a4c8d61d1158437ac03a91364a1427
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+  version: 2.0.25
+  title: ""
+  date: 2024-02-09T16:25:25.354Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v18
       hash: f2f279ff17bf0f3cd16494f86849bfa426292223
       body: |
