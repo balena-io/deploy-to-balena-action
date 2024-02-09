@@ -1,7 +1,8 @@
 import { join } from 'path';
 import * as core from '@actions/core';
 import { expect } from 'chai';
-import { stub, SinonStub } from 'sinon';
+import type { SinonStub } from 'sinon';
+import { stub } from 'sinon';
 
 import { sleep } from '../lib/sleep';
 import * as action from '../../src/action';

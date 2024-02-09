@@ -1,5 +1,6 @@
 import { expect } from 'chai';
-import { stub, SinonStub } from 'sinon';
+import type { SinonStub } from 'sinon';
+import { stub } from 'sinon';
 
 import * as gh from '../../src/github-utils';
 import * as versionbot from '../../src/versionbot-utils';

@@ -3,7 +3,7 @@ import { exec } from '@actions/exec';
 import * as balena from 'balena-sdk';
 import { spawn } from 'child_process';
 
-import { Release } from './types';
+import type { Release } from './types';
 
 const TagKeyMap = {
 	sha: 'balena-ci-commit-sha',

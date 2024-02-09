@@ -1,5 +1,6 @@
 import { expect } from 'chai';
-import { stub, SinonStub } from 'sinon';
+import type { SinonStub } from 'sinon';
+import { stub } from 'sinon';
 import * as execHelper from '@actions/exec';
 
 import * as git from '../../src/git';

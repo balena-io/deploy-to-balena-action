@@ -1,7 +1,8 @@
 import * as core from '@actions/core';
 import { readFile } from 'fs';
 import { expect } from 'chai';
-import { stub, SinonStub } from 'sinon';
+import type { SinonStub } from 'sinon';
+import { stub } from 'sinon';
 import * as execHelper from '@actions/exec';
 import * as balena from 'balena-sdk';
 import * as childProcess from 'child_process';

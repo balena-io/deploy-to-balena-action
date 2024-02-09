@@ -1,7 +1,7 @@
 import { debug } from '@actions/core';
 import { promisify } from 'util';
 import { getChecks } from './github-utils';
-import { RepoContext } from './types';
+import type { RepoContext } from './types';
 
 const DEFAULT_SLEEP = 4000; // 4 seconds
 

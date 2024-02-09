@@ -1,11 +1,11 @@
 import * as core from '@actions/core';
-import { context as contextType } from '@actions/github';
+import type { context as contextType } from '@actions/github';
 
 import * as versionbot from './versionbot-utils';
 import * as balena from './balena-utils';
 import * as git from './git';
 import * as github from './github-utils';
-import { Inputs, RepoContext } from './types';
+import type { Inputs, RepoContext } from './types';
 
 const ALLOWED_EVENTS = ['pull_request_target', 'pull_request'];
 
