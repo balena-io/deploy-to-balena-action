@@ -1,4 +1,16 @@
 - commits:
+    - subject: Lock file maintenance
+      hash: 5d18cc701234f0fc72316e6f7c15946517e35fa1
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.31
+  title: ""
+  date: 2024-02-26T01:17:21.083Z
+- commits:
     - subject: Update dependency husky to v9
       hash: 38998de956089526358987aaa25df2e38f83314b
       body: |
