@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-io/balena-cli to v18.0.1
+      hash: 32baf0b260c01e2010c153450d687ec4b29a089c
+      body: |
+        Update balena-io/balena-cli from 18.0.0 to 18.0.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.34
+  title: ""
+  date: 2024-03-07T16:59:02.864Z
+- commits:
     - subject: Lock file maintenance
       hash: b1602b7524048244968401b09564ed181e0934a8
       body: |
@@ -823,9 +835,11 @@
 
         - [Release notes](https://github.com/actions/toolkit/releases)
 
-        - [Changelog](https://github.com/actions/toolkit/blob/main/packages/core/RELEASES.md)
+        -
+        [Changelog](https://github.com/actions/toolkit/blob/main/packages/core/RELEASES.md)
 
-        - [Commits](https://github.com/actions/toolkit/commits/HEAD/packages/core)
+        -
+        [Commits](https://github.com/actions/toolkit/commits/HEAD/packages/core)
 
 
         ---
@@ -1138,9 +1152,16 @@
         GitHub's shift to a new default.
 
 
-        GitHub repos now default to `main` instead of `master`. When I created a new repo which had a default branch of `main` and I used the example from the README the workflow didn't trigger because it was pointing to `master`. This change amends the README to refer to the new default, and changes the example action to trigger on both `master` and `main` branches to be backwards compatible. 
+        GitHub repos now default to `main` instead of `master`. When I created a
+        new repo which had a default branch of `main` and I used the example
+        from the README the workflow didn't trigger because it was pointing to
+        `master`. This change amends the README to refer to the new default, and
+        changes the example action to trigger on both `master` and `main`
+        branches to be backwards compatible. 
          
-        See [this article]( https://www.zdnet.com/article/github-to-replace-master-with-main-starting-next-month/#:~:text=Starting%20next%20month,%20all%20new,them%20with%20more%20inclusive%20terms) for changes to GitHub default.
+        See [this article](
+        https://www.zdnet.com/article/github-to-replace-master-with-main-starting-next-month/#:~:text=Starting%20next%20month,%20all%20new,them%20with%20more%20inclusive%20terms)
+        for changes to GitHub default.
       footer: {}
       author: maggie0002
       nested: []
@@ -1423,9 +1444,11 @@
 
         - [Release notes](https://github.com/balena-io/balena-sdk/releases)
 
-        - [Changelog](https://github.com/balena-io/balena-sdk/blob/master/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/balena-io/balena-sdk/blob/master/CHANGELOG.md)
 
-        - [Commits](https://github.com/balena-io/balena-sdk/compare/v16.13.4...v16.15.1)
+        -
+        [Commits](https://github.com/balena-io/balena-sdk/compare/v16.13.4...v16.15.1)
 
 
         ---
@@ -1573,9 +1596,11 @@
 
         - [Release notes](https://github.com/balena-io/balena-sdk/releases)
 
-        - [Changelog](https://github.com/balena-io/balena-sdk/blob/master/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/balena-io/balena-sdk/blob/master/CHANGELOG.md)
 
-        - [Commits](https://github.com/balena-io/balena-sdk/compare/v15.59.2...v16.13.4)
+        -
+        [Commits](https://github.com/balena-io/balena-sdk/compare/v15.59.2...v16.13.4)
 
 
         ---
@@ -1866,11 +1891,14 @@
                                 Node 10 may well still work with the SDK for
                                 quite a
 
-                                while, but we'll no longer actively test against them
+                                while, but we'll no longer actively test against
+                                them
 
-                                since they are now characterized as EOL, and it's
+                                since they are now characterized as EOL, and
+                                it's
 
-                                quite possible that it may stop working entirely in any
+                                quite possible that it may stop working entirely
+                                in any
 
                                 future release.
                               footer:
@@ -2503,12 +2531,14 @@
                                         Be more lenient with decoding compressed
                                         responses, since (very rarely)
 
-                                        servers send slightly invalid gzip responses that are still accepted
+                                        servers send slightly invalid gzip
+                                        responses that are still accepted
 
                                         by common browsers.
 
 
-                                        Always using Z_SYNC_FLUSH is what cURL does.
+                                        Always using Z_SYNC_FLUSH is what cURL
+                                        does.
                                       footer:
                                         Change-type: patch
                                         change-type: patch
@@ -2566,21 +2596,26 @@
                                 Setting a 3-digit semver to the release.semver
                                 field
 
-                                is the suggested approach, instead of setting the
+                                is the suggested approach, instead of setting
+                                the
 
-                                release.release_version field. This fixes the unique
+                                release.release_version field. This fixes the
+                                unique
 
                                 constraint issue that release_version was often
 
-                                causing to users, since in case a duplicate semver is
+                                causing to users, since in case a duplicate
+                                semver is
 
                                 provided, the backend will auto-increment the
 
                                 revision field of the release. A composite
 
-                                release.version field is also added, which has a raw
+                                release.version field is also added, which has a
+                                raw
 
-                                field with the complete unique version of the release.
+                                field with the complete unique version of the
+                                release.
                               footer:
                                 Change-type: minor
                                 change-type: minor
@@ -2921,7 +2956,8 @@
                 Replace deprecated `rawVersion` and `formattedVersion` fields
                 and use
 
-                alternative overload of `getAvailableOsVersions`. As a result, the word
+                alternative overload of `getAvailableOsVersions`. As a result,
+                the word
 
                 'recommended' is no longer printed next to any OS versions.
               footer:
