@@ -159,7 +159,7 @@ describe('src/balena-utils', () => {
 				'--multi-dockerignore',
 				'--debug',
 				'--note',
-				'"My useful note"',
+				'My useful note',
 			]);
 		});
 
