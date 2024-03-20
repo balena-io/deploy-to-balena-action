@@ -1,4 +1,14 @@
 - commits:
+    - subject: do not add additional quotes
+      hash: 4856cb1fd6773e40b67c168edbef9a9e8da1e675
+      body: ""
+      footer:
+        change-type: patch
+      author: Anton Belodedenko
+  version: 2.0.46
+  title: ""
+  date: 2024-03-20T14:06:19.408Z
+- commits:
     - subject: Lock file maintenance
       hash: 48250ee5ff372faaf75c4100b6c40ca248cdb23e
       body: |
