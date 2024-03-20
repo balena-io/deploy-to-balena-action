@@ -118,7 +118,7 @@ export async function push(
 
 		// sanitize note string to escape quotes
 		const note = buildOpt.note.trim().replace(/"/g, '\\"').replace(/'/g, "\\'");
-		pushOpt.push(`"${note}"`);
+		pushOpt.push(`${note}`);
 	}
 
 	let releaseId: string | null = null;
