@@ -21,23 +21,23 @@ inputs:
   versionbot:
     description: (Deprecated) Does the repository use VersionBot?
     required: false
-    default: false
+    default: "false"
   finalize:
     description: Should the action finalize a release after building
     required: false
-    default: true
+    default: "true"
   create_tag:
     description: Tag the git commit with the final balena release version
     required: false
-    default: false
+    default: "false"
   create_ref:
     description: Tag the git commit with the final balena release version
     required: false
-    default: false
+    default: "false"
   cache:
     description: If a release matching the commit already exists do not build
     required: false
-    default: true
+    default: "true"
   source:
     description: Specify custom path to Dockerfile/docker-compose for building
       release images
@@ -46,7 +46,7 @@ inputs:
   layer_cache:
     description: Use cached layers of previously built images for this project
     required: false
-    default: true
+    default: "true"
   registry_secrets:
     description: Image registry credentials (Balena secrets.json)
     required: false
@@ -58,7 +58,15 @@ inputs:
   multi_dockerignore:
     description: Use service's dockerignore file
     required: false
-    default: false
+    default: "false"
+  debug:
+    description: Enable debug logs for balena push build
+    required: false
+    default: "false"
+  note:
+    description: Enable adding a note to the release
+    required: false
+    default: ""
 outputs:
   release_id:
     description: ID of the release built

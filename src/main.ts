@@ -2,7 +2,7 @@ import { join } from 'path';
 import * as core from '@actions/core';
 import { context } from '@actions/github';
 
-import { Inputs } from './types';
+import type { Inputs } from './types';
 import * as action from './action';
 import * as githubUtils from './github-utils';
 import * as balenaUtils from './balena-utils';
@@ -25,10 +25,14 @@ const inputs: Inputs = {
 	githubToken: core.getInput('github_token', { required: false }),
 	layerCache: core.getBooleanInput('layer_cache', { required: false }),
 	defaultBranch: core.getInput('default_branch', { required: false }),
-	multiDockerignore: core.getBooleanInput('multi_dockerignore', { required: false }),
+	multiDockerignore: core.getBooleanInput('multi_dockerignore', {
+		required: false,
+	}),
+	debug: core.getBooleanInput('debug', { required: false }),
+	note: core.getInput('note', { required: false }),
 };
 
-(async () => {
+void (async () => {
 	try {
 		// Initialize github client
 		githubUtils.init(inputs.githubToken);

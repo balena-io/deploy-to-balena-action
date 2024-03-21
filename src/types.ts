@@ -10,6 +10,8 @@ export type Inputs = {
 	layerCache: boolean;
 	defaultBranch: string;
 	multiDockerignore: boolean;
+	debug: boolean;
+	note: string;
 };
 
 export type RepoContext = {
@@ -21,6 +23,7 @@ export type RepoContext = {
 
 export type PullRequest = {
 	id: number;
+	// eslint-disable-next-line id-denylist
 	number: number;
 	merged: boolean;
 };

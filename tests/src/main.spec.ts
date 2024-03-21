@@ -1,7 +1,8 @@
 import { join } from 'path';
 import * as core from '@actions/core';
 import { expect } from 'chai';
-import { stub, SinonStub } from 'sinon';
+import type { SinonStub } from 'sinon';
+import { stub } from 'sinon';
 
 import { sleep } from '../lib/sleep';
 import * as action from '../../src/action';
@@ -44,6 +45,7 @@ describe('src/main', () => {
 				source: dynamicSource,
 				github_token: 'ghTokenExample',
 				default_branch: '',
+				note: 'My useful note',
 			}[inputName];
 		});
 
@@ -56,6 +58,7 @@ describe('src/main', () => {
 				create_ref: false,
 				layer_cache: true,
 				multi_dockerignore: true,
+				debug: true,
 			}[inputName];
 		});
 	});
@@ -110,6 +113,8 @@ describe('src/main', () => {
 			layerCache: true,
 			defaultBranch: '',
 			multiDockerignore: true,
+			debug: true,
+			note: 'My useful note',
 		});
 		// Since github actions pass by default there's no need to check if the action passes
 		// So, let's check if the action correctly handles failures instead

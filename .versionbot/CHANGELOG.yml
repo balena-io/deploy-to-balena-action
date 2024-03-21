@@ -1,4 +1,826 @@
 - commits:
+    - subject: do not add additional quotes
+      hash: 4856cb1fd6773e40b67c168edbef9a9e8da1e675
+      body: ""
+      footer:
+        change-type: patch
+      author: Anton Belodedenko
+  version: 2.0.46
+  title: ""
+  date: 2024-03-20T14:06:19.408Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 48250ee5ff372faaf75c4100b6c40ca248cdb23e
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.45
+  title: ""
+  date: 2024-03-18T02:09:59.097Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 3389e585f8a6848edad585312004293ffb72ece6
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.44
+  title: ""
+  date: 2024-03-18T01:19:01.067Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.1.5
+      hash: 56ff0258b4d38642779ecad01872f4843515237e
+      body: |
+        Update balena-io/balena-cli from 18.1.4 to 18.1.5
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.43
+  title: ""
+  date: 2024-03-14T16:57:13.752Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.1.4
+      hash: 66c54db0ed11c1d08c354b4ddf3a75157d943628
+      body: |
+        Update balena-io/balena-cli from 18.1.3 to 18.1.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.42
+  title: ""
+  date: 2024-03-14T14:56:23.839Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.1.3
+      hash: a1171932eee1a76d834edcefccc7750ae001ed95
+      body: |
+        Update balena-io/balena-cli from 18.1.2 to 18.1.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.41
+  title: ""
+  date: 2024-03-14T13:57:53.720Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.1.2
+      hash: 2b09b856ba4ce0643824c6afc73eaed4558f6526
+      body: |
+        Update balena-io/balena-cli from 18.1.1 to 18.1.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.40
+  title: ""
+  date: 2024-03-13T14:55:12.928Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.1.1
+      hash: bbc7d5633958ffc2dc5ffc45c66fcb261fc601e7
+      body: |
+        Update balena-io/balena-cli from 18.1.0 to 18.1.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.39
+  title: ""
+  date: 2024-03-12T17:55:44.483Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.1.0
+      hash: e68ad0eb1ac5a67cbaa0c360bc50c1680116a45a
+      body: |
+        Update balena-io/balena-cli from 18.0.4 to 18.1.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.38
+  title: ""
+  date: 2024-03-12T14:58:25.765Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.0.4
+      hash: 8a380679df0ea56a57a5289efb4aacb4480cf346
+      body: |
+        Update balena-io/balena-cli from 18.0.2 to 18.0.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.37
+  title: ""
+  date: 2024-03-11T22:56:04.226Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 6d950f51f3835f324553fac7e431cf2a9e5060e5
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.36
+  title: ""
+  date: 2024-03-11T01:17:07.704Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.0.2
+      hash: 461ce784326832921a322262ea1447766cea8907
+      body: |
+        Update balena-io/balena-cli from 18.0.1 to 18.0.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.35
+  title: ""
+  date: 2024-03-07T19:55:08.639Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.0.1
+      hash: 32baf0b260c01e2010c153450d687ec4b29a089c
+      body: |
+        Update balena-io/balena-cli from 18.0.0 to 18.0.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.34
+  title: ""
+  date: 2024-03-07T16:59:02.864Z
+- commits:
+    - subject: Lock file maintenance
+      hash: b1602b7524048244968401b09564ed181e0934a8
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.33
+  title: ""
+  date: 2024-03-04T01:18:41.405Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 45c1c8d8a96da05a36960133b6ef275b1645885b
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.32
+  title: ""
+  date: 2024-02-26T02:58:48.456Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 5d18cc701234f0fc72316e6f7c15946517e35fa1
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.31
+  title: ""
+  date: 2024-02-26T01:17:21.083Z
+- commits:
+    - subject: Update dependency husky to v9
+      hash: 38998de956089526358987aaa25df2e38f83314b
+      body: |
+        Update husky from 8.0.3 to 9.0.11
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.30
+  title: ""
+  date: 2024-02-22T19:58:06.376Z
+- commits:
+    - subject: Update Node.js to v18.19.1
+      hash: de1eaa0d921d65864ce754f35c053713b28df4c7
+      body: |
+        Update node from 18.19.0 to 18.19.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.29
+  title: ""
+  date: 2024-02-19T02:10:25.495Z
+- commits:
+    - subject: Lock file maintenance
+      hash: f9474294fb1a19472d5f444e316f3fd8e0f1e902
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.28
+  title: ""
+  date: 2024-02-19T01:17:56.320Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 5977c6fd5966fd53dd695aced15faa1403d9e083
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.27
+  title: ""
+  date: 2024-02-12T01:17:56.217Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 412eb35f88515f81bc53b7881d33893d25fa08ab
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.26
+  title: ""
+  date: 2024-02-09T17:02:27.462Z
+- commits:
+    - subject: Update dependencies
+      hash: b3dcbe21f8a4c8d61d1158437ac03a91364a1427
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+  version: 2.0.25
+  title: ""
+  date: 2024-02-09T16:25:25.354Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18
+      hash: f2f279ff17bf0f3cd16494f86849bfa426292223
+      body: |
+        Update balena-io/balena-cli from 17.5.1 to 18.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.24
+  title: ""
+  date: 2024-02-08T14:57:03.703Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v17.5.1
+      hash: 7877a55b3803517c1d7afd9cd115f4e52f9653e0
+      body: |
+        Update balena-io/balena-cli from 17.5.0 to 17.5.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.23
+  title: ""
+  date: 2024-01-31T01:15:11.737Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 5db4b278c03d1efedfe5f6df1343b00cff8395e9
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.22
+  title: ""
+  date: 2024-01-29T01:17:44.045Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v17.5.0
+      hash: 9040008179ae8e305da5f10d63b412a0f88f8b80
+      body: |
+        Update balena-io/balena-cli from 17.4.12 to 17.5.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.21
+  title: ""
+  date: 2024-01-23T17:00:40.674Z
+- commits:
+    - subject: Append a newline to the package-lock with versionist
+      hash: 40c207773563bedf3b6ba7e817c6f75a36918ac5
+      body: |
+        Renovate's lock-file maintenance includes a newline
+        so avoid recursive commits and avoid stripping it.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 2.0.20
+  title: ""
+  date: 2024-01-22T15:16:48.867Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 9d99c19e286558f4ac8347fdfe1e30b2acfa4078
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.19
+  title: ""
+  date: 2024-01-22T03:58:07.450Z
+- commits:
+    - subject: Lock file maintenance
+      hash: da9bd5f71bb5c377eb09230bf2f1a0ed71e2e493
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.18
+  title: ""
+  date: 2024-01-22T03:01:54.041Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 5e3b0ce2ccffe513012383b5e446efc84c6bae72
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.17
+  title: ""
+  date: 2024-01-22T02:17:23.471Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 3cc64fe9e8d5a1855a19d2f265cb4ecfb439675f
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.16
+  title: ""
+  date: 2024-01-22T01:20:23.377Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v17.4.12
+      hash: 37ff7684d04ec11c0bd43c4b828d962ce101331d
+      body: |
+        Update balena-io/balena-cli from 17.4.11 to 17.4.12
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.15
+  title: ""
+  date: 2024-01-18T11:58:36.978Z
+- commits:
+    - subject: Update package-lock with versionist
+      hash: e1592d35bc546f26457c2d33c0b8862d7947973e
+      body: |
+        We are currently updating package.json and action.yml
+        but that leaves package-lock out-of-sync.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 2.0.14
+  title: ""
+  date: 2024-01-16T10:23:23.080Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 4ad1939332ac83ab29ed419730a8a25b60c805ff
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.13
+  title: ""
+  date: 2024-01-15T03:59:55.428Z
+- commits:
+    - subject: Lock file maintenance
+      hash: a88190153afafa5a59c183ce70a249e1f69f0f34
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.12
+  title: ""
+  date: 2024-01-15T03:02:59.312Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 5a2bf179b132048cf5be81dcd4791552aa6fe5e7
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.11
+  title: ""
+  date: 2024-01-15T02:18:34.063Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 3b0bcdf8b234d0773602a3baf6bca683261ccdde
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.10
+  title: ""
+  date: 2024-01-15T01:20:40.913Z
+- commits:
+    - subject: Rebuild package-lock from package.json to fix version drift
+      hash: ef940e0caaa734db5e0b7a967e3a33f3926eabbc
+      body: |
+        Since commit d5ca226 the versions between package.json
+        and package-lock.json have been out-of-sync.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 2.0.9
+  title: ""
+  date: 2024-01-08T17:38:52.863Z
+- commits:
+    - subject: Lock file maintenance
+      hash: e567753d294293c7ec64b57225cffb9e01ca227c
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.8
+  title: ""
+  date: 2024-01-08T04:01:05.414Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 94f7d4caa33d9673b21852230fb2ccbf2d1394ff
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.7
+  title: ""
+  date: 2024-01-08T03:03:06.207Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 9a2a5dd8c2b29dc66d29cf20e195d90cfc95f192
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.6
+  title: ""
+  date: 2024-01-08T02:18:58.278Z
+- commits:
+    - subject: Lock file maintenance
+      hash: aa7a67673ae2d0bf1337728f0cbcab4c4fd35da4
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.5
+  title: ""
+  date: 2024-01-08T01:21:00.160Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v17.4.11
+      hash: 08a370cdf9e1f981ac319f0c1616503737763f33
+      body: |
+        Update balena-io/balena-cli from 17.4.9 to 17.4.11
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.4
+  title: ""
+  date: 2024-01-05T23:58:55.897Z
+- commits:
+    - subject: Update dependency typescript to v5
+      hash: 1c4655e980573bf049d9ba4f88b49e3dda5b9594
+      body: |
+        Update typescript from 4.9.5 to 5.3.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.3
+  title: ""
+  date: 2024-01-03T17:01:26.895Z
+- commits:
+    - subject: Lock file maintenance
+      hash: d72fb58c29920a7177650671be6dfab29b1a06b8
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.2
+  title: ""
+  date: 2024-01-03T16:22:03.887Z
+- commits:
+    - subject: Update sinon with types to v17
+      hash: a7c1c959327d7ef92a65e8fac7cba1a6f842b6ea
+      body: |
+        Update @types/sinon from 10.0.20 to 17.0.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.1
+  title: ""
+  date: 2024-01-03T15:03:12.471Z
+- commits:
+    - subject: Drop support for node 16 and npm 8
+      hash: fb69fc350b3d85f6d77f75e4f0584a22bdae4920
+      body: >
+        This release drops support for Node.js 16, which is EOL after
+        2023-09-11.
+
+        Please upgrade your Node.js to the latest version.
+      footer:
+        Change-type: major
+        change-type: major
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 2.0.0
+  title: ""
+  date: 2024-01-03T13:43:33.789Z
+- commits:
+    - subject: Update dependency lint-staged to v15
+      hash: 9998ebe47fd8ed7b12c3311602fe5a6a9d280729
+      body: |
+        Update lint-staged from 13.3.0 to 15.2.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.12
+  title: ""
+  date: 2024-01-02T21:04:06.801Z
+- commits:
+    - subject: Update Node.js to v18.19.0
+      hash: 651f368b56159e47dadfae4d2297ac0755a9f8c8
+      body: |
+        Update node from 18.18.2 to 18.19.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.11
+  title: ""
+  date: 2024-01-02T20:02:25.153Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v17.4.9
+      hash: 63f2961210b87ad86c12a504d8b0f78672897915
+      body: |
+        Update balena-io/balena-cli from 17.4.0 to 17.4.9
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.10
+  title: ""
+  date: 2024-01-02T19:05:13.246Z
+- commits:
+    - subject: Update dependency @balena/lint to v7
+      hash: 321a183e1b18ec654c1770d300bdaf2eb57ebef3
+      body: |
+        Update @balena/lint from 6.2.2 to 7.2.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.9
+  title: ""
+  date: 2023-11-24T18:44:55.422Z
+- commits:
+    - subject: Update dependency rewire to v7
+      hash: b0226838b060fef57dea13df3323494e6cb424af
+      body: |
+        Update rewire from 6.0.0 to 7.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.8
+  title: ""
+  date: 2023-11-13T17:06:46.656Z
+- commits:
+    - subject: Update dependency balena-sdk to v19
+      hash: d4c66579f0b4186fabdd909e72bea787d3f5c016
+      body: |
+        Update balena-sdk from 18.3.0 to 19.1.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.7
+  title: ""
+  date: 2023-11-13T16:18:08.855Z
+- commits:
+    - subject: Lock file maintenance
+      hash: ee4e2a30261e50906f46633290463ad5d70aa702
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.6
+  title: ""
+  date: 2023-11-11T02:32:49.710Z
+- commits:
+    - subject: Update dependency @actions/github to v6
+      hash: b369cdc8b1915afdbc2373022cc22bfb0eb8173b
+      body: |
+        Update @actions/github from 5.0.0 to 6.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.5
+  title: ""
+  date: 2023-11-11T00:09:49.392Z
+- commits:
+    - subject: Update dependency rimraf to v5
+      hash: f280d63e82502879f0c3650029de0900477cafd9
+      body: |
+        Update rimraf from 4.0.1 to 5.0.5
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.4
+  title: ""
+  date: 2023-11-10T23:09:54.078Z
+- commits:
+    - subject: Update Node.js to v18.18.2
+      hash: 726798a709c589e5f7fbe41f6a00c9495baa6e47
+      body: |
+        Update node from 18.17.1 to 18.18.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.3
+  title: ""
+  date: 2023-11-10T22:08:32.208Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v17.4.0
+      hash: 59f8828557ca7a4517707760b5185fec72a8a4c1
+      body: |
+        Update balena-io/balena-cli from 17.1.1 to 17.4.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.2
+  title: ""
+  date: 2023-11-10T21:09:05.956Z
+- commits:
+    - subject: Update dependency @types/chai-things to v0.0.38
+      hash: 957898dd42299ac0f5abbfffce870dd3ac9160a9
+      body: |
+        Update @types/chai-things from 0.0.36 to 0.0.38
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.1.1
+  title: ""
+  date: 2023-11-10T20:08:52.737Z
+- commits:
+    - subject: Enable adding a note to the release
+      hash: 4bf3f04bb2d668bbb7cc43c9fd6daab531ebcf58
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Trey Gilliland
+  version: 1.1.0
+  title: ""
+  date: 2023-11-01T20:07:07.513Z
+- commits:
+    - subject: Allow custom actions to run for external contributions
+      hash: 952291d058d8eb401c88bd62a6bfd46c0ff488f5
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Kyle Harding
+  version: 1.0.4
+  title: ""
+  date: 2023-11-01T15:55:45.384Z
+- commits:
+    - subject: Update Node.js to v18.17.1
+      hash: 72b64059e80772ea8400098a6bf04bbf4e7019a0
+      body: |
+        Update node from 18.12.1 to 18.17.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.0.3
+  title: ""
+  date: 2023-09-07T18:35:00.948Z
+- commits:
+    - subject: Update dependency balena-sdk to v18
+      hash: d94fe1ba837450c2e8d30407927b544b34cd51b7
+      body: |
+        Update balena-sdk from 16.15.1 to 18.1.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.0.2
+  title: ""
+  date: 2023-09-06T22:17:59.933Z
+- commits:
+    - subject: Update dependency @types/chai-things to v0.0.36
+      hash: 2776dbfac302f3351ec29bcfbeb7b16cb4b7d878
+      body: |
+        Update @types/chai-things from 0.0.35 to 0.0.36
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 1.0.1
+  title: ""
+  date: 2023-09-06T16:18:18.284Z
+- commits:
+    - subject: Update minimum node engine to 16
+      hash: 2a943a368faffc9734b10fdc8be99cc2ee902b7b
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Kyle Harding
+  version: 1.0.0
+  title: ""
+  date: 2023-09-06T15:31:22.448Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v17.1.1
+      hash: 90b30ba31ae8050d6e400419c43d54b255373c2c
+      body: |
+        Update balena-io/balena-cli from 17.0.0 to 17.1.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 0.29.1
+  title: ""
+  date: 2023-09-06T15:20:20.345Z
+- commits:
+    - subject: Update balena CLI to v17.0.0
+      hash: 94230b89430ef061c338fe13493b1ed6a67895dc
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Kyle Harding
+  version: 0.29.0
+  title: ""
+  date: 2023-09-05T19:09:18.237Z
+- commits:
+    - subject: Add debug build logs option
+      hash: f0f1035f3824c214bf6673699670ea8f53031912
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Trey Gilliland
+  version: 0.28.0
+  title: ""
+  date: 2023-07-30T18:42:34.592Z
+- commits:
     - subject: Add multi_dockerignore option
       hash: db2cedeef4948ef79b8741119604cb9dec586dfb
       body: ""
@@ -155,9 +977,11 @@
 
         - [Release notes](https://github.com/actions/toolkit/releases)
 
-        - [Changelog](https://github.com/actions/toolkit/blob/main/packages/core/RELEASES.md)
+        -
+        [Changelog](https://github.com/actions/toolkit/blob/main/packages/core/RELEASES.md)
 
-        - [Commits](https://github.com/actions/toolkit/commits/HEAD/packages/core)
+        -
+        [Commits](https://github.com/actions/toolkit/commits/HEAD/packages/core)
 
 
         ---
@@ -466,13 +1290,20 @@
     - subject: "patch: Change `master` branch to `main` in README"
       hash: fe3ecd4f5f51ba164187b5d87ed5a32492517128
       body: >-
-        Changed references to `master` branch to `main` in alignment with GitHub's
-        shift to a new default.
+        Changed references to `master` branch to `main` in alignment with
+        GitHub's shift to a new default.
 
 
-        GitHub repos now default to `main` instead of `master`. When I created a new repo which had a default branch of `main` and I used the example from the README the workflow didn't trigger because it was pointing to `master`. This change amends the README to refer to the new default, and changes the example action to trigger on both `master` and `main` branches to be backwards compatible. 
+        GitHub repos now default to `main` instead of `master`. When I created a
+        new repo which had a default branch of `main` and I used the example
+        from the README the workflow didn't trigger because it was pointing to
+        `master`. This change amends the README to refer to the new default, and
+        changes the example action to trigger on both `master` and `main`
+        branches to be backwards compatible. 
          
-        See [this article]( https://www.zdnet.com/article/github-to-replace-master-with-main-starting-next-month/#:~:text=Starting%20next%20month,%20all%20new,them%20with%20more%20inclusive%20terms) for changes to GitHub default.
+        See [this article](
+        https://www.zdnet.com/article/github-to-replace-master-with-main-starting-next-month/#:~:text=Starting%20next%20month,%20all%20new,them%20with%20more%20inclusive%20terms)
+        for changes to GitHub default.
       footer: {}
       author: maggie0002
       nested: []
@@ -755,9 +1586,11 @@
 
         - [Release notes](https://github.com/balena-io/balena-sdk/releases)
 
-        - [Changelog](https://github.com/balena-io/balena-sdk/blob/master/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/balena-io/balena-sdk/blob/master/CHANGELOG.md)
 
-        - [Commits](https://github.com/balena-io/balena-sdk/compare/v16.13.4...v16.15.1)
+        -
+        [Commits](https://github.com/balena-io/balena-sdk/compare/v16.13.4...v16.15.1)
 
 
         ---
@@ -905,9 +1738,11 @@
 
         - [Release notes](https://github.com/balena-io/balena-sdk/releases)
 
-        - [Changelog](https://github.com/balena-io/balena-sdk/blob/master/CHANGELOG.md)
+        -
+        [Changelog](https://github.com/balena-io/balena-sdk/blob/master/CHANGELOG.md)
 
-        - [Commits](https://github.com/balena-io/balena-sdk/compare/v15.59.2...v16.13.4)
+        -
+        [Commits](https://github.com/balena-io/balena-sdk/compare/v15.59.2...v16.13.4)
 
 
         ---
@@ -1195,13 +2030,17 @@
                             - subject: "**BREAKING**: Stop actively supporting node 10"
                               hash: 3a97c6adb6e16b11a4a9aafff05ed01d5fedfe36
                               body: >
-                                Node 10 may well still work with the SDK for quite a
+                                Node 10 may well still work with the SDK for
+                                quite a
 
-                                while, but we'll no longer actively test against them
+                                while, but we'll no longer actively test against
+                                them
 
-                                since they are now characterized as EOL, and it's
+                                since they are now characterized as EOL, and
+                                it's
 
-                                quite possible that it may stop working entirely in any
+                                quite possible that it may stop working entirely
+                                in any
 
                                 future release.
                               footer:
@@ -1224,7 +2063,8 @@
                             - subject: "**BREAKING** Change apiKey.getAll() to return all key variants"
                               hash: bc9fe542ad788c0793b1035273073298a73a9337
                               body: >
-                                The apiKeys.getAllNamedUserApiKeys will be offering
+                                The apiKeys.getAllNamedUserApiKeys will be
+                                offering
 
                                 the old behavior.
                               footer:
@@ -1595,7 +2435,8 @@
                                 node"
                               hash: acb6c922176eedda4cc6bef4f28c4bd28a49bcf8
                               body: >
-                                The "given 55 registered offline device" was failing
+                                The "given 55 registered offline device" was
+                                failing
 
                                 on node with "uuid" must be unique.
                               footer:
@@ -1829,14 +2670,17 @@
                                     - subject: Allow more lenient gzip decompression
                                       hash: 9c7bc3051b279c9d09ec501a78dbe9f506d65650
                                       body: >
-                                        Be more lenient with decoding compressed responses, since (very rarely)
+                                        Be more lenient with decoding compressed
+                                        responses, since (very rarely)
 
-                                        servers send slightly invalid gzip responses that are still accepted
+                                        servers send slightly invalid gzip
+                                        responses that are still accepted
 
                                         by common browsers.
 
 
-                                        Always using Z_SYNC_FLUSH is what cURL does.
+                                        Always using Z_SYNC_FLUSH is what cURL
+                                        does.
                                       footer:
                                         Change-type: patch
                                         change-type: patch
@@ -1877,7 +2721,8 @@
                             - subject: Deprecate the release.release_version property
                               hash: ad635d40a3682bd80f50263e560ed3031f27e0a7
                               body: >
-                                Setting a 3-digit semver to the release.semver field
+                                Setting a 3-digit semver to the release.semver
+                                field
 
                                 is the suggested approach.
                               footer:
@@ -1890,23 +2735,29 @@
                             - subject: "typings: Add the release versioning properties"
                               hash: 777f01fb2db9fed304cd6896f8138bd0838d1f72
                               body: >
-                                Setting a 3-digit semver to the release.semver field
+                                Setting a 3-digit semver to the release.semver
+                                field
 
-                                is the suggested approach, instead of setting the
+                                is the suggested approach, instead of setting
+                                the
 
-                                release.release_version field. This fixes the unique
+                                release.release_version field. This fixes the
+                                unique
 
                                 constraint issue that release_version was often
 
-                                causing to users, since in case a duplicate semver is
+                                causing to users, since in case a duplicate
+                                semver is
 
                                 provided, the backend will auto-increment the
 
                                 revision field of the release. A composite
 
-                                release.version field is also added, which has a raw
+                                release.version field is also added, which has a
+                                raw
 
-                                field with the complete unique version of the release.
+                                field with the complete unique version of the
+                                release.
                               footer:
                                 Change-type: minor
                                 change-type: minor
@@ -2244,9 +3095,11 @@
             - subject: "os versions, os download: Replace deprecated version fields"
               hash: b2d932afabb9c1ca131c0839397d0492f2f1a272
               body: >
-                Replace deprecated `rawVersion` and `formattedVersion` fields and use
+                Replace deprecated `rawVersion` and `formattedVersion` fields
+                and use
 
-                alternative overload of `getAvailableOsVersions`. As a result, the word
+                alternative overload of `getAvailableOsVersions`. As a result,
+                the word
 
                 'recommended' is no longer printed next to any OS versions.
               footer:

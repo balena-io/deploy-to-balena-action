@@ -1,13 +1,17 @@
 import * as core from "@actions/core";
-import { context as contextType } from "@actions/github";
+import type { context as contextType } from "@actions/github";
 
 import * as versionbot from "./versionbot-utils";
 import * as balena from "./balena-utils";
 import * as git from "./git";
 import * as github from "./github-utils";
-import { Inputs, RepoContext } from "./types";
+import type { Inputs, RepoContext } from "./types";
 
-const ALLOWED_EVENTS = ["pull_request_target", "pull_request", "workflow_dispatch"];
+const ALLOWED_EVENTS = [
+	"pull_request_target",
+	"pull_request",
+	"workflow_dispatch",
+];
 
 export async function run(
 	context: typeof contextType,
@@ -29,6 +33,7 @@ export async function run(
 		pullRequest: context.payload.pull_request
 			? {
 					id: context.payload.pull_request.id,
+					// eslint-disable-next-line id-denylist
 					number: context.payload.pull_request.number,
 					merged: context.payload.pull_request.merged,
 			  }
@@ -141,6 +146,8 @@ export async function run(
 			...buildOptions,
 			noCache: inputs.layerCache === false,
 			multiDockerignore: inputs.multiDockerignore,
+			debug: inputs.debug,
+			note: inputs.note,
 		});
 	} catch (e: any) {
 		core.error(e.message);

@@ -1,9 +1,9 @@
 import * as core from '@actions/core';
 import { exec } from '@actions/exec';
-import { spawn } from 'child_process';
 import * as balena from 'balena-sdk';
+import { spawn } from 'child_process';
 
-import { Release } from './types';
+import type { Release } from './types';
 
 const TagKeyMap = {
 	sha: 'balena-ci-commit-sha',
@@ -22,21 +22,25 @@ type BuildOptions = {
 	draft: boolean;
 	tags: Tags;
 	multiDockerignore: boolean;
+	debug: boolean;
+	note: string;
 };
 
 const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
 	draft: true,
 	noCache: false,
 	multiDockerignore: false,
+	debug: false,
+	note: '',
 };
 
 let sdk: ReturnType<typeof balena.getSdk> | null = null;
 
 export async function init(endpoint: string, token: string) {
-	core.info(`Initializing SDK for https://api.${endpoint})`);
+	core.info(`Initializing SDK for https://api.${endpoint}`);
 	// Specify API endpoint
 	sdk = balena.getSdk({
-		apiUrl: `https://api.${endpoint})}/`,
+		apiUrl: `https://api.${endpoint}/`,
 	});
 	// Authenticate client with token
 	await sdk.auth.loginWithToken(token);
@@ -103,6 +107,18 @@ export async function push(
 
 	if (buildOpt.multiDockerignore) {
 		pushOpt.push('--multi-dockerignore');
+	}
+
+	if (buildOpt.debug) {
+		pushOpt.push('--debug');
+	}
+
+	if (buildOpt.note.trim()) {
+		pushOpt.push('--note');
+
+		// sanitize note string to escape quotes
+		const note = buildOpt.note.trim().replace(/"/g, '\\"').replace(/'/g, "\\'");
+		pushOpt.push(`${note}`);
 	}
 
 	let releaseId: string | null = null;
@@ -201,11 +217,11 @@ export async function getReleaseByTags(
 					},
 					{ release_tag: shaFilter },
 				],
-		  }
+			}
 		: {
 				status: 'success',
 				release_tag: shaFilter,
-		  };
+			};
 	const application = await sdk.models.release.getAllByApplication(fleet, {
 		$top: 1,
 		$select: ['id', 'is_final'],
@@ -254,6 +270,7 @@ export async function finalize(releaseId: number): Promise<void> {
 
 function stripAnsi(logLine: string): string {
 	return logLine.replace(
+		// eslint-disable-next-line no-control-regex -- We need to check for ansi control codes specifically
 		/[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g,
 		'',
 	);

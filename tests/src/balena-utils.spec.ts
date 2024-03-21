@@ -1,7 +1,8 @@
 import * as core from '@actions/core';
 import { readFile } from 'fs';
 import { expect } from 'chai';
-import { stub, SinonStub } from 'sinon';
+import type { SinonStub } from 'sinon';
+import { stub } from 'sinon';
 import * as execHelper from '@actions/exec';
 import * as balena from 'balena-sdk';
 import * as childProcess from 'child_process';
@@ -127,7 +128,7 @@ describe('src/balena-utils', () => {
 			]);
 		});
 
-		it('Sets --draft, --nocache and --multi-dockerignore', async () => {
+		it('Sets --draft, --nocache and --multi-dockerignore and --debug and --note', async () => {
 			setTimeout(() => {
 				mockProcess.emit('exit', 0); // make process exit
 			}, 500);
@@ -137,6 +138,8 @@ describe('src/balena-utils', () => {
 					noCache: true,
 					draft: true,
 					multiDockerignore: true,
+					debug: true,
+					note: 'My useful note',
 					tags: { sha: 'fba0317620597271695087c168c50d8c94975a29' },
 				});
 			} catch (e) {
@@ -154,6 +157,9 @@ describe('src/balena-utils', () => {
 				'--draft',
 				'--nocache',
 				'--multi-dockerignore',
+				'--debug',
+				'--note',
+				'My useful note',
 			]);
 		});
 
@@ -220,7 +226,7 @@ describe('src/balena-utils', () => {
 			const token = '12345';
 			await balenaUtils.init(endpoint, token);
 			expect(sdkStub).to.have.been.calledWith({
-				apiUrl: `https://api.${endpoint})}/`, // Check that the right apiUrl was set
+				apiUrl: `https://api.${endpoint}/`, // Check that the right apiUrl was set
 			});
 			expect(authStub).to.have.been.calledWith(token); // Check that the right token was used
 			expect(balenaUtils.__get__('sdk')).to.not.be.null; // Check that authenticate SDK was set to local instance
