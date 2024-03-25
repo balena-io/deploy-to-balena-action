@@ -1,6 +1,6 @@
 {
   "name": "deploy-to-balena-action",
-  "version": "2.0.46",
+  "version": "2.0.47",
   "description": "Github action to build releases for a fleet",
   "homepage": "https://github.com/balena-io/deploy-to-balena-action",
   "private": true,
