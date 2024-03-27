@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update Node.js to v18.20.0
+      hash: f19c62f2df34ff35fb11fac215c0094870ea957b
+      body: |
+        Update node from 18.19.1 to 18.20.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.48
+  title: ""
+  date: 2024-03-27T15:00:19.007Z
+- commits:
     - subject: Lock file maintenance
       hash: 3c483a4592b14cdedf8877468dcb838ff647d6a9
       body: |
