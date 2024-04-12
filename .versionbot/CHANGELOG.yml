@@ -1,4 +1,15 @@
 - commits:
+    - subject: Update to @balena/lint 8.x
+      hash: be0555fce62efe2a9438e94892a0f8357c6fd74b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+  version: 2.0.56
+  title: ""
+  date: 2024-04-12T10:51:04.413Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v18.1.9
       hash: 2423fc358866b86800339089c45593ca667f3da1
       body: |
