@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update Node.js to v18.20.2
+      hash: 2e130eecf993b4ce280ea99fb56136a713f2cd82
+      body: |
+        Update node from 18.20.1 to 18.20.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.57
+  title: ""
+  date: 2024-04-12T10:57:26.354Z
+- commits:
     - subject: Update to @balena/lint 8.x
       hash: be0555fce62efe2a9438e94892a0f8357c6fd74b
       body: ""
