@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/node
-FROM node:18.19.1-bullseye-slim as base
+FROM node:18.20.2-bullseye-slim as base
 
 WORKDIR /app
 
@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     rm -rf /var/lib/apt/lists/*
 
 # renovate: datasource=github-releases depName=balena-io/balena-cli
-ARG BALENA_CLI_VERSION=v18.1.5
+ARG BALENA_CLI_VERSION=v18.2.1
 
 # Install balena-cli via standlone zip to save install time
 RUN wget -q -O balena-cli.zip "https://github.com/balena-io/balena-cli/releases/download/${BALENA_CLI_VERSION}/balena-cli-${BALENA_CLI_VERSION}-linux-x64-standalone.zip" && \

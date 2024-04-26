@@ -1,4 +1,195 @@
 - commits:
+    - subject: Update dependency balena-io/balena-cli to v18.2.1
+      hash: e1f4c19bd765e5792e362bb4505ba3ad6f95cfad
+      body: |
+        Update balena-io/balena-cli from 18.2.0 to 18.2.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.62
+  title: ""
+  date: 2024-04-23T13:00:41.114Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 5927a7217c2230c77e250fe319b6be5260ea0e18
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.61
+  title: ""
+  date: 2024-04-22T01:17:55.974Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.2.0
+      hash: 4d59c9955119acd20607bcf5fa522f5cbacf34af
+      body: |
+        Update balena-io/balena-cli from 18.1.10 to 18.2.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.60
+  title: ""
+  date: 2024-04-17T16:55:52.582Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.1.10
+      hash: 9b2a64ca594385b0de9ccfb97c12dca2cd31b2bd
+      body: |
+        Update balena-io/balena-cli from 18.1.9 to 18.1.10
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.59
+  title: ""
+  date: 2024-04-16T14:56:59.160Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 2f9c768df1c31e0dcabefcb243f86f1e1a5a629f
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.58
+  title: ""
+  date: 2024-04-15T00:14:18.140Z
+- commits:
+    - subject: Update Node.js to v18.20.2
+      hash: 2e130eecf993b4ce280ea99fb56136a713f2cd82
+      body: |
+        Update node from 18.20.1 to 18.20.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.57
+  title: ""
+  date: 2024-04-12T10:57:26.354Z
+- commits:
+    - subject: Update to @balena/lint 8.x
+      hash: be0555fce62efe2a9438e94892a0f8357c6fd74b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+  version: 2.0.56
+  title: ""
+  date: 2024-04-12T10:51:04.413Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.1.9
+      hash: 2423fc358866b86800339089c45593ca667f3da1
+      body: |
+        Update balena-io/balena-cli from 18.1.8 to 18.1.9
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.55
+  title: ""
+  date: 2024-04-10T15:57:23.063Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.1.8
+      hash: 629efe01ddb9db193d17776a9b3b0ef5019f6b43
+      body: |
+        Update balena-io/balena-cli from 18.1.7 to 18.1.8
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.54
+  title: ""
+  date: 2024-04-09T17:56:57.564Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.1.7
+      hash: 470db5a5ca6f4964d3794c4b58572660d9f7a4a4
+      body: |
+        Update balena-io/balena-cli from 18.1.6 to 18.1.7
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.53
+  title: ""
+  date: 2024-04-09T16:56:23.514Z
+- commits:
+    - subject: Update dependency balena-io/balena-cli to v18.1.6
+      hash: b5975a793af6ea392cd11b2380d41518df5092d4
+      body: |
+        Update balena-io/balena-cli from 18.1.5 to 18.1.6
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.52
+  title: ""
+  date: 2024-04-09T15:57:55.596Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 852541b6ff314e0a3809359c0dd8a0947b2a6bc1
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.51
+  title: ""
+  date: 2024-04-08T01:16:29.975Z
+- commits:
+    - subject: Update Node.js to v18.20.1
+      hash: 06340191e8bf0a7e5fc275ce2e03cb574e648599
+      body: |
+        Update node from 18.20.0 to 18.20.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.50
+  title: ""
+  date: 2024-04-04T14:55:54.863Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 636eccfdab2b32bcf2853756cb8f0a346f225136
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.49
+  title: ""
+  date: 2024-04-01T01:18:41.094Z
+- commits:
+    - subject: Update Node.js to v18.20.0
+      hash: f19c62f2df34ff35fb11fac215c0094870ea957b
+      body: |
+        Update node from 18.19.1 to 18.20.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.48
+  title: ""
+  date: 2024-03-27T15:00:19.007Z
+- commits:
+    - subject: Lock file maintenance
+      hash: 3c483a4592b14cdedf8877468dcb838ff647d6a9
+      body: |
+        Update
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.47
+  title: ""
+  date: 2024-03-25T01:16:38.700Z
+- commits:
     - subject: do not add additional quotes
       hash: 4856cb1fd6773e40b67c168edbef9a9e8da1e675
       body: ""
