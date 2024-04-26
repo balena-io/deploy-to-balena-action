@@ -8,6 +8,7 @@ import * as github from "./github-utils";
 import type { Inputs, RepoContext } from "./types";
 
 const ALLOWED_EVENTS = [
+	"push",
 	"pull_request_target",
 	"pull_request",
 	"workflow_dispatch",
