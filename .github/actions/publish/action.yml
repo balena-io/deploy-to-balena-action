@@ -1,5 +1,6 @@
 # https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
 name: "Test deploy to balenaCloud"
+
 description: "Custom test step to run during a pull request"
 # this inputs are always provided by flowzone, so they must always be defined on the composite action
 inputs:
