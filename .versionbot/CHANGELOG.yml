@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency rimraf to v6
+      hash: 593da74122c454e5cfee20bc5c7f4e01a77a7a9e
+      body: |
+        Update rimraf from 5.0.7 to 6.0.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.76
+  title: ""
+  date: 2024-11-03T13:05:07.487Z
+- commits:
     - subject: Update dependency sinon to v18
       hash: 1f861ff3beb45fd5e7dd796d3d79799490038882
       body: |
