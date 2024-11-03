@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-io/balena-cli to v18.2.34
+      hash: fd2c2ba2d875ab7670142f83090756df4de63d69
+      body: |
+        Update balena-io/balena-cli from 18.2.33 to 18.2.34
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.77
+  title: ""
+  date: 2024-11-03T13:15:58.531Z
+- commits:
     - subject: Update dependency rimraf to v6
       hash: 593da74122c454e5cfee20bc5c7f4e01a77a7a9e
       body: |
