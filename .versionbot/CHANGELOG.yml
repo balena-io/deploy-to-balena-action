@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency sinon to v18
+      hash: 1f861ff3beb45fd5e7dd796d3d79799490038882
+      body: |
+        Update sinon from 17.0.1 to 18.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Self-hosted Renovate Bot
+  version: 2.0.75
+  title: ""
+  date: 2024-11-03T12:36:18.192Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v18.2.33
       hash: 58ee0c4d508efabb2379773899ec7efadef2e705
       body: |
