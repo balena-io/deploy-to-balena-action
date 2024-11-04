@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-io/balena-cli to v19
+      hash: 56fbcbb3c4f2bed91fb3d674b990b52a3285650a
+      body: |
+        Update balena-io/balena-cli from 18.2.34 to 19.16.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.80
+  title: ""
+  date: 2024-11-04T14:05:25.441Z
+- commits:
     - subject: Update dependency sinon to v19
       hash: 852c56c48b3905390f44a7772e3bfff6047ccf29
       body: |
