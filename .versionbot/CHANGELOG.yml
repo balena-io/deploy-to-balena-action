@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency sinon to v19
+      hash: 852c56c48b3905390f44a7772e3bfff6047ccf29
+      body: |
+        Update sinon from 18.0.1 to 19.0.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.79
+  title: ""
+  date: 2024-11-04T13:50:02.141Z
+- commits:
     - subject: Lock file maintenance
       hash: d120f11d63c278523f8e9f9ebdd7b059bc7704ea
       body: |
