@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-sdk to v20
+      hash: 74a532516689380f5a74b4cbc10bed9d8f180751
+      body: |
+        Update balena-sdk from 19.10.0 to 20.3.6
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.82
+  title: ""
+  date: 2024-11-12T19:14:33.590Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v20
       hash: 121e152b93f09e49c8f2b6310569d15ee8ea8365
       body: |
