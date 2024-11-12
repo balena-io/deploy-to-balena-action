@@ -1,4 +1,16 @@
 - commits:
+    - subject: Lock file maintenance
+      hash: fe275c45742faece0fd1c793fb63556ce52fc6e8
+      body: |
+        Update 
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.84
+  title: ""
+  date: 2024-11-12T21:03:30.468Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v20.0.6
       hash: 0a80ad018bab21121afb0830f2adaba2bbb6ee0b
       body: |
