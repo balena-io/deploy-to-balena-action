@@ -9,6 +9,27 @@ on:
     types: [opened, synchronize, closed]
     branches: [main, master]
 
+# Base permissions required by Flowzone
+# https://docs.github.com/en/actions/security-for-github-actions/security-guides/automatic-token-authentication#permissions-for-the-github_token
+# https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#permissions
+permissions:
+  actions: none
+  attestations: none
+  checks: none
+  contents: read
+  deployments: none
+  id-token: none
+  issues: none
+  discussions: none
+  pages: none
+  pull-requests: none
+  repository-projects: none
+  security-events: none
+  statuses: none
+
+  # Additional permissions needed by this repo, such as:
+  packages: write # Allow Flowzone to publish to ghcr.io
+
 jobs:
   flowzone:
     name: Flowzone
