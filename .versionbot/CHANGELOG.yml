@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update Node.js to v18.20.5
+      hash: 07d1e774511b3cfb32258409c3fe085914133398
+      body: |
+        Update node from 18.20.4 to 18.20.5
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.87
+  title: ""
+  date: 2025-01-06T15:34:28.507Z
+- commits:
     - subject: Lock file maintenance
       hash: c871d1ea9262bd4bc3c1a318f4553b7a49c8f250
       body: |
