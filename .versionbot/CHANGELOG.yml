@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency mocha to v11
+      hash: 02e04f41ed2b77aabfa028cfe44109d530041439
+      body: |
+        Update mocha from 10.8.2 to 11.0.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.90
+  title: ""
+  date: 2025-01-06T18:01:04.446Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v20.2.1
       hash: abc2a647fc296f1b2bac2358a25f47c28929a821
       body: |
