@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-io/balena-cli to v20.2.3
+      hash: 7c273ee40161e6765dd86956958b17b53a8a9780
+      body: |
+        Update balena-io/balena-cli from 20.2.1 to 20.2.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.92
+  title: ""
+  date: 2025-01-22T14:01:11.769Z
+- commits:
     - subject: Lock file maintenance
       hash: 692564f13f22b89b86612b166e0d737c7611b925
       body: |
