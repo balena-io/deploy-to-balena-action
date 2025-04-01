@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-sdk to v21
+      hash: d281fb37c116a8bb2ce6b79aa81580c9d0a18e49
+      body: |
+        Update balena-sdk from 20.9.1 to 21.3.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.99
+  title: ""
+  date: 2025-04-01T21:58:06.330Z
+- commits:
     - subject: Lock file maintenance
       hash: e5ed22ffc3752630a02537d994ebdfb7d339cbf9
       body: |
