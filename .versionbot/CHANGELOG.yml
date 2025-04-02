@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency sinon to v20
+      hash: a9fe847ad2def3b830a7565be5e28cd89386c79f
+      body: |
+        Update sinon from 19.0.5 to 20.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.101
+  title: ""
+  date: 2025-04-02T15:13:32.572Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v21.1.4
       hash: b4008d81ec70cb39f86e1c4310ae3ec35e65eee3
       body: |
