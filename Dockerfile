@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/node
-FROM node:22.14.0-bullseye-slim as base
+FROM node:22.15.0-bullseye-slim as base
 
 WORKDIR /app
 
