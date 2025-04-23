@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update Node.js to v22.15.0
+      hash: 55f63622ef3c81d0fb716a8cf41cbd709325ea5e
+      body: |
+        Update node from 22.14.0 to 22.15.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.110
+  title: ""
+  date: 2025-04-23T16:03:47.019Z
+- commits:
     - subject: Lock file maintenance
       hash: d9c2519cbd92caed446d5d7feb614c3bf736c3c1
       body: |
