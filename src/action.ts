@@ -71,7 +71,7 @@ export async function run(
 				try {
 					await github.createTag(repoContext, rawVersion);
 				} catch (e: any) {
-					if (e.message !== 'Reference already exists') {
+					if (e.response?.data?.message !== 'Reference already exists') {
 						throw e;
 					}
 					core.info('Git reference already exists.');
@@ -155,7 +155,7 @@ export async function run(
 		try {
 			await github.createTag(repoContext, rawVersion);
 		} catch (e: any) {
-			if (e.message !== 'Reference already exists') {
+			if (e.response?.data?.message !== 'Reference already exists') {
 				throw e;
 			}
 			core.info('Git reference already exists.');
