@@ -71,7 +71,8 @@ export async function run(
 				try {
 					await github.createTag(repoContext, rawVersion);
 				} catch (e: any) {
-					if (e.message !== 'Reference already exists') {
+					// Error: Reference already exists - https://docs.github.com/rest/git/refs#create-a-reference
+					if (!e.message.includes('Reference already exists')) {
 						throw e;
 					}
 					core.info('Git reference already exists.');
