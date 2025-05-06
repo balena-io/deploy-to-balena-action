@@ -15,14 +15,14 @@ runs:
     - name: Replace the build image and Dockerfile for testing
       shell: bash
       run: |
-        image="ghcr.io/balena-io/deploy-to-balena-action:${{ github.event.pull_request.head.sha }}"
+        image="ghcr.io/balena-io/deploy-to-balena-action:build-${{ github.event.pull_request.head.sha }}"
         while ! docker buildx imagetools inspect "${image}" >/dev/null 2>&1
         do
           echo "waiting for ${image}..."
           sleep $(((RANDOM % 10) + 10))
         done
         # Use the Docker image built from the PR
-        yq e -i '.runs.image = "docker://ghcr.io/balena-io/deploy-to-balena-action:${{ github.event.pull_request.head.sha }}"' \
+        yq e -i '.runs.image = "docker://ghcr.io/balena-io/deploy-to-balena-action:build-${{ github.event.pull_request.head.sha }}"' \
           action.yml
         # Overwrite the Dockerfile with minimal number of steps so the test deploy finishes quickly
         echo FROM busybox > Dockerfile
