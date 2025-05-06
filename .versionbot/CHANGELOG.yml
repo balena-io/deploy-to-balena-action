@@ -1,4 +1,16 @@
 - commits:
+    - subject: Use the build- prefix to pull draft releases for testing
+      hash: 3b10e00e0d04714117de59ef996ea6d69b692801
+      body: |
+        Required since https://github.com/product-os/flowzone/commit/cc152e6aa4a553de8d13342c88c9619fffe93b15
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Kyle Harding
+  version: 2.0.114
+  title: ""
+  date: 2025-05-06T14:52:48.943Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v21.1.10
       hash: 5eb77c8a9313ba7127808bbb42bb877c00708fae
       body: |
