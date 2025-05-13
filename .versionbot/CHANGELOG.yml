@@ -1,4 +1,20 @@
 - commits:
+    - subject: Fix catch of reference already exists errors
+      hash: b7a2c1e7f3744d45ff4da319a5fd9312539722e7
+      body: |
+        This catch was supposed to prevent an abort when the error
+        was 'Reference already exists' but octokit appends the documentation_url
+        property to the top level error message field.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 2.0.117
+  title: ""
+  date: 2025-05-13T14:55:39.263Z
+- commits:
     - subject: Lock file maintenance
       hash: 7557556b651a71649def855ec6414f96017603b7
       body: |
