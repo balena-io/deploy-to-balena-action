@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update Node.js to v22.15.1
+      hash: 0331248a67fd15ec19aa7c8b3de8fc58007dce21
+      body: |
+        Update node from 22.15.0 to 22.15.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.118
+  title: ""
+  date: 2025-05-15T16:04:35.186Z
+- commits:
     - subject: Fix catch of reference already exists errors
       hash: b7a2c1e7f3744d45ff4da319a5fd9312539722e7
       body: |
