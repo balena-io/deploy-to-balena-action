@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-io/balena-cli to v21.1.12
+      hash: eefb6d5f3d6b0705f6c6627b20a0e1e601f5c933
+      body: |
+        Update balena-io/balena-cli from 21.1.11 to 21.1.12
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.119
+  title: ""
+  date: 2025-05-16T20:00:05.282Z
+- commits:
     - subject: Update Node.js to v22.15.1
       hash: 0331248a67fd15ec19aa7c8b3de8fc58007dce21
       body: |
