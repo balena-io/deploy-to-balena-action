@@ -67,6 +67,10 @@ inputs:
     description: Enable adding a note to the release
     required: false
     default: ""
+  dockerfile:
+    description: Alternative Dockerfile name/path, relative to the source folder
+    required: false
+    default: ""
 outputs:
   release_id:
     description: ID of the release built
