@@ -24,6 +24,7 @@ type BuildOptions = {
 	multiDockerignore: boolean;
 	debug: boolean;
 	note: string;
+	dockerfile: string;
 };
 
 const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
@@ -32,6 +33,7 @@ const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
 	multiDockerignore: false,
 	debug: false,
 	note: '',
+	dockerfile: '',
 };
 
 let sdk: ReturnType<typeof balena.getSdk> | null = null;
@@ -119,6 +121,11 @@ export async function push(
 		// sanitize note string to escape quotes
 		const note = buildOpt.note.trim().replace(/"/g, '\\"').replace(/'/g, "\\'");
 		pushOpt.push(`${note}`);
+	}
+
+	if (buildOpt.dockerfile) {
+		pushOpt.push('--dockerfile');
+		pushOpt.push(buildOpt.dockerfile);
 	}
 
 	let releaseId: string | null = null;

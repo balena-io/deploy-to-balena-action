@@ -46,6 +46,7 @@ describe('src/main', () => {
 				github_token: 'ghTokenExample',
 				default_branch: '',
 				note: 'My useful note',
+				dockerfile: 'MyCustomDockerfile',
 			}[inputName];
 		});
 
@@ -115,6 +116,7 @@ describe('src/main', () => {
 			multiDockerignore: true,
 			debug: true,
 			note: 'My useful note',
+			dockerfile: 'MyCustomDockerfile',
 		});
 		// Since github actions pass by default there's no need to check if the action passes
 		// So, let's check if the action correctly handles failures instead

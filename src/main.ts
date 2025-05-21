@@ -30,6 +30,7 @@ const inputs: Inputs = {
 	}),
 	debug: core.getBooleanInput('debug', { required: false }),
 	note: core.getInput('note', { required: false }),
+	dockerfile: core.getInput('dockerfile', { required: false }),
 };
 
 void (async () => {
