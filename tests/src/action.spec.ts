@@ -34,6 +34,7 @@ const inputs: Partial<Inputs> = {
 	multiDockerignore: true,
 	debug: true,
 	note: 'My useful note',
+	dockerfile: 'MyCustomDockerfile',
 };
 
 describe('src/action', () => {
@@ -141,6 +142,7 @@ describe('src/action', () => {
 			multiDockerignore: true,
 			debug: true,
 			note: 'My useful note',
+			dockerfile: 'MyCustomDockerfile',
 			noCache: true,
 			tags: {
 				sha: 'fba0317620597271695087c168c50d8c94975a29',
@@ -189,6 +191,7 @@ describe('src/action', () => {
 				multiDockerignore: true,
 				debug: true,
 				note: 'My useful note',
+				dockerfile: 'MyCustomDockerfile',
 				noCache: false,
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
@@ -248,6 +251,7 @@ describe('src/action', () => {
 				multiDockerignore: true,
 				debug: true,
 				note: 'My useful note',
+				dockerfile: 'MyCustomDockerfile',
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',
 				},
@@ -273,6 +277,7 @@ describe('src/action', () => {
 				multiDockerignore: true,
 				debug: true,
 				note: 'My useful note',
+				dockerfile: 'MyCustomDockerfile',
 				draft: false,
 				tags: {
 					sha: 'fba0317620597271695087c168c50d8c94975a29',

@@ -24,6 +24,7 @@ type BuildOptions = {
 	multiDockerignore: boolean;
 	debug: boolean;
 	note: string;
+	dockerfile: string;
 };
 
 const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
@@ -32,6 +33,7 @@ const DEFAULT_BUILD_OPTIONS: Partial<BuildOptions> = {
 	multiDockerignore: false,
 	debug: false,
 	note: '',
+	dockerfile: '',
 };
 
 let sdk: ReturnType<typeof balena.getSdk> | null = null;
@@ -118,7 +120,12 @@ export async function push(
 
 		// sanitize note string to escape quotes
 		const note = buildOpt.note.trim().replace(/"/g, '\\"').replace(/'/g, "\\'");
-		pushOpt.push(`${note}`);
+		pushOpt.push(note);
+	}
+
+	if (buildOpt.dockerfile) {
+		pushOpt.push('--dockerfile');
+		pushOpt.push(buildOpt.dockerfile);
 	}
 
 	let releaseId: string | null = null;
@@ -158,7 +165,8 @@ export async function push(
 
 		buildProcess.on('exit', (code: number) => {
 			if (code !== 0) {
-				return reject('Build process returned non-0 exit code');
+				reject('Build process returned non-0 exit code');
+				return;
 			}
 			core.info('Build process returned 0 exit code');
 			if (releaseId) {
@@ -209,7 +217,7 @@ export async function getReleaseByTags(
 								$expr: {
 									rt: {
 										tag_key: 'balena-ci-id',
-										value: tags.pullRequestId!.toString(),
+										value: tags.pullRequestId.toString(),
 									},
 								},
 							},
