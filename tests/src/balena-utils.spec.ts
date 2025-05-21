@@ -162,7 +162,7 @@ describe('src/balena-utils', () => {
 				'--note',
 				'My useful note',
 				'--dockerfile',
-				'MyCustomDockerfile'
+				'MyCustomDockerfile',
 			]);
 		});
 
