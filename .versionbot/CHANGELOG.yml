@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update Node.js to v22.16.0
+      hash: cfef4b97ab332107d18fd723870f93a6e2dcd51b
+      body: |
+        Update node from 22.15.1 to 22.16.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.124
+  title: ""
+  date: 2025-05-27T13:14:34.024Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v22
       hash: 6be0813af70da8715a6071616145e8c3fb80de3c
       body: |
