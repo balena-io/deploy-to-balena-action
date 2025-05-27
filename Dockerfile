@@ -12,11 +12,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     rm -rf /var/lib/apt/lists/*
 
 # renovate: datasource=github-releases depName=balena-io/balena-cli
-ARG BALENA_CLI_VERSION=v21.1.14
+ARG BALENA_CLI_VERSION=v22.0.0
 
 # Install balena-cli via standlone zip to save install time
-RUN wget -q -O balena-cli.zip "https://github.com/balena-io/balena-cli/releases/download/${BALENA_CLI_VERSION}/balena-cli-${BALENA_CLI_VERSION}-linux-x64-standalone.zip" && \
-    unzip balena-cli.zip && rm balena-cli.zip
+RUN wget -qO- "https://github.com/balena-io/balena-cli/releases/download/${BALENA_CLI_VERSION}/balena-cli-${BALENA_CLI_VERSION}-linux-x64-standalone.tar.gz" | tar -xzf -
 
 FROM base AS dev
 
@@ -39,7 +38,7 @@ COPY --from=build /app/package*.json ./
 COPY --from=build /app/build /app/build
 
 # Add balena-cli to PATH
-ENV PATH /app/balena-cli:$PATH
+ENV PATH /app/balena/bin:$PATH
 
 # Install production dependencies only
 RUN balena version && npm ci --production
