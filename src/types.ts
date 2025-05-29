@@ -12,6 +12,7 @@ export type Inputs = {
 	multiDockerignore: boolean;
 	debug: boolean;
 	note: string;
+	dockerfile: string;
 };
 
 export type RepoContext = {
