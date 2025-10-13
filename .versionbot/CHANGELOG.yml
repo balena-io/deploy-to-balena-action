@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-io/balena-cli to v22.4.11
+      hash: c6cd041a6ce021c54f6fa4b4ee77c965712bd211
+      body: |
+        Update balena-io/balena-cli from 22.0.6 to 22.4.11
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.133
+  title: ""
+  date: 2025-10-13T16:02:54.198Z
+- commits:
     - subject: Update dependency lint-staged to v16
       hash: 411c98c90f3a38b99cd8c102b5460da17e76f3fa
       body: |
