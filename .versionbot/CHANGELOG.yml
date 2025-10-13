@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency lint-staged to v16
+      hash: 411c98c90f3a38b99cd8c102b5460da17e76f3fa
+      body: |
+        Update lint-staged from 15.5.2 to 16.2.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.132
+  title: ""
+  date: 2025-10-13T15:46:14.341Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v22.0.6
       hash: aa1dec8cbd32a918774d8c70fe4df149ef1830bc
       body: |
