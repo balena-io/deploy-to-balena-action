@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency rewire to v8
+      hash: 42637b1cbbb1de0d1c0e84f9b7ea36cf10ff13d9
+      body: |
+        Update rewire from 7.0.0 to 8.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.135
+  title: ""
+  date: 2025-10-14T11:46:41.353Z
+- commits:
     - subject: Update Node.js to v22.20.0
       hash: 3369c0c4de3e3b131612593968e902824b8c10f8
       body: |
