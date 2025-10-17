@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-io/balena-cli to v22.4.14
+      hash: d2610463d5876073fb63912359a07ae9028e6b0c
+      body: |
+        Update balena-io/balena-cli from 22.4.11 to 22.4.14
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.136
+  title: ""
+  date: 2025-10-17T18:01:55.553Z
+- commits:
     - subject: Update dependency rewire to v8
       hash: 42637b1cbbb1de0d1c0e84f9b7ea36cf10ff13d9
       body: |
