@@ -50,7 +50,7 @@
     "@types/chai-things": "0.0.38",
     "@types/mocha": "^10.0.6",
     "@types/rewire": "^2.5.30",
-    "@types/sinon": "^17.0.3",
+    "@types/sinon": "^21.0.0",
     "@types/sinon-chai": "^3.2.12",
     "chai": "^4.4.1",
     "chai-as-promised": "^7.1.1",
@@ -62,7 +62,7 @@
     "mocha": "^11.0.0",
     "rewire": "^8.0.0",
     "rimraf": "^6.0.0",
-    "sinon": "^20.0.0",
+    "sinon": "^21.0.0",
     "sinon-chai": "^3.7.0",
     "typescript": "^5.4.5"
   },
