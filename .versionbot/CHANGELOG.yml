@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-sdk to v22
+      hash: 4484380a3d51dd845dbacce6dab0f0059f1db40e
+      body: |
+        Update balena-sdk from 21.4.7 to 22.4.9
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.139
+  title: ""
+  date: 2026-02-12T19:42:10.170Z
+- commits:
     - subject: Update sinon to v21
       hash: e1b52eb2d823e21a4935288507eb058752454a33
       body: |
