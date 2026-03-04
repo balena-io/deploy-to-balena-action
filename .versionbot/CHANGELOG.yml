@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency @actions/core to v2
+      hash: 23dc826be6e7c987dcc2effa0b44d424c94f4df3
+      body: |
+        Update @actions/core from 1.11.1 to 2.0.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.141
+  title: ""
+  date: 2026-03-04T14:00:23.287Z
+- commits:
     - subject: Update Node.js to v22.22.0
       hash: 81d986ea1959c7abce90606443a2753ff2affcdc
       body: |
