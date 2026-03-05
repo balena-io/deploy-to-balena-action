@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency @actions/exec to v2
+      hash: 006192c8ca252aed520889d8b21b2f46721222ba
+      body: |
+        Update @actions/exec from 1.1.1 to 2.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.142
+  title: ""
+  date: 2026-03-05T15:27:32.084Z
+- commits:
     - subject: Update dependency @actions/core to v2
       hash: 23dc826be6e7c987dcc2effa0b44d424c94f4df3
       body: |
