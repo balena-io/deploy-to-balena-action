@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-sdk to v23
+      hash: a3d58f3f21674bb4c76d06b8d57393cd4bb2f160
+      body: |
+        Update balena-sdk from 22.4.9 to 23.1.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.145
+  title: ""
+  date: 2026-03-05T20:22:33.506Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v23
       hash: 7f12d571ef80e17267484162e920fa80c118929f
       body: |
