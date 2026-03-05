@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency @actions/github to v7
+      hash: 530131f8f1cc0885bd058643ea27d7f9d0ad7aed
+      body: |
+        Update @actions/github from 6.0.1 to 7.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.143
+  title: ""
+  date: 2026-03-05T18:42:20.675Z
+- commits:
     - subject: Update dependency @actions/exec to v2
       hash: 006192c8ca252aed520889d8b21b2f46721222ba
       body: |
