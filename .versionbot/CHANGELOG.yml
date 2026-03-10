@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency rewire to v9
+      hash: 5e7137930263fe272e386f4e44013de5293b1015
+      body: |
+        Update rewire from 8.0.0 to 9.0.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.0.147
+  title: ""
+  date: 2026-03-10T19:31:02.587Z
+- commits:
     - subject: Update dependency @actions/github to v8
       hash: 072efe0c8f3d4538c551c6b938f8787af772e2be
       body: |
