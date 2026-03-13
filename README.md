@@ -46,6 +46,7 @@ Inputs are provided using the `with:` section of your workflow YML file.
 | multi_dockerignore | Respect .dockerignore in each service | false | false |
 | debug | Enable debug logs for balena push build | false | false |
 | note | Enable adding a note to the release | false | |
+| dockerfile | Alternative Dockerfile name/path, relative to the source folder | false | |
 
 `balena_token` and other tokens needs to be stored in GitHub as an [encrypted secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) that GitHub Actions can access. 
 
