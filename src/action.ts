@@ -114,6 +114,14 @@ export async function run(
 				...(!!tagName && { tag: tagName }),
 			},
 		};
+	} else if (context.eventName === 'workflow_dispatch') {
+		// Treat workflow_dispatch like a push to the default branch — build a final release
+		buildOptions = {
+			draft: false,
+			tags: {
+				sha: context.sha,
+			},
+		};
 	} else if (!ALLOWED_EVENTS.includes(context.eventName)) {
 		// Make sure the only events now are ones we expect
 		if (context.eventName === 'push') {
