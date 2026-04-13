@@ -237,6 +237,38 @@ describe('src/action', () => {
 		});
 	});
 
+	describe('workflow_dispatch', () => {
+		it('builds a finalized release', async () => {
+			const dispatchContext = {
+				eventName: 'workflow_dispatch',
+				ref: 'refs/heads/main',
+				sha: 'fba0317620597271695087c168c50d8c94975a29',
+				payload: {
+					repository: {
+						owner: 'balena-io',
+						name: 'a-repository',
+						sha: 'fba0317620597271695087c168c50d8c94975a29',
+						master_branch: 'main',
+					},
+				},
+			};
+			// @ts-expect-error: not assignable to parameter of type 'Context'
+			await action.run(dispatchContext, { ...inputs, createTag: true });
+			expect(pushStub.lastCall.lastArg).to.deep.equal({
+				noCache: false,
+				draft: false,
+				multiDockerignore: true,
+				debug: true,
+				note: 'My useful note',
+				tags: {
+					sha: 'fba0317620597271695087c168c50d8c94975a29',
+				},
+			});
+			expect(createTagStub).to.have.been.called;
+			expect(createTagStub.lastCall.args[1]).to.equal('v0.5.6');
+		});
+	});
+
 	describe('Main workflow', () => {
 		it('builds a finalized release', async () => {
 			// @ts-expect-error: not assignable to parameter of type 'Context'
