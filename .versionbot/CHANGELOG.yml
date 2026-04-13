@@ -1,4 +1,15 @@
 - commits:
+    - subject: Add support for workflow_dispatch event to trigger finalized releases
+      hash: 2b50d5d2f0ff5ed860209a8020eccf4226ecd9d9
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Dr Bill Mcilhargey
+  version: 2.1.0
+  title: ""
+  date: 2026-04-13T18:15:26.734Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v24
       hash: 89d55b7cd3805b5c8203cfefdc35ccd99ff0a14f
       body: |
