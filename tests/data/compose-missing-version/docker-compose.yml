@@ -1,0 +1,5 @@
+services:
+  main:
+    build: .
+    ports:
+      - "80:80"

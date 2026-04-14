@@ -2,6 +2,8 @@ import * as core from '@actions/core';
 import { exec } from '@actions/exec';
 import * as balena from 'balena-sdk';
 import { spawn } from 'child_process';
+import { existsSync, readFileSync } from 'fs';
+import { join } from 'path';
 
 import type { Release } from './types';
 
@@ -282,4 +284,42 @@ function isEmptyCharacter(line: string): boolean {
 
 function isProgressBar(line: string): boolean {
 	return line.match(/] (\d{1,3})%/) !== null;
+}
+
+const COMPOSE_FILENAMES = ['docker-compose.yml', 'docker-compose.yaml'];
+
+/**
+ * Validates that a docker-compose file in the source directory contains a
+ * supported version field. Balena requires Compose v2.x format.
+ */
+export function validateComposeFile(source: string): void {
+	for (const filename of COMPOSE_FILENAMES) {
+		const composePath = join(source, filename);
+		if (existsSync(composePath)) {
+			const content = readFileSync(composePath, 'utf8');
+			const versionMatch = content.match(
+				/^version:\s*['"]?([^'"\s]+)['"]?/m,
+			);
+			if (!versionMatch) {
+				throw new Error(
+					`Your ${filename} is missing the required 'version' field. ` +
+						`Balena requires Docker Compose v2.x format. ` +
+						`Please add \`version: '2.4'\` to the top of your ${filename}. ` +
+						`See: https://www.balena.io/docs/reference/supervisor/docker-compose/`,
+				);
+			}
+			const version = versionMatch[1];
+			if (!version.startsWith('2')) {
+				throw new Error(
+					`Your ${filename} specifies version '${version}', ` +
+						`but Balena requires Docker Compose v2.x format (e.g. '2.4'). ` +
+						`Please change the version to '2.4'. ` +
+						`See: https://www.balena.io/docs/reference/supervisor/docker-compose/`,
+				);
+			}
+			core.info(`Found valid ${filename} with version ${version}.`);
+			return;
+		}
+	}
+	// No compose file found — that's fine, could be a single Dockerfile project
 }
