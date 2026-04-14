@@ -309,11 +309,11 @@ export function validateComposeFile(source: string): void {
 				);
 			}
 			const version = versionMatch[1];
-			if (!version.startsWith('2')) {
+			if (!/^2(\.\d+)?$/.test(version)) {
 				throw new Error(
 					`Your ${filename} specifies version '${version}', ` +
-						`but Balena requires Docker Compose v2.x format (e.g. '2.4'). ` +
-						`Please change the version to '2.4'. ` +
+						`but Balena requires a valid Docker Compose v2.x version (e.g. '2.4'). ` +
+						`Please change the version to a valid 2.x value such as '2.4'. ` +
 						`See: https://www.balena.io/docs/reference/supervisor/docker-compose/`,
 				);
 			}
