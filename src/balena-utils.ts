@@ -298,7 +298,7 @@ export function validateComposeFile(source: string): void {
 		if (existsSync(composePath)) {
 			const content = readFileSync(composePath, 'utf8');
 			const versionMatch = content.match(
-				/^version:\s*['"]?([^'"\s]+)['"]?/m,
+				/^(?:\uFEFF)?\s*version\s*:\s*['"]?([^'"\s]+)['"]?/m,
 			);
 			if (!versionMatch) {
 				throw new Error(
