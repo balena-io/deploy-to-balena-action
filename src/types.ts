@@ -1,6 +1,7 @@
 export type Inputs = {
 	fleet: string;
 	source: string;
+	dockerfile: string;
 	environment: string;
 	balenaToken: string;
 	githubToken: string;

@@ -43,6 +43,10 @@ inputs:
       release images
     required: false
     default: ""
+  dockerfile:
+    description: Alternative Dockerfile name/path, relative to the source folder
+    required: false
+    default: ""
   layer_cache:
     description: Use cached layers of previously built images for this project
     required: false

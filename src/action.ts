@@ -148,6 +148,7 @@ export async function run(
 			multiDockerignore: inputs.multiDockerignore,
 			debug: inputs.debug,
 			note: inputs.note,
+			dockerfile: inputs.dockerfile,
 		});
 	} catch (e: any) {
 		core.error(e.message);
