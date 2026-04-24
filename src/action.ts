@@ -140,6 +140,9 @@ export async function run(
 		};
 	}
 
+	// Validate docker-compose.yml before pushing to builders
+	balena.validateComposeFile(inputs.source);
+
 	// Finally send source to builders
 	try {
 		releaseId = await balena.push(inputs.fleet, inputs.source, inputs.cache, {

@@ -360,4 +360,34 @@ describe('src/balena-utils', () => {
 			);
 		});
 	});
+
+	describe('validateComposeFile', () => {
+		it('passes when docker-compose.yml has a valid version', () => {
+			expect(() =>
+				balenaUtils.validateComposeFile('tests/data/compose-valid'),
+			).to.not.throw();
+		});
+
+		it('throws when docker-compose.yml is missing version field', () => {
+			expect(() =>
+				balenaUtils.validateComposeFile(
+					'tests/data/compose-missing-version',
+				),
+			).to.throw(/missing the required 'version' field/);
+		});
+
+		it('throws when docker-compose.yml has a non-v2 version', () => {
+			expect(() =>
+				balenaUtils.validateComposeFile(
+					'tests/data/compose-wrong-version',
+				),
+			).to.throw(/version '3\.8'.*requires Docker Compose v2\.x/);
+		});
+
+		it('passes when no docker-compose file exists', () => {
+			expect(() =>
+				balenaUtils.validateComposeFile('tests/data/no-compose'),
+			).to.not.throw();
+		});
+	});
 });
