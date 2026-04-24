@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add dockerfile input to action and update related functionality
+      hash: 3dcd2753b86c4ab948706b7654c14ba2c5a822bc
+      body: >
+        This adds a 'dockerfile' input that allows specifying an alternative
+        Dockerfile name/path, relative to the source folder, to use during the
+        Balena deployment.
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Dr Bill Mcilhargey
+  version: 2.2.0
+  title: ""
+  date: 2026-04-24T14:09:50.395Z
+- commits:
     - subject: Add support for workflow_dispatch event to trigger finalized releases
       hash: 2b50d5d2f0ff5ed860209a8020eccf4226ecd9d9
       body: ""
