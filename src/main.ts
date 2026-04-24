@@ -22,6 +22,7 @@ const inputs: Inputs = {
 		core.getBooleanInput('create_tag', { required: false }) ||
 		core.getBooleanInput('create_ref', { required: false }),
 	source: join(WORKSPACE, core.getInput('source', { required: false })),
+	dockerfile: core.getInput('dockerfile', { required: false }),
 	githubToken: core.getInput('github_token', { required: false }),
 	layerCache: core.getBooleanInput('layer_cache', { required: false }),
 	defaultBranch: core.getInput('default_branch', { required: false }),
