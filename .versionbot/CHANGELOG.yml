@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update Node.js to v22.22.2
+      hash: 7e0a77e34c94311ef339de7e62b015d801db26b6
+      body: |
+        Update node from 22.22.0 to 22.22.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.2.1
+  title: ""
+  date: 2026-05-12T17:58:31.726Z
+- commits:
     - subject: Add dockerfile input to action and update related functionality
       hash: 3dcd2753b86c4ab948706b7654c14ba2c5a822bc
       body: >
