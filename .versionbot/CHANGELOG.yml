@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency lint-staged to ^16.2.4
+      hash: 5bed7a7ff0d93eb43fb12f04e934c0ef436eda18
+      body: |
+        Update lint-staged from 16.2.4 to 16.2.7
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.2.5
+  title: ""
+  date: 2026-05-23T21:18:46.340Z
+- commits:
     - subject: Update Node.js to v22.22.3
       hash: 7f125450a82f94930f36d3ba7c3d4d5be8f841ee
       body: |
