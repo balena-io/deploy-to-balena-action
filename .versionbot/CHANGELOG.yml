@@ -1,4 +1,15 @@
 - commits:
+    - subject: Rename .lintstagedrc to .lintstagedrc.json
+      hash: 370f289d846362730dd508e0a60b15554744e5dc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: joshbwlng
+  version: 2.2.11
+  title: ""
+  date: 2026-05-29T05:18:09.972Z
+- commits:
     - subject: Update dependency balena-io/balena-cli to v25.1.7
       hash: 59ddcb96ec811d8242c36197a24960ac276b443b
       body: |
