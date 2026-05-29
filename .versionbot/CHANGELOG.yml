@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency balena-io/balena-cli to v25.1.7
+      hash: 59ddcb96ec811d8242c36197a24960ac276b443b
+      body: |
+        Update balena-io/balena-cli from 25.1.6 to 25.1.7
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.2.10
+  title: ""
+  date: 2026-05-29T01:50:35.518Z
+- commits:
     - subject: Update dependency dotenv to v17
       hash: 9451ad1f1c950a63b075ad0442d3141da4f54b50
       body: |
