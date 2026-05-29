@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependency dotenv to v17
+      hash: 9451ad1f1c950a63b075ad0442d3141da4f54b50
+      body: |
+        Update dotenv from 16.6.1 to 17.4.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 2.2.9
+  title: ""
+  date: 2026-05-29T01:06:04.931Z
+- commits:
     - subject: Update dependency sinon to v22
       hash: de3d12f73289fc42a0eb36cfb2edd3be7406c1d8
       body: |
