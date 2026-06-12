@@ -1,4 +1,29 @@
 - commits:
+    - subject: Pin balena CLI to v24
+      hash: 2405fdfcc82fe04e81ce5b06ae718c8a86277506
+      body: >
+        v25 resolves compose variable interpolation at parse time against the
+
+        host env instead of deferring to the runtime shell, which silently bakes
+
+        empty values into the image config and is not portable across the CLI
+        and
+
+        builder build paths. Stay on v24 until the builder parser is realigned.
+
+
+        See:
+        https://github.com/balena-io-modules/balena-compose-parser/issues/27
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 2.3.0
+  title: ""
+  date: 2026-06-12T14:58:39.153Z
+- commits:
     - subject: Pin dependencies
       hash: 163fcaec3a13d71a3a88e5e23e0cc260666b351b
       body: |
