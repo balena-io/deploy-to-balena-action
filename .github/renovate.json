@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>balena-io/renovate-config"],
+  "packageRules": [
+    {
+      "description": "Hold balena CLI at v24 until the builder compose parser aligns with v25. See https://github.com/balena-io-modules/balena-compose-parser/issues/27",
+      "matchDatasources": ["github-releases"],
+      "matchPackageNames": ["balena-io/balena-cli"],
+      "allowedVersions": "<25.0.0"
+    }
+  ]
+}
