@@ -69,7 +69,7 @@
   "dependencies": {
     "@actions/core": "^2.0.0",
     "@actions/exec": "^2.0.0",
-    "@actions/github": "^8.0.0",
+    "@actions/github": "^9.0.0",
     "balena-sdk": "^23.0.0"
   },
   "versionist": {
