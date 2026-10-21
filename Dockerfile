@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/node
-FROM node:22.22.3-bullseye-slim@sha256:1dbdd9c0e1ff0f575bf3729f8f971b8f3cd2025746812ba68479e21a07810cbd as base
+FROM node:22.22.3-bullseye-slim@sha256:f81e523790f0a2c86827ff6356a28fad2edbe0fe36bc3c4275a4d1e16304bf43 as base
 
 WORKDIR /app
 
